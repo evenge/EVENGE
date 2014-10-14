@@ -5,7 +5,7 @@ Gestión automática de alta de nuevos eventos con inclusión en blog y correo e
 
 Componentes del grupo:
 
-* (Carlos Campos Fuentes)[http://github.com/ccamposfuentes]
-* (Iván Ortega Alba)[http://github.com/ivanortegaalba]
-* (Francisco Javier Expositó Cruz)[http://github.com/franexposito]
-* (Victor Coronas Lara)[http://github.com/VictorCoronas]
+* [Carlos Campos Fuentes](http://github.com/ccamposfuentes)
+* [Iván Ortega Alba](http://github.com/ivanortegaalba)
+* [Francisco Javier Expositó Cruz](http://github.com/franexposito)
+* [Victor Coronas Lara](http://github.com/VictorCoronas)

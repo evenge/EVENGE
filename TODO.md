@@ -1,36 +1,68 @@
 ##Tareas pendientes
 =====
-- [ ] Creación y adaptación del repositorio de GitHub
-- [ ] La explicación del proyecto deberá incluir los criterios usados para elegir el PaaS
-- [ ] Creación de la documentación para el proyecto
+- [X] Creación y adaptación del repositorio de GitHub
+- [ ] La explicación del proyecto:
+    - [ ] Descripción del proyecto
+    - [ ] Método de desarrollo y porque hemos usado esa PaaS 
+        - JJ:
+            - Interaccion con Google Docs, 
+            - Interaccion con Google Calendar
+            - Posible uso de emailing con Google
+            - Inconvenientes para usar Django en los servidores(no instalado)
+            - Inconvenientes para administrar el sistema
+            - Inconvenietes de infraestructura
+    - [ ] Herramientas para el desarrollo
+        * Falta incluir hasta que no hayamos hecho #7 y #6 *
 
-##Propios del desarrollo:
-###Explicación de JJ
-- [x] gestión automática de alta de nuevos eventos 
-    - [ ] con inclusión en blog y 
-    - [ ] correo electrónico,
-    - [ ] así como calendario; 
-  
-- [ ] creación o no de registro, 
-    - [ ] hojas de control de asistencia y 
-    eventualmente generación de diplomas y 
-    registro del número de personas que han asistido eventualmente. 
-    Generación de informes sobre los eventos: lugar, asistencia.
+- [X] Creación de la documentación para el proyecto
 
-###Síntesis propia
+###Síntesis propia (Hablado con JJ):
+
+- Usuarios de la plataforma
+    - [ ] Todos en principio administradores 
+
 - [ ] Gestión de evento:
-  - [ ] creacion, modificación y borrado de eventos
+  - [ ] Creacion, modificación y borrado de eventos
+    - [ ] Lugar hora titulo descripcion ponentes 
+    - [ ] Registro de ponentes
   - [ ] Inscripcion opcional al evento:
-    - [ ] registro de asistencia
-    - [ ] pasar lista de asistentes
+    - [ ] Cuando te registras que mande un twitter viral
+    - [ ] Nuestro propio formulario de inscripcion
+    - [ ] Registro de asistencia
+        - [ ] Nombre 
+        - [ ] Email 
+        - [ ] Twitter
+        - [ ] Dni 
+    - [ ] Pasar lista de asistentes
   
-- [ ] publicación del evento:
-  - [ ] blog
-  - [ ] email
-  - [ ] calendar
-  - [ ] twitter
+- [ ] Publicación del evento:
+    - [ ] Datos del evento:
+        - [ ] Material del evento:
+        - [ ] Fotos
+        - [ ] Asistencia
+    - [ ] Blog - podemos generar la historia para la hitoria
+    - [ ] Email - podemos ver si podemos conectar con la red ugr  
+    - [ ] Calendar (Google)
+    - [ ] Twitter
   
 - [ ] Generación a partir de evento:
-  - [ ] diplomas 
-  - [ ] informes
-  
+  - [ ] Diplomas:
+    - [ ] Asistente
+    - [ ] Dni
+    - [ ] Nombre
+    - [ ] Nota
+    - [ ] Duracion del evento
+    - [ ] Descripcion breve
+
+  - [ ] Informes:
+    -    Numero de usuarios
+    -    Numero de eventos
+    -    Tipo del evento
+    -    Situacion del evento
+
+Notas sobre desarrollo:
+
+- Desarrollo en Google App Engine
+- Podemos usar Django y Python, pero no Mongo DB(App Engine tiene DataStore)
+- Formularios con Google Docs
+

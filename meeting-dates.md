@@ -1,7 +1,7 @@
 Meeting dates
 =====================
-# 15th October 2014
-**Firts date to talk about objetives of OSL proyect**
+# 15 de Ocubre 2014
+
 ###Place: CETIC office
 Comprendemos lo que nos pide la descripción del proyecto por parte del interesado.
 Proponemos herramientas para el desarrollo, planificación, despliegue y testeo.

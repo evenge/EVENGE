@@ -37,3 +37,4 @@ Otra ventaja más, es el evitarnos pruebas de testeo por parte de aplicaciones q
 Y por ultimo, por parte del despliegue, GAE nos evita el tener que configurar script para desplegar la app en un servidor físico. **GAE es facilmente desplegable** y mediante algunas utilidades nos **permitirá hacer exportaciones** si se quisiera migrar la aplicación.
 
 En concreto, **el cliente primero de esta aplicación tiene el Django sin instalar en ningún servidor, no tiene administrador de sistemas disponible y problemas de infraestructura en sus servidores**, los cuales no pueden dar capacidad a este.
+

@@ -4,12 +4,12 @@ Gevent
 	<li>Descripción brebe del proyecto</li>
 
 Gevent será una aplicación de gestión de eventos o saraos, la cual nos permitirá crear, notificar y crear informes en base a los asistentes. 
-
+<br>
 Todo esto por supuesto en un entorno Cloud, es decir, en una aplicación integramente en la nube, con todas las ventajas que esto conlleva.
-
+<br>
 Pordrá hacerse uso de listas de asistencias, generación de informes y diplomas, publicación mediante Twitter, correo y blog. 
 
-<li>Características principales:</li>
+	<li>Características principales:</li>
 
     - [ ] Método de desarrollo y porque hemos usado esa PaaS 
         - JJ:

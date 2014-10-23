@@ -14,12 +14,12 @@ Pordrá hacerse uso de listas de asistencias, generación de informes y diplomas
 
 	<li>Características principales:</li>
 <ul>
-<li>Gestión de usuarios de la plataforma.</li>
-<li>Gestión de información acerca del evento (ponentes, lugar, temática, asistentes, etc)</li>
-<li>Inscripción por parte del asistente al evento y publicación automática en las redes sociales.</li>
-<li>Control de asistencia mediante lista.</li>
-<li>Publicación del material relacionado con el evento (Fotos, documentos, asistencia, etc)</li>
-<li>Gestión de calendario con los eventos próximos</li>
-<li>Generación a partir de evento de diplomas para los asistentes e informes para los organizadores incluyendo información acerca del evento (asistentes, ponentes, resumen del evento, etc).</li>
+	<li>Gestión de usuarios de la plataforma.</li>
+	<li>Gestión de información acerca del evento (ponentes, lugar, temática, asistentes, etc)</li>
+	<li>Inscripción por parte del asistente al evento y publicación automática en las redes sociales.</li>
+	<li>Control de asistencia mediante lista.</li>
+	<li>Publicación del material relacionado con el evento (Fotos, documentos, asistencia, etc)</li>
+	<li>Gestión de calendario con los eventos próximos</li>
+	<li>Generación a partir de evento de diplomas para los asistentes e informes para los organizadores incluyendo información acerca del evento (asistentes, ponentes, resumen del evento, etc).</li>
 </ul>
 </ol>

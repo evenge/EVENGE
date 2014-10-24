@@ -1,6 +1,6 @@
 #Gevent
 
-### Descripción brebe del proyecto
+### Descripción breve del proyecto
 
 Gevent será una aplicación de gestión de eventos o saraos, la cual nos permitirá crear, notificar y crear informes en base a los asistentes.
 

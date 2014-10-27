@@ -32,7 +32,9 @@ La principal ventaja que nos ofrece un PaaS como GAE es el poder trabajar sobre 
 
 Además GAE cuenta con una fácil interacción con herramientas como **Google Docs**(para la creación de formularios), **Google Calendar** (para llevar el calendario de eventos) y **Gmail** (para publicitar los eventos por email).
 
-Otra ventaja más, es el evitarnos pruebas de testeo por parte de aplicaciones que tendríamos que lanzar manualmente sobre nuestra aplicación en el servidor. Mientras que **GAE nos proporciona utilidades para testeo** de nuestra app.
+Otra ventaja más, es el evitarnos pruebas de testeo por parte de aplicaciones que tendríamos que lanzar manualmente sobre nuestra aplicación en el servidor. Para ello **GAE nos proporciona una serie de herramientas de testeo**. En particular nos ofrece dos herramientas diferente:
+ - [Local Unit Testing for Python](https://cloud.google.com/appengine/docs/python/tools/localunittesting), que nos permite realizar un testeo de nuestra aplicacion web durante el desarrollo, que nos ayuda a testear el código, nos ayuda en el diseño del proyecto, así como la reutilización y mantenimiento del código. Todo ello a nivel loca, sin la necesidad de desplegarla en App Engine.
+ - [Handler Testing For Python](https://cloud.google.com/appengine/docs/python/tools/handlertesting),
 
 Otra de las ventajas que ofrece GAE es que el mantenimiento de la base de datos, la organización y la actualización corre a cuenta de Google de manera que siempre disponemos de una base de datos correctamente mantenida.  
 

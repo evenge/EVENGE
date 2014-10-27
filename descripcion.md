@@ -34,7 +34,7 @@ Además GAE cuenta con una fácil interacción con herramientas como **Google Do
 
 Otra ventaja más, es el evitarnos pruebas de testeo por parte de aplicaciones que tendríamos que lanzar manualmente sobre nuestra aplicación en el servidor. Para ello **GAE nos proporciona una serie de herramientas de testeo**. En particular nos ofrece dos herramientas diferente:
  - [Local Unit Testing for Python](https://cloud.google.com/appengine/docs/python/tools/localunittesting), que nos permite realizar un testeo de nuestra aplicacion web durante el desarrollo, que nos ayuda a testear el código, nos ayuda en el diseño del proyecto, así como la reutilización y mantenimiento del código. Todo ello a nivel loca, sin la necesidad de desplegarla en App Engine.
- - [Handler Testing For Python](https://cloud.google.com/appengine/docs/python/tools/handlertesting),
+ - [Handler Testing For Python](https://cloud.google.com/appengine/docs/python/tools/handlertesting), que nos permite testear la aplicacion por completo o por módulos de código, para ello hacemos uso de WebTest, que nos permite interactuar sin estar en un entorno de desarrollo de App Engine, todo esto de forma local, esta aplicacion nos falicitará mucho las cosas.
 
 Otra de las ventajas que ofrece GAE es que el mantenimiento de la base de datos, la organización y la actualización corre a cuenta de Google de manera que siempre disponemos de una base de datos correctamente mantenida.  
 

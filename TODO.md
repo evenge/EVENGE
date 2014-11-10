@@ -66,3 +66,6 @@ Notas sobre desarrollo:
 - Podemos usar Django y Python, pero no Mongo DB(App Engine tiene DataStore)
 - Formularios con Google Docs
 
+Fuentes de consulta aconsejadas:  
+[GAE Python](https://cloud.google.com/appengine/docs/python/gettingstartedpython27/introduction)  
+[DataStore API](https://developers.google.com/datastore/docs/apis/javadoc/com/google/api/services/datastore/DatastoreV1.PropertyFilter.Operator)  

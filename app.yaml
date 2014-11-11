@@ -6,4 +6,13 @@ threadsafe: true
 
 handlers:
 - url: /.*
-  script: helloworld.application
+  script: index.application
+  
+-   url: /_dt/css
+    static_dir: css
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

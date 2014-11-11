@@ -1,8 +1,8 @@
-#Gevent
+#Evenge
 
 ### Descripción breve del proyecto
 
-Gevent será una aplicación de gestión de eventos o saraos, la cual nos permitirá crear, notificar y crear informes en base a los asistentes.
+Evenge será una aplicación de gestión de eventos o saraos, la cual nos permitirá crear, notificar y crear informes en base a los asistentes.
 
 Todo esto por supuesto en un entorno Cloud, es decir, en una aplicación integramente en la nube, con todas las ventajas que esto conlleva.
 

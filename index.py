@@ -13,7 +13,6 @@ class index(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
         self.response.write(template.render(template_values))
       
-
 application = webapp2.WSGIApplication([
     ('/', index),
 ], debug=True)

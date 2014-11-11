@@ -5,11 +5,11 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /_dt/css
+  static_dir: _dt/css
+  
 - url: /.*
   script: index.application
-  
--   url: /_dt/css
-    static_dir: css
 
 libraries:
 - name: webapp2

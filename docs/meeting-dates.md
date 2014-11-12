@@ -5,9 +5,11 @@ Meeting dates
 # 12 de Noviembre de 2014
 ###Place: CETIC office
 
--Reordenamos la estructura del repositorio donde creamos la carpeta docs con la documentación del proyecto.
--Hablamos sobre la página web de información del producto.
--Discutimos el uso de "DJANGO" o "webapp2", mandamos correo a Sergio para ver si puede usar un entorno u otro .
+- Reordenamos la estructura del repositorio donde creamos la carpeta docs con la documentación del proyecto.
+
+- Hablamos sobre la página web de información del producto.
+
+- Discutimos el uso de "DJANGO" o "webapp2", mandamos correo a Sergio para ver si puede usar un entorno u otro .
 
 # 6 de Noviembre de 2014
 ###Place: ETSIIT -1.1

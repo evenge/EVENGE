@@ -1,10 +1,18 @@
 #Gestor de eventos
 =================
 
-Gestión automática de alta de nuevos eventos con inclusión en blog y correo electrónico, así como calendario; creación o no de registro, hojas de control de asistencia y eventualmente generación de diplomas y registro del número de personas que han asistido eventualmente. Generación de informes sobre los eventos: lugar, asistencia.
+**Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
+   
+Evenge dispone de las siguientes funcionalidades:  
+* Calendario
+* Creación de eventos 
+* Registro de ponentes
+* Control de asistencia 
+* Generación de diplomas
+* Registro del número de personas que han asistido 
+* Generación de informes sobre los eventos: lugar, asistencia.
 
-
-####Componentes del grupo:
+####Desarrolladores:
 
 * [Carlos Campos Fuentes](http://github.com/ccamposfuentes)
 * [Iván Ortega Alba](http://github.com/ivanortegaalba)

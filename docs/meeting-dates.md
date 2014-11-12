@@ -1,5 +1,14 @@
 Meeting dates
 =====================
+Meeting dates
+=====================
+# 12 de Noviembre de 2014
+###Place: CETIC office
+
+-Reordenamos la estructura del repositorio donde creamos la carpeta docs con la documentación del proyecto.
+-Hablamos sobre la página web de información del producto.
+-
+
 # 6 de Noviembre de 2014
 ###Place: ETSIIT -1.1
 

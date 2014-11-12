@@ -1,7 +1,5 @@
 Meeting dates
 =====================
-Meeting dates
-=====================
 # 12 de Noviembre de 2014
 ###Place: CETIC office
 

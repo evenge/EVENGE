@@ -7,7 +7,9 @@ Meeting dates
 
 - Hablamos sobre la página web de información del producto.
 
-- Discutimos el uso de "DJANGO" o "webapp2", mandamos correo a Sergio para ver si puede usar un entorno u otro .
+- Discutimos el uso de "DJANGO" o "webapp2", mandamos correo a Sergio para ver si puede usar un entorno u otro.
+
+- Hablamos sobre el modelo que vamos a seguir en el diseño de las clases, entidades, tablas. 
 
 # 6 de Noviembre de 2014
 ###Place: ETSIIT -1.1

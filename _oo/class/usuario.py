@@ -6,6 +6,6 @@ class Usuario(ndb.Model):
   apellidos = ndb.StringProperty()
   email = ndb.StringProperty()
   password = ndb.StringProperty()
-  telefono = ndb.IntegerProperty()
+  telefono = ndb.StringProperty()
   twitter = ndb.StringProperty()
   web = ndb.StringProperty()

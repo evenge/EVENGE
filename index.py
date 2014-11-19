@@ -1,6 +1,7 @@
 import os
 import urllib
 
+
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
@@ -12,7 +13,7 @@ class index(webapp2.RequestHandler):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
         self.response.write(template.render(template_values))
-      
+
 application = webapp2.WSGIApplication([
     ('/', index),
 ], debug=True)

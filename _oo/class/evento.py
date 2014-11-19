@@ -8,7 +8,6 @@ class Evento(ndb.Model):
   hora = ndb.TimeProperty()
   fecha = ndb.DateProperty()
   lugar = ndb.StringProperty()
-  longitud = ndb.FloatProperty()
-  latitud =	ndb.FloatProperty()
+  coordenadas = ndb.GeoPtProperty()
   descripcion = ndb.TextProperty()
   asistencia = ndb.BooleanProperty()

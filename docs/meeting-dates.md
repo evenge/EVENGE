@@ -1,5 +1,20 @@
 Meeting dates
 =====================
+
+# 19 de Noviembre de 2014
+###Place: CETIC office
+
+- Al final hemos decidido usar webapp2
+
+- Vemos como hacer formularios con webapp2
+
+- Creamos ramas independientes para no tocar la master hasta que todo este bien.
+
+- Cada uno se hace carga de hacer unos formularios
+
+- Todos nos pasmaos a usar Atom
+
+
 # 12 de Noviembre de 2014
 ###Place: CETIC office
 

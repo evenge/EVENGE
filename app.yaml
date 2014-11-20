@@ -7,7 +7,10 @@ threadsafe: true
 handlers:
 - url: /_dt/css
   static_dir: _dt/css
-  
+
+- url: /asistente
+  script: _oo.class.asistente.application
+
 - url: /.*
   script: index.application
 

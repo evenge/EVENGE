@@ -4,7 +4,7 @@
 ##### /_oo/model
 #### /templates
 #### /_dt
-##### /_dt/jsx
+##### /_dt/js
 ##### /_dt/css
 ##### /_dt/img
 - Index

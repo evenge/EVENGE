@@ -1,12 +1,17 @@
 ## /
 #### /_oo
+##### /_oo/class
 ##### /_oo/model
 #### /templates
 #### /_dt
-##### /_dt/js
+##### /_dt/jsx
 ##### /_dt/css
 ##### /_dt/img
 - Index
+- Usuario (panel de configuración de usuario)
+    - Crear organización
+    - Modificar usuario
+    
 - Eventos (lista de eventos)
     - Nuevo evento
     - Evento

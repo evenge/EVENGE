@@ -17,7 +17,7 @@ formulario = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
-formulario_organizacion = """\
+formularioOrganizacion = """\
         <form action="/asistente" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
             <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
@@ -28,7 +28,7 @@ formulario_organizacion = """\
         </form>
         """
 
-formulario_ponente = """\
+formularioPonente = """\
         <form action="/asistente" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
             <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>
@@ -50,19 +50,19 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
-class insetar_organizacion(webapp2.RequestHandler):
+class insetarOrganizacion(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario_organizacion)
+        self.response.write(formularioOrganizacion)
 
-class insetar_ponente(webapp2.RequestHandler):
+class insetarPonente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario_ponente)
+        self.response.write(formularioPonente)
 
 application = webapp2.WSGIApplication([
     ('/', index),
     ('/iAsistente', insertar_asistente),
-    ('/iOrganizacion', insertar_organizacion),
-    ('/iPonente', insertar_ponente)
+    ('/iOrganizacion', insertarOrganizacion),
+    ('/iPonente', insertarPonente)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

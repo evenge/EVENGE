@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-formulario = """\
+formularioAsistente = """\
             <form action="/asistente" method="post">
             <div><label for="evento">Id evento: </label><input type="text" id="evento" name="evento"/></div>
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -60,9 +60,9 @@ class index(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
         self.response.write(template.render(template_values))
 
-class insertar_asistente(webapp2.RequestHandler):
+class insertarAsistente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario)
+        self.response.write(formularioAsistentes)
 
 class insertarOrganizacion(webapp2.RequestHandler):
     def get(self):
@@ -82,7 +82,7 @@ class insertarPonente(webapp2.RequestHandler):
 
 application = webapp2.WSGIApplication([
     ('/', index),
-    ('/iAsistente', insertar_asistente),
+    ('/iAsistente', insertarAsistente),
     ('/iEvento', InsertarEvento)
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)

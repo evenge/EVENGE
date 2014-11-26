@@ -11,16 +11,17 @@ handlers:
 - url: /asistente
   script: _oo.class.asistente.application
 
-<<<<<<< HEAD
 - url: /organizacion
   script: _oo.class.organizacion.application
 
 - url: /ponente
   script: _oo.class.ponente.application
-=======
+
 - url: /evento
   script: _oo.class.evento.application
->>>>>>> master
+
+- url: /usuario
+    script: _oo.class.usuario.application
 
 - url: /.*
   script: index.application

@@ -64,15 +64,15 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
-<<<<<<< HEAD
 class insertarOrganizacion(webapp2.RequestHandler):
-=======
+    def get(self):
+        self.response.write(formularioOrganizacion)
+
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioEvento)
 
 class insetarOrganizacion(webapp2.RequestHandler):
->>>>>>> master
     def get(self):
         self.response.write(formularioOrganizacion)
 

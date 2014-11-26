@@ -68,7 +68,11 @@ formularioUsuario = """\
             """
 
 
+<<<<<<< HEAD
 class Index(webapp2.RequestHandler):
+=======
+class index(webapp2.RequestHandler):
+>>>>>>> d5ae4643a408973ce70b8bcd068c4a408a4a70f3
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
@@ -90,11 +94,16 @@ class InsetarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
 
+<<<<<<< HEAD
 class InsertarUsuario(webapp2.RequestHandler):
+=======
+class insertar_usuario(webapp2.RequestHandler):
+>>>>>>> d5ae4643a408973ce70b8bcd068c4a408a4a70f3
     def get(self):
         self.response.write(formulario_usuario)
 
 application = webapp2.WSGIApplication([
+<<<<<<< HEAD
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
     ('/iEvento', InsertarEvento)
@@ -103,6 +112,16 @@ application = webapp2.WSGIApplication([
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente)
     ('/iUsuario', InsertarUsuario)
+=======
+    ('/', index),
+    ('/iAsistente', insertar_asistente),
+    ('/iEvento', InsertarEvento)
+    ('/iOrganizacion', insertarOrganizacion),
+    ('/iPonente', insertarPonente)
+    ('/iOrganizacion', insertarOrganizacion),
+    ('/iPonente', insertarPonente)
+    ('/iUsuario', insertar_usuario)
+>>>>>>> d5ae4643a408973ce70b8bcd068c4a408a4a70f3
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

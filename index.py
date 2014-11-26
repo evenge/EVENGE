@@ -39,7 +39,6 @@ formularioPonente = """\
             <div><input type="submit" value="Guardar"></div>
         </form>
         """
-<<<<<<< HEAD
 
 formularioEvento = """\
             <form action="/evento" method="post">
@@ -55,9 +54,6 @@ formularioEvento = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
-=======
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
-
 class index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
@@ -68,14 +64,10 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioEvento)
-=======
-=======
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
+
 class insetarOrganizacion(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioOrganizacion)
@@ -83,25 +75,15 @@ class insetarOrganizacion(webapp2.RequestHandler):
 class insetarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
-<<<<<<< HEAD
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
-=======
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
 
 application = webapp2.WSGIApplication([
     ('/', index),
     ('/iAsistente', insertar_asistente),
-<<<<<<< HEAD
-<<<<<<< HEAD
     ('/iEvento', InsertarEvento)
-=======
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
-=======
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)
->>>>>>> b9d0a7a8687b78e691f8254522306c5aa685d774
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

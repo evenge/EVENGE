@@ -40,6 +40,20 @@ formularioPonente = """\
         </form>
         """
 
+formularioEvento = """\
+            <form action="/evento" method="post">
+            <div><label for="nombre">Nombre del evento: </label><input type="text" id="nombre" name="nombre"/></div>
+            <div><label for="hora">Hora: </label><input type="time" id="hora" name="hora"/></div>
+            <div><label for="fecha">Fecha: </label><input type="date" id="fecha" name="fecha"/></div>
+            <div><label for="descripcion">Descripcion: </label><input type="textbox" id="descripcion" name="descripcion"/></div>
+            <div><label for="lugar">Lugar: </label><input type="text" id="lugar" name="lugar"/></div>
+            <div><label for="asistencia">Tendra control de asistencia: </label>
+            <input type="radio" id="asistenciaSi" name="asistencia" value = "Si"/>Si
+            <input type="radio" id="asistenciaNo" name="asistencia" value = "No"/>No
+            </div>
+            <div><input type="submit" value="Guardar"></div>
+            </form>
+            """
 class index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
@@ -50,7 +64,15 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
+<<<<<<< HEAD
 class insertarOrganizacion(webapp2.RequestHandler):
+=======
+class InsertarEvento(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(formularioEvento)
+
+class insetarOrganizacion(webapp2.RequestHandler):
+>>>>>>> master
     def get(self):
         self.response.write(formularioOrganizacion)
 
@@ -61,6 +83,9 @@ class insertarPonente(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
     ('/', index),
     ('/iAsistente', insertar_asistente),
+    ('/iEvento', InsertarEvento)
+    ('/iOrganizacion', insertarOrganizacion),
+    ('/iPonente', insertarPonente)
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)
 ], debug=True)

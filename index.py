@@ -18,7 +18,7 @@ formulario = """\
             </form>
             """
 
-formulario_usuario = """\
+formularioUsuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
             <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>

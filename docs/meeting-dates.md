@@ -1,5 +1,14 @@
 Meeting dates
 =====================
+# 26 de Noviembre de 2014
+###Place: CETIC office
+
+Puntos a tratar en la reunión:
+- Planteamiento, elección y aprendizaje sobre el uso de test en GAE.Posibles herramientas:[Local Unit Testing for Python](https://cloud.google.com/appengine/docs/python/tools/localunittesting)
+
+- Debate en como hacer la contribución al master del repositorio del proyecto: trabajando en fork, mergeando cuando estemos reunidos, nombramiento de administrador de pull request, etc.
+
+- Posible implementación de alguna funcionalidad con interacción entre vistas.
 
 # 19 de Noviembre de 2014
 ###Place: CETIC office
@@ -10,7 +19,9 @@ Meeting dates
 
 - Creamos ramas independientes para no tocar la master hasta que todo este bien.
 
-- Cada uno se hace carga de hacer unos formularios
+- Para aprender la interacción con BD usando el ORM de GAE, cada uno nos asignamos una de las interfaces con formularios que habrá en la app y la implementamos.
+
+- Hacemos las tareas mediante el Board de ZenHub
 
 - Todos nos pasmaos a usar Atom
 
@@ -24,7 +35,7 @@ Meeting dates
 
 - Discutimos el uso de "DJANGO" o "webapp2", mandamos correo a Sergio para ver si puede usar un entorno u otro.
 
-- Hablamos sobre el modelo que vamos a seguir en el diseño de las clases, entidades, tablas. 
+- Hablamos sobre el modelo que vamos a seguir en el diseño de las clases, entidades, tablas.
 
 # 6 de Noviembre de 2014
 ###Place: ETSIIT -1.1

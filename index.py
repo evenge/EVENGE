@@ -17,6 +17,28 @@ formulario = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
+formularioOrganizacion = """\
+        <form action="/asistente" method="post">
+            <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
+            <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
+            <div><label for="telefono">Telefono: </label><input type="text" id="telefono" name="telefono"/></div>
+            <div><label for="twitter">Twitter: </label><input type="text" id="twitter" name="twitter"/></div>
+            <div><label for="web">Web: </label><input type="text" id="web" name="web"/></div>
+            <div><input type="submit" value="Guardar"></div>
+        </form>
+        """
+
+formularioPonente = """\
+        <form action="/asistente" method="post">
+            <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
+            <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>
+            <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
+            <div><label for="telefono">Telefono: </label><input type="text" id="telefono" name="telefono"/></div>
+            <div><label for="twitter">Twitter: </label><input type="text" id="twitter" name="twitter"/></div>
+            <div><label for="web">Web: </label><input type="text" id="web" name="web"/></div>
+            <div><input type="submit" value="Guardar"></div>
+        </form>
+        """
 
 formularioUsuario = """\
             <form action="/usuario" method="post">
@@ -42,15 +64,30 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
+<<<<<<< HEAD
 class insertar_usuario(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario_usuario)
 
+=======
+class insetarOrganizacion(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(formularioOrganizacion)
+
+class insetarPonente(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(formularioPonente)
+>>>>>>> master
 
 application = webapp2.WSGIApplication([
     ('/', index),
     ('/iAsistente', insertar_asistente),
+<<<<<<< HEAD
     ('/iUsuario', insertar_usuario)
+=======
+    ('/iOrganizacion', insertarOrganizacion),
+    ('/iPonente', insertarPonente)
+>>>>>>> master
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

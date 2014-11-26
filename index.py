@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-formulario = """\
+formularioAsistente = """\
             <form action="/asistente" method="post">
             <div><label for="evento">Id evento: </label><input type="text" id="evento" name="evento"/></div>
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -68,41 +68,41 @@ formularioUsuario = """\
             """
 
 
-class index(webapp2.RequestHandler):
+class Index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
         self.response.write(template.render(template_values))
 
-class insertar_asistente(webapp2.RequestHandler):
+class InsertarAsistente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario)
+        self.response.write(formularioAsistente)
 
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioEvento)
 
-class insetarOrganizacion(webapp2.RequestHandler):
+class InsertarOrganizacion(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioOrganizacion)
 
-class insetarPonente(webapp2.RequestHandler):
+class InsetarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
 
-class insertar_usuario(webapp2.RequestHandler):
+class InsertarUsuario(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario_usuario)
 
 application = webapp2.WSGIApplication([
-    ('/', index),
-    ('/iAsistente', insertar_asistente),
+    ('/', Index),
+    ('/iAsistente', InsertarAsistente),
     ('/iEvento', InsertarEvento)
-    ('/iOrganizacion', insertarOrganizacion),
-    ('/iPonente', insertarPonente)
-    ('/iOrganizacion', insertarOrganizacion),
-    ('/iPonente', insertarPonente)
-    ('/iUsuario', insertar_usuario)
+    ('/iOrganizacion', InsertarOrganizacion),
+    ('/iPonente', InsertarPonente)
+    ('/iOrganizacion', InsertarOrganizacion),
+    ('/iPonente', InsertarPonente)
+    ('/iUsuario', InsertarUsuario)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

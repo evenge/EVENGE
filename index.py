@@ -18,7 +18,7 @@ formulario = """\
             </form>
             """
 
-formulario2 = """\
+formulario_usuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
             <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>
@@ -44,7 +44,7 @@ class insertar_asistente(webapp2.RequestHandler):
 
 class insertar_usuario(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario2)
+        self.response.write(formulario_usuario)
 
 
 application = webapp2.WSGIApplication([

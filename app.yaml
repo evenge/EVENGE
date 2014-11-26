@@ -11,6 +11,12 @@ handlers:
 - url: /asistente
   script: _oo.class.asistente.application
 
+- url: /organizacion
+  script: _oo.class.organizacion.application
+
+- url: /ponente
+  script: _oo.class.ponente.application
+
 - url: /.*
   script: index.application
 

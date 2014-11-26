@@ -50,11 +50,11 @@ class insertar_asistente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario)
 
-class insetarOrganizacion(webapp2.RequestHandler):
+class insertarOrganizacion(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioOrganizacion)
 
-class insetarPonente(webapp2.RequestHandler):
+class insertarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
 

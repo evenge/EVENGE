@@ -5,10 +5,18 @@ Meeting dates
 
 Puntos a tratar en la reunión:
 - Planteamiento, elección y aprendizaje sobre el uso de test en GAE.Posibles herramientas:[Local Unit Testing for Python](https://cloud.google.com/appengine/docs/python/tools/localunittesting)
+Se resolverá en la OSL el miercoles que viene.
 
 - Debate en como hacer la contribución al master del repositorio del proyecto: trabajando en fork, mergeando cuando estemos reunidos, nombramiento de administrador de pull request, etc.
+Se le asigna el trabajo a Carlos Campos.
 
 - Posible implementación de alguna funcionalidad con interacción entre vistas.
+
+  - Se le dá prioridad a la obtención de datos del Datastore.
+
+  - Además hacemos y estilamos las plantillas de los formularios.
+
+IMPORTANTE: Tenemos que comentar el código.
 
 # 19 de Noviembre de 2014
 ###Place: CETIC office

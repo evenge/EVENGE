@@ -28,7 +28,6 @@ class index(webapp2.RequestHandler):
         evento.lugar = self.request.get('lugar')
         #evento.coordenadas = self.request.get('coordenadas')
         evento.descripcion = self.request.get('descripcion')
-        print "Asistencia" + (self.request.get('asistencia'))
         #evento.asistencia = self.request.get('asistencia')
 
         evento.put()

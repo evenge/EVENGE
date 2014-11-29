@@ -14,17 +14,14 @@ handlers:
 - url: /organizacion
   script: _oo.class.organizacion.application
 
-- url: /ponente
-  script: _oo.class.ponente.application
-
 - url: /evento
   script: _oo.class.evento.application
 
 - url: /usuario
   script: _oo.class.usuario.application
 
-- url: /usuario
-    script: _oo.class.usuario.application
+- url: /ponente
+  script: _oo.class.ponente.application
 
 - url: /.*
   script: index.application
@@ -32,6 +29,6 @@ handlers:
 libraries:
 - name: webapp2
   version: latest
-  
+
 - name: jinja2
   version: latest

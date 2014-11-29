@@ -87,10 +87,6 @@ class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioEvento)
 
-class InsertarOrganizacion(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(formularioOrganizacion)
-
 class InsetarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)

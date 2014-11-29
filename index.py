@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-formulario = """\
+formularioAsistente = """\
             <form action="/asistente" method="post">
             <div><label for="evento">Id evento: </label><input type="text" id="evento" name="evento"/></div>
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -40,7 +40,6 @@ formularioPonente = """\
         </form>
         """
 
-<<<<<<< HEAD
 formularioEvento = """\
             <form action="/evento" method="post">
             <div><label for="nombre">Nombre del evento: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -55,7 +54,7 @@ formularioEvento = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
-=======
+
 formularioUsuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -69,19 +68,20 @@ formularioUsuario = """\
             </form>
             """
 
-
->>>>>>> Victor
 class index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/index.html')
         self.response.write(template.render(template_values))
 
-class insertar_asistente(webapp2.RequestHandler):
+class insertarAsistente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formulario)
+        self.response.write(formularioAsistentes)
 
-<<<<<<< HEAD
+class insertarOrganizacion(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(formularioOrganizacion)
+
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioEvento)
@@ -90,28 +90,24 @@ class insetarOrganizacion(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioOrganizacion)
 
-class insetarPonente(webapp2.RequestHandler):
+class insertarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
-=======
+
 class insertar_usuario(webapp2.RequestHandler):
     def get(self):
         self.response.write(formulario_usuario)
 
->>>>>>> Victor
-
 application = webapp2.WSGIApplication([
     ('/', index),
     ('/iAsistente', insertar_asistente),
-<<<<<<< HEAD
+    ('/iAsistente', insertarAsistente),
     ('/iEvento', InsertarEvento)
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)
     ('/iOrganizacion', insertarOrganizacion),
     ('/iPonente', insertarPonente)
-=======
     ('/iUsuario', insertar_usuario)
->>>>>>> Victor
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

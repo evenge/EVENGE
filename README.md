@@ -18,3 +18,7 @@ Evenge dispone de las siguientes funcionalidades:
 * [Iván Ortega Alba](http://github.com/ivanortegaalba)
 * [Francisco Javier Expósito Cruz](http://github.com/franexposito)
 * [Victor Coronas Lara](http://github.com/VictorCoronas)
+
+-------------------------
+**Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)
+**Email**: desarrolladores.evenge@gmail.com

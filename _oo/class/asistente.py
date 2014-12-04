@@ -19,7 +19,7 @@ class Asistente(ndb.Model):
 class index(webapp2.RequestHandler):
     def post(self):
         asistente = Asistente()
-        asistente.idEvento = self.request.get('evento')
+        asistente.idEvento = '111111aaaa'
         asistente.nombre = self.request.get('nombre')
         asistente.apellidos = self.request.get('apellidos')
         asistente.email = self.request.get('email')

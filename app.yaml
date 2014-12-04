@@ -11,6 +11,9 @@ handlers:
 - url: /_dt/img
   static_dir: _dt/img
 
+- url: /listarAsistentes
+  script: _oo.class.asistente.application
+
 - url: /asistente
   script: _oo.class.asistente.application
 

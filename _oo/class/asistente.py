@@ -4,7 +4,6 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 import jinja2
 import webapp2
-from google.appengine.ext import ndb
 
 class Asistente(ndb.Model):
     idEvento = ndb.StringProperty()
@@ -32,11 +31,22 @@ class index(webapp2.RequestHandler):
 
         self.response.write('Guardado correctamente :)')
 
+class ListarAsistentes(webapp2.RequestHandler):
+    def get(self):
+        result = Asistente.query()
+        asistentes = []
+        for t in result:
+            asistentes.append(t)
+        template_values = {'asistentes':asistentes}
+        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarAsistentes.html')
+        self.response.write(template.render(template_values))
+
 application = webapp2.WSGIApplication([
-    ('/asistente', index)
+    ('/asistente', index),
+    ('/listarAsistentes', ListarAsistentes)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    loader=jinja2.FileSystemLoader('./'),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)

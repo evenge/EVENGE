@@ -18,7 +18,8 @@ body {
   font-size: 12px;
   }
 
-.navbar {
+/* navbar */
+.navbar-default {
   height: 70px;
   padding: 10px;
   background-color: #C11F23;
@@ -26,23 +27,24 @@ body {
 
   }
 
-  .navbar a {
-    color: white !important;
-  }
+.navbar-default .navbar-nav li > a {
+  color: white;
+}
 
-.navbar-header {
+.navbar-default .navbar-header {
   font-size: 22px;
 }
 
-.navbar-header small {
+.navbar-default .navbar-header small {
   font-size: 14px;
 }
 
-.dropdown-menu {
+.navbar-default .navbar-nav .dropdown-menu {
   background-color: #f0f0f0;
-  color: #3e3e3e !important;
+  color: #3e3e3e;
 }
 
-.dropdown-menu a {
-  color: #3e3e3e !important;
+.navbar-default .navbar-nav .dropdown-menu li > a {
+  color: #3e3e3e;
 }
+/* fin navbar */

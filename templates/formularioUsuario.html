@@ -1,17 +1,7 @@
 {% extends "templates/index.html" %}
 
-{# note: Jinja tiene herencia por lo que esta es una clase hija, que hereda de index
-  que sería la clase padre, y tiene el mismo contenido del padre, solo que sobreescribe
-  los bloques que escribamos en la clase hija.
-  Si un bloque, referido por su nombre, no es sobreescrito, se usa el del padre.
-  #}
-
-  {# tittle: titulo de la página
-    #}
 {% block title %}Nuevo Usuario{% endblock %}
 
-{# contenido central de la página
-  #}
 {% block content %}
 <h1>Nuevo Usuario</h1>
 <form role="form" class="form-horizontal" action="/evento" method="post">

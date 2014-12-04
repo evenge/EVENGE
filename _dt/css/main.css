@@ -1,4 +1,5 @@
-header h1 {
+/*
+header a{
   color: white;
   padding: 0;
   margin: 0;
@@ -9,8 +10,8 @@ header h1 {
 
 header small {
   color: #434343;
-}
-body { padding-top: 70px; }
+}*/
+body { padding-top: 80px; }
 .navbar{background: #C11F23;
 height: 70px;}
 .navbar a{

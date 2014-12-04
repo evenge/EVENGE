@@ -40,37 +40,6 @@ formularioPonente = """\
         </form>
         """
 
-formularioEvento = """\
-            <form role="form" class="form-horizontal" action="/evento" method="post">
-                <div class="form-group">
-                    <label for="nombre">Nombre del evento: </label>
-                    <input type="text" id="nombre" name="nombre"/>
-                </div>
-                <div class="form-group">
-                    <label for="hora">Hora: </label>
-                    <input type="time" id="hora" name="hora"/>
-                    </div>
-                <div class="form-group">
-                    <label for="fecha">Fecha: </label>
-                    <input type="date" id="fecha" name="fecha"/>
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion: </label>
-                    <input type="textbox" id="descripcion" name="descripcion"/>
-                </div>
-                <div class="form-group">
-                    <label for="lugar">Lugar: </label>
-                    <input type="text" id="lugar" name="lugar"/>
-                </div>
-                <div class="form-group">
-                    <label for="asistencia">Tendra control de asistencia: </label>
-                    <input type="radio" id="asistenciaSi" name="asistencia" value = "Si"/>Si
-                    <input type="radio" id="asistenciaNo" name="asistencia" value = "No"/>No
-                </div>
-                <input type="submit" class="btn btn-success" value="Guardar">
-            </form>
-            """
-
 formularioUsuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -83,7 +52,6 @@ formularioUsuario = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
-
 
 class Index(webapp2.RequestHandler):
     def get(self):
@@ -101,8 +69,8 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
-        template_values = {'form':formularioEvento}
-        template = JINJA_ENVIRONMENT.get_template('templates/form.html')
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/formularioUsuario.html')
         self.response.write(template.render(template_values))
 
 class InsertarPonente(webapp2.RequestHandler):

@@ -6,7 +6,6 @@ import jinja2
 import webapp2
 from google.appengine.ext import ndb
 from datetime import datetime
-import time
 
 
 class Evento(ndb.Model):
@@ -28,12 +27,11 @@ class index(webapp2.RequestHandler):
         evento.idCreador = "1" #Provisional, por ahora todos son admin
         evento.fecha = datetime.strptime(self.request.get('fecha'), "%Y-%m-%d")
         evento.hora = datetime.strptime(self.request.get('hora'),"%H:%M").time()
-        print (self.request.get('asistencia'))
         evento.lugar = self.request.get('lugar')
         #evento.coordenadas = self.request.get('coordenadas')
         evento.descripcion = self.request.get('descripcion')
         evento.asistencia = (self.request.get('asistencia') == 'true')
-        
+
         evento.put()
 
         self.response.write('El evento se ha creado correctamente')

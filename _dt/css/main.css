@@ -11,9 +11,38 @@ header a{
 header small {
   color: #434343;
 }*/
-body { padding-top: 80px; }
-.navbar{background: #C11F23;
-height: 70px;}
-.navbar a{
+
+body {
+  padding-top: 80px;
+  font-family: verdana;
+  font-size: 12px;
+  }
+
+.navbar {
+  height: 70px;
+  padding: 10px;
+  background-color: #C11F23;
   color: white;
+
+  }
+
+  .navbar a {
+    color: white !important;
+  }
+
+.navbar-header {
+  font-size: 22px;
+}
+
+.navbar-header small {
+  font-size: 14px;
+}
+
+.dropdown-menu {
+  background-color: #f0f0f0;
+  color: #3e3e3e !important;
+}
+
+.dropdown-menu a {
+  color: #3e3e3e !important;
 }

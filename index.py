@@ -5,18 +5,6 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-formularioAsistente = """\
-            <form action="/asistente" method="post">
-            <div><label for="evento">Id evento: </label><input type="text" id="evento" name="evento"/></div>
-            <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
-            <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>
-            <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
-            <div><label for="telefono">Telefono: </label><input type="text" id="telefono" name="telefono"/></div>
-            <div><label for="twitter">Twitter: </label><input type="text" id="twitter" name="twitter"/></div>
-            <div><label for="dni">Dni: </label><input type="text" id="dni" name="dni"/></div>
-            <div><input type="submit" value="Guardar"></div>
-            </form>
-            """
 formularioOrganizacion = """\
         <form action="/asistente" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -61,7 +49,9 @@ class Index(webapp2.RequestHandler):
 
 class InsertarAsistente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formularioAsistentes)
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/formAsistente.html')
+        self.response.write(template.render(template_values))
 
 class InsertarOrganizacion(webapp2.RequestHandler):
     def get(self):

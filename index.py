@@ -60,7 +60,7 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formularioUsuario.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/formularioEvento.html')
         self.response.write(template.render(template_values))
 
 class InsertarPonente(webapp2.RequestHandler):

@@ -40,21 +40,6 @@ formularioPonente = """\
         </form>
         """
 
-formularioEvento = """\
-            <form action="/evento" method="post">
-            <div><label for="nombre">Nombre del evento: </label><input type="text" id="nombre" name="nombre"/></div>
-            <div><label for="hora">Hora: </label><input type="time" id="hora" name="hora"/></div>
-            <div><label for="fecha">Fecha: </label><input type="date" id="fecha" name="fecha"/></div>
-            <div><label for="descripcion">Descripcion: </label><input type="textbox" id="descripcion" name="descripcion"/></div>
-            <div><label for="lugar">Lugar: </label><input type="text" id="lugar" name="lugar"/></div>
-            <div><label for="asistencia">Tendra control de asistencia: </label>
-            <input type="radio" id="asistenciaSi" name="asistencia" value = "Si"/>Si
-            <input type="radio" id="asistenciaNo" name="asistencia" value = "No"/>No
-            </div>
-            <div><input type="submit" value="Guardar"></div>
-            </form>
-            """
-
 formularioUsuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -67,7 +52,6 @@ formularioUsuario = """\
             <div><input type="submit" value="Guardar"></div>
             </form>
             """
-
 
 class Index(webapp2.RequestHandler):
     def get(self):
@@ -85,9 +69,11 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formularioEvento)
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/formularioUsuario.html')
+        self.response.write(template.render(template_values))
 
-class InsetarPonente(webapp2.RequestHandler):
+class InsertarPonente(webapp2.RequestHandler):
     def get(self):
         self.response.write(formularioPonente)
 
@@ -98,11 +84,9 @@ class InsertarUsuario(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
-    ('/iEvento', InsertarEvento)
+    ('/iEvento', InsertarEvento),
     ('/iOrganizacion', InsertarOrganizacion),
-    ('/iPonente', InsertarPonente)
-    ('/iOrganizacion', InsertarOrganizacion),
-    ('/iPonente', InsertarPonente)
+    ('/iPonente', InsertarPonente),
     ('/iUsuario', InsertarUsuario)
 ], debug=True)
 

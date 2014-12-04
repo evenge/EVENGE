@@ -8,6 +8,9 @@ handlers:
 - url: /_dt/css
   static_dir: _dt/css
 
+- url: /_dt/img
+  static_dir: _dt/img
+
 - url: /asistente
   script: _oo.class.asistente.application
 

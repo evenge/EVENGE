@@ -5,29 +5,6 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 
-formularioOrganizacion = """\
-        <form action="/asistente" method="post">
-            <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
-            <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
-            <div><label for="telefono">Telefono: </label><input type="text" id="telefono" name="telefono"/></div>
-            <div><label for="twitter">Twitter: </label><input type="text" id="twitter" name="twitter"/></div>
-            <div><label for="web">Web: </label><input type="text" id="web" name="web"/></div>
-            <div><input type="submit" value="Guardar"></div>
-        </form>
-        """
-
-formularioPonente = """\
-        <form action="/asistente" method="post">
-            <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
-            <div><label for="apellidos">Apellidos: </label><input type="text" id="apellidos" name="apellidos"/></div>
-            <div><label for="email">Email: </label><input type="text" id="email" name="email"/></div>
-            <div><label for="telefono">Telefono: </label><input type="text" id="telefono" name="telefono"/></div>
-            <div><label for="twitter">Twitter: </label><input type="text" id="twitter" name="twitter"/></div>
-            <div><label for="web">Web: </label><input type="text" id="web" name="web"/></div>
-            <div><input type="submit" value="Guardar"></div>
-        </form>
-        """
-
 formularioUsuario = """\
             <form action="/usuario" method="post">
             <div><label for="nombre">Nombre: </label><input type="text" id="nombre" name="nombre"/></div>
@@ -55,7 +32,9 @@ class InsertarAsistente(webapp2.RequestHandler):
 
 class InsertarOrganizacion(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formularioOrganizacion)
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/formOrganizacion.html')
+        self.response.write(template.render(template_values))
 
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
@@ -65,7 +44,9 @@ class InsertarEvento(webapp2.RequestHandler):
 
 class InsertarPonente(webapp2.RequestHandler):
     def get(self):
-        self.response.write(formularioPonente)
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
+        self.response.write(template.render(template_values))
 
 class InsertarUsuario(webapp2.RequestHandler):
     def get(self):

@@ -1,0 +1,20 @@
+{% extends "templates/index.html" %}
+{# tittle: titulo de la página #}
+{% block title %}Organizaciones{% endblock %}
+{# contenido central de la página #}
+{% block content %}
+<div class="col-sm-12">
+  {% for n in organizaciones %}
+  <div class="col-sm-12 asistente-container">
+    <div class="col-sm-12 asistente-content">
+      <h5><strong>Nombre:</strong> {{n.nombre}}</h5>
+      <h5><strong>Email:</strong> {{n.email}}</h5>
+      <h5><strong>Telefono:</strong> {{n.telefono}}</h5>
+      <h5><strong>Twitter:</strong> {{n.twitter}}</h5>
+      <h5><strong>Web:</strong> {{n.web}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

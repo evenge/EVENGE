@@ -1,5 +1,11 @@
+import os
+import urllib
+from google.appengine.api import users
+from google.appengine.ext import ndb
+import jinja2
 import webapp2
 from google.appengine.ext import ndb
+from datetime import datetime
 
 class Ponente(ndb.Model):
   nombre = ndb.StringProperty()
@@ -21,13 +27,24 @@ class index(webapp2.RequestHandler):
 
         ponente.put()
 
-        self.response.write('Ponente guardado correctamente')
+        self.response.write('El ponente se ha creado correctamente')
+
+class ListarPonentes(webapp2.RequestHandler):
+    def get(self):
+        result = Ponente.query()
+        ponentes = []
+        for ponente in result:
+            ponentes.append(ponente)
+        template_values = {'ponentes':ponentes}
+        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarPonentes.html')
+        self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([
-    ('/ponente', index)
+    ('/ponente', index),
+    ('/listarPonentes', ListarPonentes)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    loader=jinja2.FileSystemLoader('./'),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)

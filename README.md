@@ -1,5 +1,5 @@
-#Gestor de eventos
-=================
+#EVENGE
+######Gestor de eventos
 
 **Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
    
@@ -20,6 +20,7 @@ Evenge dispone de las siguientes funcionalidades:
 * [Victor Coronas Lara](http://github.com/VictorCoronas)
 
 -------------------------
-**Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)
-**Email**: desarrolladores.evenge@gmail.com
-**Aplicación**: [evenge-2014.appspot.com](https://evenge-2014.appspot.com)
+**Aplicación**: [evenge-2014.appspot.com](https://evenge-2014.appspot.com)  
+**Email**: desarrolladores.evenge@gmail.com  
+**Blog**: [evenge.github.io](http://evenge.github.io)  
+**Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  

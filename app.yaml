@@ -14,6 +14,9 @@ handlers:
 - url: /listarAsistentes
   script: _oo.class.asistente.application
 
+- url: /listarEventos
+  script: _oo.class.evento.application
+
 - url: /asistente
   script: _oo.class.asistente.application
 

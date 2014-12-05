@@ -1,0 +1,24 @@
+{% extends "templates/index.html" %}
+{# tittle: titulo de la página #}
+{% block title %}Eventos{% endblock %}
+{# contenido central de la página #}
+{% block content %}
+<div class="col-sm-12">
+  {% for n in eventos %}
+  <div class="col-sm-12 asistente-container">
+    <div class="col-sm-12 asistente-content">
+      <h5><strong>Nombre:</strong> {{n.nombre}}</h5>
+      <h5><strong>Tipo:</strong> {{n.tipo}}</h5>
+      <h5><strong>Organizador:</strong> {{n.idCreador}}</h5>
+      <h5><strong>Fecha:</strong> {{n.fecha}}</h5>
+      <h5><strong>Hora:</strong> {{n.hora}}</h5>
+      <h5><strong>Lugar:</strong> {{n.lugar}}</h5>
+      <h5><strong>Coordenadas:</strong> {{n.coordenadas}}</h5>
+      <h5><strong>Descripción:</strong> {{n.descripcion}}</h5>
+      <h5><strong>Asistencia:</strong> {{n.asistencia}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

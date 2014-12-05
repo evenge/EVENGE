@@ -36,11 +36,22 @@ class index(webapp2.RequestHandler):
 
         self.response.write('El evento se ha creado correctamente')
 
+class ListarEventos(webapp2.RequestHandler):
+    def get(self):
+        result = Evento.query()
+        eventos = []
+        for evento in result:
+            eventos.append(evento)
+        template_values = {'eventos':eventos}
+        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarEventos.html')
+        self.response.write(template.render(template_values))
+
 application = webapp2.WSGIApplication([
-    ('/evento', index)
+    ('/evento', index),
+    ('/listarEventos', ListarEventos)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    loader=jinja2.FileSystemLoader('./'),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)

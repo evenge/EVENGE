@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--
 Evenge - gestor de eventos (events management)
 Copyright (C) 2014 - desarrollo.evenge@gmail.com
@@ -14,23 +13,12 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
-=======
->>>>>>> 8ab517948d122ff61e667663cbc17734167acee3
+
 #EVENGE
 ######Gestor de eventos
 
 **Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
-<<<<<<< HEAD
 
-Evenge dispone de las siguientes funcionalidades:  
-* Calendario
-* Creación de eventos
-* Registro de ponentes
-* Control de asistencia
-* Generación de diplomas
-* Registro del número de personas que han asistido
-=======
-   
 Evenge dispone de las siguientes funcionalidades:  
 * Calendario
 * Creación de eventos 
@@ -38,7 +26,6 @@ Evenge dispone de las siguientes funcionalidades:
 * Control de asistencia 
 * Generación de diplomas
 * Registro del número de personas que han asistido 
->>>>>>> 8ab517948d122ff61e667663cbc17734167acee3
 * Generación de informes sobre los eventos: lugar, asistencia.
 
 ####Desarrolladores:
@@ -50,10 +37,6 @@ Evenge dispone de las siguientes funcionalidades:
 
 -------------------------
 **Aplicación**: [evenge-2014.appspot.com](https://evenge-2014.appspot.com)  
-<<<<<<< HEAD
 **Email**: [desarrollo.evenge@gmail.com](mailto://desarrolo.evenge@gmail.com)  
-=======
-**Email**: desarrolladores.evenge@gmail.com  
->>>>>>> 8ab517948d122ff61e667663cbc17734167acee3
 **Blog**: [evenge.github.io](http://evenge.github.io)  
 **Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  

@@ -1,8 +1,24 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
 #EVENGE
 ######Gestor de eventos
 
 **Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
-   
+
 Evenge dispone de las siguientes funcionalidades:  
 * Calendario
 * Creación de eventos 
@@ -21,6 +37,6 @@ Evenge dispone de las siguientes funcionalidades:
 
 -------------------------
 **Aplicación**: [evenge-2014.appspot.com](https://evenge-2014.appspot.com)  
-**Email**: desarrolladores.evenge@gmail.com  
+**Email**: [desarrollo.evenge@gmail.com](mailto://desarrolo.evenge@gmail.com)  
 **Blog**: [evenge.github.io](http://evenge.github.io)  
 **Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  

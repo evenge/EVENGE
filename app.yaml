@@ -12,6 +12,7 @@
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License for more details.
 ################################################################
+
 application: evenge-2014
 version: 1
 runtime: python27
@@ -30,6 +31,9 @@ handlers:
 
 - url: /listarEventos
   script: _oo.class.evento.application
+
+- url: /listarUsuarios
+  script: _oo.class.usuario.application
 
 - url: /listarPonentes
   script: _oo.class.ponente.application

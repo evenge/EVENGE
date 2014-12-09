@@ -1,0 +1,53 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+{% extends "templates/index.html" %}
+
+{% block title %} Nuevo Evento {% endblock %}
+
+{% block content %}
+<div class="col-sm-6 ">
+  <h1>Nuevo Evento</h1></br>
+  <form role="form" class="form-horizontal" action="/evento" method="post">
+    <div class="form-group">
+      <label for="nombre">Nombre del evento: </label>
+      <input type="text" class="form-control" id="nombre" name="nombre" />
+    </div>
+    <div class="form-group">
+      <label for="hora">Hora: </label>
+      <input type="time"  class="form-control" id="hora" name="hora" />
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha: </label>
+      <input type="date" class="form-control" id="fecha" name="fecha" />
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripcion: </label>
+      <input type="textbox" class="form-control" id="descripcion" name="descripcion" />
+    </div>
+    <div class="form-group">
+      <label for="lugar">Lugar: </label>
+      <input type="text" class="form-control" id="lugar" name="lugar" />
+    </div>
+    <div class="form-group">
+      <label for="asistencia">Tendra control de asistencia: </label>
+      <input type="radio" id="asistenciaSi" name="asistencia" value="true" /> Si
+      <input type="radio" id="asistenciaNo" name="asistencia" value="false" /> No
+    </div>
+    <input type="submit" class="btn btn-success form-control" value="Guardar">
+  </form>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+language: python
+
+python:
+  - "2.7"
+
+#Esto es para desplegar en App Engine
+env:
+  global:
+    - GAE_DIR=/tmp/gae
+    - EMAIL=8macau8@gmail.com
+    - secure: 1rAiWreEP3/6b4wBMSKDv9Kp76meLdSekLVKoA09rGKRuMbW4LLE/Z/5XSFYRJ6KO7Ms6lw/gtVQlDdCH1asoWa5D3N0nPW3nC18prfXWx0LkE3U2tEhHBWFNhhKSTxBCjn1fqQR8uZCjMTQr9ElwyM7cbGdBbAfEDcoUGAOGlqoL2cibgEgcxXfif8M4MHWe4YnX19u0DuqDgyFNrZUrnDBBo6e+5aZXy+A2zqNXE9q+xWy4KZnpugJEqGxZl8iFsBk7y6ZGzX8Ociys9T4BYpxdRQjffKcLX851JlFIdEiu3MRUc2JGyLTVuHMqHnK/kS0dvjek77gYv5DZWkaDg==
+
+#Instalarse la mágina virtual GAE
+before_install:
+  - >
+    test -e $GAE_DIR ||
+    (mkdir -p $GAE_DIR &&
+     wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.15.zip -q -O /tmp/gae.zip &&
+     unzip /tmp/gae.zip -d $GAE_DIR)
+
+#Instalar requerimientos
+install:
+   - pip install -r requirements.txt
+
+
+before_script:
+   - echo 'Europe/Madrid' | sudo tee /etc/timezone
+   - sudo dpkg-reconfigure --frontend noninteractive tzdata
+   - mkdir -p shippable/testresults
+   - mkdir -p shippable/codecoverage
+
+#Ejecutamos el script
+#script:
+#  - >
+#    [[ $BRANCH = 'master' ]] && python test.py
+#   - python manage.py appsamblea
+#Si se construye bien hacer esto
+after_success:
+   - echo $GAE_PASSWORD | $GAE_DIR/google_appengine/appcfg.py -e "$EMAIL" --passin --no_cookies update ./evenge/

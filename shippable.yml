@@ -30,10 +30,10 @@ before_script:
    - mkdir -p shippable/codecoverage
 
 #Ejecutamos el script
-#script:
-#  - >
-#    [[ $BRANCH = 'master' ]] && python test.py
-#   - python manage.py appsamblea
+script:
+  - >
+    [[ $BRANCH = 'fran' ]] && python test.py
+   - python manage.py appsamblea
 #Si se construye bien hacer esto
 after_success:
    - echo $GAE_PASSWORD | $GAE_DIR/google_appengine/appcfg.py -e "$EMAIL" --passin --no_cookies update ./

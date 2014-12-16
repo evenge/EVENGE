@@ -4,7 +4,7 @@ from google.appengine.ext import testbed
 from index import Evenge
 
 class EvengeTestCase(unittest.TestCase):
-	def setUp(self):
+    def setUp(self):
         self.testbed = testbed.Testbed()
         self.testbed.activate()
         self.testbed.init_datastore_v3_stub()
@@ -12,11 +12,10 @@ class EvengeTestCase(unittest.TestCase):
     def tearDown(self):
         self.testbed.deactivate()
 
-	def test(self):
-		evenge = Evenge()
-		response = evenge.hazElCuadrado(4)
-		self.assertEqual(response,16)
-
+    def test(self):
+        evenge = Evenge()
+        response = evenge.hazElCuadrado(4)
+        self.assertEqual(response,16)
 
 if __name__ == "__main__":
 	unittest.main()

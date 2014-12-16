@@ -14,13 +14,18 @@
 ################################################################
 
 import unittest
-from google.appengine.api import users
+from google.appengine.ext import db
 from google.appengine.ext import testbed
 from index import Evenge
 
 class EvengeTestCase(unittest.TestCase):
 	def setUp(self):
-		pass
+        self.testbed = testbed.Testbed()
+        self.testbed.activate()
+        self.testbed.init_datastore_v3_stub()
+
+    def tearDown(self):
+        self.testbed.deactivate()
 
 	def test(self):
 		evenge = Evenge()

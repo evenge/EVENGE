@@ -32,8 +32,10 @@ before_script:
 #Ejecutamos el script
 script:
   - >
-    [[ $BRANCH = 'fran' ]] && python test.py
-   - python manage.py appsamblea
+    nosetests test.py
+    --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
+    --with-xunit --xunit-file=shippable/testresults/test.xml
+    --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
 #Si se construye bien hacer esto
 after_success:
    - echo $GAE_PASSWORD | $GAE_DIR/google_appengine/appcfg.py -e "$EMAIL" --passin --no_cookies update ./

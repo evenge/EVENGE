@@ -47,6 +47,6 @@ RUN unzip google_appengine_1.9.17.zip
 RUN apt-get install -y git
 RUN git clone https://github.com/evenge/EVENGE.git
 RUN cd EVENGE
-RUN git branch -b $USER
+RUN git checkout -b $USER
 
 #La integración continua corre de la mano de GAE, donde el SDK nos permite despliegue y pruebas en local

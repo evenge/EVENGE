@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
@@ -56,13 +57,21 @@ class InsertarUsuario(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/formUsuario.html')
         self.response.write(template.render(template_values))
 
+class Evenge(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Evenge')
+
+    def hazElCuadrado(self, numero):
+        return numero*numero
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
     ('/iEvento', InsertarEvento),
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
-    ('/iUsuario', InsertarUsuario)
+    ('/iUsuario', InsertarUsuario),
+    ('/evenge', Evenge)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

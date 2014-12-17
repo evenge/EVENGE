@@ -27,5 +27,5 @@ sudo sh -c "echo deb https://get.docker.com/ubuntu docker main\
 sudo apt-get update
 sudo apt-get install -y lxc-docker
 
-#Instalamos la imagen producida con el Dockerfile
+#Instalamos la imagen producida con el Dockerfile y ya subida a DockerHub
 sudo docker run -t -i ivanortegaalba/evenge:v0 /bin/bash

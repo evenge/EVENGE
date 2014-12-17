@@ -45,7 +45,7 @@ RUN unzip google_appengine_1.9.17.zip
 
 # Instalamos git y clonamos el repositorio de Evenge
 RUN apt-get install -y git
-RUN git clone git@github.com:evenge/EVENGE.git
+RUN git clone https://github.com/evenge/EVENGE.git
 RUN cd gestor-de-eventos
 RUN git branch -b $USER
 

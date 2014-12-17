@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /* 
 Evenge - gestor de eventos (events management)
 Copyright (C) 2014 - desarrollo.evenge@gmail.com
@@ -14,6 +16,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
 
+>>>>>>> 8e69e48648b2391349aaec2e4d0276719338def2
 body {
   padding-top: 80px;
   font-family: verdana;
@@ -52,7 +55,7 @@ body {
 }
 /* fin navbar */
 
-/* asistente */
+/* asistente (se usa para mostrar eventos tambien) */
 .asistente-container {
 
 }

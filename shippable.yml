@@ -22,7 +22,7 @@ env:
   global:
     - GAE_DIR=/tmp/gae
     - EMAIL=8macau8@gmail.com
-    - secure: G2X51lqyYQWCkHiJBO12RGWVENVfGzxFQkgAnnEttp/9oTGDUMBz6eLuyIMx41qTwEO1RQ3D9rOk02MXiTXIAYZaGF/FJpcwFVXAKgT2P6Hy1lIssnIjHWFKV2QNw51I6LFBOaugncRx3FWvSAA5dhYTrrrCnqDhWxTeWyI/RnngLHaAJ5wh9atvxSejlbzYsAfNWr50e+WPnFnqrZXMwuGciPewg23XjrqefMWtis/buFXOg3nEHzpGRI2a+FpBpDqj11QVUxd/YYynxIYyVFQHSbV5B95qDhRCq7LDN+4LaPvLdaYpuEyNiRmLc5W+f5CWic710Hyjo5se51dgpQ==
+    - secure: qPxFySvU56Qa81hKS5EuK48MPwZ4C47W5A13sB8L2z29mQwVSPPfRFfq8Y5TZjFjU79Q8vMJliEXC1aEOgawGFG1YPFz9UHUOWbK0KQEf+j4Fh8MnNogA6DIdSXwvetmMrSGiDcqfCzJzjor19/waxIiauIQtZcgh03eJsd+OquryQ0dc/4o7Y98n1XqELHmIJXUuDgcHGMwMcclB0o1LrgSsKn4uTWlYuZkK2oTKgpwGM8d9Cz6c0zuiwXqNFlNrwRqO5T9rl2yX4b+YGccnDJ3llpdsucd7XO0YElL8NxVrOmvY4zCFL+a6xi04BKcoo1UkkwBK7PXFIcFqgAQsW5Bk3uC87QJ3RrXCAdQ84vxjc7XAHzpTcDb+O+VmLitxDkwCFI2GK5hmib3cz1+MLGbVb/MS97mVE4fllRjrhYOdfQrhHO7OTdfPuRy60L6EAP6DrLZkOCA2Ec+bRCxiRzvfzt1PdYke46rgeQqmVv4ggVhRfeejpWGpmCYt1o8aCPy2ezzsUMoSNY0hTWyui5lAz0YLgrDtgBFRl88plVbi+T71mvE74UIlTbRpKaq5jhlUaZ1yGpep7f+1iqIeIGpZ5DG04TRVobpOKBmpNGeCdsfmf7bdZ9jPx9feBBkVg2XQ3frb+DYHWvWor9kSwAqXzJEi52cyG8z2/G65LycGvJzeKBfxh8o/liZ0lE0U6KQM/fCh1CgI+BaXUjMphIabX1ZvSKKGIUsQK5q71rHg9tClDRm4lppLMVKUGxsttP96dPKZ/oLH3HwVzY2J22mIVCW5uR1vOJkV5o0KsE+n2ZFLHacOUhIPL4EblkVB+W/npMlstOJ9jeNJ0y+PmHLMmlrQSullMU/xNGGnJdPeNrkve3Eq/4y3GEXhvm4leUEU9ktj3/mzVYlGVkXcCaj2YRnGBzOlk5HJdvkN94rajKx1chFWh7WtMb40XgQK41njtsYtLroHysQJfWxuEczsA5YX4AHTH8XcwUP2PDzfh6phUwVp6WizN+2RE3F
 
 #Instalarse la mágina virtual GAE
 before_install:
@@ -52,4 +52,4 @@ script:
     --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
 #Si se construye bien hacer esto
 after_success:
-   - echo $GAE_PASSWORD | $GAE_DIR/google_appengine/appcfg.py -e "$EMAIL" --passin --no_cookies update ./
+    - $GAE_DIR/google_appengine/appcfg.py --oauth2_access_token=$GAE_TOKEN update .

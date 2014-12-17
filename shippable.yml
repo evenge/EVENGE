@@ -1,0 +1,55 @@
+#Evenge - gestor de eventos (events management)
+#Copyright (C) 2014 - desarrollo.evenge@gmail.com
+#Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+#
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#################################################################
+language: python
+
+python:
+  - "2.7"
+
+#Esto es para desplegar en App Engine
+env:
+  global:
+    - GAE_DIR=/tmp/gae
+    - EMAIL=8macau8@gmail.com
+    - secure: G2X51lqyYQWCkHiJBO12RGWVENVfGzxFQkgAnnEttp/9oTGDUMBz6eLuyIMx41qTwEO1RQ3D9rOk02MXiTXIAYZaGF/FJpcwFVXAKgT2P6Hy1lIssnIjHWFKV2QNw51I6LFBOaugncRx3FWvSAA5dhYTrrrCnqDhWxTeWyI/RnngLHaAJ5wh9atvxSejlbzYsAfNWr50e+WPnFnqrZXMwuGciPewg23XjrqefMWtis/buFXOg3nEHzpGRI2a+FpBpDqj11QVUxd/YYynxIYyVFQHSbV5B95qDhRCq7LDN+4LaPvLdaYpuEyNiRmLc5W+f5CWic710Hyjo5se51dgpQ==
+
+#Instalarse la mágina virtual GAE
+before_install:
+  - >
+    test -e $GAE_DIR ||
+    (mkdir -p $GAE_DIR &&
+     wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.15.zip -q -O /tmp/gae.zip &&
+     unzip /tmp/gae.zip -d $GAE_DIR)
+
+#Instalar requerimientos
+install:
+   - pip install -r requirements.txt
+
+
+before_script:
+   - echo 'Europe/Madrid' | sudo tee /etc/timezone
+   - sudo dpkg-reconfigure --frontend noninteractive tzdata
+   - mkdir -p shippable/testresults
+   - mkdir -p shippable/codecoverage
+
+#Ejecutamos el script
+script:
+  - >
+    nosetests test.py
+    --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
+    --with-xunit --xunit-file=shippable/testresults/test.xml
+    --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
+#Si se construye bien hacer esto
+after_success:
+   - echo $GAE_PASSWORD | $GAE_DIR/google_appengine/appcfg.py -e "$EMAIL" --passin --no_cookies update ./

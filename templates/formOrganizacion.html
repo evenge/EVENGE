@@ -1,0 +1,54 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+{% extends "templates/index.html" %}
+
+{# tittle: Nueva organizacion
+  #}
+  {% block title %}Nueva organizacion{% endblock %}
+
+  {# contenido central de la página
+    #}
+    {% block content %}
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Organización</h1>
+      <form role="form" class="form-horizontal" action="/organizacion" method="post">
+        <div class="form-group">
+          <label for="nombre">Nombre: </label>
+          <input class="form-control" type="text" id="nombre" name="nombre"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input class="form-control" type="text" id="email" name="email"/>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono: </label>
+          <input class="form-control" type="text" id="telefono" name="telefono"/>
+        </div>
+        <div class="form-group">
+          <label for="twitter">Twitter: </label>
+          <input class="form-control" type="text" id="twitter" name="twitter"/>
+        </div>
+        <div class="form-group">
+          <label for="dni">Web: </label>
+          <input class="form-control" type="text" id="web" name="web"/>
+        </div>
+        <input type="submit" class="btn btn-success btn-block" value="Guardar">
+      </form>
+    </div>
+  </p>
+
+  {% endblock %}

@@ -1,3 +1,18 @@
+#Evenge - gestor de eventos (events management)
+#Copyright (C) 2014 - desarrollo.evenge@gmail.com
+#Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+#
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+################################################################
+
 application: evenge-2014
 version: 1
 runtime: python27
@@ -13,6 +28,18 @@ handlers:
 
 - url: /listarAsistentes
   script: _oo.class.asistente.application
+
+- url: /listarEventos
+  script: _oo.class.evento.application
+
+- url: /listarUsuarios
+  script: _oo.class.usuario.application
+
+- url: /listarPonentes
+  script: _oo.class.ponente.application
+
+- url: /listarOrganizaciones
+  script: _oo.class.organizacion.application
 
 - url: /asistente
   script: _oo.class.asistente.application

@@ -53,4 +53,4 @@ script:
 
 #Si se construye bien hacer esto
 after_success:
-    - $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . 
+    - if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . ; else echo "No deployment for this $BRANCH"; fi

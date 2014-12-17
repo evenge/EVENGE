@@ -3,9 +3,9 @@
 - [X] Creación y adaptación del repositorio de GitHub
 - [ ] La explicación del proyecto:
     - [ ] Descripción del proyecto
-    - [ ] Método de desarrollo y porque hemos usado esa PaaS 
+    - [ ] Método de desarrollo y porque hemos usado esa PaaS
         - JJ:
-            - Interaccion con Google Docs, 
+            - Interaccion con Google Docs,
             - Interaccion con Google Calendar
             - Posible uso de emailing con Google
             - Inconvenientes para usar Django en los servidores(no instalado)
@@ -19,22 +19,22 @@
 ###Síntesis propia (Hablado con JJ):
 
 - Usuarios de la plataforma
-    - [ ] Todos en principio administradores 
+    - [ ] Todos en principio administradores
 
 - [ ] Gestión de evento:
   - [ ] Creacion, modificación y borrado de eventos
-    - [ ] Lugar hora titulo descripcion ponentes 
+    - [ ] Lugar hora titulo descripcion ponentes
     - [ ] Registro de ponentes
   - [ ] Inscripcion opcional al evento:
     - [ ] Cuando te registras que mande un twitter viral
     - [ ] Nuestro propio formulario de inscripcion
     - [ ] Registro de asistencia
-        - [ ] Nombre 
-        - [ ] Email 
+        - [ ] Nombre
+        - [ ] Email
         - [ ] Twitter
-        - [ ] Dni 
+        - [ ] Dni
     - [ ] Pasar lista de asistentes
-  
+
 - [ ] Publicación del evento:
     - [ ] Datos del evento:
         - [ ] Material del evento:
@@ -44,7 +44,7 @@
     - [ ] Email - podemos ver si podemos conectar con la red ugr  
     - [ ] Calendar (Google)
     - [ ] Twitter
-  
+
 - [ ] Generación a partir de evento:
   - [ ] Diplomas:
     - [ ] Asistente

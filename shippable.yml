@@ -50,7 +50,7 @@ script:
     --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
     --with-xunit --xunit-file=shippable/testresults/test.xml
     --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
-    
+
 #Si se construye bien hacer esto
 after_success:
-    - [[ $BRANCH="master" ]] && $GAE_DIR/google_appengine/appcfg.py --oauth2_access_token=$GAE_TOKEN update . || echo "No deployment for this $BRANCH"
+    - if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_access_token=$GAE_TOKEN update .; else echo "No deployment for this $BRANCH"; fi

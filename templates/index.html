@@ -41,33 +41,19 @@ GNU General Public License for more details.
 
     <!--nav -->
     <nav class="navbar navbar-default navbar-fixed-top">
-        <a href="/" ><div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Desplegar navegación</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
-        </div>
-                        </a>
+        <a href="/">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Desplegar navegación</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
+            </div>
+        </a>
 
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            {% block nav %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"> Mis eventos </a>
-                </li>
-                <li><a href="/listarEventos"> Ponentes </a>
-                </li>
-                <li>
-                    <a href="/iUsuario"> Informes </a>
-                </li>
-                <li>
-                    <a href="/iOrganizacion"> Mi cuenta </a>
-                </li>
-            </ul>
-            {% endblock %}
-        </div>
+        {% block nav %}{% endblock %}
     </nav>
     <!--/navegador -->
 

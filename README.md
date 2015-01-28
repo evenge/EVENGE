@@ -40,3 +40,4 @@ Evenge dispone de las siguientes funcionalidades:
 **Email**: [desarrollo.evenge@gmail.com](mailto://desarrolo.evenge@gmail.com)  
 **Blog**: [evenge.github.io](http://evenge.github.io)  
 **Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  
+**Entorno de desarrollo**: [Docker](https://registry.hub.docker.com/u/ivanortegaalba/evenge/)

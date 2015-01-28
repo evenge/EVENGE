@@ -13,57 +13,80 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+
 body {
-  padding-top: 80px;
-  font-family: verdana;
-  font-size: 12px;
-  background-color: #eee;
-  }
+    padding-top: 80px;
+    font-family: verdana;
+    font-size: 12px;
+    background-color: #eee;
 
+}
 /* navbar */
-.navbar-default {
-  height: 70px;
-  padding: 10px;
-  background-color: #C11F23;
-  color: white;
 
-  }
+.navbar-default {
+    height: 70px;
+    padding: 10px;
+    background-color: #C11F23;
+    color: white;
+}
 
 .navbar-default .navbar-nav li > a {
-  color: white;
+    color: white;
 }
 
 .navbar-default .navbar-header {
-  font-size: 22px;
+    font-size: 22px;
 }
 
 .navbar-default .navbar-header small {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .navbar-default .navbar-nav .dropdown-menu {
-  background-color: #f0f0f0;
-  color: #3e3e3e;
+    background-color: #f0f0f0;
+    color: #3e3e3e;
 }
 
 .navbar-default .navbar-nav .dropdown-menu li > a {
-  color: #3e3e3e;
+    color: #3e3e3e;
 }
 /* fin navbar */
 
-/* asistente (se usa para mostrar eventos tambien) */
-.asistente-container {
-
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20%;
+  background-color: #f5f5f5;
 }
 
-.asistente-content {
-  height: 100%;
-  background: #fff;
-  box-shadow: 0px 1px 3px rgba(17, 17, 17, 0.25);
-  -moz-box-shadow: 0px 1px 3px rgba(17, 17, 17, 0.25);
-  -webkit-box-shadow: 0px 1px 3px rgba(17, 17, 17, 0.25);
-  padding-top: 8px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
 }
-/* fin asistente */
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

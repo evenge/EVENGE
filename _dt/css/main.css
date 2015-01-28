@@ -30,7 +30,7 @@ body {
     color: white;
 }
 
-.navbar-default .navbar-nav li > a {
+.navbar-default .navbar-nav li > a,.navbar-default  a  {
     color: white;
 }
 
@@ -70,6 +70,7 @@ body {
   height: 20%;
   background-color: #f5f5f5;
 }
+
 
 /* Custom page CSS
 -------------------------------------------------- */

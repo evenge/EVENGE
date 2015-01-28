@@ -1,0 +1,66 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+{% extends "templates/index.html" %}
+
+{# tittle: titulo de la página #}
+
+{% block title %}Informes{% endblock %}
+
+{# contenido central de la página #}
+
+{% block content %}
+            <!--informes -->
+            <div class="report-content col-md-12">
+            <h1>Informes</h1>  
+                 <!--botones -->
+                <div class="select-report col-sm-12">
+                    <div class="genera-report col-md-3 col-xs-3 ">
+                         <h2>Generar por:</h2>
+                    </div>
+                    <div class="month-report col-md-3 col-xs-3">
+                         <h2>Por mes:</h2>
+                        <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </div>
+                    <div class="year-report col-md-3 col-xs-3">
+                         <h2>Por año:</h2>
+                        <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </div>
+                    <div class="export-report col-md-3 col-xs-3 ">
+                          <button type="button" class="btn"><i class="fa fa-hdd-o"></i> Exportar</button>
+                    </div>
+                <!--/botones -->
+                 <!--graficas -->
+                <div class="graphics-report col-sm-12" style="background:red">
+                </div>
+                 <!--/graficas-->
+            </div>
+            </div>
+            <!--/informes -->
+
+{% endblock %}

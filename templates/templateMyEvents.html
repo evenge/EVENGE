@@ -28,8 +28,10 @@ GNU General Public License for more details.
     <div class="col-sm-6 asistente-content">
       <header>
         <h4><strong> {{n.nombre}} </strong></h4>
-        <button class="buttonModfyEvent"><i class="fa fa-pencil-square-o fa-2x"></i></button>
-        <button class="buttonDeleteEvent"><i class="fa fa-times fa-2x"></i></button>
+        <div class="btn-group" role="group" aria-label="...">
+          <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
+          <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
+        </div>
       </header>
       <h5><strong>Tipo:</strong> {{n.tipo}}</h5>
       <h5><strong>Organizador:</strong> {{n.idCreador}}</h5>

@@ -57,7 +57,7 @@ class ListarEventos(webapp2.RequestHandler):
         for evento in result:
             eventos.append(evento)
         template_values = {'eventos':eventos}
-        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarEventos.html')
+        template = JINJA_ENVIRONMENT.get_template('/templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([

@@ -1,4 +1,4 @@
-/* 
+/*
 Evenge - gestor de eventos (events management)
 Copyright (C) 2014 - desarrollo.evenge@gmail.com
 Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
@@ -13,7 +13,6 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
-
 body {
   padding-top: 80px;
   font-family: verdana;
@@ -52,7 +51,7 @@ body {
 }
 /* fin navbar */
 
-/* asistente */
+/* asistente (se usa para mostrar eventos tambien) */
 .asistente-container {
 
 }

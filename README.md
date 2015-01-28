@@ -21,11 +21,11 @@ GNU General Public License for more details.
 
 Evenge dispone de las siguientes funcionalidades:  
 * Calendario
-* Creación de eventos 
+* Creación de eventos
 * Registro de ponentes
-* Control de asistencia 
+* Control de asistencia
 * Generación de diplomas
-* Registro del número de personas que han asistido 
+* Registro del número de personas que han asistido
 * Generación de informes sobre los eventos: lugar, asistencia.
 
 ####Desarrolladores:
@@ -40,3 +40,4 @@ Evenge dispone de las siguientes funcionalidades:
 **Email**: [desarrollo.evenge@gmail.com](mailto://desarrolo.evenge@gmail.com)  
 **Blog**: [evenge.github.io](http://evenge.github.io)  
 **Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  
+**Entorno de desarrollo**: [Docker](https://registry.hub.docker.com/u/ivanortegaalba/evenge/)

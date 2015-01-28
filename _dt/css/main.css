@@ -100,3 +100,11 @@ body > .container {
 code {
     font-size: 80%;
 }
+#cabecera-tabla-ponentes {
+    background-color:#C11F23;
+    color:white;
+}
+
+#body-tabla-ponentes {
+    background-color: #fff;
+}

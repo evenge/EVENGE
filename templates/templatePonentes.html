@@ -1,0 +1,63 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+
+{% extends "templates/index.html" %} 
+
+{# tittle: titulo de la página #}
+{% block title %}Eventos{% endblock %} 
+
+{# contenido central de la página #} 
+{% block content %} 
+
+<h3>Ponentes</h3>
+<div id="cabecera-tabla-ponentes" class="col-xs-12">
+    <div class="col-xs-4">
+        <h5>Nombre</h5>
+    </div>
+    <div class="col-xs-3">
+        <h5>Correo</h5>
+    </div>
+    <div class="col-xs-3">
+        <h5>Telefono</h5>
+    </div>
+    <div class="col-xs-2">
+        <h5></h5>
+    </div>
+</div>
+<div id="body-tabla-ponentes" class="col-xs-12">
+    {% for n in eventos %}
+    <div id="fila">
+        <div class="col-xs-4">
+            <h5>{{evento.nombre}}</h5>
+        </div>
+        <div class="col-xs-3">
+            <h5>{{evento.email}}</h5>
+        </div>
+        <div class="col-xs-3">
+            <h5>{{evento.telefono}}</h5>
+        </div>
+        <div class="col-xs-2 btn-group">
+            <button class="buttonModfyEvent btn btn-default"><i class="fa fa-pencil-square-o"></i>
+            </button>
+            <button class="buttonDeleteEvent btn btn-default"><i class="fa fa-times "></i>
+            </button>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

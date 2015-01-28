@@ -14,7 +14,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-{% extends "templates/indexUsuario.html" %}
+{% extends "templates/index.html" %}
 {# tittle: titulo de la página #}
 {% block title %}Eventos{% endblock %}
 {# contenido central de la página #}
@@ -58,7 +58,10 @@ GNU General Public License for more details.
               <h5><strong>DNI</strong></h5>
             </div>
             <div class="col-sm-2 col-xs-2">
-              <button class="btn btn-default delete-button"><i class="fa fa-times"></i></button>
+              <div class="btn-group" role="group" aria-label="...">
+                <button class="btn btn-default delete-button"><i class="fa fa-times"></i></button>
+                <button class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button>
+              </div>
             </div>
           </div>
         </div>
@@ -83,6 +86,10 @@ GNU General Public License for more details.
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
                 <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+                <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
@@ -119,5 +126,5 @@ GNU General Public License for more details.
         
       </div>
         
-    </div>
+    </div> 
 {% endblock %}

@@ -47,10 +47,18 @@ GNU General Public License for more details.
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe"></i></span>
       <input type="text" class="form-control" id="lugar" name="lugar" placeholder="Lugar" aria-describedby="sizing-addon1">
     </div>
+    <div class="dropdown">
+      <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Tipo de evento <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><input type="checkbox" id="publico" name="tipoEvento" value="true" checked>  Publico</li>
+        <li class="divider"></li>
+        <li><input type="checkbox" id="privado" name="tipoEvento" value="false" >  Privado</li>
+      </ul>
+    </div>
     <div class="input-group">
       <label for="asistencia">Tendra control de asistencia: </label>
-      <input type="radio" id="asistenciaSi" name="asistencia" value="true" /> Si
-      <input type="radio" id="asistenciaNo" name="asistencia" value="false" /> No
+      <input type="radio" id="asistenciaSi" name="asistencia" value="true" > Si
+      <input type="radio" id="asistenciaNo" name="asistencia" value="false" > No
     </div>
     <button type="submit" class="btn btn-success btn-block" value="Guardar">Registrar</button>
   </form>

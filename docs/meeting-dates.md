@@ -1,5 +1,13 @@
 Meeting dates
 =====================
+# 10 de Diciembre de 2014
+###Place: CETIC office
+
+Puntos a tratar en la reunión:
+- Testeo de la aplicación con GAE.
+- Corrección de un merge conflictivo (revisamos cada archivo del repositorio).
+- Se revisa tema de permisos en una rama, para dejar solo a Carlos con permiso de escritura en **master**.
+
 # 26 de Noviembre de 2014
 ###Place: CETIC office
 

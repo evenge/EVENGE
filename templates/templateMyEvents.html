@@ -15,10 +15,13 @@ GNU General Public License for more details.
 -->
 
 {% extends "templates/index.html" %}
+
 {# tittle: titulo de la página #}
 {% block title %}Eventos{% endblock %}
+
 {# contenido central de la página #}
 {% block content %}
+
 <div class="col-sm-12">
   {% for n in eventos %}
   <div class="col-sm-12 asistente-container">

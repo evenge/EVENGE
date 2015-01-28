@@ -1,0 +1,67 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+{% extends "templates/indexVisitante.html" %}
+
+{# tittle: titulo de la página #}
+
+{% block title %}Nuevo Usuario{% endblock %}
+
+{# contenido central de la página #}
+
+{% block content %}
+<!--Formulario usuario -->
+<div class="col-sm-8 col-sm-offset-3">
+  <h1>Nuevo Usuario</h1>
+  <form>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+      <input type="text" class="form-control"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+      <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt"></i></span>
+      <input type="text" class="form-control" id="contraseña" placeholder="Contraseña" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt"></i></span>
+      <input type="text" class="form-control" id="repetirContraseña" placeholder="Repetir contraseña" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+      <input type="text" class="form-control" id="email" placeholder="Email" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
+      <input type="text" class="form-control" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
+      <input type="text" class="form-control" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
+      <input type="text" class="form-control" id="web" placeholder="Web" aria-describedby="sizing-addon1">
+    </div>
+    <button type="submit" class="btn btn-success btn-block" value="Guardar">Registrar</button>
+  </form>
+</div>
+<!--/Formulario usuario -->
+
+{% endblock %}

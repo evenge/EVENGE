@@ -1,0 +1,120 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+<!DOCTYPE html> 
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evenge</title>
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="../_dt/css/main.css">
+  <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <!--nav -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Desplegar navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src="../_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/"> Inicio </a></li>
+        <li><a href="/listarEventos"> Eventos </a> </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Nuevo <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/iEvento"> Evento </a></li>
+              <li><a href="/iOrganizacion"> Organizacion </a></li>
+              <li><a href="/iUsuario"> Usuario </a></li>
+              <li><a href="/iPonente"> Ponente </a></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+        <!--/navegador -->
+
+        <div class="container">
+          <!-- inicio de evento -->
+          <div class="event-content col-sm-12">
+            <h1>Titulo</h1>
+            <!-- navegador de pestañas -->
+            <ul class="nav nav-tabs">
+              <li role="presentation" class="active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
+              <li role="presentation" ><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
+              <li role="presentation" ><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
+            </ul>
+            <!-- fin de navegador de pestañas -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="descripcion">
+              <div class="col-sm-12">
+                <button class="edit-button"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+              </div>
+              <h5><strong>Tipo:</strong></h5>
+              <h5><strong>Organizador:</strong></h5>
+              <h5><strong>Fecha:</strong></h5>
+              <h5><strong>Hora:</strong></h5>
+              <h5><strong>Descripción:</strong></h5>
+              <h5><strong>Lugar:</strong></h5>
+              <div style="width:600px; height:200px; background: #111;" class="evento-map"></div>
+            </div>
+
+            <div class="tab-pane active" id="asistentes">
+              <div class="col-sm-12">
+                <div class="col-sm-12">
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Introduce asistente" aria-describedby="sizing-addon1">
+                  </div>
+                </div>
+                <div class="col-sm-10 col-xs-10">
+                  <h5><strong>Nombre Apellidos</strong></h5>
+                  <h5><strong>DNI</strong></h5>
+                </div>
+                <div class="col-sm-2 col-xs-2">
+                  <button class="delete-button"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane active" id="ponentes">
+            </div>
+          </div>
+        </div>
+        <!-- inicio de evento -->  
+      </div>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

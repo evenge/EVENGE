@@ -151,11 +151,15 @@ code {
 }
 
 .event-content {
-  padding: 25px;
+  padding: 7px 25px 25px;
 }
 
 .event-content .titular-h1 {
   margin: 0;
-  padding: 0;
-  font-size: 30px;
+  padding: 0 0 0 15px;
+  font-size: 27px;
+}
+
+.event-content .tab-pane {
+  padding: 5px 0 0 0;
 }

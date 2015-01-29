@@ -18,6 +18,7 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from _oo.classes.evento import Evento
 import jinja2
 import webapp2
 
@@ -63,6 +64,14 @@ class Evenge(webapp2.RequestHandler):
 
     def hazElCuadrado(self, numero):
         return numero*numero
+      
+class MostrarEvento(webapp2.RequestHandler):
+    def get(self):
+        idEvento = self.request.get('id')
+        evento = Evento.GetEventoById(idEvento)
+        template_values = {'evento':evento}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
+        self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([
     ('/', Index),
@@ -71,7 +80,8 @@ application = webapp2.WSGIApplication([
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
     ('/iUsuario', InsertarUsuario),
-    ('/evenge', Evenge)
+    ('/evenge', Evenge),
+    ('/eventos*', MostrarEvento)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

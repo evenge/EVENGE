@@ -18,6 +18,9 @@ python:
   - "2.7"
 
 #Esto es para desplegar en App Engine
+notifications:
+   email: false
+   
 env:
   global:
     - GAE_DIR=/tmp/gae
@@ -45,12 +48,12 @@ before_script:
 
 #Ejecutamos el script
 script:
-  #- >
-  #  nosetests test.py
-  #  --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
-  #  --with-xunit --xunit-file=shippable/testresults/test.xml
-  #  --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
+  - >
+    nosetests test.py
+    --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
+    --with-xunit --xunit-file=shippable/testresults/test.xml
+    --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
 
 #Si se construye bien hacer esto
 after_success:
-    #- if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . ; else echo "No deployment for this $BRANCH"; fi
+    - if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . ; else echo "No deployment for this $BRANCH"; fi

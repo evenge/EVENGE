@@ -13,15 +13,22 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
-    padding-top: 70px;
-    font-family: verdana;
-    font-size: 12px;
-    background-color: #eee;
+  padding-top: 70px;
+  font-family: verdana;
+  font-size: 12px;
+  background-color: #eee;
+  margin-bottom: 60px;
 }
-/* navbar */
 
+/*********************************/
+/***** NavBar style **************/
+/*********************************/
 .navbar-default {
     height: 70px;
     padding: 10px;
@@ -56,27 +63,17 @@ body {
     margin: 6px;
     float: right;
 }
-/* fin navbar */
-/* Sticky footer styles
--------------------------------------------------- */
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
+/*********************************/
+/***** Sticky footer *************/
+/*********************************/
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    
     height: 20%;
     background-color: #f5f5f5;
 }
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
 body > .container {
     /*padding: 60px 15px 0;*/

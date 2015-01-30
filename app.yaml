@@ -1,6 +1,6 @@
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
-#Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+#Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
 #
 #This program is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
@@ -27,34 +27,34 @@ handlers:
   static_dir: _dt/img
 
 - url: /listarAsistentes
-  script: _oo.class.asistente.application
+  script: _oo.classes.asistente.application
 
 - url: /listarEventos
-  script: _oo.class.evento.application
+  script: _oo.classes.evento.application
 
 - url: /listarUsuarios
-  script: _oo.class.usuario.application
+  script: _oo.classes.usuario.application
 
 - url: /listarPonentes
-  script: _oo.class.ponente.application
+  script: _oo.classes.ponente.application
 
 - url: /listarOrganizaciones
-  script: _oo.class.organizacion.application
+  script: _oo.classes.organizacion.application
 
 - url: /asistente
-  script: _oo.class.asistente.application
+  script: _oo.classes.asistente.application
 
 - url: /organizacion
-  script: _oo.class.organizacion.application
+  script: _oo.classes.organizacion.application
 
 - url: /evento
-  script: _oo.class.evento.application
+  script: _oo.classes.evento.application
 
 - url: /usuario
-  script: _oo.class.usuario.application
+  script: _oo.classes.usuario.application
 
 - url: /ponente
-  script: _oo.class.ponente.application
+  script: _oo.classes.ponente.application
 
 - url: /.*
   script: index.application

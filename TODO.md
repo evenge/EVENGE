@@ -1,6 +1,7 @@
 
 /--------MILESTONE-> DOCUMENTACIÓN <-------------/  
 - Documentar con PyDoc las clases del modelo -> C
+    Enlace de interes.. [documentar en python.](http://mundogeek.net/archivos/2008/07/07/documentacion-en-python/)
 - Documentar la clase manejadora Index.py (solo lo necesario)  -> F
 - Documentar las plantillas con comentarios jinja  -> I
 - Documentar el archivo de despliegue  -> V

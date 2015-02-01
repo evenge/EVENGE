@@ -1,6 +1,6 @@
 
 /--------MILESTONE-> DOCUMENTACIÓN <-------------/  
-- Documentar con PyDoc las clases del modelo -> C  
+- ~~Documentar con PyDoc las clases del modelo -> C~~  
     Enlace de interes.. [documentar en python.](http://mundogeek.net/archivos/2008/07/07/documentacion-en-python/)  
     Ejemplo:
     ```python
@@ -21,7 +21,8 @@
     ```
 - Documentar la clase manejadora Index.py (solo lo necesario)  -> F
 - Documentar el archivo de despliegue  -> V
-- Documentar Docker  -> C
+- ~~Documentar Docker  -> C~~
+
 /--------MILESTONE-> HITO 4 <-------------/ 
 - NUEVO ISSUE-> PASAR ANTERIOR DOCUMENTACION A UN SOLO README.md -> F
 - NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y ISSUES EN TODOS LOS QUE SE HAYA PARTICIPADO HASTA AHORA -> *CADA UNO EL SUYO*

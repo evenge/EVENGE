@@ -41,7 +41,7 @@ NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y IS
  
 ------------------------------------
 
-###PROVISIONAMIENTO: 
+###PROVISIONAMIENTO: ~~CREA ISSUES IVAN~~
 - Hacer la documentacion del script y meterlo en la documentacion del hito 4 -> F
 - Cambiar algo del script -> C
 - Meterlo en la web dle proyecto -> V

@@ -94,24 +94,6 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:[Documentación](https://github.com/evenge/EVENGE/issues/153),
   [1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/139)
 
-### Victor Coronas:
-* Scripts de provisionamiento
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Tests:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de integración continua y PaaS:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de despliegue automático:
-  * Commits:
-  * Pull Request:
-  * Issues:
-
 ### Fran Expósito:
 * Scripts de provisionamiento
   * Commits:

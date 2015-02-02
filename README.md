@@ -49,7 +49,11 @@ Evenge dispone de las siguientes funcionalidades:
 - [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
 - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
 - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+<<<<<<< HEAD
 - [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md)
+=======
+- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md) 
+>>>>>>> 16750fde6711d4556c3a7a450ec467004ceba047
 
 ####Aportaciones de cada miembro:
 
@@ -78,7 +82,11 @@ Evenge dispone de las siguientes funcionalidades:
 
 
 * Tests:
+<<<<<<< HEAD
   * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519),
+=======
+  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519), 
+>>>>>>> 16750fde6711d4556c3a7a450ec467004ceba047
   * Issues:[1](https://github.com/evenge/EVENGE/issues/152), [2](https://github.com/evenge/EVENGE/issues/148),  [3](https://github.com/evenge/EVENGE/issues/139), [4](https://github.com/evenge/EVENGE/issues/147),
   [5](https://github.com/evenge/EVENGE/issues/150)
 
@@ -129,6 +137,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Commits:
   * Pull Request:
   * Issues:
+<<<<<<< HEAD
 
 ### Ivan Ortega:
 Link a todos los issues, en cada issue están todos los commits relacionados.
@@ -181,3 +190,5 @@ Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/E
   - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
   - [Testeo]()
   - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+=======
+>>>>>>> 16750fde6711d4556c3a7a450ec467004ceba047

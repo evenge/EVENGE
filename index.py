@@ -76,6 +76,11 @@ class Evenge(webapp2.RequestHandler):
         evt = evento
         evt.put()
         return True
+        
+    def testInsertarUsuario(self, usuario):
+        u = usuario
+        u.put()
+        return True
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):

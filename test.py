@@ -42,5 +42,16 @@ class EvengeTestCase(unittest.TestCase):
         response = evenge.testInsertarEvento(evento)
         self.assertEqual(response, True)
 
+    def testInsertarUsuario(self):
+        evenge = Evenge()
+        usuario = Usuario(
+            nombre = "Pepe",
+            apellidos = "Ortiz",
+            email = "pepe@gmail.com",
+            telefono = "680178921"
+        )
+        response = evenge.testInsertarUsuario(usuario)
+        self.assertEqual(response, True)
+        
 if __name__ == "__main__":
 	unittest.main()

@@ -69,7 +69,7 @@ También hemos hecho un Script que automatiza el proceso de instalación de Dock
 ####Explicación del script
 En primer lugar, se instala Docker y las dependencias necesarias:
 
-´´´
+```
 su -c 'apt-get update
 apt-get install -y docker.io
 source /etc/bash_completion.d/docker.io
@@ -82,7 +82,7 @@ sh -c "echo deb https://get.docker.com/ubuntu docker main\
 > /etc/apt/sources.list.d/docker.list"
 apt-get update
 apt-get install -y lxc-docker
-´´´
+```
 
 Tras esto nos descargamos la imagen producida con el Dockerfile y la ejecutamos:
 

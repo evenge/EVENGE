@@ -33,9 +33,7 @@ class Evento(ndb.Model):
     coordenadas = ndb.GeoPtProperty()
     descripcion = ndb.TextProperty()
     asistencia = ndb.BooleanProperty()
-    
+
     @classmethod
     def GetEventoById(self, idEvento):
-      return self.get_by_id(5629499534213120)
-  
-  
+      return self.get_by_id(idEvento)

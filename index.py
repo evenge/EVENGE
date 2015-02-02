@@ -72,7 +72,10 @@ class Evenge(webapp2.RequestHandler):
         query.delete
         return email
 
-
+    def testInsertarEvento(self, evento):
+        evt = evento
+        evt.put()
+        return True
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):

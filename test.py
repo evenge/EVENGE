@@ -2,6 +2,8 @@ import unittest
 from google.appengine.ext import db
 from google.appengine.ext import testbed
 from index import Evenge
+from _oo.classes.ponente import Ponente
+from _oo.classes.evento import Evento
 
 class EvengeTestCase(unittest.TestCase):
     def setUp(self):
@@ -27,6 +29,18 @@ class EvengeTestCase(unittest.TestCase):
         )
         response = evenge.testPonente(ponente)
 		self.assertEqual(response,'pepito@jemail.com')
-        
+
+    def testInsertarEvento(self):
+        evenge = Evenge()
+        evento = Evento(
+            evt.nombre = "Evento de prueba"
+            evt.tipo = 1
+            evt.privado = 1
+            evt.idCreador = "1"
+            evt.lugar = "Granada"
+        )
+        response = evenge.testInsertarEvento(evento)
+        self.assertEqual(response, True)
+
 if __name__ == "__main__":
 	unittest.main()

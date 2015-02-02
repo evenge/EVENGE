@@ -17,17 +17,18 @@ language: python
 python:
   - "2.7"
 
-#Esto es para desplegar en App Engine
+# Creamos las variables necesarias para poder desplegar en App Engine
+# Cancelamos las notificaciones temporalmente..
 notifications:
    email: false
-   
+
 env:
   global:
     - GAE_DIR=/tmp/gae
     - EMAIL=8macau8@gmail.com
     - secure: RACsb1T9/QPr32TxNHaQ5yqq/EyWXSFIKlmmh633cvxygeBt7UJoM674Pqkg2RfwHN4XJ+lrC8s4FDffixbK4OXKr7aW0lNjLNcdPM/1NgZC1mimNGG+UOB1sAMkLUO909V+pMHq53f5oYb+s3aHFukq9zG5+d7+yNZ89bb+lX4ujhFjxMTltT8OOuQvzFwRkOoTH7CdfJDUqeF+MABCuzOFq1ewU6j0QqTi4DtZP4ZNNMA/8b0935U2tOdFlbQ8Xx1ZTm6UFrMGEJGlfRJAOKls20mXiF3wudYSXEw69PztNyJ2vg+WL7oE6xUobJHXOLIReevDm7KrmEC8p7Re4w==
 
-#Instalarse la mágina virtual GAE
+# Descargamos y descropimimos en $GAE_DIR la máquina virtual de GAE
 before_install:
   - >
     test -e $GAE_DIR ||
@@ -35,18 +36,22 @@ before_install:
      wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.15.zip -q -O /tmp/gae.zip &&
      unzip /tmp/gae.zip -d $GAE_DIR)
 
-#Instalar requerimientos
+# Instalamos los requerimientos necesarios para el test
+# Éstos se encuentran en el archivo "requirements.txt"
 install:
    - pip install -r requirements.txt
 
-
+# Antes de ejecutar el script, establecemos la zona horaria
+# y creamos la carpeta testresults y codecoverage.
 before_script:
    - echo 'Europe/Madrid' | sudo tee /etc/timezone
    - sudo dpkg-reconfigure --frontend noninteractive tzdata
    - mkdir -p shippable/testresults
    - mkdir -p shippable/codecoverage
 
-#Ejecutamos el script
+#Ejecutamos el script en la máquina virtual GAE anteriormente instalada
+# y con las pruebas establecidas en el archivo test.py donde guardamos
+# en las carpetas anteriormente creadas un log.
 script:
   - >
     nosetests test.py
@@ -54,6 +59,8 @@ script:
     --with-xunit --xunit-file=shippable/testresults/test.xml
     --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
 
-#Si se construye bien hacer esto
+# Si pasa todos los test establecidos y consigue construirse realizamos lo siguiente.
+# Si la rama de github es la "master", entonces gracias a la autenticación oauth2 de Google
+# desplegamos el contenido de la rama en Google App Engine automáticamente.
 after_success:
     - if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . ; else echo "No deployment for this $BRANCH"; fi

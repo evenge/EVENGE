@@ -42,27 +42,27 @@ NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y IS
 ------------------------------------
 
 ###PROVISIONAMIENTO: ~~CREA ISSUES IVAN~~
-- Hacer la documentacion del script y meterlo en la documentacion del hito 4 -> F
-- Cambiar algo del script -> C
-- Meterlo en la web dle proyecto -> V
+- [ ] Hacer la documentacion del script y meterlo en la documentacion del hito 4 -> F
+- [ ] Cambiar algo del script -> C
+- [ ] Meterlo en la web dle proyecto -> V
 
 ------------------------------------------
 
-###TEST: CREA ISSUES FRAN
-- Cambiar la funcion del testeo por algo con sentido -> C
-- Hacer la documentacion de dicha funcion y del Hito 4 -> I
-- Hacer la web del testeo -> V
+###TEST: ~~CREA ISSUES FRAN~~
+- [ ] Cambiar la funcion del testeo por algo con sentido -> I,C,F
+- [ ] Hacer la documentacion de dicha funcion y del Hito 4 -> C
+- [ ] Hacer la web del testeo -> V
 
 ----------------------------
 
-###INTEGRACIÓN CONTINUA: CREA ISSUES CARLOS
-- Documentación del Script del Sniphable -> I
-- Describir el proceso del Sniphable en el hito 4 respecto a la Integración continua -> C
-- Descomentar las lineas comentadas del snipphable -> V
+###INTEGRACIÓN CONTINUA: ~~CREA ISSUES CARLOS~~
+- [ ] Documentación del Script del Sniphable -> C
+- [X] Describir el proceso del Sniphable en el hito 4 respecto a la Integración continua -> I
+- [ ] Descomentar las lineas comentadas del snipphable -> V
 
 --------------------------
 
 ### DESPLIEGUE: ~~CREA ISSUES VICTOR~~
-- Buscar información de como podría configurarse el Sniphable para Azure o otra máquina -> I
-- Describir el método de despliegue que sigue snipable -> C
-- Describir como despliega el SDK si no tuviese Sniphable -> V
+- [ ] Buscar información de como podría configurarse el Sniphable para Azure o otra máquina -> I
+- [ ] Describir el método de despliegue que sigue snipable -> C
+- [ ] Describir como despliega el SDK si no tuviese Sniphable -> V

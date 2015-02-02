@@ -52,6 +52,6 @@ class EvengeTestCase(unittest.TestCase):
         )
         response = evenge.testInsertarUsuario(usuario)
         self.assertEqual(response, True)
-        
+         
 if __name__ == "__main__":
 	unittest.main()

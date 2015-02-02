@@ -50,6 +50,8 @@ Evenge dispone de las siguientes funcionalidades:
 - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
 - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
 
+####Aportaciones de cada miembro:
+
 ## Carlos Campos:
 * Scripts de provisionamiento
   * Commits:

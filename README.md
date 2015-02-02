@@ -101,10 +101,12 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:
 
 ### Ivan Ortega:
-
+Link a todos los issues, en cada issue están todos los commits relacionados.
+Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui.
+Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/EVENGE/commits?author=ivanortegaalba
 #### PROVISIONAMIENTO y PaaS:
   * Aportación al Dockerfile:
-    * https://github.com/evenge/EVENGE/issues/70
+    * https://github.com/evenge/EVENGE/issues/
   * Aportación al Script de instalación de Dockerfile y todo lo necesario para descargar la imagen de DockerHub:
     * https://github.com/evenge/EVENGE/issues/70
   * Aportaciones Funcionales a la Aplicación:

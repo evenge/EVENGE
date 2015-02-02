@@ -80,7 +80,13 @@ Evenge dispone de las siguientes funcionalidades:
 * Tests:
   * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519),
   * Issues:[1](https://github.com/evenge/EVENGE/issues/152), [2](https://github.com/evenge/EVENGE/issues/148),  [3](https://github.com/evenge/EVENGE/issues/139), [4](https://github.com/evenge/EVENGE/issues/147),
-  [5](https://github.com/evenge/EVENGE/issues/150)
+  [5](https://github.com/evenge/EVENGE/issues/7),
+  [6](https://github.com/evenge/EVENGE/issues/150),
+  [7](https://github.com/evenge/EVENGE/issues/6),
+  [8](https://github.com/evenge/EVENGE/issues/18),
+  [9](https://github.com/evenge/EVENGE/issues/32),
+  [10](https://github.com/evenge/EVENGE/issues/40),
+  [11](https://github.com/evenge/EVENGE/issues/43)
 
 
 * Configuración de integración continua y PaaS:

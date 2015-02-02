@@ -105,10 +105,8 @@ Evenge dispone de las siguientes funcionalidades:
 #### PROVISIONAMIENTO y PaaS:
   * Aportación al Dockerfile:
     * https://github.com/evenge/EVENGE/issues/70
-
   * Aportación al Script de instalación de Dockerfile y todo lo necesario para descargar la imagen de DockerHub:
     * https://github.com/evenge/EVENGE/issues/70
-
   * Aportaciones Funcionales a la Aplicación:
     * Añadido estilo al formulario Usuario y añadida la barra de menu
       * https://github.com/evenge/EVENGE/commit/91fcd617f4dd2a8f27792fed6a4e4f127486558a

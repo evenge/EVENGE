@@ -56,6 +56,9 @@ handlers:
 - url: /ponente
   script: _oo.classes.ponente.application
 
+- url: /informes
+  script: index.application
+
 - url: /.*
   script: index.application
 

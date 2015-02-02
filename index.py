@@ -25,7 +25,7 @@ import webapp2
 class Index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/index.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
 class InsertarAsistente(webapp2.RequestHandler):
@@ -73,6 +73,12 @@ class MostrarEvento(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 
+class MostrarInforme(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
+        self.response.write(template.render(template_values))
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -81,7 +87,8 @@ application = webapp2.WSGIApplication([
     ('/iPonente', InsertarPonente),
     ('/iUsuario', InsertarUsuario),
     ('/evenge', Evenge),
-    ('/eventos*', MostrarEvento)
+    ('/eventos*', MostrarEvento),
+    ('/informes', MostrarInforme)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

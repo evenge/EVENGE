@@ -26,3 +26,30 @@
 /--------MILESTONE-> HITO 4 <-------------/ 
 - NUEVO ISSUE-> PASAR ANTERIOR DOCUMENTACION A UN SOLO README.md -> F
 - NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y ISSUES EN TODOS LOS QUE SE HAYA PARTICIPADO HASTA AHORA -> *CADA UNO EL SUYO*
+
+## PROPUESTA PARA EL HITO 4
+###PROVISIONAMIENTO:
+- Hacer la documentacion del script y meterlo en la documentacion del hito 4
+- Cambiar algo del script
+- Meterlo en la web dle proyecto
+
+------------------------------------------
+
+###TEST:
+- Cambiar la funcion del testeo por algo con sentido
+- Hacer la documentacion de dicha funcion y del Hito 4
+- Hacer la web del testeo
+
+----------------------------
+
+###INTEGRACIÓN CONTINUA:
+- Documentación del Script del Sniphable
+- Describir el proceso del Sniphable en el hito 4 respecto a la Integración continua
+- Descomentar las lineas comentadas del snipphable
+
+--------------------------
+
+### DESPLIEGUE:
+- Buscar información de como podría configurarse el Sniphable para Azure o otra máquina
+- Describir el método de despliegue que sigue snipable
+- Describir como despliega el SDK si no tuviese Sniphable

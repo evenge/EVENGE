@@ -62,7 +62,7 @@ NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y IS
 
 --------------------------
 
-### DESPLIEGUE: CREA ISSUES VICTOR
+### DESPLIEGUE: ~~CREA ISSUES VICTOR~~
 - Buscar información de como podría configurarse el Sniphable para Azure o otra máquina -> I
 - Describir el método de despliegue que sigue snipable -> C
 - Describir como despliega el SDK si no tuviese Sniphable -> V

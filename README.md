@@ -119,6 +119,8 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:
 
 ### Fran Expósito:
+Link a todos los issues, en cada issue están todos los commits relacionados. Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui. Enlace a toda la historia de commits de [Fran Expósito](https://github.com/evenge/EVENGE/commits?author=franexposito).  
+
 ###Provisionamiento y PaaS
 * Documentación de Dockerfile.
   * [#142](https://github.com/evenge/EVENGE/issues/142)

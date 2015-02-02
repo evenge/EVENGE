@@ -101,8 +101,8 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:
 
 ### Ivan Ortega:
-* PROVISIONAMIENTO y PaaS:
 
+#### PROVISIONAMIENTO y PaaS:
   * Aportación al Dockerfile:
     * https://github.com/evenge/EVENGE/issues/70
 
@@ -110,15 +110,12 @@ Evenge dispone de las siguientes funcionalidades:
     * https://github.com/evenge/EVENGE/issues/70
 
   * Aportaciones Funcionales a la Aplicación:
-
     * Añadido estilo al formulario Usuario y añadida la barra de menu
       * https://github.com/evenge/EVENGE/commit/91fcd617f4dd2a8f27792fed6a4e4f127486558a
-
     * Plantillas con Jinja y herencia entre ellas generica, asistente y corrige bug:
       * https://github.com/evenge/EVENGE/issues/35
       * https://github.com/evenge/EVENGE/issues/36
       * https://github.com/evenge/EVENGE/issues/37
-
     * Listar todos los eventos:
       * https://github.com/evenge/EVENGE/issues/38
     * Añadir la biblioteca Fontawesome de iconos
@@ -133,16 +130,17 @@ Evenge dispone de las siguientes funcionalidades:
       * https://github.com/evenge/EVENGE/issues/89
       * https://github.com/evenge/EVENGE/issues/106
 
-* Integración continua:
+#### Integración continua:
   * Configuración y explicación del papel de Shippable para la CI
     * https://github.com/evenge/EVENGE/issues/146
 
-* Test:
+#### Test:
   * Test para la inserción de usuarios con NoseGAE
     * https://github.com/evenge/EVENGE/issues/161
   * Funcionamiento de NoseGAE junto a Shippable:
     * https://github.com/evenge/EVENGE/issues/163
-* Despliegue:
+
+#### Despliegue:
   * Configuración de Shippable para despliegue con push en rama master.
     * https://github.com/evenge/EVENGE/issues/146
 

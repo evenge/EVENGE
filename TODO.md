@@ -20,7 +20,7 @@
         return a + b 
     ```
 - Documentar la clase manejadora Index.py (solo lo necesario)  -> F
-- Documentar el archivo de despliegue  -> V
+- ~~Documentar el archivo de despliegue  -> V~~
 - ~~Documentar Docker  -> C~~
 
 /--------MILESTONE-> HITO 4 <-------------/ 

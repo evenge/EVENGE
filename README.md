@@ -14,8 +14,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-#EVENGE
-######Gestor de eventos
+# EVENGE
+###### Gestor de eventos
 
 **Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
 
@@ -28,7 +28,7 @@ Evenge dispone de las siguientes funcionalidades:
 * Registro del número de personas que han asistido
 * Generación de informes sobre los eventos: lugar, asistencia.
 
-####Desarrolladores:
+#### Desarrolladores:
 
 * [Carlos Campos Fuentes](http://github.com/ccamposfuentes)
 * [Iván Ortega Alba](http://github.com/ivanortegaalba)
@@ -44,15 +44,9 @@ Evenge dispone de las siguientes funcionalidades:
 
 -------------------------
 
-####Documentación:
+## Aportaciones de cada miembro:
 
-- [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
-- [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
-- [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
-
-####Aportaciones de cada miembro:
-
-## Carlos Campos:
+### Carlos Campos:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -70,7 +64,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Pull Request:
   * Issues:
 
-## Victor Coronas:
+### Victor Coronas:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -88,7 +82,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Pull Request:
   * Issues:
 
-## Fran Expósito:
+### Fran Expósito:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -106,7 +100,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Pull Request:
   * Issues:
 
-## Ivan Ortega:
+### Ivan Ortega:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -124,3 +118,10 @@ Evenge dispone de las siguientes funcionalidades:
   * Pull Request:
   * Issues:
 
+# Documentación:
+
+  - [Provisionamiento](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
+  - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
+  - [Testeo]()
+  - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+  

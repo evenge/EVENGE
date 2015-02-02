@@ -46,23 +46,53 @@ Evenge dispone de las siguientes funcionalidades:
 
 ## Aportaciones de cada miembro:
 
-### Carlos Campos:
+- [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
+- [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
+- [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md)
+
+####Aportaciones de cada miembro:
+
+## Carlos Campos:
 * Scripts de provisionamiento
-  * Commits:
-  * Pull Request:
-  * Issues:
+  * Commits: [fc552a28a210b849253e7b91e56feedb2f1d6308](https://github.com/evenge/EVENGE/commit/fc552a28a210b849253e7b91e56feedb2f1d6308)
+  * Pull Request: [#154](https://github.com/evenge/EVENGE/pull/154)
+  * Issues: [#143](https://github.com/evenge/EVENGE/issues/143)
 * Tests:
-  * Commits:
-  * Pull Request:
-  * Issues:
+  * Commits: [b9daa61139cedd10d16543a8f00aed66f3f3295c](https://github.com/evenge/EVENGE/commit/b9daa61139cedd10d16543a8f00aed66f3f3295c), [2e75aa52f71454582a1887cd42ab251de261c002](http://github.com/evenge/EVENGE/commit/2e75aa52f71454582a1887cd42ab251de261c002)
+  * Pull Request: [#157]( https://github.com/evenge/EVENGE/pull/157)
+  * Issues: [#145](https://github.com/evenge/EVENGE/issues/145), [#17](https://github.com/evenge/EVENGE/issues/17), [#165](https://github.com/evenge/EVENGE/issues/165), [#36](https://github.com/evenge/EVENGE/issues/36), [#51](https://github.com/evenge/EVENGE/issues/51), [#34](https://github.com/evenge/EVENGE/issues/34), [#61](https://github.com/evenge/EVENGE/issues/61), [#27](https://github.com/evenge/EVENGE/issues/27), [#85](https://github.com/evenge/EVENGE/issues/85), [#86](https://github.com/evenge/EVENGE/issues/86), [#83](https://github.com/evenge/EVENGE/issues/83), [#107](https://github.com/evenge/EVENGE/issues/107),
 * Configuración de integración continua y PaaS:
-  * Commits:
-  * Pull Request:
-  * Issues:
+  * Commits: [750380ea1f48d3a42fa522498fe5f6dc06aca049](https://github.com/evenge/EVENGE/commit/750380ea1f48d3a42fa522498fe5f6dc06aca049), [9f6ef41663034f0b80b62064971131a184666600](https://github.com/evenge/EVENGE/commit/9f6ef41663034f0b80b62064971131a184666600), [0153a045ad3c50515b61872ae8674a2ba7e36ccc](https://github.com/evenge/EVENGE/commit/0153a045ad3c50515b61872ae8674a2ba7e36ccc), [ef818b2e930cc9955ddfac9a239d1031394a5ccd](https://github.com/evenge/EVENGE/commit/ef818b2e930cc9955ddfac9a239d1031394a5ccd), [962510c7aa861655880c76b9cbf1ec410b204cdb](https://github.com/evenge/EVENGE/commit/962510c7aa861655880c76b9cbf1ec410b204cdb)
+  * Pull Request:  [#138](https://github.com/evenge/EVENGE/pull/138), [#113](https://github.com/evenge/EVENGE/pull/113)
+  * Issues: [#133](https://github.com/evenge/EVENGE/issues/133), [#107](https://github.com/evenge/EVENGE/issues/107)
 * Configuración de despliegue automático:
-  * Commits:
-  * Pull Request:
-  * Issues:
+  * Commits: [fc552a28a210b849253e7b91e56feedb2f1d6308](https://github.com/evenge/EVENGE/commit/fc552a28a210b849253e7b91e56feedb2f1d6308)
+  * Pull Request: [#154](https://github.com/evenge/EVENGE/pull/154)
+  * Issues: [#143](https://github.com/evenge/EVENGE/issues/143)
+
+## Victor Coronas:
+* Scripts de provisionamiento:
+  * Commits: [wiki](https://github.com/evenge/EVENGE/wiki/Desplegar-el-entorno-de-desarrollo/a223122130b773bc628729e84c52f0595665d6a8), [Post](https://github.com/evenge/evenge.github.io/commit/303912c6d803540fb8b4f9017570d8a4e80f5f36#diff-1d0c6a774c173c2999a04ee7b5b6feeb)
+  * Issues:[1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/144), [3](https://github.com/evenge/EVENGE/issues/139)
+
+
+* Tests:
+  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519),
+  * Issues:[1](https://github.com/evenge/EVENGE/issues/152), [2](https://github.com/evenge/EVENGE/issues/148),  [3](https://github.com/evenge/EVENGE/issues/139), [4](https://github.com/evenge/EVENGE/issues/147),
+  [5](https://github.com/evenge/EVENGE/issues/150)
+
+
+* Configuración de integración continua y PaaS:
+  * Commits:[Post](https://github.com/evenge/evenge.github.io/commit/26791ced937512d3bb8d0b6d66732732f28a6e97#diff-4ceb80bbb705d7bbd146456089946507),[Wiki](https://github.com/evenge/EVENGE/wiki/Test-unitarios/1688149ce31c06103cef42c4a73a338d99f5e633)
+  * Issues:[1](https://github.com/evenge/EVENGE/issues/151), [2](https://github.com/evenge/EVENGE/issues/148), [3](https://github.com/evenge/EVENGE/issues/139)
+
+
+* Configuración de despliegue automático:
+  * Commits: [Documentación](https://github.com/evenge/EVENGE/commit/401874a0e0e4244268e7a9a94ea94af93ef2651c#diff-5377c2487afc76788f872d39d21d3987),
+[Post](https://github.com/evenge/evenge.github.io/commit/77e116bc946ff4ed27e7e35fd79a255ba06a3b2f#diff-feae184406671d7c9e74ea16ede72fce)
+  * Issues:[Documentación](https://github.com/evenge/EVENGE/issues/153),
+  [1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/139)
 
 ### Victor Coronas:
 * Scripts de provisionamiento

@@ -64,7 +64,7 @@ class Evenge(webapp2.RequestHandler):
 
     def hazElCuadrado(self, numero):
         return numero*numero
-      
+
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
         idEvento = self.request.get('id')

@@ -65,6 +65,15 @@ class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
         return numero*numero
 
+    def testPonente(self, ponente):
+        ponente.put()
+        query = Ponente.query(Ponente.email == 'pepito@jemail.com')
+        email = query.email
+        query.delete
+        return email
+
+
+
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
         idEvento = self.request.get('id')

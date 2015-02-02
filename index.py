@@ -79,6 +79,12 @@ class MostrarInforme(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
+class MiCuenta(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
+        self.response.write(template.render(template_values))
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -88,7 +94,8 @@ application = webapp2.WSGIApplication([
     ('/iUsuario', InsertarUsuario),
     ('/evenge', Evenge),
     ('/eventos*', MostrarEvento),
-    ('/informes', MostrarInforme)
+    ('/informes', MostrarInforme),
+    ('/mi-cuenta', MiCuenta)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

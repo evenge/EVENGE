@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
@@ -51,7 +52,7 @@ class ListarUsuarios(webapp2.RequestHandler):
         for usuario in result:
             usuarios.append(usuario)
         template_values = {'usuarios':usuarios}
-        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarUsuarios.html')
+        template = JINJA_ENVIRONMENT.get_template('/templates/templateUser.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([

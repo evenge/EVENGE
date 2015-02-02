@@ -119,22 +119,38 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:
 
 ### Fran Expósito:
-* Scripts de provisionamiento
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Tests:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de integración continua y PaaS:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de despliegue automático:
-  * Commits:
-  * Pull Request:
-  * Issues:
+###Provisionamiento y PaaS
+* Documentación de Dockerfile.
+* [https://github.com/evenge/EVENGE/issues/142](https://github.com/evenge/EVENGE/issues/142)
+* Aportaciones funcionales a la aplicación
+* Añadida platilla Asistente
+* [https://github.com/evenge/EVENGE/issues/54](https://github.com/evenge/EVENGE/issues/54)
+* Añadido botón asistente para diploma
+* [https://github.com/evenge/EVENGE/issues/88](https://github.com/evenge/EVENGE/issues/88)
+* Vista de Mi Cuenta
+* [https://github.com/evenge/EVENGE/issues/108](https://github.com/evenge/EVENGE/issues/108)
+* Vista de Evento detallado
+* [https://github.com/evenge/EVENGE/issues/94](https://github.com/evenge/EVENGE/issues/94)
+* Test de inserción de evento
+* [https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5](https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5)
+
+###Integración continua:
+* Integración continua con Shippable
+* [https://github.com/evenge/EVENGE/issues/71](https://github.com/evenge/EVENGE/issues/71)
+
+###Test
+* Test e integración continua con Shippable
+* [https://github.com/evenge/EVENGE/issues/71](https://github.com/evenge/EVENGE/issues/71)
+* Test de inserción de evento
+* [https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5](https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5)
+
+###Despliegue
+* Despliegue automático con Shippable
+* [https://github.com/evenge/EVENGE/issues/71](https://github.com/evenge/EVENGE/issues/71)
+
+###Otros
+* Configuración de app.yaml para guardar en Datastore
+* [https://github.com/evenge/EVENGE/issues/21](https://github.com/evenge/EVENGE/issues/21)
 
 ### Ivan Ortega:
 Link a todos los issues, en cada issue están todos los commits relacionados.

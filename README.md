@@ -49,6 +49,7 @@ Evenge dispone de las siguientes funcionalidades:
 - [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
 - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
 - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md) 
 
 ####Aportaciones de cada miembro:
 

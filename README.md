@@ -14,8 +14,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-#EVENGE
-######Gestor de eventos
+# EVENGE
+###### Gestor de eventos
 
 **Evenge** es un sistema de **gestión automática de eventos** con inclusión en diferentes blog (Wordpress, Blogspot), correo electrónico y redes sociales.  
 
@@ -28,7 +28,7 @@ Evenge dispone de las siguientes funcionalidades:
 * Registro del número de personas que han asistido
 * Generación de informes sobre los eventos: lugar, asistencia.
 
-####Desarrolladores:
+#### Desarrolladores:
 
 * [Carlos Campos Fuentes](http://github.com/ccamposfuentes)
 * [Iván Ortega Alba](http://github.com/ivanortegaalba)
@@ -44,14 +44,14 @@ Evenge dispone de las siguientes funcionalidades:
 
 -------------------------
 
-####Documentación:
+## Aportaciones de cada miembro:
 
 - [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
 - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
 - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
-- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md) 
+- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md)
 
-####Aportaciones de cada miembro:
+#### Aportaciones de cada miembro:
 
 ## Carlos Campos:
 * Scripts de provisionamiento
@@ -78,7 +78,7 @@ Evenge dispone de las siguientes funcionalidades:
 
 
 * Tests:
-  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519), 
+  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519),
   * Issues:[1](https://github.com/evenge/EVENGE/issues/152), [2](https://github.com/evenge/EVENGE/issues/148),  [3](https://github.com/evenge/EVENGE/issues/139), [4](https://github.com/evenge/EVENGE/issues/147),
   [5](https://github.com/evenge/EVENGE/issues/150)
 
@@ -94,7 +94,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:[Documentación](https://github.com/evenge/EVENGE/issues/153),
   [1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/139)
 
-## Fran Expósito:
+### Victor Coronas:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -112,7 +112,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Pull Request:
   * Issues:
 
-## Ivan Ortega:
+### Fran Expósito:
 * Scripts de provisionamiento
   * Commits:
   * Pull Request:
@@ -129,3 +129,55 @@ Evenge dispone de las siguientes funcionalidades:
   * Commits:
   * Pull Request:
   * Issues:
+
+### Ivan Ortega:
+Link a todos los issues, en cada issue están todos los commits relacionados.
+Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui.
+Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/EVENGE/commits?author=ivanortegaalba
+#### PROVISIONAMIENTO y PaaS:
+  * Aportación al Dockerfile:
+    * https://github.com/evenge/EVENGE/issues/70
+    * https://github.com/evenge/EVENGE/issues/
+  * Aportación al Script de instalación de Dockerfile y todo lo necesario para descargar la imagen de DockerHub:
+    * https://github.com/evenge/EVENGE/issues/70
+  * Aportaciones Funcionales a la Aplicación:
+    * Añadido estilo al formulario Usuario y añadida la barra de menu
+      * https://github.com/evenge/EVENGE/commit/91fcd617f4dd2a8f27792fed6a4e4f127486558a
+    * Plantillas con Jinja y herencia entre ellas generica, asistente y corrige bug:
+      * https://github.com/evenge/EVENGE/issues/35
+      * https://github.com/evenge/EVENGE/issues/36
+      * https://github.com/evenge/EVENGE/issues/37
+    * Listar todos los eventos:
+      * https://github.com/evenge/EVENGE/issues/38
+    * Añadir la biblioteca Fontawesome de iconos
+      * https://github.com/evenge/EVENGE/issues/95
+    * Arreglo de bug en vista:
+      * https://github.com/evenge/EVENGE/issues/93
+    * Añadido el footer a la plantilla esqueleto (Con gif de celebración incuido):
+      * https://github.com/evenge/EVENGE/issues/87
+    * Añadido navegador:
+      * https://github.com/evenge/EVENGE/issues/92
+    * Añadida plantilla para usuario:
+      * https://github.com/evenge/EVENGE/issues/89
+      * https://github.com/evenge/EVENGE/issues/106
+
+#### Integración continua:
+  * Configuración y explicación del papel de Shippable para la CI
+    * https://github.com/evenge/EVENGE/issues/146
+
+#### Test:
+  * Test para la inserción de usuarios con NoseGAE
+    * https://github.com/evenge/EVENGE/issues/161
+  * Funcionamiento de NoseGAE junto a Shippable:
+    * https://github.com/evenge/EVENGE/issues/163
+
+#### Despliegue:
+  * Configuración de Shippable para despliegue con push en rama master.
+    * https://github.com/evenge/EVENGE/issues/146
+
+# Documentación:
+
+  - [Provisionamiento](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
+  - [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
+  - [Testeo]()
+  - [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)

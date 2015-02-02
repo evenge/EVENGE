@@ -49,7 +49,7 @@ NUEVOS ISSUE: UNO POR COMPAÑERO -> AÑADIR ENLACES A COMMITS, PULL REQUEST Y IS
 ------------------------------------------
 
 ###TEST: ~~CREA ISSUES FRAN~~
-- [ ] Cambiar la funcion del testeo por algo con sentido -> I
+- [ ] Cambiar la funcion del testeo por algo con sentido -> I,C,F
 - [ ] Hacer la documentacion de dicha funcion y del Hito 4 -> C
 - [ ] Hacer la web del testeo -> V
 

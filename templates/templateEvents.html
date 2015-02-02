@@ -1,7 +1,7 @@
 <!--
 Evenge - gestor de eventos (events management)
 Copyright (C) 2014 - desarrollo.evenge@gmail.com
-Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,36 +17,44 @@ GNU General Public License for more details.
 {% extends "templates/index.html" %}
 
 {# tittle: titulo de la página #}
-{% block title %}Eventos{% endblock %}
+{% block title %}{{ evento.nombre }}{% endblock %}
 
 {# contenido central de la página #}
 {% block content %}
-
-      <div class="event-content col-sm-12">
-        <h1>{{ evento.nombre }}</h1>
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
-          <li role="presentation" ><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
-          <li role="presentation" ><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
-        </ul>
-
+      <div class="row">
+        <div class="menu-content col-sm-3 col-md-2">
+          <div class="menu">
+            <ul class="nav menu-nav">
+              <li class="titulo-menu"><a href="">Mis Eventos (5)</a></li>
+              <li role="presentation" class="titulo-menu active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-plus"></i> Nuevo Evento</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-cogs"></i> Modificar Evento</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-times"></i> Borrar Evento</a></li>
+              <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes (100)</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-file-pdf-o"></i> Generar Diplomas</a></li>
+              <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#ponentes">Ponentes (4)</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
+              <li class="option-menu"><a href=""><i class="fa fa-trash"></i> Eliminar Ponentes</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
+        <h1 class="titular-h1">{{ evento.nombre }}</h1>
       <div class="tab-content">
         
         <div class="tab-pane active" id="descripcion">
-          {% if descripcion %}
-          <div class="col-sm-11 col-xs-11">
-            <h5>{{ evento.tipo }}</h5>
-            <h5>{{ evento.organizador }}</h5>
-            <h5>{{ evento.fecha }}</h5>
-            <h5>{{ evento.hora }}</h5>
-            <h5>{{ evento.descripcion }}</h5>
-            <h5>{{ evento.lugar }}</h5>
+          <div class="descripcion-pane col-sm-11 col-xs-11">
+            <h5>Organizador: <strong>{{ evento.organizador }}</strong></h5>
+            <h5>Fecha: <strong>{{ evento.fecha }}</strong></h5>
+            <h5>Hora: <strong>{{ evento.hora }}</strong></h5>
+            <h5>Descripción: <strong>{{ evento.descripcion }}</strong></h5>
+            <h5>Lugar: <strong>{{ evento.lugar }}</strong></h5>
             <div style="width:600px; height:200px; background: #111;" class="evento-map"></div>
           </div>
           <div class="col-sm-1 col-xs-1">
             <button data-id="{{ evento.id }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>
           </div>
-          {% endif %}
         </div>
 
         <div class="tab-pane" id="asistentes">
@@ -139,6 +147,7 @@ GNU General Public License for more details.
         </div>
         
       </div>
+      </div>
         
-    </div>  
+    </div>
 {% endblock %}

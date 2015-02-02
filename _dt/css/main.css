@@ -13,15 +13,22 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
-    padding-top: 80px;
-    font-family: verdana;
-    font-size: 12px;
-    background-color: #eee;
+  padding-top: 70px;
+  font-family: verdana;
+  font-size: 12px;
+  background-color: #eee;
+  margin-bottom: 60px;
 }
-/* navbar */
 
+/*********************************/
+/***** NavBar style **************/
+/*********************************/
 .navbar-default {
     height: 70px;
     padding: 10px;
@@ -56,42 +63,28 @@ body {
     margin: 6px;
     float: right;
 }
-/* fin navbar */
-/* Sticky footer styles
--------------------------------------------------- */
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    /* Margin bottom by footer height */
-    
-    margin-bottom: 60px;
-}
-
+/*********************************/
+/***** Sticky footer *************/
+/*********************************/
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    
     height: 20%;
     background-color: #f5f5f5;
 }
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
 body > .container {
-    padding: 60px 15px 0;
+    /*padding: 60px 15px 0;*/
+  padding: 0;
+  margin: 0;
 }
 
 .container .text-muted {
     margin: 20px 0;
 }
-
+ 
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -100,6 +93,7 @@ body > .container {
 code {
     font-size: 80%;
 }
+
 #cabecera-tabla-ponentes {
     background-color:#C11F23;
     color:white;
@@ -107,4 +101,65 @@ code {
 
 #body-tabla-ponentes {
     background-color: #fff;
+}
+
+/*************************************************/
+/*********** templateEvents estilos **************/
+/*************************************************/
+.menu-content {
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; 
+  background-color: white;
+}
+
+.menu-content .menu .menu-nav {
+  margin-right: -21px; 
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+
+.menu-content .menu .menu-nav li > a {
+  background: none;
+  padding: 5px 0 5px 15px;
+  font-size: 14px;
+  
+}
+
+.menu-content .menu .menu-nav .titulo-menu > a {
+  color: #C11F23;
+  font-weight: bold;
+}
+
+.menu-content .menu .menu-nav .option-menu > a {
+  color: #959598;
+}
+
+.menu-content .menu .menu-nav .option-menu > a:hover,
+.menu-content .menu .menu-nav .option-menu > a:focus {
+  color: #3b3b3c;
+}
+
+.menu-content .menu .menu-nav .active > a {
+  background: #f5f5f5;
+}
+
+.event-content {
+  padding: 7px 25px 25px;
+}
+
+.event-content .titular-h1 {
+  margin: 0;
+  padding: 0 0 0 15px;
+  font-size: 27px;
+}
+
+.event-content .tab-pane {
+  padding: 5px 0 0 0;
 }

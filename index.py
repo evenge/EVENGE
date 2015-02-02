@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
-#Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+#Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
 #
 #This program is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
@@ -18,13 +18,14 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from _oo.classes.evento import Evento
 import jinja2
 import webapp2
 
 class Index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/index.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
 class InsertarAsistente(webapp2.RequestHandler):
@@ -64,6 +65,26 @@ class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
         return numero*numero
 
+class MostrarEvento(webapp2.RequestHandler):
+    def get(self):
+        idEvento = self.request.get('id')
+        evento = Evento.GetEventoById(idEvento)
+        template_values = {'evento':evento}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
+        self.response.write(template.render(template_values))
+
+class MostrarInforme(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
+        self.response.write(template.render(template_values))
+
+class MiCuenta(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
+        self.response.write(template.render(template_values))
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -71,7 +92,10 @@ application = webapp2.WSGIApplication([
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
     ('/iUsuario', InsertarUsuario),
-    ('/evenge', Evenge)
+    ('/evenge', Evenge),
+    ('/eventos*', MostrarEvento),
+    ('/informes', MostrarInforme),
+    ('/mi-cuenta', MiCuenta)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

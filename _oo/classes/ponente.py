@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
@@ -50,7 +51,7 @@ class ListarPonentes(webapp2.RequestHandler):
         for ponente in result:
             ponentes.append(ponente)
         template_values = {'ponentes':ponentes}
-        template = JINJA_ENVIRONMENT.get_template('/templates/mostrarPonentes.html')
+        template = JINJA_ENVIRONMENT.get_template('/templates/templatePonentes.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([

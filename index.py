@@ -25,7 +25,7 @@ import webapp2
 class Index(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/index.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
 class InsertarAsistente(webapp2.RequestHandler):
@@ -64,13 +64,25 @@ class Evenge(webapp2.RequestHandler):
 
     def hazElCuadrado(self, numero):
         return numero*numero
-      
+
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
         idEvento = self.request.get('id')
         evento = Evento.GetEventoById(idEvento)
         template_values = {'evento':evento}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
+        self.response.write(template.render(template_values))
+
+class MostrarInforme(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
+        self.response.write(template.render(template_values))
+
+class MiCuenta(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([
@@ -81,7 +93,9 @@ application = webapp2.WSGIApplication([
     ('/iPonente', InsertarPonente),
     ('/iUsuario', InsertarUsuario),
     ('/evenge', Evenge),
-    ('/eventos*', MostrarEvento)
+    ('/eventos*', MostrarEvento),
+    ('/informes', MostrarInforme),
+    ('/mi-cuenta', MiCuenta)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

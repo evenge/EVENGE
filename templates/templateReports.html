@@ -21,45 +21,44 @@ GNU General Public License for more details.
 
 {# contenido central de la página #}
 {% block content %}
-
-            <!--informes -->
-            <div class="report-content col-md-12">
-            <h1>Informes</h1>  
-                 <!--botones -->
-                <div class="select-report col-sm-12">
-                    <div class="genera-report col-md-3 col-xs-3 ">
-                         <h2>Generar por:</h2>
-                    </div>
-                    <div class="month-report col-md-3 col-xs-3">
-                         <h2>Por mes:</h2>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                    </div>
-                    <div class="year-report col-md-3 col-xs-3">
-                         <h2>Por año:</h2>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                    </div>
-                    <div class="export-report col-md-3 col-xs-3 ">
-                          <button type="button" class="btn"><i class="fa fa-hdd-o"></i> Exportar</button>
-                    </div>
-                <!--/botones -->
-                 <!--graficas -->
-                <div class="graphics-report col-sm-12" style="background:red">
-                </div>
-                 <!--/graficas-->
-            </div>
-            </div>
-            <!--/informes -->
+  <!--informes -->
+  <div class="report-content col-md-12">
+  <h3>Informes</h3>
+       <!--botones -->
+      <div class="select-report col-sm-12">
+          <div class="genera-report col-md-3 col-xs-3 ">
+               <h4>Generar por:</h4>
+          </div>
+          <div class="month-report col-md-3 col-xs-3">
+               <h4>Por mes:</h4>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+          </div>
+          <div class="year-report col-md-3 col-xs-3">
+               <h4>Por año:</h4>
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+          </div>
+          <div class="export-report col-md-3 col-xs-3 ">
+                <button type="button" class="btn btn-default"><i class="fa fa-hdd-o"></i> Exportar</button>
+          </div>
+      <!--/botones -->
+       <!--graficas -->
+      <div class="graphics-report col-sm-12" style="background:red">
+      </div>
+       <!--/graficas-->
+  </div>
+  </div>
+  <!--/informes -->
 
 {% endblock %}

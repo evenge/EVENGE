@@ -15,13 +15,13 @@ GNU General Public License for more details.
 -->
 
 
-{% extends "templates/index.html" %} 
+{% extends "templates/index.html" %}
 
 {# tittle: titulo de la página #}
-{% block title %}Eventos{% endblock %} 
+{% block title %}Eventos{% endblock %}
 
-{# contenido central de la página #} 
-{% block content %} 
+{# contenido central de la página #}
+{% block content %}
 
 <h3>Ponentes</h3>
 <div id="cabecera-tabla-ponentes" class="col-xs-12">
@@ -39,16 +39,16 @@ GNU General Public License for more details.
     </div>
 </div>
 <div id="body-tabla-ponentes" class="col-xs-12">
-    {% for n in eventos %}
+    {% for n in ponentes %}
     <div id="fila">
         <div class="col-xs-4">
-            <h5>{{evento.nombre}}</h5>
+            <h5>{{n.nombre}}</h5>
         </div>
         <div class="col-xs-3">
-            <h5>{{evento.email}}</h5>
+            <h5>{{n.email}}</h5>
         </div>
         <div class="col-xs-3">
-            <h5>{{evento.telefono}}</h5>
+            <h5>{{n.telefono}}</h5>
         </div>
         <div class="col-xs-2 btn-group">
             <button class="buttonModfyEvent btn btn-default"><i class="fa fa-pencil-square-o"></i>

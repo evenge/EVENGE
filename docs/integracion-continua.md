@@ -70,6 +70,59 @@ coverage
 NoseGAE
 WebTest
 ```
+Con la orden:
+```
+install:
+- pip install -r requirements.txt
+```
 
+Vamos a preparar el entorno para que lanzce los test:
+```
+before_script:
+- echo 'Europe/Madrid' | sudo tee /etc/timezone
+- sudo dpkg-reconfigure --frontend noninteractive tzdata
+- mkdir -p shippable/testresults
+- mkdir -p shippable/codecoverage
+```
+Y una vez tenemos los directorios y la carpeta donde vamos a gardar los resultados, lanzamos nuestro test.py con Nose antes programado por nostros:
 
-Nosotros, por comodidad y compatibilidad, ya que GAE es muy especifico para muchos servicios de Google vamos a usar el SDK durante el desarrollo y los test de la app.
+```
+script:
+- >
+nosetests test.py
+--with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
+--with-xunit --xunit-file=shippable/testresults/test.xml
+--with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
+```
+
+Este era nuestro test.py, para probar que se ha desplegado correctamente:
+
+```
+import unittest
+from google.appengine.ext import db
+from google.appengine.ext import testbed
+from index import Evenge
+
+class EvengeTestCase(unittest.TestCase):
+def setUp(self):
+self.testbed = testbed.Testbed()
+self.testbed.activate()
+self.testbed.init_datastore_v3_stub()
+
+def tearDown(self):
+self.testbed.deactivate()
+
+def test(self):
+evenge = Evenge()
+response = evenge.hazElCuadrado(4)
+self.assertEqual(response,16)
+
+if __name__ == "__main__":
+unittest.main()
+```
+
+Si la operación es satisfactoria, procederá al despliegue automático de los achivos del repositorio de la rama Master.
+```
+after_success:
+- if [ "$BRANCH" == "master" ]; then $GAE_DIR/google_appengine/appcfg.py --oauth2_refresh_token=$GAE_TOKEN update . ; else echo "No deployment for this $BRANCH"; fi
+```

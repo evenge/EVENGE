@@ -17,5 +17,16 @@ class EvengeTestCase(unittest.TestCase):
         response = evenge.hazElCuadrado(4)
         self.assertEqual(response,16)
 
+    def testInsertarPonente(self):
+		evenge = Evenge()
+        ponente = Ponente(
+            email = "pepito@jemail.com",
+            telefono = "sony xperia",
+            twitter = "@pepitoG",
+            web = "http://pepitoG.es"
+        )
+        response = evenge.testPonente(ponente)
+		self.assertEqual(response,'pepito@jemail.com')
+        
 if __name__ == "__main__":
 	unittest.main()

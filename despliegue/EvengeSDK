@@ -14,7 +14,7 @@
 ################################################################
 
 #Instalamos Docker y las dependencias necesarias para su funcionamiento
-apt-get update
+su -c 'apt-get update
 apt-get install -y docker.io
 source /etc/bash_completion.d/docker.io
 [ -e /usr/lib/apt/methods/https ] || {
@@ -30,4 +30,4 @@ apt-get install -y lxc-docker
 #Instalamos la imagen producida con el Dockerfile y ya subida a DockerHub https://registry.hub.docker.com/u/ivanortegaalba/evenge/
 
 docker pull ivanortegaalba/evenge
-docker run -t -i ivanortegaalba/evenge /bin/bash
+docker run -t -i ivanortegaalba/evenge /bin/bash'

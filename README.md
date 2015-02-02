@@ -41,3 +41,86 @@ Evenge dispone de las siguientes funcionalidades:
 **Blog**: [evenge.github.io](http://evenge.github.io)  
 **Twitter**: [@grupoEvenge](https://twitter.com/grupoEvenge)  
 **Entorno de desarrollo**: [Docker](https://registry.hub.docker.com/u/ivanortegaalba/evenge/)
+
+-------------------------
+
+####Documentación:
+
+- [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
+- [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
+- [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
+
+####Aportaciones de cada miembro:
+
+## Carlos Campos:
+* Scripts de provisionamiento
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Tests:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de integración continua y PaaS:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de despliegue automático:
+  * Commits:
+  * Pull Request:
+  * Issues:
+
+## Victor Coronas:
+* Scripts de provisionamiento
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Tests:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de integración continua y PaaS:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de despliegue automático:
+  * Commits:
+  * Pull Request:
+  * Issues:
+
+## Fran Expósito:
+* Scripts de provisionamiento
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Tests:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de integración continua y PaaS:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de despliegue automático:
+  * Commits:
+  * Pull Request:
+  * Issues:
+
+## Ivan Ortega:
+* Scripts de provisionamiento
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Tests:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de integración continua y PaaS:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de despliegue automático:
+  * Commits:
+  * Pull Request:
+  * Issues:
+

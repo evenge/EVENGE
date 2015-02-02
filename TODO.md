@@ -31,7 +31,7 @@
 ###PROVISIONAMIENTO:
 - Hacer la documentacion del script y meterlo en la documentacion del hito 4
 - Cambiar algo del script
-- Meterlo en la web dle proyecto
+- Meterlo en la web del proyecto
 
 ------------------------------------------
 
@@ -43,13 +43,13 @@
 ----------------------------
 
 ###INTEGRACIÓN CONTINUA:
-- Documentación del Script del Sniphable
+- Documentación del Script del Shippable
 - Describir el proceso del Sniphable en el hito 4 respecto a la Integración continua
-- Descomentar las lineas comentadas del snipphable
+- Descomentar las lineas comentadas del Shippable
 
 --------------------------
 
 ### DESPLIEGUE:
-- Buscar información de como podría configurarse el Sniphable para Azure o otra máquina
-- Describir el método de despliegue que sigue snipable
-- Describir como despliega el SDK si no tuviese Sniphable
+- Buscar información de como podría configurarse el Shippable para Azure o otra máquina
+- Describir el método de despliegue que sigue Shippable
+- Describir como despliega el SDK si no tuviese Shippable

@@ -189,14 +189,14 @@ Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/E
 
 -------------------------
 ## Provisionamiento  
-#Docker
+###Docker
 [Docker](https://www.docker.com/) es un una plataforma para desarrolladores y administradores de sistema que te permite desarrollar, desplegar y ejecutar aplicaciones. Docker permite testear el codigo y desplegarlo en producción rápidamente.  
 
-##Introducción
+####Introducción
 En Evenge hemos decidido automatizar el proceso de instalación del docker mediante [este](https://github.com/evenge/EVENGE/blob/master/despliegue/Dockerfile) script.
 
-##Docker
-####Explicando el script
+####Docker
+######Explicando el script
 En primer lugar tendremos que instalar las depencencias de python que necesitamos:
 
 * Python
@@ -253,11 +253,11 @@ RUN cd EVENGE && git branch -b $USER
 Una vez realizados todos los pasos tendremos desplegado nuestro entorno de desarrollo.
 
 
-##Script de automatización de Docker
-####Introducción
+####Script de automatización de Docker
+######Introducción
 También hemos hecho un Script que automatiza el proceso de instalación de Docker. A continuación la explicación paso a paso.
 
-####Explicación del script
+######Explicación del script
 En primer lugar, se instala Docker y las dependencias necesarias:
 
 ```
@@ -285,9 +285,6 @@ docker run -t -i ivanortegaalba/evenge /bin/bash'
 
 -------------------------
 ## Integración continua  
-
-# Integración continua.
-
 Para provisionar nuestro proyecto con integración continua barajamos varias posibilidades.
 
 1. La sincronización directa con GitHub que nos provee GAE.
@@ -299,15 +296,15 @@ Pero nosotros tenemos documentación, lista de tareas, etc. Por lo que no nos va
 Este sistema de CI permite crear, provisionar, testear y desplegar nuestra app en una máquina virtual, en el servidor que queramos.
 Además trabaja con IaaS y PaaS como Heroku, Amazon Elastic Beanstalk, OpsWorks AWS, Google App Engine, Red Hat OpenShift o cualquier proveedor de infraestructura después de una compilación exitosa.
 
-## Shippable
-### Introduccion
+### Shippable
+#### Introduccion
 
 Shippable usa Docker para el despliegue de las apps.
 Sus casos de uso más comunes, y concretamente los que vamos a darle en el proyecto son:
 - Automatización del empaquetado y despliegue de web apps.
 - Testeo automatizado y despliegue en caso de éxito.
 
-### Configurar Shippable para Evenge.
+#### Configurar Shippable para Evenge.
 
 Primeramente, desde www.shipable.com, nos logeamos y conectamos con nuestro GitHub. Podemos seguir este [tutorial](http://docs.shippable.com/en/latest/start.html#getstarted)
 
@@ -417,8 +414,7 @@ after_success:
 ```
 
 -------------------------
-## Testeo
-### Tests unitarios con Shippable y NoseGAE
+## Tests unitarios con Shippable y NoseGAE
 
 Podemos consultar la documentación de [NoseGAE](https://github.com/Trii/NoseGAE)
 Cuando Shipable, como ya hemos comentado, llega al apartado de ejecución de test, en nuestro caso del archivo test.py, procede a realizar los test unitarios de este módulo.
@@ -496,11 +492,7 @@ A la hora de hacer el despliegue, cuando hacemos un push a la rama master de nue
 ![](http://i58.tinypic.com/vwtp2x.png)
 
 -------------------------
-## Despliegue de la aplicación
-
 #DESPLIEGUE DE LA APLICACIÓN#
-
-
 Antes de comenzar tenemos que saber que GAE tiene una serie de limitaciones si se usa de forma gratuita a la hora de desplegar nuestras aplicaciones, que son las siguientes:
 
 - Tiene un espacio máximo de 10 aplicaciones de forma gratuita.
@@ -516,7 +508,7 @@ Antes de comenzar tenemos que saber que GAE tiene una serie de limitaciones si s
 
 Para ello se puede contratar más de cantidad de visitas como de almacenamiento.
 
-#Registro#
+##Registro
 Antes de despleglar nuestra aplicación debemos de registrar nuestra aplicacion en [appengine.google.com](https://accounts.google.com/ServiceLogin?service=ah&passive=true&continue=https%3A%2F%2Fappengine.google.com%2F_ah%2Fconflogin%3Fcontinue%3Dhttps%3A%2F%2Fappengine.google.com%2F&ltmpl=ae)
 Una vez ingresado, presiona en el botón “Create Application”.
 
@@ -530,7 +522,7 @@ En los demás campos deja los valores por defecto.
 Por último presiona "Create Application". Una vez creada, dirígete nuevamente a appengine.google.com y verás tu aplicación en la lista.
 
 
-#Ejecutar nuestra apliación en local#
+##Ejecutar nuestra apliación en local
 
 Un paso muy importante antes de desplegar nuestra aplicación en el servidor de GAE, es desplegarla "Localmente", para realizar las pertinentes pruebas y test de funcionamiento.
 
@@ -579,7 +571,7 @@ localhost:8080
 
 De esta manera se usaría en local nuestra aplicación y podreamos probar todo lo que queramos.
 
-#Desplegar la aplicación definitivamente#
+##Desplegar la aplicación definitivamente
 
 Una vez desarrollado la aplicación y testeado su funcionalidad en el servidor de desarrollo local, procederemos a desplegar
 la aplicación en Google. Para usuarios de Linux el procedimiento será vía consola. Para Windows y Mac OS X utilizaremos el "Launcher".

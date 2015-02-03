@@ -46,14 +46,7 @@ Evenge dispone de las siguientes funcionalidades:
 
 ## Aportaciones de cada miembro:
 
-- [Dockerfile](https://github.com/evenge/EVENGE/blob/master/docs/dockerfile.md)
-- [Integración continua](https://github.com/evenge/EVENGE/blob/master/docs/integracion-continua.md)
-- [Despliegue de la aplicación](https://github.com/evenge/EVENGE/blob/master/docs/despliegue-aplicacion.md)
-- [Testeo](https://github.com/evenge/EVENGE/blob/master/docs/Testeo.md)
-
-#### Aportaciones de cada miembro:
-
-## Carlos Campos:
+### Carlos Campos:
 * Scripts de provisionamiento
   * Commits: [fc552a28a210b849253e7b91e56feedb2f1d6308](https://github.com/evenge/EVENGE/commit/fc552a28a210b849253e7b91e56feedb2f1d6308)
   * Pull Request: [#154](https://github.com/evenge/EVENGE/pull/154)
@@ -76,9 +69,10 @@ Evenge dispone de las siguientes funcionalidades:
   * Commits: [wiki](https://github.com/evenge/EVENGE/wiki/Desplegar-el-entorno-de-desarrollo/a223122130b773bc628729e84c52f0595665d6a8), [Post](https://github.com/evenge/evenge.github.io/commit/303912c6d803540fb8b4f9017570d8a4e80f5f36#diff-1d0c6a774c173c2999a04ee7b5b6feeb)
   * Issues:[1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/144), [3](https://github.com/evenge/EVENGE/issues/139)
 
-
 * Tests:
-  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c),[Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519),
+  * Commits: [Post](https://github.com/evenge/evenge.github.io/commit/a97be29b3a72cc0ef20d984218ca3440c25056fb#diff-3fffece9f737baf1e2b9d51d56a3ad0c), [Wiki](https://github.com/evenge/EVENGE/wiki/Ejecutar-test/d6069feeaf3f2d9f38c51d042babe9853d272519), [commit1](https://github.com/evenge/EVENGE/commit/5555e4cc81765c8359f46d34bc5eb9085b94bf33), [commit2](https://github.com/evenge/EVENGE/commit/1ba3e8fbe3c84ac35fd25a17228ccd3551b126c8),  [commit3](https://github.com/evenge/EVENGE/commit/80daa6874f78554a51b6fa810bfc5b4ed8514bb4), [commit4](https://github.com/evenge/EVENGE/commit/857523787df202fb7915e8ac12b8db4450ca4145), [commit5](https://github.com/evenge/EVENGE/commit/e715c39f90577e6f7fe9ea5f4be01ef86277b450),
+
+  * Pull request:  https://github.com/evenge/EVENGE/commit/e933fcf6de499867ea5a963d99131946db15575d, https://github.com/evenge/EVENGE/commit/67a9c1d8924811744d2f01ac8ef3c60b465cf854
   * Issues:[1](https://github.com/evenge/EVENGE/issues/152), [2](https://github.com/evenge/EVENGE/issues/148),  [3](https://github.com/evenge/EVENGE/issues/139), [4](https://github.com/evenge/EVENGE/issues/147),
   [5](https://github.com/evenge/EVENGE/issues/7),
   [6](https://github.com/evenge/EVENGE/issues/150),
@@ -86,13 +80,16 @@ Evenge dispone de las siguientes funcionalidades:
   [8](https://github.com/evenge/EVENGE/issues/18),
   [9](https://github.com/evenge/EVENGE/issues/32),
   [10](https://github.com/evenge/EVENGE/issues/40),
-  [11](https://github.com/evenge/EVENGE/issues/43)
-
+  [11](https://github.com/evenge/EVENGE/issues/43),
+  [12](https://github.com/evenge/EVENGE/issues/102),
+  [13](https://github.com/evenge/EVENGE/issues/85),
+  [14](https://github.com/evenge/EVENGE/issues/84),
+  [15](https://github.com/evenge/EVENGE/issues/88),
+  [16](https://github.com/evenge/EVENGE/issues/108)
 
 * Configuración de integración continua y PaaS:
   * Commits:[Post](https://github.com/evenge/evenge.github.io/commit/26791ced937512d3bb8d0b6d66732732f28a6e97#diff-4ceb80bbb705d7bbd146456089946507),[Wiki](https://github.com/evenge/EVENGE/wiki/Test-unitarios/1688149ce31c06103cef42c4a73a338d99f5e633)
   * Issues:[1](https://github.com/evenge/EVENGE/issues/151), [2](https://github.com/evenge/EVENGE/issues/148), [3](https://github.com/evenge/EVENGE/issues/139)
-
 
 * Configuración de despliegue automático:
   * Commits: [Documentación](https://github.com/evenge/EVENGE/commit/401874a0e0e4244268e7a9a94ea94af93ef2651c#diff-5377c2487afc76788f872d39d21d3987),
@@ -100,24 +97,8 @@ Evenge dispone de las siguientes funcionalidades:
   * Issues:[Documentación](https://github.com/evenge/EVENGE/issues/153),
   [1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/139)
 
-### Victor Coronas:
-* Scripts de provisionamiento
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Tests:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de integración continua y PaaS:
-  * Commits:
-  * Pull Request:
-  * Issues:
-* Configuración de despliegue automático:
-  * Commits:
-  * Pull Request:
-  * Issues:
 
+<<<<<<< HEAD
 ### Fran Expósito:
 Link a todos los issues, en cada issue están todos los commits relacionados. Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui. Enlace a toda la historia de commits de [Fran Expósito](https://github.com/evenge/EVENGE/commits?author=franexposito).  
 
@@ -153,12 +134,31 @@ Link a todos los issues, en cada issue están todos los commits relacionados. Ha
 ###Otros
 * Configuración de app.yaml para guardar en Datastore
   * [#21](https://github.com/evenge/EVENGE/issues/21)
+=======
+## Fran Expósito:
+* Scripts de provisionamiento
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Tests:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de integración continua y PaaS:
+  * Commits:
+  * Pull Request:
+  * Issues:
+* Configuración de despliegue automático:
+  * Commits:
+  * Pull Request:
+  * Issues:
+>>>>>>> master
 
-### Ivan Ortega:
+## Ivan Ortega:
 Link a todos los issues, en cada issue están todos los commits relacionados.
 Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui.
 Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/EVENGE/commits?author=ivanortegaalba
-#### PROVISIONAMIENTO y PaaS:
+* Provisionamiento y PaaS:
   * Aportación al Dockerfile:
     * https://github.com/evenge/EVENGE/issues/70
     * https://github.com/evenge/EVENGE/issues/
@@ -185,17 +185,17 @@ Enlace a toda la historia de commits de Ivan Ortega: https://github.com/evenge/E
       * https://github.com/evenge/EVENGE/issues/89
       * https://github.com/evenge/EVENGE/issues/106
 
-#### Integración continua:
+* Integración continua:
   * Configuración y explicación del papel de Shippable para la CI
     * https://github.com/evenge/EVENGE/issues/146
 
-#### Test:
+* Test:
   * Test para la inserción de usuarios con NoseGAE
     * https://github.com/evenge/EVENGE/issues/161
   * Funcionamiento de NoseGAE junto a Shippable:
     * https://github.com/evenge/EVENGE/issues/163
 
-#### Despliegue:
+* Despliegue:
   * Configuración de Shippable para despliegue con push en rama master.
     * https://github.com/evenge/EVENGE/issues/146
 

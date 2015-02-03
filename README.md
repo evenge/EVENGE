@@ -98,6 +98,43 @@ Evenge dispone de las siguientes funcionalidades:
   [1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/139)
 
 
+<<<<<<< HEAD
+### Fran Expósito:
+Link a todos los issues, en cada issue están todos los commits relacionados. Hay más issues y commits, relacionados con gestión, organización y tareas externas de equipo que no están incluidos aqui. Enlace a toda la historia de commits de [Fran Expósito](https://github.com/evenge/EVENGE/commits?author=franexposito).  
+
+###Provisionamiento y PaaS
+* Documentación de Dockerfile.
+  * [#142](https://github.com/evenge/EVENGE/issues/142)
+* Aportaciones funcionales a la aplicación
+* Añadida platilla Asistente
+  * [#54](https://github.com/evenge/EVENGE/issues/54)
+* Añadido botón asistente para diploma
+  * [#88](https://github.com/evenge/EVENGE/issues/88)
+* Vista de Mi Cuenta
+  * [#108](https://github.com/evenge/EVENGE/issues/108)
+* Vista de Evento detallado
+  * [#94](https://github.com/evenge/EVENGE/issues/94)
+* Test de inserción de evento
+  * [d8824c163e9e34ecf9ba3890d20661cf8931a5e5](https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5)
+
+###Integración continua:
+* Integración continua con Shippable
+  * [#71](https://github.com/evenge/EVENGE/issues/71)
+
+###Test
+* Test e integración continua con Shippable
+  * [#71](https://github.com/evenge/EVENGE/issues/71)
+* Test de inserción de evento
+  * [d8824c163e9e34ecf9ba3890d20661cf8931a5e5](https://github.com/evenge/EVENGE/commit/d8824c163e9e34ecf9ba3890d20661cf8931a5e5)
+
+###Despliegue
+* Despliegue automático con Shippable
+  * [#71](https://github.com/evenge/EVENGE/issues/71)
+
+###Otros
+* Configuración de app.yaml para guardar en Datastore
+  * [#21](https://github.com/evenge/EVENGE/issues/21)
+=======
 ## Fran Expósito:
 * Scripts de provisionamiento
   * Commits:
@@ -115,6 +152,7 @@ Evenge dispone de las siguientes funcionalidades:
   * Commits:
   * Pull Request:
   * Issues:
+>>>>>>> master
 
 ## Ivan Ortega:
 Link a todos los issues, en cada issue están todos los commits relacionados.

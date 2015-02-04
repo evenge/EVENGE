@@ -76,7 +76,7 @@ class Evenge(webapp2.RequestHandler):
         evt = evento
         evt.put()
         return True
-        
+
     def testInsertarUsuario(self, usuario):
         u = usuario
         u.put()
@@ -112,7 +112,7 @@ application = webapp2.WSGIApplication([
     ('/evenge', Evenge),
     ('/eventos*', MostrarEvento),
     ('/informes', MostrarInforme),
-    ('/mi-cuenta', MiCuenta)
+    ('/micuenta', MiCuenta)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

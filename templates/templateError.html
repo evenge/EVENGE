@@ -1,7 +1,7 @@
 <!--
 Evenge - gestor de eventos (events management)
 Copyright (C) 2014 - desarrollo.evenge@gmail.com
-Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -14,9 +14,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 {% extends "templates/index.html" %}
-{% block nav %}
-<div id="buscadorHeader" class="input-group col-xs-3 col-xs-12 pull-right">
-  <span class="input-group-addon"><i class="fa fa-search "></i></span>
-  <input class="form-control" type="text" placeholder="Buscar eventos...">
+{# tittle: titulo de la página #}
+{% block title %}Ha habido un error{% endblock %}
+{# contenido central de la página #}
+{% block content %}
+<div class="row">
+  <div style="padding: 50px;" class="col-sm-12">
+    <i class="fa fa-bed fa-5x"></i>
+    <h3>Ops, algo ha salido mal.</h3>
+    <h3>Quizás quieras mirar los <a href="/">últimos eventos</a> que tenemos disponibles.</h3>
+  </div>
 </div>
 {% endblock %}

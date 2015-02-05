@@ -19,6 +19,7 @@ import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
+from _oo.model import controladorEvento
 import jinja2
 import webapp2
 
@@ -59,9 +60,6 @@ class InsertarUsuario(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class Evenge(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Evenge')
-
     def hazElCuadrado(self, numero):
         return numero*numero
 
@@ -85,7 +83,7 @@ class Evenge(webapp2.RequestHandler):
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
         idEvento = self.request.get('id')
-        evento = Evento.GetEventoById(idEvento)
+        evento = controladorEvento.GetEventoById(idEvento)
         template_values = {'evento':evento}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
@@ -96,10 +94,22 @@ class MostrarInforme(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
-class MiCuenta(webapp2.RequestHandler):
+class MostrarMiCuenta(webapp2.RequestHandler):
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
+        self.response.write(template.render(template_values))
+
+class MostrarMisEventos(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
+        self.response.write(template.render(template_values))
+
+class MostrarError(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateError.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([
@@ -108,11 +118,11 @@ application = webapp2.WSGIApplication([
     ('/iEvento', InsertarEvento),
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
-    ('/iUsuario', InsertarUsuario),
-    ('/evenge', Evenge),
+    ('/miseventos', MostrarMisEventos),
     ('/eventos*', MostrarEvento),
-    ('/informes', MostrarInforme),
-    ('/micuenta', MiCuenta)
+    ('/misinformes', MostrarInforme),
+    ('/micuenta', MostrarMiCuenta),
+    ('/error', MostrarError)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

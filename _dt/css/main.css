@@ -13,6 +13,28 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+
+/*********************************/
+/******** Default estilos ********/
+/*********************************/
+::selection{
+  background: rgba(193, 31, 35, 0.62);
+}
+
+a {
+  color: #c11f23;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+a:hover {
+  color: #781316;
+  text-decoration: none;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -27,7 +49,7 @@ body {
 }
 
 /*********************************/
-/***** NavBar style **************/
+/******** NavBar estilos *********/
 /*********************************/
 .navbar-default {
     height: 70px;
@@ -65,7 +87,7 @@ body {
 }
 
 /*********************************/
-/***** Sticky footer *************/
+/******** Footer estilos *********/
 /*********************************/
 .footer {
     position: absolute;
@@ -75,36 +97,41 @@ body {
     background-color: #f5f5f5;
 }
 
+/*************************************************/
+/************** container ************************/
+/*************************************************/
 body > .container {
-    /*padding: 60px 15px 0;*/
   padding: 0;
   margin: 0;
 }
 
 .container .text-muted {
-    margin: 20px 0;
+  margin: 20px 0;
 }
  
 .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 code {
-    font-size: 80%;
-}
-
-#cabecera-tabla-ponentes {
-    background-color:#C11F23;
-    color:white;
-}
-
-#body-tabla-ponentes {
-    background-color: #fff;
+  font-size: 80%;
 }
 
 /*************************************************/
-/*********** templateEvents estilos **************/
+/************** template Ponentes ****************/
+/*************************************************/
+#cabecera-tabla-ponentes {
+  background-color:#C11F23;
+  color:white;
+}
+
+#body-tabla-ponentes {
+  background-color: #fff;
+}
+
+/*************************************************/
+/*************** menu estilos ********************/
 /*************************************************/
 .menu-content {
   position: fixed;
@@ -150,10 +177,16 @@ code {
   background: #f5f5f5;
 }
 
+/*************************************************/
+/*************** panel estilos *******************/
+/*************************************************/
 .pad-panel {
   padding: 7px 25px 25px;
 }
 
+/*************************************************/
+/************** template MyEvents ****************/
+/*************************************************/
 .event-content .titular-h1 {
   margin: 0;
   padding: 0 0 0 15px;

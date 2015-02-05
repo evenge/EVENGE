@@ -15,26 +15,24 @@ GNU General Public License for more details.
 -->
 
 {% extends "templates/index.html" %}
-
 {# tittle: titulo de la página #}
 {% block title %}{{ evento.nombre }}{% endblock %}
-
 {# contenido central de la página #}
 {% block content %}
 <div class="row">
   <div class="menu-content col-sm-3 col-md-2">
     <div class="menu">
       <ul class="nav menu-nav">
-        <li class="titulo-menu"><a href="">Mis Eventos (5)</a></li>
+        <li class="titulo-menu"><a href="/miseventos">Mis Eventos (5)</a></li>
         <li role="presentation" class="titulo-menu active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-plus"></i> Nuevo Evento</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-cogs"></i> Modificar Evento</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-times"></i> Borrar Evento</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Evento</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-cogs"></i> Modificar Evento</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-times"></i> Borrar Evento</a></li>
         <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes (100)</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-file-pdf-o"></i> Generar Diplomas</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-file-pdf-o"></i> Generar Diplomas</a></li>
         <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#ponentes">Ponentes (4)</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-trash"></i> Eliminar Ponentes</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-trash"></i> Eliminar Ponentes</a></li>
       </ul>
     </div>
   </div>

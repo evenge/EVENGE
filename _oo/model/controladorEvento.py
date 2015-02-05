@@ -15,10 +15,13 @@
 import os
 import urllib
 import webapp2
+from google.appengine.api import users
+from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 
 def GetEventoById(idEvento):
-    return Evento().get_by_id(idEvento)
+    result = Evento.get_by_id(int(idEvento))
+    return result
 
 def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, coordenadas, descripcion, asistencia):
     evento = Evento()

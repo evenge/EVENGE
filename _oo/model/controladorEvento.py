@@ -14,21 +14,23 @@
 
 import os
 import urllib
-from google.appengine.api import users
-from google.appengine.ext import ndb
-import jinja2
 import webapp2
-from datetime import datetime
+from _oo.classes.evento import Evento
 
+def GetEventoById(idEvento):
+    return Evento().get_by_id(idEvento)
 
-class Evento(ndb.Model):
-    nombre = ndb.StringProperty()
-    tipo = ndb.IntegerProperty()
-    privado = ndb.IntegerProperty()
-    idCreador = ndb.StringProperty()
-    hora = ndb.TimeProperty()
-    fecha = ndb.DateProperty()
-    lugar = ndb.StringProperty()
-    coordenadas = ndb.GeoPtProperty()
-    descripcion = ndb.TextProperty()
-    asistencia = ndb.BooleanProperty()
+def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, coordenadas, descripcion, asistencia):
+    evento = Evento()
+    evento.nombre = nombre
+    evento.tipo = tipo
+    evento.privado = privado
+    evento.idCreador = idCreador
+    evento.hora = hora
+    evento.fecha = fecha
+    evento.lugar = lugar
+    evento.coordenadas = coordenadas
+    evento.descripcion = descripcion
+    evento.asistencia = asistencia
+    evento.put()
+    return True

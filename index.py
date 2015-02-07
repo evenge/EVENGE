@@ -20,6 +20,7 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
+from _oo.model import controladorUsuario
 import jinja2
 import webapp2
 
@@ -53,11 +54,11 @@ class InsertarPonente(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
         self.response.write(template.render(template_values))
 
-class InsertarUsuario(webapp2.RequestHandler):
-    def get(self):
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formUsuario.html')
-        self.response.write(template.render(template_values))
+# class InsertarUsuario(webapp2.RequestHandler):
+#     def get(self):
+#         template_values = {}
+#         template = JINJA_ENVIRONMENT.get_template('templates/formUsuario.html')
+#         self.response.write(template.render(template_values))
 
 class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
@@ -112,6 +113,28 @@ class MostrarError(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateError.html')
         self.response.write(template.render(template_values))
 
+class NuevoUsuario(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
+        self.response.write(template.render(template_values))
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        contrasena = self.request.get("contraseña").strip()
+        repitecontrasena = self.request.get("repetirContraseña").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+
+        if nombre and apellidos and email and contrasena and telefono and twitter and web:
+            usuario = Usuario(nombre , apellidos , email , contrasena , telefono , twitter , web)
+                usuario.put()
+                self.write(“User added!”)
+            else:
+                self.write("Fill all inputs")
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -122,6 +145,7 @@ application = webapp2.WSGIApplication([
     ('/eventos*', MostrarEvento),
     ('/misinformes', MostrarInforme),
     ('/micuenta', MostrarMiCuenta),
+    ('/registrate', NuevoUsuario),
     ('/error', MostrarError)
 ], debug=True)
 

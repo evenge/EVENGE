@@ -33,7 +33,7 @@ class Index(webapp2.RequestHandler):
             email = self.request.cookies.get("email")
             key = self.request.cookies.get("key")
             usuario = controladorUsuario.GetUsuarioById(int(key))
-            template_values = {usuario}
+            template_values = {'usuario':usuario}
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
         else:
@@ -170,18 +170,25 @@ class Login(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
     def post(self):
         contrasena = self.request.get("contrasena").strip()
-        print (contrasena)
         logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena).get()
 
         if logeado != 0:
             self.response.headers.add_header('Set-Cookie',"logged=true")
             self.response.headers.add_header('Set-Cookie',"email="+str(logeado.email))
             self.response.headers.add_header('Set-Cookie',"key="+str(logeado.key.id()))
-            self.response.write(self.response.headers)
             self.redirect("/")
         else:
             self.response.write("No coinciden los datos introducidos")
             self.redirect("/login")
+
+class Logout(webapp2.RequestHandler):
+    def get(self):
+        if self.request.cookies.get("logged") == "true":
+            self.response.headers.add_header('Set-Cookie',"logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+            self.response.headers.add_header('Set-Cookie',"email=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+            self.response.headers.add_header('Set-Cookie',"key=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+
+        self.redirect("/")
 
 application = webapp2.WSGIApplication([
     ('/', Index),
@@ -195,6 +202,7 @@ application = webapp2.WSGIApplication([
     ('/micuenta', MostrarMiCuenta),
     ('/registrate', NuevoUsuario),
     ('/login', Login),
+    ('/logout', Logout),
     ('/error', MostrarError)
 ], debug=True)
 

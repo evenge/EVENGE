@@ -15,6 +15,7 @@
 import os
 import urllib
 import webapp2
+from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
 
 def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
@@ -29,5 +30,16 @@ def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     #Devuelve la key
     return usuario.put()
 
-def GetUsuarioById(idEvento):
-    return Evento().get_by_id(idEvento)
+def loginCorrecto(email,password):
+    usuario = Usuario.query(Usuario.email == email)
+
+    if usuario.count():
+        if(usuario.get().password == password):
+            return usuario
+        else:
+            return 0
+    else:
+        return 0
+
+def GetUsuarioById(idUsuario):
+    return Usuario().get_by_id(idUsuario)

@@ -24,7 +24,7 @@ from datetime import datetime
 class Evento(ndb.Model):
     nombre = ndb.StringProperty()
     tipo = ndb.IntegerProperty()
-    privado = ndb.IntegerProperty()
+    privado = ndb.BooleanProperty()
     idCreador = ndb.StringProperty()
     hora = ndb.TimeProperty()
     fecha = ndb.DateProperty()

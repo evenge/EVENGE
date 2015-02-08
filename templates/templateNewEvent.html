@@ -15,58 +15,70 @@ GNU General Public License for more details.
 -->
 
 {% extends "templates/index.html" %}
-
 {# tittle: titulo de la página #}
-
-{% block title %}Nuevo Usuario{% endblock %}
-
+{% block title %}Nuevo Evento{% endblock %}
 {# contenido central de la página #}
-
 {% block content %}
 <!--Formulario evento -->
-<div class="col-sm-8 col-sm-offset-3">
-  <h1>Nuevo Evento</h1>
-  <form>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-connectdevelop"></i></span>
-      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del evento" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
-      <input type="time"  class="form-control" id="hora" name="hora" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-calendar-o"></i></span>
-      <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-users"></i></span>
-      <input type="number" min="0" class="form-control" id="cantidadAsistentes" name="cantidadAsistentes" placeholder="Número máximo de asistentes" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o"></i></span>
-      <input type="textarea" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe"></i></span>
-      <input type="text" class="form-control" id="lugar" name="lugar" placeholder="Lugar" aria-describedby="sizing-addon1">
-    </div>
-    <div class="dropdown">
-      <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Tipo de evento <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><input type="checkbox" id="publico" name="tipoEvento" value="true" checked>  Publico</li>
-        <li class="divider"></li>
-        <li><input type="checkbox" id="privado" name="tipoEvento" value="false" >  Privado</li>
+<div class="row">
+  <div class="col-sm-6">
+    <h1 class="h1-formtitle">nuevo evento</h1>
+    <form>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-connectdevelop"></i></span>
+        <input type="text" class="form-control size-35" id="nombre" name="nombre" placeholder="Nombre del evento" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
+        <input type="time"  class="form-control size-35" id="hora" name="hora" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-calendar-o"></i></span>
+        <input type="date" class="form-control size-35" id="fecha" name="fecha" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-users"></i></span>
+        <input type="number" min="0" class="form-control size-35" id="cantidadAsistentes" name="cantidadAsistentes" placeholder="Número máximo de asistentes" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o"></i></span>
+        <textarea class="form-control" rows="3" placeholder="Introduce la descripción del proyecto" 
+                  name="descripcion" id="descripcion"></textarea>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe"></i></span>
+        <input type="text" class="form-control size-35" id="lugar" name="lugar" placeholder="Lugar" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <label class="checkbox-inline">
+          <input type="checkbox" name="asistencia" id="asistencia"> Control de asistencia necesario
+        </label>
+      </div>
+      <div class="btn-group btn-block" role="group" aria-label="">
+        <button style="width: 50%;" data-type="public" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle-o"></i> Evento Público</button>
+        <button style="width: 50%;" data-type="private" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle"></i> Evento Privado</button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="map-content col-sm-6">
+    <div class="consejos-evento col-sm-12">
+      <h4>Selecciona la localización de lugar del evento</h4>
+      <ul>
+        <li>Busca la localización en el cuadro de busqueda.</li>
+        <li>Selecciona en el mapa el lugar exacto.</li>
+        <li>Continua creando tu evento</li>
       </ul>
     </div>
-    <div class="input-group">
-      <label for="asistencia">Tendra control de asistencia: </label>
-      <input type="radio" id="asistenciaSi" name="asistencia" value="true" > Si
-      <input type="radio" id="asistenciaNo" name="asistencia" value="false" > No
-    </div>
-    <button type="submit" class="btn btn-success btn-block" value="Guardar">Registrar</button>
-  </form>
+    <input id="pac-input" class="controls" type="text" placeholder="Inserta dirección">
+    <div style="min-width: 310px; height: 330px; margin: 0 auto" id="map-canvas"></div>
+  </div>
 </div>
-<!--/Formulario evento -->
 
+<!--/Formulario evento -->
+{% endblock %}
+
+{% block scriptFooter %}
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script type="text/javascript" src="/_dt/js/newevent.js"></script>
 {% endblock %}

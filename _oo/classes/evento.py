@@ -18,14 +18,13 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 import jinja2
 import webapp2
-from google.appengine.ext import ndb
 from datetime import datetime
 
 
 class Evento(ndb.Model):
     nombre = ndb.StringProperty()
     tipo = ndb.IntegerProperty()
-    privado = ndb.IntegerProperty()
+    privado = ndb.BooleanProperty()
     idCreador = ndb.StringProperty()
     hora = ndb.TimeProperty()
     fecha = ndb.DateProperty()
@@ -33,7 +32,3 @@ class Evento(ndb.Model):
     coordenadas = ndb.GeoPtProperty()
     descripcion = ndb.TextProperty()
     asistencia = ndb.BooleanProperty()
-
-    @classmethod
-    def GetEventoById(self, idEvento):
-      return self.get_by_id(idEvento)

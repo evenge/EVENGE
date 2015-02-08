@@ -19,8 +19,10 @@ import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
+from _oo.model import controladorEvento
 import jinja2
 import webapp2
+import json
 
 class Index(webapp2.RequestHandler):
     def get(self):
@@ -43,8 +45,25 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formularioEvento.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
         self.response.write(template.render(template_values))
+        
+    def post(self):
+        nombre = self.request.get('nombre')
+        hora = self.request.get('hora')
+        fecha = self.request.get('fecha')
+        ca = self.request.get('cantidadAsistentes')
+        descripcion = self.request.get('descripcion')
+        lugar = self.request.get('lugar')
+        asistencia = self.request.get('asistencia')
+        lat = self.request.get('latitud')
+        lon = self.request.get('longitud')
+        privado = self.request.get('privado')
+        ret = controladorEvento.SetEvento(nombre, 1, privado, '1111', hora, fecha, lugar, lat, lon, descripcion, asistencia);
+        resp = {'response': ret}
+        self.response.headers['Content-Type'] = 'application/json'   
+        self.response.write(json.dumps(resp))
+        
 
 class InsertarPonente(webapp2.RequestHandler):
     def get(self):
@@ -59,9 +78,6 @@ class InsertarUsuario(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class Evenge(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Evenge')
-
     def hazElCuadrado(self, numero):
         return numero*numero
 
@@ -76,7 +92,7 @@ class Evenge(webapp2.RequestHandler):
         evt = evento
         evt.put()
         return True
-        
+
     def testInsertarUsuario(self, usuario):
         u = usuario
         u.put()
@@ -85,7 +101,7 @@ class Evenge(webapp2.RequestHandler):
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
         idEvento = self.request.get('id')
-        evento = Evento.GetEventoById(idEvento)
+        evento = controladorEvento.GetEventoById(idEvento)
         template_values = {'evento':evento}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
@@ -96,10 +112,22 @@ class MostrarInforme(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
-class MiCuenta(webapp2.RequestHandler):
+class MostrarMiCuenta(webapp2.RequestHandler):
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
+        self.response.write(template.render(template_values))
+
+class MostrarMisEventos(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
+        self.response.write(template.render(template_values))
+
+class MostrarError(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateError.html')
         self.response.write(template.render(template_values))
 
 application = webapp2.WSGIApplication([
@@ -108,11 +136,11 @@ application = webapp2.WSGIApplication([
     ('/iEvento', InsertarEvento),
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
-    ('/iUsuario', InsertarUsuario),
-    ('/evenge', Evenge),
+    ('/miseventos', MostrarMisEventos),
     ('/eventos*', MostrarEvento),
-    ('/informes', MostrarInforme),
-    ('/mi-cuenta', MiCuenta)
+    ('/misinformes', MostrarInforme),
+    ('/micuenta', MostrarMiCuenta),
+    ('/error', MostrarError)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

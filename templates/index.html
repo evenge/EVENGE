@@ -14,7 +14,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-<!DOCTYPE html> {% autoescape true %}
+<!DOCTYPE html> 
+{% autoescape true %}
 
 <html lang="es">
 
@@ -29,80 +30,73 @@ GNU General Public License for more details.
     <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="/_dt/css/main.css">
     <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {% endblock %}
 </head>
 
 <body>
+  <!--nav -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <a href="/">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Desplegar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
+      </div>
+    </a>
 
-    <!--nav -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <a href="/">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Desplegar navegación</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
-            </div>
-        </a>
-
-        {% block nav %}
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/"> Mis eventos </a>
-            </li>
-            <li><a href="/listarPonentes"> Ponentes </a>
-            </li>
-            <li>
-                <a href="/informes"> Informes </a>
-            </li>
-            <li>
-                <a href="#"> Mi cuenta </a>
-            </li>
-        </ul>
-    </nav>
-    <!--/navegador -->{% endblock %}
-
-    <div class="container">
-        {% block content %} {% endblock %}
+    {% block nav %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/miseventos"> Mis eventos </a></li>
+      <li><a href="/misponentes"> Ponentes </a></li>
+      <li><a href="/misinformes"> Informes </a></li>
+      <li><a href="/micuenta"> Mi cuenta </a></li>
+    </ul>
+    {% endblock %}
+  </nav>
+  <!--/navegador -->
+  
+  <!-- inicio de la parte principal -->
+  <div class="container">
+    {% block content %} {% endblock %}
+  </div>
+  <!-- fin de la parte principal -->
+  
+  <!-- inicio pie de pagina -->
+  {% block footer %}
+<!--
+  <footer class="footer">
+    <div class="container col-xs-6">
+      <h3>Sobre Evenge</h3>
+      <p></p>
     </div>
-        {% block footer %}
-    <footer class="footer">
-        <div class="container col-xs-6">
-            <h3>Sobre Evenge</h3>
-            <p></p>
-        </div>
-        <div class="container col-xs-6">
-            <h3>Contacto</h3>
-            <ul>
-                <li>
-                    a</li>
-                <li>
-                    a</li>
-                <li>
-                    a</li>
-                <li>
-                    a</li>
-                <li>
-                    a</li>
-            </ul>
-        </div>
-    </footer>
-        {% endblock %}
-
-            {% block scriptFooter %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-            {% endblock %}
-
+    <div class="container col-xs-6">
+      <h3>Contacto</h3>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </footer>
+-->
+  <!-- fin pie de pagina -->
+  {% endblock %}
+  
+  <!-- scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  {% block scriptFooter %}{% endblock %}
+  <!-- scripts -->
 </body>
-
 </html>
-
-      {% endautoescape %}
+{% endautoescape %}

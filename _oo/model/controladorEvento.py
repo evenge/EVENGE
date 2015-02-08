@@ -12,28 +12,34 @@
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License for more details.
 
-import os
-import urllib
-import webapp2
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
+from datetime import datetime
 
 def GetEventoById(idEvento):
     result = Evento.get_by_id(int(idEvento))
     return result
 
-def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, coordenadas, descripcion, asistencia):
+def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia):
     evento = Evento()
     evento.nombre = nombre
-    evento.tipo = tipo
+    evento.tipo = int(tipo)
+    if privado == 'True':
+      privado = True
+    else:
+      privado = False
     evento.privado = privado
-    evento.idCreador = idCreador
-    evento.hora = hora
-    evento.fecha = fecha
+    evento.idCreador = idCreador     
+    evento.hora = datetime.strptime(hora,"%H:%M").time()
+    evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
     evento.lugar = lugar
-    evento.coordenadas = coordenadas
+    evento.coordenadas = ndb.GeoPt(lat, lon)
     evento.descripcion = descripcion
+    if privado == 'True':
+        asistencia = True
+    else:
+        asistencia = False
     evento.asistencia = asistencia
     evento.put()
     return True

@@ -22,6 +22,7 @@ from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
 import jinja2
 import webapp2
+import json
 
 class Index(webapp2.RequestHandler):
     def get(self):
@@ -44,8 +45,25 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formularioEvento.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
         self.response.write(template.render(template_values))
+        
+    def post(self):
+        nombre = self.request.get('nombre')
+        hora = self.request.get('hora')
+        fecha = self.request.get('fecha')
+        ca = self.request.get('cantidadAsistentes')
+        descripcion = self.request.get('descripcion')
+        lugar = self.request.get('lugar')
+        asistencia = self.request.get('asistencia')
+        lat = self.request.get('latitud')
+        lon = self.request.get('longitud')
+        privado = self.request.get('privado')
+        ret = controladorEvento.SetEvento(nombre, 1, privado, '1111', hora, fecha, lugar, lat, lon, descripcion, asistencia);
+        resp = {'response': ret}
+        self.response.headers['Content-Type'] = 'application/json'   
+        self.response.write(json.dumps(resp))
+        
 
 class InsertarPonente(webapp2.RequestHandler):
     def get(self):

@@ -41,7 +41,6 @@ html {
 }
 
 body {
-  padding-top: 70px;
   font-family: verdana;
   font-size: 12px;
   background-color: #eee;
@@ -103,6 +102,7 @@ body {
 body > .container {
   padding: 0;
   margin: 0;
+  margin-top: 70px;
 }
 
 .container .text-muted {
@@ -195,4 +195,134 @@ code {
 
 .event-content .tab-pane {
   padding: 5px 0 0 0;
+}
+
+/*************************************************/
+/****************** form style *******************/
+/*************************************************/
+form {
+  padding: 0 10px;
+}
+
+.h1-formtitle {
+  background: #3b3b3c;
+  padding: 5px 0px;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+form .input-group {
+  margin-top: 10px;
+}
+
+form .input-group .form-control {
+  background: #b9b9b9;
+  color: #3b3b3b;
+  border: none;
+  text-shadow: none;
+  border-radius: 0;
+}
+
+form .input-group .form-control:focus {
+  border-right: 3px solid #c11f23;
+  box-shadow: none;
+}
+
+form .input-group .size-35 {
+  height: 35px;
+}
+
+form .input-group .input-group-addon {
+  background: #b9b9b9;
+  color: #3b3b3b;
+  border: none;
+  text-shadow: none;
+  border-radius: 0;
+}
+
+form .input-group label {
+  font-weight: bold;
+  color: #3b3b3b;
+  font-size: 13px;
+}
+
+form .btn-group {
+  margin-top: 20px;
+  display: block;
+}
+
+form .btn-form {
+  background: #c11f23;
+  border-color: #a61b1e;
+  border-radius: 0;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+form .btn-form:hover,
+form .btn-form:focus {
+  background: none;
+  color: #c11f23;
+  border-color: #a61b1e;
+}
+
+.notread::-webkit-input-placeholder { color: black; }
+.notread::-webkit-input-placeholder { color: black;  }
+.notread::-moz-placeholder { color: black; }
+.notread::-moz-placeholder { color: black; }
+
+/*************************************************/
+/****************** newEvent style ***************/
+/*************************************************/
+.map-content {
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 15px;
+  border: 1px solid transparent;
+  border-left: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  box-shadow: 0 2px 6px rgba(193, 31, 35, 0.36);
+  padding-left: 14px;
+  width: 401px;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #c11f23;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.consejos-evento {
+  background: #3b3b3b;
+  color: #f0f0f0;
 }

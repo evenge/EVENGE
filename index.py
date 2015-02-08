@@ -47,7 +47,7 @@ class InsertarEvento(webapp2.RequestHandler):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
         self.response.write(template.render(template_values))
-        
+
     def post(self):
         nombre = self.request.get('nombre')
         hora = self.request.get('hora')
@@ -61,9 +61,9 @@ class InsertarEvento(webapp2.RequestHandler):
         privado = self.request.get('privado')
         ret = controladorEvento.SetEvento(nombre, 1, privado, '1111', hora, fecha, lugar, lat, lon, descripcion, asistencia);
         resp = {'response': ret}
-        self.response.headers['Content-Type'] = 'application/json'   
+        self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
-        
+
 
 class InsertarPonente(webapp2.RequestHandler):
     def get(self):
@@ -74,8 +74,18 @@ class InsertarPonente(webapp2.RequestHandler):
 class InsertarUsuario(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formUsuario.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templateNewUser.html')
         self.response.write(template.render(template_values))
+
+    def post(self):
+        nombre = self.request.get('nombre')
+        apellidos = self.request.get('apellidos')
+        contraseña = self.request.get('contraseña')
+        repetirContraseña = self.request.get('repetirContraseña')
+        email = self.request.get('email')
+        telefono = self.request.get('telefono')
+        twitter = self.request.get('twitter')
+        web = self.request.get('web')
 
 class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
@@ -133,6 +143,7 @@ class MostrarError(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
+    ('/iUsuario', InsertarUsuario),
     ('/iEvento', InsertarEvento),
     ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),

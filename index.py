@@ -82,12 +82,6 @@ class InsertarPonente(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
         self.response.write(template.render(template_values))
 
-# class InsertarUsuario(webapp2.RequestHandler):
-#     def get(self):
-#         template_values = {}
-#         template = JINJA_ENVIRONMENT.get_template('templates/formUsuario.html')
-#         self.response.write(template.render(template_values))
-
 class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
         return numero*numero
@@ -155,13 +149,12 @@ class NuevoUsuario(webapp2.RequestHandler):
         twitter = self.request.get("twitter").strip()
         web = self.request.get("web").strip()
         password = self.request.get("contrasena").strip()
-
         idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(
             nombre,apellidos,
             email,telefono,
             twitter,web,
             password)
-        self.response.write(nombre)
+        self.redirect('/')
 
 class Login(webapp2.RequestHandler):
     def get(self):
@@ -170,15 +163,15 @@ class Login(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
     def post(self):
         contrasena = self.request.get("contrasena").strip()
-        logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena).get()
+        logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena)
 
         if logeado != 0:
+            logeado = logeado.get()
             self.response.headers.add_header('Set-Cookie',"logged=true")
             self.response.headers.add_header('Set-Cookie',"email="+str(logeado.email))
             self.response.headers.add_header('Set-Cookie',"key="+str(logeado.key.id()))
             self.redirect("/")
         else:
-            self.response.write("No coinciden los datos introducidos")
             self.redirect("/login")
 
 class Logout(webapp2.RequestHandler):

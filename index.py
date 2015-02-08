@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -23,6 +24,7 @@ from _oo.model import controladorEvento
 from _oo.model import controladorUsuario
 import jinja2
 import webapp2
+import hashlib
 
 class Index(webapp2.RequestHandler):
     def get(self):
@@ -114,6 +116,7 @@ class MostrarError(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class NuevoUsuario(webapp2.RequestHandler):
+
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
@@ -122,18 +125,17 @@ class NuevoUsuario(webapp2.RequestHandler):
         nombre = self.request.get("nombre").strip()
         apellidos = self.request.get("apellidos").strip()
         email = self.request.get("email").strip()
-        contrasena = self.request.get("contraseña").strip()
-        repitecontrasena = self.request.get("repetirContraseña").strip()
         telefono = self.request.get("telefono").strip()
         twitter = self.request.get("twitter").strip()
         web = self.request.get("web").strip()
+        password = hashlib.md5(self.request.get("contrasena").strip()).hexdigest()
 
-        if nombre and apellidos and email and contrasena and telefono and twitter and web:
-            usuario = Usuario(nombre , apellidos , email , contrasena , telefono , twitter , web)
-                usuario.put()
-                self.write(“User added!”)
-            else:
-                self.write("Fill all inputs")
+        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(
+            nombre,apellidos,
+            email,telefono,
+            twitter,web,
+            password)
+        self.response.write(nombre)
 
 application = webapp2.WSGIApplication([
     ('/', Index),

@@ -27,7 +27,7 @@ GNU General Public License for more details.
     <div class="menu">
       <ul class="nav menu-nav">
         {% if userLogin == True %}
-        <li class="titulo-menu"><a href="/miseventos">Mis Eventos (5)</a></li>
+        <li class="titulo-menu"><a href="/miseventos">Mis Eventos ({{ numeroEventos }})</a></li>
         {% endif %}
         <li role="presentation" class="titulo-menu active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
         {% if userCreador == True %}
@@ -35,11 +35,11 @@ GNU General Public License for more details.
         <li class="option-menu"><a href="#"><i class="fa fa-cogs"></i> Modificar Evento</a></li>
         <li class="option-menu"><a href="#"><i class="fa fa-times"></i> Borrar Evento</a></li>
         {% endif %}
-        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes (100)</a></li>
+        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
         {% if userCreador == True %}
         <li class="option-menu"><a href="#"><i class="fa fa-file-pdf-o"></i> Generar Diplomas</a></li>
         {% endif %}
-        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#ponentes">Ponentes (4)</a></li>
+        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
         {% if userCreador == True %}
         <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
         <li class="option-menu"><a href="#"><i class="fa fa-trash"></i> Eliminar Ponentes</a></li>

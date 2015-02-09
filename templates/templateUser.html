@@ -21,7 +21,7 @@ GNU General Public License for more details.
 {% block content %}
 <!-- inicio del menu -->
 <div class="row">
-  <div class="menu-content col-sm-3 col-md-2">
+  <div data-key="{{ usuario }}" class="menu-content col-sm-3 col-md-2">
     <div class="menu">
       <ul class="nav menu-nav">
         <li class="titulo-menu active" role="presentation" ><a data-toggle="tab" href="#datos">Datos personales</a></li>
@@ -36,14 +36,14 @@ GNU General Public License for more details.
     </div>
   </div>
   <!-- fin del menu -->
-  
+
   <!-- inicio del panel de usuario -->
   <div class="user-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
     {% if usuario %}
     <h1>{{ usuario.nombre }}{ usuario.apellidos }}</h1>
-    {% endif %}  
+    {% endif %}
     <div class="tab-content">
-        
+
       <div class="tab-pane active" id="datos">
         {% if usuario %}
         <div class="col-sm-11">
@@ -51,7 +51,7 @@ GNU General Public License for more details.
           <h5>{{ usuario.password }}</h5>
           <h5>{{ usuario.telefono }}</h5>
           <h5>{{ usuario.twitter }}</h5>
-          <h5>{{ usuario.web }}</h5>    
+          <h5>{{ usuario.web }}</h5>
         </div>
         <div class="col-sm-1">
           <button data-id="{{ evento.id }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>
@@ -105,7 +105,7 @@ GNU General Public License for more details.
         </div>
         {% endif %}
       </div>
-    </div>    
+    </div>
   </div>
   <!-- inicio del panel de usuario -->
 </div>

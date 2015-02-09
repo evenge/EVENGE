@@ -115,13 +115,19 @@ class MostrarEvento(webapp2.RequestHandler):
 
 class MostrarInforme(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user == False:
+            self.redirect('/login')
+        template_values = {'usuario':controladorUsuario.getKey(user)}
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
 class MostrarMiCuenta(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user == False:
+            self.redirect('/login')
+        template_values = {'usuario':controladorUsuario.getKey(user)}
         template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
         self.response.write(template.render(template_values))
 

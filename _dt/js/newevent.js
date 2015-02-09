@@ -7,7 +7,6 @@ $(document).ready(function() {
   
   $('.btn-form').on('click', function(evt) {
     evt.preventDefault();
-    alert($('#newevent-cont').data('key'));
     var isPrivado = true;
     var lat = false;
     var lon = false;

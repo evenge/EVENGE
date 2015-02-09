@@ -66,7 +66,7 @@ Enlace a toda la historia de commits de Carlos Campos: https://github.com/evenge
   * Pull Request: [#154](https://github.com/evenge/EVENGE/pull/154)
   * Issues: [#143](https://github.com/evenge/EVENGE/issues/143)
 
-## Victor Coronas:
+## Victor Coronas Lara:
 * Scripts de provisionamiento:
   * Commits: [wiki](https://github.com/evenge/EVENGE/wiki/Desplegar-el-entorno-de-desarrollo/a223122130b773bc628729e84c52f0595665d6a8), [Post](https://github.com/evenge/evenge.github.io/commit/303912c6d803540fb8b4f9017570d8a4e80f5f36#diff-1d0c6a774c173c2999a04ee7b5b6feeb)
   * Issues:[1](https://github.com/evenge/EVENGE/issues/148), [2](https://github.com/evenge/EVENGE/issues/144), [3](https://github.com/evenge/EVENGE/issues/139)

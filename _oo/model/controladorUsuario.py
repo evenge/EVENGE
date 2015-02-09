@@ -21,7 +21,7 @@ from _oo.classes.usuario import Usuario
 
 def getKey(usuario):
     return usuario.key.id()
-    
+
 def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario = Usuario()
     usuario.nombre = nombre
@@ -61,4 +61,4 @@ def listarUsuarios(self):
     usuarios = []
     for usuario in result:
         usuarios.append(usuario)
-    return usuarios;
+    return usuarios

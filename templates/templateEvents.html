@@ -31,9 +31,9 @@ GNU General Public License for more details.
         {% endif %}
         <li role="presentation" class="titulo-menu active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
         {% if userCreador == True %}
-        <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Evento</a></li>
+        <li class="option-menu"><a href="/iEvento"><i class="fa fa-plus"></i> Nuevo Evento</a></li>
         <li class="option-menu"><a href="#"><i class="fa fa-cogs"></i> Modificar Evento</a></li>
-        <li class="option-menu"><a href="#"><i class="fa fa-times"></i> Borrar Evento</a></li>
+        <li class="option-menu"><a id="delete-href" href="#"><i class="fa fa-times"></i> Borrar Evento</a></li>
         {% endif %}
         <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
         {% if userCreador == True %}
@@ -48,16 +48,16 @@ GNU General Public License for more details.
     </div>
   </div>
       
-  <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ evento.id }}" class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
+  <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
     <h1 class="titular-h1">{{ evento.nombre }}</h1>
     <div class="tab-content">
         
       <div class="tab-pane active" id="descripcion">
         <div style="min-height:300px" class="descripcion-pane col-sm-6">
-          <h5>Organizador: <strong>{{ evento.organizador }}</strong></h5>
-          <h5>{{ evento.descripcion }}</h5>
+          <h5>Organizador: <strong>{{ usuario.nombre }} {{ usuario.apellidos }} </strong></h5>
+          <p>{{ descripcion|safe }}</p>
         </div>
-        <div style="min-height:300px" class="col-sm-6">
+        <div id="fhl" class="col-sm-6">
           <h5>{{ evento.fecha }}</h5>
           <h5>{{ evento.hora }}</h5>
           <h5>{{ evento.lugar }}</h5>

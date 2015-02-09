@@ -66,7 +66,7 @@ class InsertarEvento(webapp2.RequestHandler):
         hora = self.request.get('hora')
         fecha = self.request.get('fecha')
         ca = self.request.get('cantidadAsistentes')
-        descripcion = self.request.get('descripcion')
+        descripcion = self.request.get('descripcion').strip()
         lugar = self.request.get('lugar')
         asistencia = self.request.get('asistencia')
         lat = self.request.get('latitud')
@@ -120,8 +120,11 @@ class MostrarEvento(webapp2.RequestHandler):
             userCreador = True
         template_values = {'evento':evento,
                            'userLogin': userLogin,
+                           'descripcion':evento.descripcion.replace("\n", "<br />"),
                            'userCreador':userCreador,
-                           'numeroEventos':numeroEventos}
+                           'numeroEventos':numeroEventos,
+                           'id':idEvento,
+                           'usuario': user}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 
@@ -199,6 +202,21 @@ class Logout(webapp2.RequestHandler):
 
         self.redirect("/")
 
+class EliminarEvento(webapp2.RequestHandler):
+    def post(self):
+        userLogin = False
+        userCreador = False
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idEvento = self.request.get('id')
+        if user == False:
+            self.redirect("/")
+        else:
+            ret = controladorEvento.DeleteEvento(idEvento)
+            resp = {'response': ret}
+            self.response.headers['Content-Type'] = 'application/json'
+            self.response.write(json.dumps(resp))
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -212,6 +230,7 @@ application = webapp2.WSGIApplication([
     ('/registrate', NuevoUsuario),
     ('/login', Login),
     ('/logout', Logout),
+    ('/eliminarEvento', EliminarEvento),
     ('/error', MostrarError)
 ], debug=True)
 

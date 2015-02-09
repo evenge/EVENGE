@@ -50,3 +50,8 @@ def getEventosAsociados(idUsuario):
 
 def getEventosAsociadosCount(idUsuario):
     return getEventosAsociados(idUsuario).count()
+
+def DeleteEvento(idEvento):
+    evento = GetEventoById(int(idEvento))
+    evento.key.delete()
+    return True

@@ -47,3 +47,6 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
 def getEventosAsociados(idUsuario):
     eventos = Evento.query(Evento.idCreador == str(idUsuario));
     return eventos;
+
+def getEventosAsociadosCount(idUsuario):
+    return getEventosAsociados(idUsuario).count()

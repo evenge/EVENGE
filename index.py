@@ -57,7 +57,7 @@ class InsertarEvento(webapp2.RequestHandler):
         if user == False:
             self.redirect('/login')
         else:
-            template_values = {'usuario':controladorUsuario.getKey(user)}
+            template_values = {'usuario':int(controladorUsuario.getKey(user))}
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
             self.response.write(template.render(template_values))
 
@@ -108,18 +108,20 @@ class Evenge(webapp2.RequestHandler):
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
-        userLogin = True
+        userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
-        if user == False:
-            userLogin = False
-        if int(controladorUsuario.getKey(user)) == int(evento.idCreador):
+        if user != False:
+            userLogin = True
+            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
+        if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
             userCreador = True
         template_values = {'evento':evento,
                            'userLogin': userLogin,
-                           'userCreador':userCreador}
+                           'userCreador':userCreador,
+                           'numeroEventos':numeroEventos}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 

@@ -53,7 +53,10 @@ class InsertarOrganizacion(webapp2.RequestHandler):
 
 class InsertarEvento(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user == False:
+            self.redirect('/login')
+        template_values = {'usuario':controladorUsuario.getKey(user)}
         template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
         self.response.write(template.render(template_values))
 
@@ -68,8 +71,9 @@ class InsertarEvento(webapp2.RequestHandler):
         lat = self.request.get('latitud')
         lon = self.request.get('longitud')
         privado = self.request.get('privado')
-        ret = controladorEvento.SetEvento(nombre, 1, privado, '1111', hora, fecha, lugar, lat, lon, descripcion, asistencia);
-        resp = {'response': ret}
+        idCreador = self.request.get('idUser')
+        ret = controladorEvento.SetEvento(nombre, 1, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia);
+        resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
 
@@ -134,7 +138,6 @@ class MostrarError(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class NuevoUsuario(webapp2.RequestHandler):
-
     def get(self):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')

@@ -52,6 +52,7 @@ def getUsuarioLogeado(handler):
     else:
         return False
 
+<<<<<<< HEAD
 class ListarUsuarios(webapp2.RequestHandler):
     def get(self):
         result = Usuario.query()
@@ -59,3 +60,8 @@ class ListarUsuarios(webapp2.RequestHandler):
         for usuario in result:
             usuarios.append(usuario)
         return usuarios;
+=======
+
+def getKey(usuario):
+    return usuario.key.id()
+>>>>>>> 8ea9dec0ceae21c3ab5db67a78a7c2f5bc798c1a

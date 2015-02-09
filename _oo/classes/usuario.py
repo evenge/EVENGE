@@ -29,27 +29,3 @@ class Usuario(ndb.Model):
   telefono = ndb.StringProperty()
   twitter = ndb.StringProperty()
   web = ndb.StringProperty()
-#
-# class index(webapp2.RequestHandler):
-#     def post(self):
-#         usuario = Usuario()
-#         usuario.nombre = self.request.get('nombre')
-#         usuario.apellidos = self.request.get('apellidos')
-#         usuario.email = self.request.get('email')
-#         usuario.telefono = self.request.get('telefono')
-#         usuario.twitter = self.request.get('twitter')
-#         usuario.web = self.request.get('web')
-#         usuario.password = self.request.get('password')
-#
-#         usuario.put()
-#
-#         self.response.write('El usuario se ha creado correctamente.')
-#
-# application = webapp2.WSGIApplication([
-#     ('/usuario', index)
-#     ], debug=True)
-#
-# JINJA_ENVIRONMENT = jinja2.Environment(
-#     loader=jinja2.FileSystemLoader('./'),
-#     extensions=['jinja2.ext.autoescape'],
-#     autoescape=True)

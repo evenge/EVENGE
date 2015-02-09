@@ -18,6 +18,10 @@ import webapp2
 from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
 
+
+def getKey(usuario):
+    return usuario.key.id()
+    
 def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario = Usuario()
     usuario.nombre = nombre
@@ -52,6 +56,9 @@ def getUsuarioLogeado(handler):
     else:
         return False
 
-
-def getKey(usuario):
-    return usuario.key.id()
+def listarUsuarios(self):
+    result = Usuario.query()
+    usuarios = []
+    for usuario in result:
+        usuarios.append(usuario)
+    return usuarios;

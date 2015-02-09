@@ -131,13 +131,16 @@ class MostrarInforme(webapp2.RequestHandler):
 
 class MostrarMiCuenta(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        usuario = controladorUsuario.getUsuarioLogeado(self)
+        template_values = {'usuario':usuario}
         template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
         self.response.write(template.render(template_values))
 
 class MostrarMisEventos(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
+        eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
+        template_values = {'eventos':eventos}
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
@@ -176,7 +179,7 @@ class Login(webapp2.RequestHandler):
         contrasena = self.request.get("contrasena").strip()
         logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena)
 
-        if logeado != 0:
+        if logeado != False:
             logeado = logeado.get()
             self.response.headers.add_header('Set-Cookie',"logged=true")
             self.response.headers.add_header('Set-Cookie',"email="+str(logeado.email))

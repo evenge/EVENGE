@@ -30,7 +30,7 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
     else:
       privado = False
     evento.privado = privado
-    evento.idCreador = idCreador     
+    evento.idCreador = idCreador
     evento.hora = datetime.strptime(hora,"%H:%M").time()
     evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
     evento.lugar = lugar
@@ -43,3 +43,7 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
     evento.asistencia = asistencia
     evento.put()
     return True
+
+def getEventosAsociados(idUsuario):
+    eventos = Eventos.query(idCreador = idUsuario);
+    return eventos;

@@ -51,3 +51,11 @@ def getUsuarioLogeado(handler):
         return usuario;
     else:
         return False
+
+class ListarUsuarios(webapp2.RequestHandler):
+    def get(self):
+        result = Usuario.query()
+        usuarios = []
+        for usuario in result:
+            usuarios.append(usuario)
+        return usuarios;

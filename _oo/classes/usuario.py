@@ -45,15 +45,11 @@ class index(webapp2.RequestHandler):
 
         self.response.write('El usuario se ha creado correctamente.')
 
-class ListarUsuarios(webapp2.RequestHandler):
-    def get(self):
-        result = Usuario.query()
-        usuarios = []
-        for usuario in result:
-            usuarios.append(usuario)
-        template_values = {'usuarios':usuarios}
-        template = JINJA_ENVIRONMENT.get_template('/templates/templateUser.html')
-        self.response.write(template.render(template_values))
+
+def getEventosAsociados(self){
+
+}
+
 
 application = webapp2.WSGIApplication([
     ('/usuario', index),

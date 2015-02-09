@@ -25,7 +25,8 @@ $(document).ready(function() {
       'asistencia': $('#asistencia').is(':checked'),
       'latitud': lat,
       'longitud': lon,
-      'privado': isPrivado
+      'privado': isPrivado,
+      'idUser': $('#newevent-cont').data('key')
     };
     
     $.ajax({
@@ -33,7 +34,8 @@ $(document).ready(function() {
       url: '/iEvento',
       data: data,
       success: function(resp){
-        console.log(resp);
+        if (resp.response === true) { window.location = "/eventos?id="+resp.idEvento; }
+        else alert('Ha habido un error');
       }
     });
   });

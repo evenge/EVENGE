@@ -181,7 +181,7 @@ code {
 /*************** panel estilos *******************/
 /*************************************************/
 .pad-panel {
-  padding: 7px 25px 25px;
+  padding: 10px 0px 25px 25px;
 }
 
 /*************************************************/
@@ -196,7 +196,6 @@ code {
 .event-content .tab-pane {
   padding: 5px 0 0 0;
 }
-
 /*************************************************/
 /****************** form style *******************/
 /*************************************************/
@@ -325,4 +324,9 @@ form .btn-form:focus {
 .consejos-evento {
   background: #3b3b3b;
   color: #f0f0f0;
+}
+
+.info-marker {
+  min-width: 200px;
+  min-height: 100px;
 }

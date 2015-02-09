@@ -37,21 +37,21 @@ GNU General Public License for more details.
     </div>
   </div>
       
-  <div class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
+  <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ evento.id }}" class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
     <h1 class="titular-h1">{{ evento.nombre }}</h1>
     <div class="tab-content">
         
       <div class="tab-pane active" id="descripcion">
-        <div class="descripcion-pane col-sm-11 col-xs-11">
+        <div style="min-height:300px" class="descripcion-pane col-sm-6">
           <h5>Organizador: <strong>{{ evento.organizador }}</strong></h5>
-          <h5>Fecha: <strong>{{ evento.fecha }}</strong></h5>
-          <h5>Hora: <strong>{{ evento.hora }}</strong></h5>
-          <h5>Descripción: <strong>{{ evento.descripcion }}</strong></h5>
-          <h5>Lugar: <strong>{{ evento.lugar }}</strong></h5>
-          <div style="width:600px; height:200px; background: #111;" class="evento-map"></div>
+          <h5>{{ evento.descripcion }}</h5>
         </div>
-        <div class="col-sm-1 col-xs-1">
-          <button data-id="{{ evento.id }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>
+        <div style="min-height:300px" class="col-sm-6">
+          <h5>{{ evento.fecha }}</h5>
+          <h5>{{ evento.hora }}</h5>
+          <h5>{{ evento.lugar }}</h5>
+        <!--<button data-id="{{ evento.id }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>-->
+          <div data-coord="{{ evento.coordenadas }}" style="min-width: 310px; height: 370px; margin: 0 auto" id="map-canvas" class="evento-map"></div>
         </div>
       </div>
 
@@ -148,4 +148,9 @@ GNU General Public License for more details.
   </div>
         
 </div>
+{% endblock %}
+
+{% block scriptFooter %}
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script type="text/javascript" src="/_dt/js/event.js"></script>
 {% endblock %}

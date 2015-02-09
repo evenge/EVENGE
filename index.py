@@ -55,7 +55,7 @@ class InsertarEvento(webapp2.RequestHandler):
     def get(self):
         user = controladorUsuario.getUsuarioLogeado(self)
         if user == False:
-            self.redirect('/')
+            self.redirect('/login')
         template_values = {'usuario':controladorUsuario.getKey(user)}
         template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
         self.response.write(template.render(template_values))

@@ -51,3 +51,7 @@ def getUsuarioLogeado(handler):
         return usuario;
     else:
         return False
+
+
+def getKey(usuario):
+    return usuario.key.id()

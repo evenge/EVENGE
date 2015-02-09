@@ -14,7 +14,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 {% autoescape true %}
 
 <html lang="es">
@@ -49,26 +49,33 @@ GNU General Public License for more details.
           <span class="icon-bar"></span>
         </button>
         <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
+        {%if usuario %}
+        <small class="col-lg-1 col-offset-7 centered">{{usuario.nombre}} {{usuario.apellidos}}</small>
+        {% endif %}
       </div>
     </a>
 
     {% block nav %}
+
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/miseventos"> Mis eventos </a></li>
       <li><a href="/misponentes"> Ponentes </a></li>
       <li><a href="/misinformes"> Informes </a></li>
       <li><a href="/micuenta"> Mi cuenta </a></li>
+      {%if usuario %}
+      <li><a href="/logout"> Logout </a></li>
+      {% endif %}
     </ul>
     {% endblock %}
   </nav>
   <!--/navegador -->
-  
+
   <!-- inicio de la parte principal -->
   <div class="container">
     {% block content %} {% endblock %}
   </div>
   <!-- fin de la parte principal -->
-  
+
   <!-- inicio pie de pagina -->
   {% block footer %}
 <!--
@@ -91,7 +98,7 @@ GNU General Public License for more details.
 -->
   <!-- fin pie de pagina -->
   {% endblock %}
-  
+
   <!-- scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>

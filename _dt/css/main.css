@@ -108,7 +108,7 @@ body > .container {
 .container .text-muted {
   margin: 20px 0;
 }
- 
+
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -142,12 +142,12 @@ code {
   display: block;
   padding: 20px;
   overflow-x: hidden;
-  overflow-y: auto; 
+  overflow-y: auto;
   background-color: white;
 }
 
 .menu-content .menu .menu-nav {
-  margin-right: -21px; 
+  margin-right: -21px;
   margin-bottom: 20px;
   margin-left: -20px;
 }
@@ -156,7 +156,7 @@ code {
   background: none;
   padding: 5px 0 5px 15px;
   font-size: 14px;
-  
+
 }
 
 .menu-content .menu .menu-nav .titulo-menu > a {

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -20,15 +21,23 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
+from _oo.model import controladorUsuario
 import jinja2
 import webapp2
+import hashlib
 import json
 
 class Index(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
-        self.response.write(template.render(template_values))
+        usuario = controladorUsuario.getUsuarioLogeado(self)
+        if usuario :
+            template_values = {'usuario':usuario}
+            template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
+            self.response.write(template.render(template_values))
+        else:
+            template_values = {}
+            template = JINJA_ENVIRONMENT.get_template('templates/indexVisitante.html')
+            self.response.write(template.render(template_values))
 
 class InsertarAsistente(webapp2.RequestHandler):
     def get(self):
@@ -70,22 +79,6 @@ class InsertarPonente(webapp2.RequestHandler):
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
         self.response.write(template.render(template_values))
-
-class InsertarUsuario(webapp2.RequestHandler):
-    def get(self):
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/templateNewUser.html')
-        self.response.write(template.render(template_values))
-
-    def post(self):
-        nombre = self.request.get('nombre')
-        apellidos = self.request.get('apellidos')
-        contraseña = self.request.get('contraseña')
-        repetirContraseña = self.request.get('repetirContraseña')
-        email = self.request.get('email')
-        telefono = self.request.get('telefono')
-        twitter = self.request.get('twitter')
-        web = self.request.get('web')
 
 class Evenge(webapp2.RequestHandler):
     def hazElCuadrado(self, numero):
@@ -140,6 +133,54 @@ class MostrarError(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateError.html')
         self.response.write(template.render(template_values))
 
+class NuevoUsuario(webapp2.RequestHandler):
+
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
+        self.response.write(template.render(template_values))
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+        password = self.request.get("contrasena").strip()
+        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(
+            nombre,apellidos,
+            email,telefono,
+            twitter,web,
+            password)
+        self.redirect('/')
+
+class Login(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templateLogin.html')
+        self.response.write(template.render(template_values))
+    def post(self):
+        contrasena = self.request.get("contrasena").strip()
+        logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena)
+
+        if logeado != 0:
+            logeado = logeado.get()
+            self.response.headers.add_header('Set-Cookie',"logged=true")
+            self.response.headers.add_header('Set-Cookie',"email="+str(logeado.email))
+            self.response.headers.add_header('Set-Cookie',"key="+str(logeado.key.id()))
+            self.redirect("/")
+        else:
+            self.redirect("/login")
+
+class Logout(webapp2.RequestHandler):
+    def get(self):
+        if self.request.cookies.get("logged") == "true":
+            self.response.headers.add_header('Set-Cookie',"logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+            self.response.headers.add_header('Set-Cookie',"email=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+            self.response.headers.add_header('Set-Cookie',"key=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
+
+        self.redirect("/")
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iAsistente', InsertarAsistente),
@@ -151,6 +192,9 @@ application = webapp2.WSGIApplication([
     ('/eventos*', MostrarEvento),
     ('/misinformes', MostrarInforme),
     ('/micuenta', MostrarMiCuenta),
+    ('/registrate', NuevoUsuario),
+    ('/login', Login),
+    ('/logout', Logout),
     ('/error', MostrarError)
 ], debug=True)
 

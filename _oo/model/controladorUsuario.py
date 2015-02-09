@@ -37,9 +37,17 @@ def loginCorrecto(email,password):
         if(usuario.get().password == password):
             return usuario
         else:
-            return 0
+            return False
     else:
-        return 0
+        return False
 
 def GetUsuarioById(idUsuario):
     return Usuario().get_by_id(idUsuario)
+
+def getUsuarioLogeado(handler):
+    if handler.request.cookies.get("logged") == "true":
+        key = handler.request.cookies.get("key")
+        usuario = GetUsuarioById(int(key))
+        return usuario;
+    else:
+        return False

@@ -29,10 +29,8 @@ import json
 
 class Index(webapp2.RequestHandler):
     def get(self):
-        if self.request.cookies.get("logged") == "true":
-            email = self.request.cookies.get("email")
-            key = self.request.cookies.get("key")
-            usuario = controladorUsuario.GetUsuarioById(int(key))
+        usuario = controladorUsuario.getUsuarioLogeado(self)
+        if usuario :
             template_values = {'usuario':usuario}
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))

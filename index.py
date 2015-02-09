@@ -108,9 +108,18 @@ class Evenge(webapp2.RequestHandler):
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
+        userLogin = True
+        userCreador = False
+        user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
-        template_values = {'evento':evento}
+        if user == False:
+            userLogin = False
+        if int(controladorUsuario.getKey(user)) == int(evento.idCreador):
+            userCreador = True
+        template_values = {'evento':evento,
+                           'userLogin': userLogin,
+                           'userCreador':userCreador}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 

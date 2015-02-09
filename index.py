@@ -124,7 +124,9 @@ class MostrarMiCuenta(webapp2.RequestHandler):
 
 class MostrarMisEventos(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
+        eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
+        template_values = {'eventos':eventos}
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 

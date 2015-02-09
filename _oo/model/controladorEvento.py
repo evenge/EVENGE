@@ -45,5 +45,5 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
     return True
 
 def getEventosAsociados(idUsuario):
-    eventos = Eventos.query(idCreador = idUsuario);
+    eventos = Evento.query(Evento.idCreador == str(idUsuario));
     return eventos;

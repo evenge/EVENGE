@@ -40,13 +40,14 @@ GNU General Public License for more details.
   <!-- inicio del panel de usuario -->
   <div class="user-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
     {% if usuario %}
-    <h1>{{ usuario.nombre }} {{ usuario.apellidos }}</h1>
+    <h1 class=" col-sm-offset-1">{{ usuario.nombre }} {{ usuario.apellidos }}</h1>
     {% endif %}
     <div class="tab-content">
 
       <div class="tab-pane active" id="datos">
         {% if usuario %}
-        <div class="col-sm-6">
+        <div class="col-sm-10 col-sm-offset-1">
+        </br>
         <table class="col-sm-6 table">
           <tr>
             <td><b>Email:</b></td><td> {{ usuario.email }}</td>

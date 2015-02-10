@@ -197,7 +197,7 @@ code {
   padding: 5px 0 0 0;
 }
 
-#descripcion p { 
+#descripcion p {
   font-size: 14px;
 }
 
@@ -337,4 +337,44 @@ form .btn-form:focus {
 .info-marker {
   min-width: 200px;
   min-height: 100px;
+}
+/*************************************************/
+/****************** myEvents style ***************/
+/*************************************************/
+.evento-miseventos{
+  padding:0px;
+  margin:10px;
+  background:white;
+}
+.evento-miseventos h5{
+  margin-left: 10px;
+}
+.header-evento-miseventos{
+  background-color:rgba(206, 0, 0, 0.70);
+  padding:4px;
+  padding-left:20px;
+}
+.header-evento-miseventos:hover{
+  background-color:rgb(207, 0, 0);
+  padding:4px;
+  padding-left:20px;
+}
+.header-evento-miseventos .btn-group{
+  float: right;
+  margin-top:-36px;
+  margin-right:3px;
+}
+.header-evento-miseventos .btn{
+  border:none;
+  background:none;
+  color:white;
+}
+.header-evento-miseventos a{
+  color:rgba(255, 255, 255, 0.80);
+  }
+.header-evento-miseventos a:hover{
+  color:white;
+}
+h3{
+  margin-left:15px;
 }

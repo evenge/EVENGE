@@ -31,7 +31,8 @@ class Index(webapp2.RequestHandler):
     def get(self):
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario :
-            template_values = {'usuario':usuario}
+            eventos = controladorEvento.getEventosAsociados(usuario.key.id())
+            template_values = {'eventos':eventos,'usuario':usuario}
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
         else:

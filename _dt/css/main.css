@@ -204,6 +204,14 @@ code {
 #fhl {
   padding-right: 0;
 }
+#asistentes div div{
+  background:white;
+}
+#asistentes .btn{
+  background:none;
+  border:none;
+  color: #C11F23;
+}
 /*************************************************/
 /****************** form style *******************/
 /*************************************************/

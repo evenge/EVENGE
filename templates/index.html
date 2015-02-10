@@ -49,9 +49,7 @@ GNU General Public License for more details.
           <span class="icon-bar"></span>
         </button>
         <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
-        {%if usuario %}
-        <small class="col-lg-1 col-offset-7 centered">{{usuario.nombre}} {{usuario.apellidos}}</small>
-        {% endif %}
+        <small class="col-lg-1 col-offset-7 centered"></small>
       </div>
     </a>
 
@@ -62,10 +60,12 @@ GNU General Public License for more details.
       <li><a href="/miseventos"> Mis eventos </a></li>
       <li><a href="/misponentes"> Ponentes </a></li>
       <li><a href="/misinformes"> Informes </a></li>
-      <li><a href="/micuenta"> Mi cuenta </a></li>
-      {%if usuario %}
-      <li><a href="/logout"> Logout </a></li>
+      {% if usuario %}
+      <li><a href="/micuenta"> {{usuario.nombre}} {{usuario.apellidos}}</a></li>
+      {% else %}
+      <li><a href="/micuenta"> Mi cuenta</a></li>
       {% endif %}
+      <li><a href="/logout"> Logout </a></li>
     </ul>
     {% endblock %}
   </nav>

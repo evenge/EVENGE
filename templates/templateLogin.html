@@ -24,8 +24,8 @@ GNU General Public License for more details.
 
 {% block content %}
 <!--Formulario usuario -->
-<div class="col-sm-8 col-sm-offset-3">
-  <h1>Login</h1></br>
+<div style="margin-top:40px;" class="col-sm-9 col-sm-offset-2">
+  <h1 class="h1-formtitle">Login</h1>
   <form action="/login" method="post">
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
@@ -35,7 +35,7 @@ GNU General Public License for more details.
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt"></i></span>
       <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña" aria-describedby="sizing-addon1">
     </div></br>
-    <button type="submit" class="btn btn-success btn-block" value="Guardar">Entrar</button>
+    <button type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Entrar</button>
   </form>
 </div>
 <!--/Formulario usuario -->

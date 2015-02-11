@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var coor = $('#map-canvas').data('coord').split(',');
   putMap(coor);
-  
+
   $('#delete-href').on('click', function(evt) {
     evt.preventDefault();
     var data = {'id': $('.event-content').data('id')};
@@ -23,7 +23,7 @@ function putMap(coor) {
     center: new google.maps.LatLng(coor[0],coor[1]),
     zoom: 16
   });
-  
+
   var myLatlng = new google.maps.LatLng(coor[0],coor[1]);
   var titulo = $('.titular-h1').text();
   var fecha = $('.event-content').data('fecha');
@@ -39,8 +39,10 @@ function putMap(coor) {
     title: titulo
   });
 
+  infowindow.open(map,marker);
+
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
   });
-  
+
 }

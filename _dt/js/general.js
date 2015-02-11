@@ -22,4 +22,20 @@ $(document).ready(function() {
   $('#menu-div').click(function(evt){
     evt.stopPropagation();
   });
+
+  $(function () {
+    $(window).scroll(sticky_relocate);
+    sticky_relocate();
+  });
 });
+
+function sticky_relocate() {
+  var window_top = $(window).scrollTop();
+  var div_top = 40;
+  if (window_top > div_top) {
+    $('.individual-menu').addClass('transp');
+  }
+  else {
+    $('.individual-menu').removeClass('transp');
+  }
+}

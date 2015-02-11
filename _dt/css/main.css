@@ -208,6 +208,7 @@ body {
 
 .menu-content .menu .menu-nav .fa2 {
   float: right;
+  margin-top: 3px;
 }
 
 .divisor {
@@ -274,7 +275,7 @@ body {
 }
 
 .individual-menu li a:hover {
-  background: white;
+  background: none;
 }
 
 .individual-menu li.active {
@@ -282,7 +283,11 @@ body {
 }
 
 .individual-menu li.active a {
-  background: white;
+  background: none;
+}
+
+.transp {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /*************************************************/

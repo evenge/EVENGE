@@ -204,14 +204,22 @@ code {
 #fhl {
   padding-right: 0;
 }
-#asistentes div div{
+.asistente{
   background:white;
+  border-bottom:solid 1px #C11F23;
 }
 #asistentes .btn{
   background:none;
   border:none;
   color: #C11F23;
 }
+.buscador{
+  /*background-color:rgba(215, 0, 0, 0.60);*/
+  margin-top:10px;
+  background-color:white;
+  padding:15px;
+}
+
 /*************************************************/
 /****************** form style *******************/
 /*************************************************/

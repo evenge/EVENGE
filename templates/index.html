@@ -44,11 +44,12 @@ GNU General Public License for more details.
       <div class="navbar-header">
         <a class="navbar-brand" href="/"><img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE</a>
       </div>
+      {% block nav %}
       <div class="pull-left">
-        <button id="menu-bottom" type="button" class="btn btn-default navbar-btn"><i class="fa fa-bars"></i></button>
+        <button id="menu-bottom" type="button" class="btn btn-default navbar-btn"><i class="fa fa-bars"></i> <i class="fa fa-angle-down"></i></button>
       </div>
 
-      {% block nav %}
+
       <ul class="nav navbar-nav navbar-right">
         {% if usuario %}
         <li><a href="/micuenta"> {{usuario.nombre}} {{usuario.apellidos}}</a></li>

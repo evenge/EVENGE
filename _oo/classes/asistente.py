@@ -30,12 +30,10 @@ class Asistente(ndb.Model):
     dni = ndb.StringProperty()
     asistido = ndb.BooleanProperty()
 
-
-
 class index(webapp2.RequestHandler):
     def post(self):
         asistente = Asistente()
-        asistente.idEvento = self.request.get('idEvento')
+        asistente.idEvento = self.request.get("idEvento")
         asistente.nombre = self.request.get('nombre')
         asistente.apellidos = self.request.get('apellidos')
         asistente.email = self.request.get('email')
@@ -46,7 +44,7 @@ class index(webapp2.RequestHandler):
 
         asistente.put()
 
-        self.redirect("/")
+        self.redirect("/evento?id="+str(asistente.idEvento))
 
 class ListarAsistentes(webapp2.RequestHandler):
     def get(self):

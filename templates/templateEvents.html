@@ -59,7 +59,7 @@ GNU General Public License for more details.
         <div id="form-inscribete" class="col-sm-8 col-sm-offset-2" hidden="hidden">
           <h1 class="h1-formtitle" >Nuevo Asistente</h1>
           <form action="/asistente" method="post">
-            <input  type="hidden" class="form-control" name="idEvento"  id="idEvento" placeholder="{{id}}" aria-describedby="sizing-addon1">
+            <input  style="display:none" type="text" class="form-control" name="idEvento"  id="idEvento" value="{{id}}" aria-describedby="sizing-addon1">
             <div class="input-group">
               <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
               <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
@@ -94,8 +94,6 @@ GNU General Public License for more details.
         </div>
       </div>
 
-
-
       <div class="tab-pane" id="asistentes">
         <div class="col-sm-12">
           <div class="col-sm-12">
@@ -106,11 +104,14 @@ GNU General Public License for more details.
           </div>
           {% for a in asistentes %}
           <div class="col-sm-12 col-xs-12">
-            <div class="col-xs-5">
-              <h5>{{ a.nombre }}{{ a.apellidos }}</h5>
+            <div class="col-xs-3">
+              <h5>{{ a.nombre }} {{ a.apellidos }}</h5>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <h5>{{ a.dni }}</h5>
+            </div>
+            <div class="col-xs-3">
+              <h5>{{ a.telefono }}</h5>
             </div>
             <div class="col-xs-2">
               <div class="btn-group" role="group" aria-label="...">

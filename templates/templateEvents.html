@@ -88,7 +88,6 @@ GNU General Public License for more details.
               <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
               <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
             </div>
-
             <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Aceptar Inscripción</button>
           </form>
         </div>
@@ -96,24 +95,24 @@ GNU General Public License for more details.
 
       <div class="tab-pane" id="asistentes">
         <div class="col-sm-12">
-          <div class="col-sm-12">
+          <div id="buscador-asistente" class="col-sm-12">
             <div class="input-group">
               <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
               <input type="text" class="form-control" placeholder="Introduce asistente" aria-describedby="sizing-addon1">
             </div>
           </div>
           {% for a in asistentes %}
-          <div class="col-sm-12 col-xs-12">
-            <div class="col-xs-3">
+          <div class="col-sm-12 col-xs-12 asistente">
+            <div class="col-xs-5">
               <h5>{{ a.nombre }} {{ a.apellidos }}</h5>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-2">
               <h5>{{ a.dni }}</h5>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
               <h5>{{ a.telefono }}</h5>
             </div>
-            <div class="col-xs-2">
+            <div class="col-md-offset-1 col-xs-2">
               <div class="btn-group" role="group" aria-label="...">
                 <button data-id="{{ a.id }}" class="btn btn-default delete-button"><i class="fa fa-times"></i></button>
                 <button data-id="{{ a.id }}" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button>

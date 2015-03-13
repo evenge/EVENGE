@@ -40,39 +40,57 @@ GNU General Public License for more details.
 <body>
   <!--nav -->
   <nav class="navbar navbar-default navbar-fixed-top">
-    <a href="/">
+    <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Desplegar navegación</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE <small>Gestor de eventos</small>
-        {%if usuario %}
-        <!-- <small class="col-lg-1 col-offset-7 centered">{{usuario.nombre}} {{usuario.apellidos}}</small> -->
-        {% endif %}
+        <a class="navbar-brand" href="/"><img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE</a>
       </div>
-    </a>
+      {% block nav %}
+      <div class="pull-left">
+        <button id="menu-bottom" type="button" class="btn btn-default navbar-btn"><i class="fa fa-bars"></i> <i class="fa fa-angle-down"></i></button>
+      </div>
 
-    {% block nav %}
 
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/iEvento"> Nuevo </a></li>
-      <li><a href="/miseventos"> Mis eventos </a></li>
-      <li><a href="/misponentes"> Ponentes </a></li>
-      <li><a href="/misinformes"> Informes </a></li>
-      <li><a href="/micuenta"> Mi cuenta </a></li>
-      {%if usuario %}
-      <li><a href="/logout"> Logout </a></li>
-      {% endif %}
-    </ul>
-    {% endblock %}
+      <ul class="nav navbar-nav navbar-right">
+        {% if usuario %}
+        <li><a href="/micuenta"> {{usuario.nombre}} {{usuario.apellidos}}</a></li>
+        {% endif %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-plus"></i><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/iEvento">Nuevo evento</a></li>
+            <li><a href="/iPonente">Nuevo ponente</a></li>
+          </ul>
+        </li>
+        <li><a href="/logout"> <i class="fa fa-sign-out"></i></a></li>
+      </ul>
+      {% endblock %}
+    </div>
   </nav>
   <!--/navegador -->
 
+  <!-- menu -->
+  <div id="menu-div" class="menu-content col-sm-3 col-md-2">
+    <div class="menu">
+      <ul class="nav menu-nav">
+        <li class="titulo-menu"><a href="/micuenta"><i class="fa fa-cog"></i> Configuración <i class="fa2 fa fa-angle-right"></i></a></li>
+        <div class="divisor"></div>
+        <li class="titulo-menu"><a href="/miseventos"><i class="fa fa-newspaper-o"></i> Mis Eventos ({{ numeroEventos }}) <i class="fa2 fa fa-angle-right"></i></a></li>
+        <li class="option-menu"><a href="/iEvento"><i class="fa fa-plus"></i> Nuevo Evento</a></li>
+        <div class="divisor"></div>
+        <li class="titulo-menu"><a href="/misponentes"><i class="fa fa-graduation-cap"></i> Mis Ponentes <i class="fa2 fa fa-angle-right"></i></a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
+        <div class="divisor"></div>
+        <li class="titulo-menu"><a href="/misinformes"><i class="fa fa-bar-chart"></i> Mis informes <i class="fa2 fa fa-angle-right"></i></a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-bar-chart"></i> Por año</a></li>
+        <li class="option-menu"><a href="#"><i class="fa fa-bar-chart"></i> Por mes</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- fin menu -->
+
   <!-- inicio de la parte principal -->
-  <div class="container ">
+  <div class="container-fluid">
     {% block content %} {% endblock %}
   </div>
   <!-- fin de la parte principal -->
@@ -103,6 +121,7 @@ GNU General Public License for more details.
   <!-- scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="/_dt/js/general.js"></script>
   {% block scriptFooter %}{% endblock %}
   <!-- scripts -->
 </body>

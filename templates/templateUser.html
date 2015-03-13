@@ -21,58 +21,65 @@ GNU General Public License for more details.
 {% block content %}
 <!-- inicio del menu -->
 <div class="row">
-  <div class="menu-content col-sm-3 col-md-2">
-    <div class="menu">
-      <ul class="nav menu-nav">
-        <li class="titulo-menu active" role="presentation" ><a data-toggle="tab" href="#datos">Datos personales</a></li>
-        <li class="option-menu"><a href=""><i class="fa fa-cogs"></i> Modificar Datos</a></li>
-        <li class="titulo-menu" role="presentation" ><a data-toggle="tab" href="#organizacion">Organización</a></li>
-        {% if organizacion_creada %}
-        <li class="option-menu"><a href=""><i class="fa fa-cogs"></i> Modificar Organización</a></li>
-        {% else %}
-        <li class="option-menu"><a href=""><i class="fa fa-plus"></i> Nueva Organizacion</a></li>
-        {% endif %}
-      </ul>
-    </div>
+  <div class="individual-menu-cont col-sm-12">
+    <ul class="individual-menu nav">
+      <li role="presentation" class="individual-opt active"><a data-toggle="tab" href="#datos">Datos personales</a></li>
+      <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#organizacion">Organización</a></li>
+    </ul>
   </div>
-  <!-- fin del menu -->
-
   <!-- inicio del panel de usuario -->
-  <div class="user-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
-    {% if usuario %}
-    <h1 class=" col-sm-offset-1">{{ usuario.nombre }} {{ usuario.apellidos }}</h1>
-    {% endif %}
+  <div class="user-content col-md-12 pad-panel">
     <div class="tab-content">
 
       <div class="tab-pane active" id="datos">
         {% if usuario %}
-        <div class="col-sm-10 col-sm-offset-1">
-        </br>
-        <table class="col-sm-6 table">
-          <tr>
-            <td><b>Email:</b></td><td> {{ usuario.email }}</td>
-          </tr>
-          <tr>
-            <td><b>Nombre:</b></td><td>{{ usuario.nombre }}</td>
-          </tr>
-          <tr>
-            <td><b>Apellidos:</b></td><td>{{ usuario.apellidos }}</td>
-          </tr>
-          <tr>
-            <td><b>Telefono:</b></td><td>{{ usuario.telefono }}</td>
-          </tr>
-          <tr>
-            <td><b>Twitter:</b></td><td>{{ usuario.twitter }}</td>
-          </tr>
-          <tr>
-            <td><b>Web:</b></td><td>{{ usuario.web }}</td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-sm-1">
-        <button data-id="{{ usuario.key.id() }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>
-      </div>
-
+        <div class="col-sm-12">
+          <div class="col-sm-6">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="emailU" class="col-sm-2 control-label">Email:</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="emailU" value="{{ usuario.email }}" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nombreU" class="col-sm-2 control-label">Nombre:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombreU" value="{{ usuario.nombre }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nombreU" class="col-sm-2 control-label">Apellidos:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombreU" value="{{ usuario.apellidos }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nombreU" class="col-sm-2 control-label">Teléfono:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombreU" value="{{ usuario.telefono }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nombreU" class="col-sm-2 control-label">Twitter:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombreU" value="{{ usuario.twitter }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nombreU" class="col-sm-2 control-label">Web:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombreU" value="{{ usuario.web }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-success btn-block btn-form">Guardar cambios</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
         {% endif %}
       </div>
 
@@ -94,8 +101,8 @@ GNU General Public License for more details.
           </div>
         </div>
         {% else %}
-        <h3>Crear organizacion</h3>
-        <div class="col-sm-9 col-sm-offset-1">
+        <div class="col-sm-6 col-sm-offset-3">
+          <h1 class="h1-formtitle">Crear organizacion</h1>
           <form>
             <div class="input-group">
               <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
@@ -117,7 +124,7 @@ GNU General Public License for more details.
               <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
               <input type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
             </div>
-            <button type="submit" class="btn btn-default btn-block">Crear</button>
+            <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form">Crear organización</button>
           </form>
         </div>
         {% endif %}

@@ -23,45 +23,27 @@ GNU General Public License for more details.
 {# contenido central de la página #}
 {% block content %}
 <div class="row">
-  <div class="menu-content col-sm-3 col-md-2">
-    <div class="menu">
-      <ul class="nav menu-nav">
-        {% if userLogin == True %}
-        <li class="titulo-menu"><a href="/miseventos">Mis Eventos ({{ numeroEventos }})</a></li>
-        {% endif %}
-        <li role="presentation" class="titulo-menu active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
-        {% if userCreador == True %}
-        <li class="option-menu"><a href="/iEvento"><i class="fa fa-plus"></i> Nuevo Evento</a></li>
-        <li class="option-menu"><a href="#"><i class="fa fa-cogs"></i> Modificar Evento</a></li>
-        <li class="option-menu"><a id="delete-href" href="#"><i class="fa fa-times"></i> Borrar Evento</a></li>
-        {% endif %}
-        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
-        {% if userCreador == True %}
-        <li class="option-menu"><a href="#"><i class="fa fa-file-pdf-o"></i> Generar Diplomas</a></li>
-        {% endif %}
-        <li role="presentation" class="titulo-menu"><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
-        {% if userCreador == True %}
-        <li class="option-menu"><a href="#"><i class="fa fa-plus"></i> Nuevo Ponente</a></li>
-        <li class="option-menu"><a href="#"><i class="fa fa-trash"></i> Eliminar Ponentes</a></li>
-        {% endif %}
-      </ul>
-    </div>
+  <div class="individual-menu-cont col-sm-12">
+    <ul class="individual-menu nav">
+      <li role="presentation" class="individual-opt active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
+      <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
+      <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
+    </ul>
   </div>
 
-  <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 pad-panel">
+  <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-md-12 pad-panel">
     <h1 class="titular-h1">{{ evento.nombre }}</h1>
     <div class="tab-content">
 
       <div class="tab-pane active" id="descripcion">
-        <div style="min-height:300px" class="descripcion-pane col-sm-6">
+        <div class="descripcion-pane col-sm-7">
           <h5>Organizador: <strong>{{ usuario.nombre }} {{ usuario.apellidos }} </strong></h5>
           <p>{{ descripcion|safe }}</p>
         </div>
-        <div id="fhl" class="col-sm-6">
+        <div id="fhl" class="col-sm-5">
           <h5>{{ evento.fecha }}</h5>
           <h5>{{ evento.hora }}</h5>
           <h5>{{ evento.lugar }}</h5>
-        <!--<button data-id="{{ evento.id }}" class="btn btn-default edit-button"><i class="fa fa-pencil-square-o"></i></button>-->
           <div data-coord="{{ evento.coordenadas }}" style="min-width: 310px; height: 370px; margin: 0 auto" id="map-canvas" class="evento-map"></div>
         </div>
       </div>

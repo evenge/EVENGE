@@ -137,8 +137,13 @@ class MostrarInforme(webapp2.RequestHandler):
 
 class MostrarMiCuenta(webapp2.RequestHandler):
     def get(self):
+        userLogin = False
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user != False:
+            userLogin = True
+            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
         usuario = controladorUsuario.getUsuarioLogeado(self)
-        template_values = {'usuario':usuario}
+        template_values = {'usuario':usuario, "numeroEventos": numeroEventos, "userLogin": userLogin}
         template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
         self.response.write(template.render(template_values))
 

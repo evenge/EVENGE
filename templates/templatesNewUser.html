@@ -15,17 +15,13 @@ GNU General Public License for more details.
 -->
 
 {% extends "templates/indexVisitante.html" %}
-
 {# tittle: titulo de la página #}
-
 {% block title %}Nuevo Usuario{% endblock %}
-
 {# contenido central de la página #}
-
 {% block content %}
 <!--Formulario usuario -->
-<div class="col-sm-8 col-sm-offset-3">
-  <h1>Nuevo Usuario</h1>
+<div class="col-sm-8 col-sm-offset-2">
+  <h1 class="h1-formtitle" >Nuevo Usuario</h1>
   <form action="/registrate" method="post">
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
@@ -59,7 +55,7 @@ GNU General Public License for more details.
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
       <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
     </div>
-    <button type="submit" class="btn btn-success btn-block" value="Guardar">Registrar</button>
+    <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Registrar</button>
   </form>
 </div>
 <!--/Formulario usuario -->

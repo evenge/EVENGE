@@ -46,7 +46,55 @@ GNU General Public License for more details.
           <h5>{{ evento.lugar }}</h5>
           <div data-coord="{{ evento.coordenadas }}" style="min-width: 310px; height: 370px; margin: 0 auto" id="map-canvas" class="evento-map"></div>
         </div>
+      <div class="col-md-6 col-md-offset-3 block-center">
+        <button id="inscribete-btn" style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Inscripción</button>
       </div>
+      <script>
+        $(document).ready(function(){
+            $("#inscribete-btn").click(function() {
+              $("#form-inscribete").slideToggle("7000");
+              });
+            });
+      </script>
+        <div id="form-inscribete" class="col-sm-8 col-sm-offset-2" hidden="hidden">
+          <h1 class="h1-formtitle" >Nuevo Asistente</h1>
+          <form action="/asistente" method="post">
+            <input  type="hidden" class="form-control" name="idEvento"  id="idEvento" placeholder="{{id}}" aria-describedby="sizing-addon1">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-newspaper-o"></i></span>
+              <input type="text" class="form-control" name="dni" id="dni" placeholder="DNI/NIF" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+              <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
+              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
+              <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
+              <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
+            </div>
+
+            <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Aceptar Inscripción</button>
+          </form>
+        </div>
+      </div>
+
+
 
       <div class="tab-pane" id="asistentes">
         <div class="col-sm-12">

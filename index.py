@@ -85,26 +85,26 @@ class InsertarPonente(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
         self.response.write(template.render(template_values))
 
-class Evenge(webapp2.RequestHandler):
-    def hazElCuadrado(self, numero):
-        return numero*numero
-
-    def testPonente(self, ponente):
-        ponente.put()
-        query = Ponente.query(Ponente.email == 'pepito@jemail.com')
-        email = query.email
-        query.delete
-        return email
-
-    def testInsertarEvento(self, evento):
-        evt = evento
-        evt.put()
-        return True
-
-    def testInsertarUsuario(self, usuario):
-        u = usuario
-        u.put()
-        return True
+# class Evenge(webapp2.RequestHandler):
+#     def hazElCuadrado(self, numero):
+#         return numero*numero
+#
+#     def testPonente(self, ponente):
+#         ponente.put()
+#         query = Ponente.query(Ponente.email == 'pepito@jemail.com')
+#         email = query.email
+#         query.delete
+#         return email
+#
+#     def testInsertarEvento(self, evento):
+#         evt = evento
+#         evt.put()
+#         return True
+#
+#     def testInsertarUsuario(self, usuario):
+#         u = usuario
+#         u.put()
+#         return True
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):

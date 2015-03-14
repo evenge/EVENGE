@@ -88,11 +88,15 @@ class InsertarEvento(webapp2.RequestHandler):
 
 
 class InsertarPonente(webapp2.RequestHandler):
+    """Es llamada por /iPonente. """
+
     def get(self):
+        """Devuelve el formulario para registrar un nuevo ponente"""
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templatesNewPonente.html')
         self.response.write(template.render(template_values))
     def post(self):
+        """Inserta un nuevo ponente con los datos recogidos"""
         nombre = self.request.get("nombre").strip()
         apellidos = self.request.get("apellidos").strip()
         email = self.request.get("email").strip()

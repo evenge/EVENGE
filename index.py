@@ -171,6 +171,13 @@ class MostrarMisEventos(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
+class MostrarMisPonentes(webapp2.RequestHandler):
+    def get(self):
+        ponentes = controladorPonente.listarPonentes(self)
+        template_values = {'ponentes':ponentes}
+        template = JINJA_ENVIRONMENT.get_template('templates/templatePonentes.html')
+        self.response.write(template.render(template_values))
+
 class MostrarError(webapp2.RequestHandler):
     def get(self):
         template_values = {}
@@ -247,6 +254,7 @@ application = webapp2.WSGIApplication([
     ('/iPonente', InsertarPonente),
     ('/miseventos', MostrarMisEventos),
     ('/eventos*', MostrarEvento),
+    ('/misponentes', MostrarMisPonentes),
     ('/misinformes', MostrarInforme),
     ('/micuenta', MostrarMiCuenta),
     ('/registrate', NuevoUsuario),

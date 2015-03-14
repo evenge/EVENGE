@@ -22,6 +22,7 @@ from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
 from _oo.model import controladorUsuario
+from _oo.model import controladorPonente
 import jinja2
 import webapp2
 import hashlib
@@ -94,8 +95,8 @@ class InsertarPonente(webapp2.RequestHandler):
         idNuevoPonente = controladorPonente.nuevoRegistroPonente(
             nombre,apellidos,
             email,telefono,
-            twitter,web,
-            password)
+            twitter,web
+            )
         self.redirect('/')
 
 # class Evenge(webapp2.RequestHandler):

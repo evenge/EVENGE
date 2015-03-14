@@ -92,7 +92,35 @@ GNU General Public License for more details.
 
   <!-- inicio de la parte principal -->
   <div class="container-fluid">
-    {% block content %} {% endblock %}
+    {# contenido central de la página #}
+    {% block content %}
+    <div class="row">
+      <div class="col-md-12">
+      <h3> Mis eventos </h3>
+      {% for n in eventos %}
+        <div class="col-sm-5 evento-miseventos">
+          <header class="header-evento-miseventos">
+            <a href="/eventos?id={{n.key.id()}}"><h4><strong> {{n.nombre}} </strong></h4></a>
+            <div class="btn-group" role="group" aria-label="...">
+              <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
+              <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
+            </div>
+          </header>
+          <h5><strong>Tipo:</strong> {{n.tipo}}</h5>
+          <!-- <h5><strong>Organizador:</strong> {{n.idCreador}}</h5> -->
+          <h5><strong>Fecha:</strong> {{n.fecha}}</h5>
+          <h5><strong>Hora:</strong> {{n.hora}}</h5>
+          <h5><strong>Lugar:</strong> {{n.lugar}}</h5>
+          <h5><strong>Coordenadas:</strong> {{n.coordenadas}}</h5>
+          <h5><strong>Descripción:</strong> {{n.descripcion}}</h5>
+          <h5><strong>Asistencia:</strong> {{n.asistencia}}</h5>
+        </div>
+      {% endfor  %}
+    </div>
+    </div>
+
+
+    {% endblock %}
   </div>
   <!-- fin de la parte principal -->
 

@@ -24,40 +24,31 @@ GNU General Public License for more details.
 {% block content %}
 
 <h3>Ponentes</h3>
-<div id="cabecera-tabla-ponentes" class="col-xs-12">
-    <div class="col-xs-4">
-        <h5>Nombre</h5>
+<div class="col-sm-12">
+  <div id="buscador-asistente" class="col-sm-12">
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
+      <input type="text" class="form-control" placeholder="Introduce ponente" aria-describedby="sizing-addon1">
     </div>
-    <div class="col-xs-3">
-        <h5>Correo</h5>
-    </div>
-    <div class="col-xs-3">
-        <h5>Telefono</h5>
+  </div>
+  {% for p in ponentes %}
+  <div class="col-sm-12 col-xs-12 asistente">
+    <div class="col-xs-5">
+      <h5>{{ p.nombre }} {{ p.apellidos }}</h5>
     </div>
     <div class="col-xs-2">
-        <h5></h5>
+      <h5>{{ p.dni }}</h5>
     </div>
-</div>
-<div id="body-tabla-ponentes" class="col-xs-12">
-    {% for n in ponentes %}
-    <div id="fila">
-        <div class="col-xs-4">
-            <h5>{{n.nombre}}</h5>
-        </div>
-        <div class="col-xs-3">
-            <h5>{{n.email}}</h5>
-        </div>
-        <div class="col-xs-3">
-            <h5>{{n.telefono}}</h5>
-        </div>
-        <div class="col-xs-2 btn-group">
-            <button class="buttonModfyEvent btn btn-default"><i class="fa fa-pencil-square-o"></i>
-            </button>
-            <button class="buttonDeleteEvent btn btn-default"><i class="fa fa-times "></i>
-            </button>
-
-        </div>
+    <div class="col-xs-2">
+      <h5>{{ p.telefono }}</h5>
     </div>
-    {% endfor %}
+    <div class="col-md-offset-1 col-xs-2">
+      <div class="btn-group" role="group" aria-label="...">
+        <button data-id="{{ p.id }}" class="btn btn-default delete-button"><i class="fa fa-times"></i></button>
+        <button data-id="{{ p.id }}" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

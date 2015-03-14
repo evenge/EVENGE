@@ -86,26 +86,26 @@ class InsertarPonente(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
         self.response.write(template.render(template_values))
 
-class Evenge(webapp2.RequestHandler):
-    def hazElCuadrado(self, numero):
-        return numero*numero
-
-    def testPonente(self, ponente):
-        ponente.put()
-        query = Ponente.query(Ponente.email == 'pepito@jemail.com')
-        email = query.email
-        query.delete
-        return email
-
-    def testInsertarEvento(self, evento):
-        evt = evento
-        evt.put()
-        return True
-
-    def testInsertarUsuario(self, usuario):
-        u = usuario
-        u.put()
-        return True
+# class Evenge(webapp2.RequestHandler):
+#     def hazElCuadrado(self, numero):
+#         return numero*numero
+#
+#     def testPonente(self, ponente):
+#         ponente.put()
+#         query = Ponente.query(Ponente.email == 'pepito@jemail.com')
+#         email = query.email
+#         query.delete
+#         return email
+#
+#     def testInsertarEvento(self, evento):
+#         evt = evento
+#         evt.put()
+#         return True
+#
+#     def testInsertarUsuario(self, usuario):
+#         u = usuario
+#         u.put()
+#         return True
 
 class MostrarEvento(webapp2.RequestHandler):
     def get(self):
@@ -114,6 +114,8 @@ class MostrarEvento(webapp2.RequestHandler):
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
+        asistentes = controladorEvento.getAsistentesEvento(idEvento);
+        print("Asistentes:"+str(asistentes))
         if user != False:
             userLogin = True
             numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
@@ -125,7 +127,8 @@ class MostrarEvento(webapp2.RequestHandler):
                            'userCreador':userCreador,
                            'numeroEventos':numeroEventos,
                            'id':idEvento,
-                           'usuario': user}
+                           'usuario': user,
+                           'asistentes':asistentes}
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 

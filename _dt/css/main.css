@@ -512,3 +512,44 @@ form .btn-form:focus {
 h3{
   margin-left:15px;
 }
+/*************************************************/
+/****************** Event style ***************/
+/*************************************************/
+
+/******Asistentes******/
+
+.asistente{
+  background-color:white;
+  border-bottom-color:red;
+  border-bottom: solid #c11f23;
+  border-bottom-width:2px;
+}
+#buscador-asistente{
+  background-color:#c11f23;
+  padding: 6px 10px 6px 10px;
+}
+
+#buscador-asistente .input-group-addon {
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+#buscador-asistente .form-control {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+}
+
+#buscador-asistente::-webkit-input-placeholder { color: fff; }
+#buscador-asistente::-webkit-input-placeholder { color: fff;  }
+#buscador-asistente::-moz-placeholder { color: fff; }
+#buscador-asistente::-moz-placeholder { color: fff; }
+
+.asistente .delete-button, .asistente .pdf-button{
+  background:none;
+  color:#c11f23;
+  border:none;
+  float:right;
+}

@@ -32,3 +32,6 @@ class Evento(ndb.Model):
     coordenadas = ndb.GeoPtProperty()
     descripcion = ndb.TextProperty()
     asistencia = ndb.BooleanProperty()
+
+    def getKey():
+        return str(self.key.id())

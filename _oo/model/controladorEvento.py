@@ -15,6 +15,7 @@
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
+from _oo.classes.asistente import Asistente
 from datetime import datetime
 
 def GetEventoById(idEvento):
@@ -47,6 +48,11 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
 def getEventosAsociados(idUsuario):
     eventos = Evento.query(Evento.idCreador == str(idUsuario));
     return eventos;
+
+def getAsistentesEvento(idEvento):
+    asistentes = Asistente.query(Asistente.idEvento == str(idEvento));
+    print asistentes;
+    return asistentes;
 
 def getEventosAsociadosCount(idUsuario):
     return getEventosAsociados(idUsuario).count()

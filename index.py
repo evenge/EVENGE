@@ -82,8 +82,21 @@ class InsertarEvento(webapp2.RequestHandler):
 class InsertarPonente(webapp2.RequestHandler):
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formPonente.html')
+        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewPonente.html')
         self.response.write(template.render(template_values))
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+        idNuevoPonente = controladorPonente.nuevoRegistroPonente(
+            nombre,apellidos,
+            email,telefono,
+            twitter,web,
+            password)
+        self.redirect('/')
 
 # class Evenge(webapp2.RequestHandler):
 #     def hazElCuadrado(self, numero):

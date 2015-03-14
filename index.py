@@ -34,12 +34,12 @@ import json
 
 
 class Index(webapp2.RequestHandler):
-"""Es llamada por /."""
+    """Es llamada por /"""
     def get(self):
-    """
-    Devuelve el index en función del logueo del usuario.
-    Si está logueado o no
-    """
+        """
+        Devuelve el index en función del logueo del usuario.
+        Si está logueado o no
+        """
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario :
             eventos = controladorEvento.getEventosAsociados(usuario.key.id())
@@ -128,21 +128,21 @@ class InsertarPonente(webapp2.RequestHandler):
 #         return True
 
 class MostrarEvento(webapp2.RequestHandler):
-"""Es llamada por /miseventos."""
+    """Es llamada por /miseventos."""
 
     def get(self):
-    """Pasa a plantilla un evento del usuario identificado por un id,
-        recibido por GET en la variable idEvento.
-        La información a la plantilla es:
-        - objeto Evento
-        - Usuario logueado : true o false
-        - Usuario Creador
-        - id del evento
-        - numero de eventos del usuario
-        - objeto Usuario (logeado en este momento)
-        - asistentes : Vector de objetos Asistente, correspondiente al evento
+        """Pasa a plantilla un evento del usuario identificado por un id,
+            recibido por GET en la variable idEvento.
+            La información a la plantilla es:
+            - objeto Evento
+            - Usuario logueado : true o false
+            - Usuario Creador
+            - id del evento
+            - numero de eventos del usuario
+            - objeto Usuario (logeado en este momento)
+            - asistentes : Vector de objetos Asistente, correspondiente al evento
 
-    """
+        """
         userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)
@@ -166,27 +166,27 @@ class MostrarEvento(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class MostrarInforme(webapp2.RequestHandler):
-"""Es llamada por /misinformes."""
+    """Es llamada por /misinformes."""
 
     def get(self):
-    """
-    Muestra la plantilla, por ahora sin datos, de la generación de informes.
-    """
+        """
+        Muestra la plantilla, por ahora sin datos, de la generación de informes.
+        """
 
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
 class MostrarMiCuenta(webapp2.RequestHandler):
-"""Es llamada por /micuenta"""
+    """Es llamada por /micuenta"""
 
     def get(self):
-    """
-    Devuelve la plantilla con los datos de usuario.
-    Se pasan los datos:
-        - objeto Usuario : usuario logueado
-        - numeroEventos : numero de eventos activos de este usuario
-    """
+        """
+        Devuelve la plantilla con los datos de usuario.
+        Se pasan los datos:
+            - objeto Usuario : usuario logueado
+            - numeroEventos : numero de eventos activos de este usuario
+        """
         userLogin = False
         user = controladorUsuario.getUsuarioLogeado(self)
         if user != False:
@@ -201,11 +201,11 @@ class MostrarMisEventos(webapp2.RequestHandler):
     """Es llamada por /miseventos"""
 
     def get(self):
-    """
-    Muestra TODOS los eventos asociados al usuario logueado en este momento.
-    Se pasan los datos:
-        - vector Eventos : Colección de todos los objeto Evento del usuario
-    """
+        """
+        Muestra TODOS los eventos asociados al usuario logueado en este momento.
+        Se pasan los datos:
+            - vector Eventos : Colección de todos los objeto Evento del usuario
+        """
         usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
         eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
         template_values = {'eventos':eventos}
@@ -220,9 +220,9 @@ class MostrarMisPonentes(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class MostrarError(webapp2.RequestHandler):
-"""
-Es llamada por /miseventos
-"""
+    """
+    Es llamada por /miseventos
+    """
     def get(self):
         """
         Muestra la página de error
@@ -232,9 +232,11 @@ Es llamada por /miseventos
         self.response.write(template.render(template_values))
 
 class NuevoUsuario(webapp2.RequestHandler):
-"""Es llamada por /registrate"""
+    """Es llamada por /registrate"""
     def get(self):
-    """ Muestra el formulario de registro de nuevo usuario"""
+        """
+        Muestra el formulario de registro de nuevo usuario
+        """
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
         self.response.write(template.render(template_values))
@@ -254,20 +256,21 @@ class NuevoUsuario(webapp2.RequestHandler):
         self.redirect('/')
 
 class Login(webapp2.RequestHandler):
-""" Es llamada por /login"""
+    """ Es llamada por /login"""
+
     def get(self):
-    """
-    Muestra el formulario de login
-    """
+        """
+        Muestra el formulario de login
+        """
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateLogin.html')
         self.response.write(template.render(template_values))
-    def post(self):
-    """
-    Recibe el usuario y contraseña y comprueba que el login es correcto
-    Si lo es, añade las cookies y queda iniciada la sesión
-    """
 
+    def post(self):
+        """
+        Recibe el usuario y contraseña y comprueba que el login es correcto
+        Si lo es, añade las cookies y queda iniciada la sesión
+        """
         contrasena = self.request.get("contrasena").strip()
         logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena)
 
@@ -281,12 +284,12 @@ class Login(webapp2.RequestHandler):
             self.redirect("/login")
 
 class Logout(webapp2.RequestHandler):
-"""Es llamada por /logout"""
+    """Es llamada por /logout"""
 
     def get(self):
-    """
-    Elimina las cookies relacionadas y queda cerrada la sesión
-    """
+        """
+        Elimina las cookies relacionadas y queda cerrada la sesión
+        """
         if self.request.cookies.get("logged") == "true":
             self.response.headers.add_header('Set-Cookie',"logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
             self.response.headers.add_header('Set-Cookie',"email=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
@@ -295,12 +298,12 @@ class Logout(webapp2.RequestHandler):
         self.redirect("/")
 
 class EliminarEvento(webapp2.RequestHandler):
-"""Es llamada por /eliminarEvento"""
+    """Es llamada por /eliminarEvento"""
 
     def post(self):
-    """
-    Recibe el id del evento a borrar por post, y lo borra de la BD
-    """
+        """
+        Recibe el id del evento a borrar por post, y lo borra de la BD
+        """
         userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)

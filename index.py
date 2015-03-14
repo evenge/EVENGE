@@ -26,6 +26,7 @@ from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
 from _oo.model import controladorUsuario
+from _oo.model import controladorPonente
 import jinja2
 import webapp2
 import hashlib
@@ -84,6 +85,26 @@ class InsertarEvento(webapp2.RequestHandler):
         resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
+
+
+class InsertarPonente(webapp2.RequestHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewPonente.html')
+        self.response.write(template.render(template_values))
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+        idNuevoPonente = controladorPonente.nuevoRegistroPonente(
+            nombre,apellidos,
+            email,telefono,
+            twitter,web
+            )
+        self.redirect('/')
 
 # class Evenge(webapp2.RequestHandler):
 #     def hazElCuadrado(self, numero):
@@ -191,6 +212,13 @@ class MostrarMisEventos(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 
+class MostrarMisPonentes(webapp2.RequestHandler):
+    def get(self):
+        ponentes = controladorPonente.listarPonentes(self)
+        template_values = {'ponentes':ponentes}
+        template = JINJA_ENVIRONMENT.get_template('templates/templatePonentes.html')
+        self.response.write(template.render(template_values))
+
 class MostrarError(webapp2.RequestHandler):
 """
 Es llamada por /miseventos
@@ -292,6 +320,7 @@ application = webapp2.WSGIApplication([
     ('/iPonente', InsertarPonente),
     ('/miseventos', MostrarMisEventos),
     ('/eventos*', MostrarEvento),
+    ('/misponentes', MostrarMisPonentes),
     ('/misinformes', MostrarInforme),
     ('/micuenta', MostrarMiCuenta),
     ('/registrate', NuevoUsuario),

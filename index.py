@@ -14,6 +14,10 @@
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License for more details.
 ################################################################
+"""Modulo de inicio.Básicamente maneja las URL, renderiza la plantilla correspondiente
+y pása los parametros a dicha plantilla. Cada clase corresponde a una URL. Ver clase par más información.
+   :author: Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
+   :version: 0.1"""
 
 import os
 import urllib
@@ -28,8 +32,14 @@ import webapp2
 import hashlib
 import json
 
+
 class Index(webapp2.RequestHandler):
+"""Es llamada por /."""
     def get(self):
+    """
+    Devuelve el index en función del logueo del usuario.
+    Si está logueado o no
+    """
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario :
             eventos = controladorEvento.getEventosAsociados(usuario.key.id())
@@ -41,20 +51,12 @@ class Index(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('templates/indexVisitante.html')
             self.response.write(template.render(template_values))
 
-class InsertarAsistente(webapp2.RequestHandler):
-    def get(self):
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formAsistente.html')
-        self.response.write(template.render(template_values))
-
-class InsertarOrganizacion(webapp2.RequestHandler):
-    def get(self):
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/formOrganizacion.html')
-        self.response.write(template.render(template_values))
-
 class InsertarEvento(webapp2.RequestHandler):
+    """Es llamada por /iEvento. """
     def get(self):
+        """
+        Por GET devuelve el formulario para insertar eventos
+        """
         user = controladorUsuario.getUsuarioLogeado(self)
         if user == False:
             self.redirect('/login')
@@ -64,6 +66,9 @@ class InsertarEvento(webapp2.RequestHandler):
             self.response.write(template.render(template_values))
 
     def post(self):
+        """
+        Por POST recoge los datos del formulario del nuevo evento, y inserta en BD.
+        """
         nombre = self.request.get('nombre')
         hora = self.request.get('hora')
         fecha = self.request.get('fecha')
@@ -76,6 +81,7 @@ class InsertarEvento(webapp2.RequestHandler):
         privado = self.request.get('privado')
         idCreador = self.request.get('idUser')
         ret = controladorEvento.SetEvento(nombre, 1, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia);
+        #Aquí se avisaría por email
         resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
@@ -122,14 +128,27 @@ class InsertarPonente(webapp2.RequestHandler):
 #         return True
 
 class MostrarEvento(webapp2.RequestHandler):
+"""Es llamada por /miseventos."""
+
     def get(self):
+    """Pasa a plantilla un evento del usuario identificado por un id,
+        recibido por GET en la variable idEvento.
+        La información a la plantilla es:
+        - objeto Evento
+        - Usuario logueado : true o false
+        - Usuario Creador
+        - id del evento
+        - numero de eventos del usuario
+        - objeto Usuario (logeado en este momento)
+        - asistentes : Vector de objetos Asistente, correspondiente al evento
+
+    """
         userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
         asistentes = controladorEvento.getAsistentesEvento(idEvento);
-        print("Asistentes:"+str(asistentes))
         if user != False:
             userLogin = True
             numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
@@ -147,13 +166,27 @@ class MostrarEvento(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class MostrarInforme(webapp2.RequestHandler):
+"""Es llamada por /misinformes."""
+
     def get(self):
+    """
+    Muestra la plantilla, por ahora sin datos, de la generación de informes.
+    """
+
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateReports.html')
         self.response.write(template.render(template_values))
 
 class MostrarMiCuenta(webapp2.RequestHandler):
+"""Es llamada por /micuenta"""
+
     def get(self):
+    """
+    Devuelve la plantilla con los datos de usuario.
+    Se pasan los datos:
+        - objeto Usuario : usuario logueado
+        - numeroEventos : numero de eventos activos de este usuario
+    """
         userLogin = False
         user = controladorUsuario.getUsuarioLogeado(self)
         if user != False:
@@ -165,7 +198,14 @@ class MostrarMiCuenta(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class MostrarMisEventos(webapp2.RequestHandler):
+    """Es llamada por /miseventos"""
+
     def get(self):
+    """
+    Muestra TODOS los eventos asociados al usuario logueado en este momento.
+    Se pasan los datos:
+        - vector Eventos : Colección de todos los objeto Evento del usuario
+    """
         usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
         eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
         template_values = {'eventos':eventos}
@@ -180,13 +220,21 @@ class MostrarMisPonentes(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 class MostrarError(webapp2.RequestHandler):
+"""
+Es llamada por /miseventos
+"""
     def get(self):
+        """
+        Muestra la página de error
+        """
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateError.html')
         self.response.write(template.render(template_values))
 
 class NuevoUsuario(webapp2.RequestHandler):
+"""Es llamada por /registrate"""
     def get(self):
+    """ Muestra el formulario de registro de nuevo usuario"""
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
         self.response.write(template.render(template_values))
@@ -206,11 +254,20 @@ class NuevoUsuario(webapp2.RequestHandler):
         self.redirect('/')
 
 class Login(webapp2.RequestHandler):
+""" Es llamada por /login"""
     def get(self):
+    """
+    Muestra el formulario de login
+    """
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateLogin.html')
         self.response.write(template.render(template_values))
     def post(self):
+    """
+    Recibe el usuario y contraseña y comprueba que el login es correcto
+    Si lo es, añade las cookies y queda iniciada la sesión
+    """
+
         contrasena = self.request.get("contrasena").strip()
         logeado = controladorUsuario.loginCorrecto(self.request.get("email").strip(),contrasena)
 
@@ -224,7 +281,12 @@ class Login(webapp2.RequestHandler):
             self.redirect("/login")
 
 class Logout(webapp2.RequestHandler):
+"""Es llamada por /logout"""
+
     def get(self):
+    """
+    Elimina las cookies relacionadas y queda cerrada la sesión
+    """
         if self.request.cookies.get("logged") == "true":
             self.response.headers.add_header('Set-Cookie',"logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
             self.response.headers.add_header('Set-Cookie',"email=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
@@ -233,7 +295,12 @@ class Logout(webapp2.RequestHandler):
         self.redirect("/")
 
 class EliminarEvento(webapp2.RequestHandler):
+"""Es llamada por /eliminarEvento"""
+
     def post(self):
+    """
+    Recibe el id del evento a borrar por post, y lo borra de la BD
+    """
         userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)
@@ -249,9 +316,7 @@ class EliminarEvento(webapp2.RequestHandler):
 
 application = webapp2.WSGIApplication([
     ('/', Index),
-    ('/iAsistente', InsertarAsistente),
     ('/iEvento', InsertarEvento),
-    ('/iOrganizacion', InsertarOrganizacion),
     ('/iPonente', InsertarPonente),
     ('/miseventos', MostrarMisEventos),
     ('/eventos*', MostrarEvento),

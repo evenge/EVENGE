@@ -183,10 +183,12 @@ body {
   z-index: 1000;
   display: block;
   padding: 20px;
+  min-width: 220px;
+  min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: 1px 2px 5px rgba(17, 17, 17, 0.3);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 1px 2px 5px rgba(17, 17, 17, 0.2);
 }
 
 .menu-content .menu .menu-nav {

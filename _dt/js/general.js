@@ -16,10 +16,10 @@ $(document).ready(function () {
   $('#menu-bottom').on('click', function (evt) {
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
-      $('#menu-div').slideUp();
+      $('#menu-div').hide("slide", { direction: "left" }, 800);
     } else {
       $(this).addClass('active');
-      $('#menu-div').slideDown();
+      $('#menu-div').show("slide", { direction: "left" }, 800);
     }
     evt.preventDefault();
     evt.stopPropagation();
@@ -28,7 +28,7 @@ $(document).ready(function () {
   $('html').click(function (evt) {
     if ($('#menu-bottom').hasClass('active')) {
       $('#menu-bottom').removeClass('active');
-      $('#menu-div').slideUp();
+      $('#menu-div').hide("slide", { direction: "left" }, 800);
     }
   });
 

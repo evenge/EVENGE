@@ -17,10 +17,12 @@ import urllib
 import webapp2
 from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
+from _oo.model import moduloEmail
 
 
 def getKey(usuario):
     return usuario.key.id()
+
 
 def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario = Usuario()
@@ -31,7 +33,7 @@ def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario.twitter = twitter
     usuario.web = web
     usuario.password = password
-    #Devuelve la key
+    print str(moduloEmail.enviarConfirmacionLogin(usuario))
     return usuario.put()
 
 def loginCorrecto(email,password):

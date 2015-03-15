@@ -22,20 +22,71 @@ from google.appengine.api import mail
 
 
 def enviarConfirmacionLogin(usuario):
-    message = mail.EmailMessage(sender="Notificaciones de Evenge <desarrollo.evenge@gmail.com>",
+    message = mail.EmailMessage(sender="Evenge <evenge-2014@appspot.gserviceaccount.com>",
                                 subject="Tu registro en Evenge ha sido satisfactorio")
 
     message.to = usuario.nombre + " " + usuario.apellidos + "<" + str(usuario.email) + ">"
-    message.body = """
-    Dear""" + usuario.nombre + " " + usuario.apellidos + """:
+    message.html = """
+<!DOCTYPE html>
+<html lang="es">
 
-    Su registro ha sido satisfactorio, ya puede acceder a su usuario:
+<head>
+    <meta charset="utf-8">
+</head>
 
-    Si necesitas cambiar algun dato, puedes hacerlo desde Mi cuenta.
+<body>
+    <header><img src="https://evenge-2014.appspot.com/_dt/img/logo_white_50.png" alt="logo"><a href="evenge-2014.appspot.com" id="cabecera">EVENGE</a>
+    </header>
+    <div id="contain">
+        <div id="cuerpo-texto">
+            <strong>""" + usuario.nombre + " " + usuario.apellidos + """</strong>:
 
-    Gracias por confiar en nosotros
+            <p> Su registro ha sido satisfactorio, ya puede acceder a su usuario: """ + str(usuario.email) + """</p>
 
-    Equipo Evenge
-    """
+            <p> Si necesitas cambiar algun dato, puedes hacerlo desde <strong>Mi cuenta</strong>.
+
+                <p> Gracias por confiar en nosotros</p>
+                <p><strong> Equipo Evenge</strong>
+                </p>
+        </div>
+    </div>
+    <style>
+        header {
+            width: 100%;
+            background-color: #C11F23;
+            height: 60px;
+            font-size: 20px;
+        }
+
+        header img {
+            margin-top: 10px;
+            height: 40px;
+            margin-left: 10px;
+            margin-bottom: -10px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #contain {
+            background: white;
+            height: 100%;
+        }
+        #cuerpo-texto{
+            padding-left: 20px;
+            padding: 20px;
+        }
+        body {
+            font-family: verdana;
+            font-size: 12px;
+            background-color: #eee;
+        }
+    </style>
+</body>
+
+</html>
+        """
 
     return message.send()

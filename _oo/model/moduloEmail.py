@@ -27,7 +27,7 @@ def enviarConfirmacionLogin(usuario):
 
     message.to = usuario.nombre + " " + usuario.apellidos + "<" + str(usuario.email) + ">"
     message.html = """
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 
 <head>

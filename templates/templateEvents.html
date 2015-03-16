@@ -37,12 +37,16 @@ GNU General Public License for more details.
 
       <div class="tab-pane active" id="descripcion">
         <div class="descripcion-pane col-sm-7">
-          <h5>Organizador: <strong>{{ usuario.nombre }} {{ usuario.apellidos }} </strong></h5>
-          <p>{{ descripcion|safe }}</p>
+          <h5><strong>Organizador: </strong>   {{ usuario.nombre }} {{ usuario.apellidos }} </h5>
+          <h5><strong>Descripción:</strong><h5>
+            <p>   {{ descripcion|safe }}</p>
         </div>
         <div id="fhl" class="col-sm-5">
+          <strong>Fecha: </strong>
           <h5>{{ evento.fecha }}</h5>
+          <strong>Hora: </strong>
           <h5>{{ evento.hora }}</h5>
+          <strong>Lugar: </strong>
           <h5>{{ evento.lugar }}</h5>
           <div data-coord="{{ evento.coordenadas }}" style="min-width: 310px; height: 370px; margin: 0 auto" id="map-canvas" class="evento-map"></div>
         </div>

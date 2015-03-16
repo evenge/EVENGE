@@ -72,7 +72,6 @@ class InsertarEvento(webapp2.RequestHandler):
         nombre = self.request.get('nombre')
         hora = self.request.get('hora')
         fecha = self.request.get('fecha')
-        cantidadAsistentes = self.request.get('cantidadAsistentes')
         descripcion = self.request.get('descripcion').strip()
         lugar = self.request.get('lugar')
         asistencia = self.request.get('asistencia')
@@ -81,8 +80,7 @@ class InsertarEvento(webapp2.RequestHandler):
         privado = self.request.get('privado')
         idCreador = self.request.get('idUser')
         ret = controladorEvento.SetEvento(nombre, 1, privado,
-        idCreador, hora, fecha,
-        cantidadAsistentes, lugar, lat,
+        idCreador, hora, fecha, lugar, lat,
         lon, descripcion, asistencia)
         # Aquí se avisaría por email
         resp = {'response': True, 'idEvento': ret}

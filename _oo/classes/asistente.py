@@ -44,7 +44,7 @@ class index(webapp2.RequestHandler):
 
         asistente.put()
 
-        self.redirect("/evento?id="+str(asistente.idEvento))
+        self.redirect("/eventos?id=" + str(asistente.idEvento))
 
 class ListarAsistentes(webapp2.RequestHandler):
     def get(self):

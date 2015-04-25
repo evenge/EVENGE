@@ -247,11 +247,28 @@ body {
 /*************************************************/
 /************** template MyEvents ****************/
 /*************************************************/
+
+.event-content {
+  background:white;
+  margin-top:30px;
+  padding-bottom: 15px;
+}
 .event-content .titular-h1 {
-  margin: 0;
-  margin-top: 40px;
-  padding: 0 0 0 15px;
-  font-size: 27px;
+  background-color:rgb(193, 31, 35);
+  padding:10px;
+  padding-left:30px;
+  color: white;
+  font-size:30px;
+}
+#inscribete-btn{
+  border-radius: 0;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  color: white;
+  margin-top:10px;
 }
 
 #descripcion p {

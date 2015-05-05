@@ -22,28 +22,53 @@ GNU General Public License for more details.
 {# contenido central de la página #}
 {% block content %}
 <div class="row">
+  <div class="col-sm-12 title">
+    <h3>Mis eventos</h3>
+  </div>
   <div class="col-md-12">
-  <h3> Mis eventos </h3>
-  {% for n in eventos %}
-    <div class="col-sm-5 evento-miseventos">
-      <header class="header-evento-miseventos">
-        <a href="/eventos?id={{n.key.id()}}"><h4><strong> {{n.nombre}} </strong></h4></a>
-        <div class="btn-group" role="group" aria-label="...">
-          <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
-          <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
+    {% for n in eventos %}
+    <div class="col-md-6 evento-content">
+      <header class="header-evento-miseventos col-sm-12">
+        <div class="col-xs-8">
+          <h4><a href="/eventos?id={{n.key.id()}}">{{n.nombre}}</a></h4>
+        </div>
+        <div class="col-xs-4">
+          <div class="btn-group" role="group" aria-label="...">
+            <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
+            <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
+          </div>
         </div>
       </header>
-      <h5><strong>Tipo:</strong> {{n.tipo}}</h5>
-      <!-- <h5><strong>Organizador:</strong> {{n.idCreador}}</h5> -->
-      <h5><strong>Fecha:</strong> {{n.fecha}}</h5>
-      <h5><strong>Hora:</strong> {{n.hora}}</h5>
-      <h5><strong>Lugar:</strong> {{n.lugar}}</h5>
-      <h5><strong>Coordenadas:</strong> {{n.coordenadas}}</h5>
-      <h5><strong>Descripción:</strong> {{n.descripcion}}</h5>
-      <h5><strong>Asistencia:</strong> {{n.asistencia}}</h5>
+      <div class="col-md-12 evento-miseventos">
+        <div class="col-md-12 evento-fh">
+          <h5>{{n.fecha}} {{n.hora}}</h5>
+        </div>
+        <div class="col-md-12 evento-info">
+          <h4>Tipo</h4> 
+          <h6>
+            {% if n.tipo == 1 %}
+            Público
+            {% else %}
+            Privado
+            {% endif %}
+          </h6>
+          <!-- <h5><strong>Organizador:</strong> {{n.idCreador}}</h5> -->
+          <h4>Lugar</h4><h6>{{n.lugar}}</h6>
+          <h4>Coordenadas</h4><h6>{{n.coordenadas}}</h6>
+          <h4>Descripción</h4><h6>{{n.descripcion}}</h6>
+          <h4>Asistencia</h4> 
+          <h6>
+            {% if n.asistencia == True %}
+            Control de asistencia requerido
+            {% else %}
+            No hay control de asistencia
+            {% endif %}
+          </h6>
+        </div>
+      </div>
     </div>
-  {% endfor  %}
-</div>
+    {% endfor  %}
+  </div>
 </div>
 
 

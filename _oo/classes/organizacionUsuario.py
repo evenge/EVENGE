@@ -1,6 +1,6 @@
 # Evenge - gestor de eventos (events management)
 # Copyright (C) 2014 - desarrollo.evenge@gmail.com
-# Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+# Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,6 +15,6 @@
 from google.appengine.ext import ndb
 
 
-class EventoPonente(ndb.Model):
+class OrganizacionUsuario(ndb.Model):
 	idOrganizacion = ndb.StringProperty()
 	idUsuario = ndb.StringProperty()

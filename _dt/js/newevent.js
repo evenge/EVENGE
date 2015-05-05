@@ -1,9 +1,19 @@
 var map;
 var marker;
 var markers = [];
+var tipo = 'personal';
 
 $(document).ready(function() {
   putMap();
+  
+  $('.evenge-check').on('click', function() {
+    if (!$(this).hasClass('selected')) {
+      $('.evenge-check.selected').removeClass('selected');
+      $(this).addClass('selected');
+      tipo = $(this).data('type');
+      console.log(tipo);
+    }
+  });
   
   $('.btn-form').on('click', function(evt) {
     evt.preventDefault();
@@ -15,6 +25,7 @@ $(document).ready(function() {
       lat = marker.getPosition().lat();
       lon = marker.getPosition().lng();
     }
+    
     var data = {
       'nombre': $('#nombre').val(),
       'hora': $('#hora').val(),
@@ -28,6 +39,7 @@ $(document).ready(function() {
       'privado': isPrivado,
       'idUser': $('#newevent-cont').data('key')
     };
+    
     
     $.ajax({
       type: 'POST',

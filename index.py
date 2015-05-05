@@ -27,6 +27,7 @@ from _oo.classes.evento import Evento
 from _oo.model import controladorEvento
 from _oo.model import controladorUsuario
 from _oo.model import controladorPonente
+from _oo.model import controladorOrganizacion
 import jinja2
 import webapp2
 import hashlib
@@ -61,7 +62,12 @@ class InsertarEvento(webapp2.RequestHandler):
         if user == False:
             self.redirect('/login')
         else:
-            template_values = {'usuario':int(controladorUsuario.getKey(user))}
+            #Comprueba si el usuario pertenece a alguna organización
+            o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
+            template_values = {
+              'usuario': user,
+              'organizacion': o                  
+            }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
             self.response.write(template.render(template_values))
 
@@ -198,17 +204,23 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             - objeto Usuario : usuario logueado
             - numeroEventos : numero de eventos activos de este usuario
         """
-        userLogin = False
-        user = controladorUsuario.getUsuarioLogeado(self)
-        if user is not False:
-            userLogin = True
-            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
+        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra 
         usuario = controladorUsuario.getUsuarioLogeado(self)
-        template_values = {'usuario': usuario,
-                            'numeroEventos': numeroEventos,
-                            'userLogin': userLogin}
-        template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
-        self.response.write(template.render(template_values))
+        if usuario == False:
+            self.redirect("/login")
+        
+        else:
+            userLogin = True
+            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(usuario))
+            #Obtenemos su organización en caso de pertenecer a una
+            org = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(usuario)))
+
+            template_values = {'usuario': usuario,
+                               'numeroEventos': numeroEventos,
+                               'userLogin': userLogin,
+                               'organizacion': org}
+            template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
+            self.response.write(template.render(template_values))
 
 
 class MostrarMisEventos(webapp2.RequestHandler):
@@ -222,6 +234,10 @@ class MostrarMisEventos(webapp2.RequestHandler):
         """
         usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
         eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
+        for e in eventos:
+            if len(e.descripcion) > 200:
+                sec = [e.descripcion[:200], '...']
+                e.descripcion = ''.join(sec)
         template_values = {'eventos': eventos}
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
@@ -334,7 +350,36 @@ class EliminarEvento(webapp2.RequestHandler):
             resp = {'response': ret}
             self.response.headers['Content-Type'] = 'application/json'
             self.response.write(json.dumps(resp))
+            
 
+class CrearOrganizacion(webapp2.RequestHandler):
+    """Es llamada por /iOrganización"""
+    
+    def post(self):
+        """
+        Recibe los datos de la nueva organización, la crea e inscribe al usuario.
+        """
+        user = controladorUsuario.getUsuarioLogeado(self)
+        
+        if user is False:
+            self.response.write(json.dumps({'reponse': 'false'}))
+        else:
+            nombre = self.request.get('nombre').strip()
+            mail = self.request.get('email').strip()
+            twitter = self.request.get('twitter').strip()
+            tel = self.request.get('telefono').strip()
+            web = self.request.get('web').strip()
+
+            idOrganizacion = controladorOrganizacion.SetOrganizacion(nombre, mail, tel, twitter, web)
+
+            """
+            Registra al usuario en la organizacion
+            """
+            controladorOrganizacion.SetUsuarioOrganizacion(str(idOrganizacion), str(user.key.id()))
+            self.response.write(json.dumps({'reponse': 'true'}))
+            
+            
+#Urls
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -348,6 +393,7 @@ application = webapp2.WSGIApplication([
     ('/login', Login),
     ('/logout', Logout),
     ('/eliminarEvento', EliminarEvento),
+    ('/iOrganizacion', CrearOrganizacion),
     ('/error', MostrarError)
 ], debug=True)
 

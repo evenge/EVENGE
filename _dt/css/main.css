@@ -21,8 +21,8 @@ GNU General Public License for more details.
   background: rgba(193, 31, 35, 0.62);
 }
 
-a {
-  color: #c11f23;
+a,
+button {
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -30,9 +30,20 @@ a {
   transition:.5s;
 }
 
+a {
+  color: #c11f23;
+}
+
 a:hover {
   color: #781316;
   text-decoration: none;
+}
+
+button:focus,
+button.active,
+a:focus {
+  border-color: none;
+  color: none;
 }
 
 html {
@@ -41,9 +52,9 @@ html {
 }
 
 body {
-  font-family: verdana;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
-  background-color: #eee;
+  background-color: #edecec;
   margin-bottom: 50px;
   padding-top: 50px;
 }
@@ -92,6 +103,10 @@ body {
   color: #3e3e3e;
   font-size: 14px;
   font-weight: 100;
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background: #dc2328 !important;
 }
 
 #menu-bottom {
@@ -183,10 +198,12 @@ body {
   z-index: 1000;
   display: block;
   padding: 20px;
+  min-width: 220px;
+  min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: 1px 2px 5px rgba(17, 17, 17, 0.3);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 1px 2px 5px rgba(17, 17, 17, 0.2);
 }
 
 .menu-content .menu .menu-nav {
@@ -247,24 +264,32 @@ body {
 /*************************************************/
 
 .event-content {
-  background:white;
-  margin-top:30px;
-  padding-bottom: 15px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  background: white;
+  margin-top: 50px;
+  padding: 0 0 10px 0;
 }
+
 .event-content .titular-h1 {
-  background-color:rgb(193, 31, 35);
-  padding:10px;
-  padding-left:30px;
+  font-family: roboto, Verdana;
+  /*background-color: #f44336;*/
+  background: #393939;
+  padding: 10px;
+  text-align: center;
   color: white;
-  font-size:30px;
 }
+
+.event-content .titular-h1 h1 {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
 #inscribete-btn{
   border-radius: 0;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
   color: white;
   margin-top:10px;
 }
@@ -273,8 +298,55 @@ body {
   font-size: 14px;
 }
 
-#fhl {
-  padding-right: 0;
+/***************************
+fecha y hora del evento
+***************************/
+.fh {
+  font-family: roboto, Verdana;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  /*background: #f32c1e;*/
+  background: #414141;
+  color: rgba(255,255,255,.9);
+  font-weight: 400;
+}
+
+.fh h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-datos {
+  margin-top: 10px;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.25);
+  color: white;
+}
+
+.contenedor-datos .part-left,
+.contenedor-datos .part-right {
+  padding: 10px;
+}
+
+.contenedor-datos .part-left.darkblue {
+  background: #56717d;
+}
+
+.contenedor-datos .part-left h5 {
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-datos .part-right.darkblue {
+  background: #607d8b;
+}
+
+.contenedor-datos .part-right h5 {
+  padding: 0;
+  margin: 0;
 }
 
 .individual-menu-cont {
@@ -386,11 +458,6 @@ form .btn-form {
   background: #c11f23;
   border-color: #a61b1e;
   border-radius: 0;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
   color: white;
 }
 
@@ -409,6 +476,7 @@ form .btn-form:focus {
 /*************************************************/
 /****************** newEvent style ***************/
 /*************************************************/
+.select-content,
 .map-content {
   margin-top: 20px;
 }
@@ -450,9 +518,57 @@ form .btn-form:focus {
   font-weight: 300;
 }
 
+.select-content h4,
 .consejos-evento {
   background: #3b3b3b;
   color: #f0f0f0;
+}
+
+.select-content h4 {
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.event-org {
+  margin-top: 10px;
+}
+
+.event-org h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.evenge-check {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+}
+
+.evenge-check:hover {
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected {
+  background: #c11f23;
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected:before {
+  position: relative;
+  font-family: "FontAwesome";
+  content: '\f00c';
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -6px;
 }
 
 /*************************************************/
@@ -462,7 +578,7 @@ form .btn-form:focus {
   margin-top: 40px;
 }
 
-#datos {
+.user-content .tab-pane {
   margin-top: 20px;
 }
 
@@ -477,42 +593,110 @@ form .btn-form:focus {
 /*************************************************/
 /****************** myEvents style ***************/
 /*************************************************/
-.evento-miseventos{
-  padding:0px;
-  margin:10px;
-  background:white;
+.title {
+  background: white;
+  padding: 0;
+  height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.evento-miseventos h5{
-  margin-left: 10px;
+
+.title h3 {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 40px;
+  font-size: 1.3em;
+  font-weight: bold;
 }
-.header-evento-miseventos{
-  background-color:rgba(206, 0, 0, 0.70);
-  padding:4px;
-  padding-left:20px;
+
+.evento-miseventos {
+  margin-bottom: 10px;
+  padding: 0;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
-.header-evento-miseventos:hover{
-  background-color:rgb(207, 0, 0);
-  padding:4px;
-  padding-left:20px;
+
+.header-evento-miseventos {
+  font-family: roboto, Verdana;
+  /*background-color: #d3d3d3;*/
+  background: #edecec;
+  padding: 0;
 }
-.header-evento-miseventos .btn-group{
+
+.header-evento-miseventos:hover {
+  /*background-color: #cf0000;*/
+}
+
+.header-evento-miseventos h4,
+.header-evento-miseventos h4 > a {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1em;
+  color: #C11F23;
+}
+
+.header-evento-miseventos h4 {
+  padding: 6px 1px;
+}
+
+.evento-fh {
+  font-family: roboto, Verdana;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  /*background: #f32c1e;*/
+  background: #f7f9fa;
+  border-bottom: 1px solid #e4e6e7;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+}
+
+.evento-fh h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.header-evento-miseventos .btn-group {
+  line-height: normal;
   float: right;
-  margin-top:-36px;
-  margin-right:3px;
 }
-.header-evento-miseventos .btn{
-  border:none;
-  background:none;
-  color:white;
+
+.header-evento-miseventos .btn {
+  border: none;
+  background: none;
+  color: #3b3b3b;
 }
-.header-evento-miseventos a{
-  color:rgba(255, 255, 255, 0.80);
-  }
-.header-evento-miseventos a:hover{
-  color:white;
+
+.header-evento-miseventos .btn:hover {
+  color: #4e4e4e;
 }
-h3{
-  margin-left:15px;
+
+.evento-info {
+  padding-bottom: 10px;
+}
+
+.evento-info h4 {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #6c6c6c;
+  font-weight: bold;
+  padding: 0;
+  margin: 7px 0 0 0;
+}
+
+.evento-info h6 {
+  font-size: 1.1em;
+  color: #555555;
+  font-weight: 100;
+  padding: 0;
+  margin: 2px 0 0 0;
 }
 /*************************************************/
 /****************** Event style ***************/

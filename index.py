@@ -159,6 +159,7 @@ class MostrarEvento(webapp2.RequestHandler):
             - asistentes : Vector de objetos Asistente, correspondiente al evento
 
         """
+        gravatar = None
         userLogin = False
         userCreador = False
         user = controladorUsuario.getUsuarioLogeado(self)
@@ -168,6 +169,7 @@ class MostrarEvento(webapp2.RequestHandler):
         if user is not False:
             userLogin = True
             numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
+            gravatar = user.nombre[0:1] + user.apellidos[0:1]
         if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
             userCreador = True
         template_values = {'evento': evento,
@@ -177,7 +179,8 @@ class MostrarEvento(webapp2.RequestHandler):
                            'numeroEventos': numeroEventos,
                            'id': idEvento,
                            'usuario': user,
-                           'asistentes': asistentes}
+                           'asistentes': asistentes,
+                           'gravatar': gravatar }
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 
@@ -238,7 +241,8 @@ class MostrarMisEventos(webapp2.RequestHandler):
             if len(e.descripcion) > 200:
                 sec = [e.descripcion[:200], '...']
                 e.descripcion = ''.join(sec)
-        template_values = {'eventos': eventos}
+        template_values = {'eventos': eventos,
+                           'usuario': usuarioLogeado}
         template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
         self.response.write(template.render(template_values))
 

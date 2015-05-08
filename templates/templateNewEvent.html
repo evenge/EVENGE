@@ -21,7 +21,7 @@ GNU General Public License for more details.
 {% block content %}
 <!--Formulario evento -->
 <div class="row">
-  <div id="newevent-cont" data-key="{{usuario}}" class="col-sm-6 col-lg-6">
+  <div id="newevent-cont" class="col-sm-6 col-lg-6">
     <h1 class="h1-formtitle">nuevo evento</h1>
     <form>
       <div class="input-group">
@@ -60,18 +60,39 @@ GNU General Public License for more details.
       </div>
     </form>
   </div>
-
-  <div class="map-content col-sm-6 col-lg-6">
-    <div class="consejos-evento col-sm-12">
-      <h4>Selecciona la localización de lugar del evento</h4>
-      <ul>
-        <li>Busca la localización en el cuadro de busqueda.</li>
-        <li>Selecciona en el mapa el lugar exacto.</li>
-        <li>Continua creando tu evento</li>
-      </ul>
+  <div class="col-sm-6">
+    <div class="select-content col-sm-12">
+      <h4>Selecciona el perfil con el que crear tu evento.</h4>
+      <div class="col-sm-12 event-org">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th><div data-type="personal" class="evenge-check selected"></div></th>
+              <th><h5>{{ usuario.nombre }}</h5></th>
+            </tr>
+            {% if organizacion %}
+            <tr>
+              <th><div data-type="organizacion" class="evenge-check"></div></th>
+              <th><h5>{{ organizacion.nombre }}</h5></th>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>   
     </div>
-    <input id="pac-input" class="controls" type="text" placeholder="Inserta dirección">
-    <div style="min-width: 310px; height: 330px; margin: 0 auto" id="map-canvas"></div>
+    
+    <div class="map-content col-sm-12">
+      <div class="consejos-evento col-sm-12">
+        <h4>Selecciona la localización de lugar del evento</h4>
+        <ul>
+          <li>Busca la localización en el cuadro de busqueda.</li>
+          <li>Selecciona en el mapa el lugar exacto.</li>
+          <li>Continua creando tu evento</li>
+        </ul>
+      </div>
+      <input id="pac-input" class="controls" type="text" placeholder="Inserta dirección">
+      <div style="min-width: 310px; height: 330px; margin: 0 auto" id="map-canvas"></div>
+    </div>
   </div>
 </div>
 

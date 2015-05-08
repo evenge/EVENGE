@@ -12,16 +12,33 @@
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License for more details.
 
+import os
+import urllib
 import webapp2
 from google.appengine.ext import ndb
-from datetime import datetime
+from _oo.classes.ponente import Ponente
 
-class Organizacion(ndb.Model):
-  nombre = ndb.StringProperty()
-  email = ndb.StringProperty()
-  telefono = ndb.StringProperty()
-  twitter = ndb.StringProperty()
-  web = ndb.StringProperty()
-  
-  def getKey(self):
-      return str(self.key.id())
+
+def getKey(ponente):
+    return ponente.key.id()
+
+def nuevoRegistroPonente(nombre,apellidos,email,telefono,twitter,web):
+    ponente = Ponente()
+    ponente.nombre = nombre
+    ponente.apellidos = apellidos
+    ponente.email = email
+    ponente.telefono = telefono
+    ponente.twitter = twitter
+    ponente.web = web
+    #Devuelve la key
+    return ponente.put()
+
+def GetPonenteById(idPonente):
+    return Ponente().get_by_id(idPonente)
+
+def listarPonentes(self):
+    result = Ponente.query()
+    ponentes = []
+    for ponente in result:
+        ponentes.append(ponente)
+    return ponentes

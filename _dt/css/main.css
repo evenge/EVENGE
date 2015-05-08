@@ -18,11 +18,11 @@ GNU General Public License for more details.
 /******** Default estilos ********/
 /*********************************/
 ::selection{
-  background: rgba(193, 31, 35, 0.62);
+  background: rgba(62, 62, 62, 0.62);
 }
 
-a {
-  color: #c11f23;
+a,
+button {
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -30,9 +30,20 @@ a {
   transition:.5s;
 }
 
+a {
+  color: #c11f23;
+}
+
 a:hover {
   color: #781316;
   text-decoration: none;
+}
+
+button:focus,
+button.active,
+a:focus {
+  outline: none;
+  color: none;
 }
 
 html {
@@ -41,79 +52,157 @@ html {
 }
 
 body {
-  font-family: verdana;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
-  background-color: #eee;
+  background-color: #edecec;
   margin-bottom: 50px;
-  padding-top: 50px;
+}
+
+.main-body {
+  padding: 0;
+}
+
+.main-body.pad120 {
+  padding: 0;
 }
 
 /*********************************/
 /******** NavBar estilos *********/
 /*********************************/
-.navbar-default {
+.navbar-evenge i {
+  font-size: 2em;
+}
+
+.navbar-evenge {
+  z-index: 10;
   height: 50px;
-  padding: 0 30px 0 10px;
+  padding: 0;
+  width: 100%;
+  top: 0;
   background-color: #C11F23;
   color: white;
 }
 
-.navbar-default .navbar-header {
+.navbar-evenge .container-fluid {
   padding: 0;
-  margin: 0;
 }
 
-.navbar-default .navbar-header .navbar-brand {
-  line-height:  50px;
+.navbar-evenge .men {
+  height: 50px;
+  line-height: 50px;
+  width: 220px;
   font-size: 20px;
   color: white;
   padding: 0;
-  margin-top: -3px;
 }
 
-.navbar-default .navbar-header a > img {
+.navbar-evenge .men .logo-en {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+}
+
+.navbar-evenge .men a > img {
+  display: none;
   height: 40px;
 }
 
-.navbar-default .navbar-nav li > a {
-  color: white;
-  font-weight: bold;
-}
-
-.navbar-default .navbar-nav .dropdown .caret {
-  margin-bottom: 2px;
-}
-
-.navbar-default .navbar-nav .dropdown ul {
-  background: white;
-}
-
-.navbar-default .navbar-nav .dropdown ul > li > a {
-  color: #3e3e3e;
-  font-size: 14px;
-  font-weight: 100;
-}
-
 #menu-bottom {
-  padding: 7;
-  margin-left: 3px;
+  margin-top: -1px;
+  padding: 0 10px 0 7px;
   background: none;
   border: none;
   border-radius: 0;
-  color: #741315;
+  color: #fff;
 }
 
 #menu-bottom:hover,
 #menu-bottom:focus,
 #menu-bottom:active {
-  color: #e0e0e0;
-  border:none;
+  outline: none;
+  border: none;
 }
 
 #menu-bottom.active {
-  color: #e0e0e0;
+  color: #fff;
   box-shadow: none;
   border: none;
+}
+
+.navbar-evenge .navbar-nav {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+}
+
+.navbar-evenge .navbar-nav > li {
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-evenge .navbar-nav li > a.nav-li {
+  padding: 0 15px;
+  margin: 0;
+  display: inline-block;
+  line-height: 50px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-evenge .navbar-nav li a.nav-li i {
+  line-height: 50px;
+}
+
+.navbar-evenge .navbar-nav li:focus {
+  outline: none;
+}
+
+.navbar-evenge .navbar-nav li > a.nav-li:hover,
+.navbar-evenge .navbar-nav li > a.nav-li:focus {
+  background: #aa1b1f;
+  border: none;
+}
+
+.navbar-evenge .navbar-nav .dropdown .dropdown-menu {
+  background: white;
+  right: 0;
+  left: auto;
+  min-width: 260px;
+  text-align: center;
+  border-radius: 0;
+}
+
+.navbar-evenge .dropdown-menu:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+  border-bottom-color: #ffffff;
+  position: absolute;
+  top: -7px;
+  right: 18px;
+}
+
+.navbar-evenge .navbar-nav .dropdown .dropdown-menu a {
+  color: #818181;
+}
+
+.navbar-evenge .navbar-nav .dropdown .dropdown-menu .drop-span {
+  color: #5d5d5d;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.navbar-evenge .navbar-nav > .open > a {
+  background: #dc2328 !important;
 }
 
 #buscadorHeader {
@@ -172,51 +261,125 @@ body {
 /*************** menu estilos ********************/
 /*************************************************/
 #menu-div {
-  display: none;
+  /*display: none;*/
 }
 
 .menu-content {
   position: fixed;
-  top: 50px;
+  top: 0;
   bottom: 0;
   left: 0;
   z-index: 1000;
   display: block;
-  padding: 20px;
+  padding: 0;
+  width: 0;
+  min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: 1px 2px 5px rgba(17, 17, 17, 0.3);
+  background-color: #c11f23;
 }
 
-.menu-content .menu .menu-nav {
-  margin-right: -21px;
-  margin-bottom: 20px;
-  margin-left: -20px;
+.menu-content .menu-title {
+  width: 100%;
+  height: 50px;
+  background: #aa1b1f;
 }
 
-.menu-content .menu .menu-nav li > a {
-  background: none;
-  padding: 5px 0 5px 20px;
-  font-size: 13px;
-}
-
-.menu-content .menu .menu-nav .titulo-menu > a {
-  color: #C11F23;
+.menu-content .menu-title h1 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
-.menu-content .menu .menu-nav .option-menu > a {
-  color: #959598;
+.menu-content .menu-user {
+  width: 100%;
+  padding-top: 10px;
+  border-bottom: 1px solid #ae1c20;
 }
 
-.menu-content .menu .menu-nav .option-menu > a:hover,
-.menu-content .menu .menu-nav .option-menu > a:focus {
-  color: #3b3b3c;
+.menu-content .menu-user .gravatar {
+  width: 80px;
+  height: 80px;
+  background: #d43539;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+  line-height: 95px;
+  text-align: center;
 }
 
-.menu-content .menu .menu-nav .active > a {
-  background: #f5f5f5;
+.menu-content .menu-user .gravatar h1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 2.3em;
+  color: #fff;
+}
+
+.menu-content .menu-user h1 {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.menu-content .menu .menu-nav li > a.titulo-menu {
+  background: none;
+  padding: 10px 0 10px 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.menu-content .menu .menu-nav li > a.titulo-menu:hover {
+  background: #ffffff;
+  color: crimson;
+}
+
+.menu-content .dropdown .dropdown-menu {
+  position: relative;
+  float: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  background: #d43539;
+  margin: 0;
+}
+
+.menu-content .dropdown .dropdown-menu:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #d43539;
+  border-bottom-color: #d43539;
+  position: absolute;
+  top: -7px;
+  left: 8px;
+}
+
+.menu-content .dropdown .dropdown-menu a {
+  background: none;
+  padding: 10px 0 10px 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #d9d9d9;
+}
+
+.menu-content .dropdown .dropdown-menu a:hover {
+  color: #ffffff;
+}
+
+.menu-content .dropdown .dropdown-menu a i {
+  font-size: 0.5em;
+  vertical-align: middle;
 }
 
 .menu-content .menu .menu-nav .fa {
@@ -245,19 +408,90 @@ body {
 /*************************************************/
 /************** template MyEvents ****************/
 /*************************************************/
+
+.event-content {
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  background: white;
+  padding: 0 0 10px 0;
+}
+
 .event-content .titular-h1 {
+  font-family: roboto, Verdana;
+  /*background-color: #f44336;*/
+  background: #393939;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.event-content .titular-h1 h1 {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0;
   margin: 0;
-  margin-top: 40px;
-  padding: 0 0 0 15px;
-  font-size: 27px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+#inscribete-btn{
+  border-radius: 0;
+  color: white;
+  margin-top:10px;
 }
 
 #descripcion p {
   font-size: 14px;
 }
 
-#fhl {
-  padding-right: 0;
+/***************************
+fecha y hora del evento
+***************************/
+.fh {
+  font-family: roboto, Verdana;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  /*background: #f32c1e;*/
+  background: #414141;
+  color: rgba(255,255,255,.9);
+  font-weight: 400;
+}
+
+.fh h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-datos {
+  margin-top: 10px;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.25);
+  color: white;
+}
+
+.contenedor-datos .part-left,
+.contenedor-datos .part-right {
+  padding: 10px;
+}
+
+.contenedor-datos .part-left.darkblue {
+  background: #56717d;
+}
+
+.contenedor-datos .part-left h5 {
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-datos .part-right.darkblue {
+  background: #607d8b;
+}
+
+.contenedor-datos .part-right h5 {
+  padding: 0;
+  margin: 0;
 }
 
 .asistente{
@@ -281,11 +515,7 @@ body {
 }
 
 .individual-menu {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  z-index: 9;
+  width: 100%;
   display: block;
   height: 40px;
   background-color: white;
@@ -384,11 +614,6 @@ form .btn-form {
   background: #c11f23;
   border-color: #a61b1e;
   border-radius: 0;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
   color: white;
 }
 
@@ -407,6 +632,7 @@ form .btn-form:focus {
 /*************************************************/
 /****************** newEvent style ***************/
 /*************************************************/
+.select-content,
 .map-content {
   margin-top: 20px;
 }
@@ -448,9 +674,57 @@ form .btn-form:focus {
   font-weight: 300;
 }
 
+.select-content h4,
 .consejos-evento {
   background: #3b3b3b;
   color: #f0f0f0;
+}
+
+.select-content h4 {
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.event-org {
+  margin-top: 10px;
+}
+
+.event-org h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.evenge-check {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+}
+
+.evenge-check:hover {
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected {
+  background: #c11f23;
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected:before {
+  position: relative;
+  font-family: "FontAwesome";
+  content: '\f00c';
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -6px;
 }
 
 /*************************************************/
@@ -460,7 +734,7 @@ form .btn-form:focus {
   margin-top: 40px;
 }
 
-#datos {
+.user-content .tab-pane {
   margin-top: 20px;
 }
 
@@ -475,42 +749,110 @@ form .btn-form:focus {
 /*************************************************/
 /****************** myEvents style ***************/
 /*************************************************/
-.evento-miseventos{
-  padding:0px;
-  margin:10px;
-  background:white;
+.title {
+  background: white;
+  padding: 0;
+  height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.evento-miseventos h5{
-  margin-left: 10px;
+
+.title h3 {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 40px;
+  font-size: 1.3em;
+  font-weight: bold;
 }
-.header-evento-miseventos{
-  background-color:rgba(206, 0, 0, 0.70);
-  padding:4px;
-  padding-left:20px;
+
+.evento-miseventos {
+  margin-bottom: 10px;
+  padding: 0;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
-.header-evento-miseventos:hover{
-  background-color:rgb(207, 0, 0);
-  padding:4px;
-  padding-left:20px;
+
+.header-evento-miseventos {
+  font-family: roboto, Verdana;
+  /*background-color: #d3d3d3;*/
+  background: #edecec;
+  padding: 0;
 }
-.header-evento-miseventos .btn-group{
+
+.header-evento-miseventos:hover {
+  /*background-color: #cf0000;*/
+}
+
+.header-evento-miseventos h4,
+.header-evento-miseventos h4 > a {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1em;
+  color: #C11F23;
+}
+
+.header-evento-miseventos h4 {
+  padding: 6px 1px;
+}
+
+.evento-fh {
+  font-family: roboto, Verdana;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  /*background: #f32c1e;*/
+  background: #f7f9fa;
+  border-bottom: 1px solid #e4e6e7;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+}
+
+.evento-fh h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.header-evento-miseventos .btn-group {
+  line-height: normal;
   float: right;
-  margin-top:-36px;
-  margin-right:3px;
 }
-.header-evento-miseventos .btn{
-  border:none;
-  background:none;
-  color:white;
+
+.header-evento-miseventos .btn {
+  border: none;
+  background: none;
+  color: #3b3b3b;
 }
-.header-evento-miseventos a{
-  color:rgba(255, 255, 255, 0.80);
-  }
-.header-evento-miseventos a:hover{
-  color:white;
+
+.header-evento-miseventos .btn:hover {
+  color: #4e4e4e;
 }
-h3{
-  margin-left:15px;
+
+.evento-info {
+  padding-bottom: 10px;
+}
+
+.evento-info h4 {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #6c6c6c;
+  font-weight: bold;
+  padding: 0;
+  margin: 7px 0 0 0;
+}
+
+.evento-info h6 {
+  font-size: 1.1em;
+  color: #555555;
+  font-weight: 100;
+  padding: 0;
+  margin: 2px 0 0 0;
 }
 /*************************************************/
 /****************** Event style ***************/

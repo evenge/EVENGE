@@ -25,7 +25,7 @@ handlers:
 
 - url: /_dt/img
   static_dir: _dt/img
-  
+
 - url: /_dt/js
   static_dir: _dt/js
 

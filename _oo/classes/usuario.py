@@ -29,3 +29,6 @@ class Usuario(ndb.Model):
   telefono = ndb.StringProperty()
   twitter = ndb.StringProperty()
   web = ndb.StringProperty()
+
+  def getKey(self):
+        return str(self.key.id())

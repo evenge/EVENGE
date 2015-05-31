@@ -37,7 +37,7 @@ $(document).ready(function() {
       'latitud': lat,
       'longitud': lon,
       'privado': isPrivado,
-      'idUser': $('#newevent-cont').data('key')
+      'idUser': $('.selected').data('key')
     };
     
     

@@ -34,14 +34,11 @@ GNU General Public License for more details.
   <div class="col-sm-12">
     <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-md-12 pad-panel">
       <div class="titular-h1">
-        <h1>{{ evento.nombre }}</h1>
+        <h1>{{ evento.nombre }} - <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>
       </div>
       <div class="tab-content">
 
         <div class="tab-pane active" id="descripcion">
-          <div class="fh">
-            <h5>{{ evento.fecha }} - {{ evento.hora }}</h5>
-          </div>
           <div class="descripcion-pane col-sm-7">
             <div class="contenedor-datos col-sm-12">
               <div class="col-sm-12 part-left darkblue">
@@ -74,44 +71,36 @@ GNU General Public License for more details.
         <div class="col-md-6 col-md-offset-3 block-center">
           <button id="inscribete-btn" style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Inscripción</button>
         </div>
-        <script>
-          $(document).ready(function(){
-              $("#inscribete-btn").click(function() {
-                $("#form-inscribete").slideToggle("7000");
-                });
-              });
-        </script>
           <div id="form-inscribete" class="col-sm-8 col-sm-offset-2" hidden="hidden">
             <h1 class="h1-formtitle" >Nuevo Asistente</h1>
-            <form action="/asistente" method="post">
-              <input  style="display:none" type="text" class="form-control" name="idEvento"  id="idEvento" value="{{id}}" aria-describedby="sizing-addon1">
+            <form id="form-ins">
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-nombre" id="ins-nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-apellidos" id="ins-apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-newspaper-o"></i></span>
-                <input type="text" class="form-control" name="dni" id="dni" placeholder="DNI/NIF" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-newspaper-o fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-dni" id="ins-dni" placeholder="DNI/NIF" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-email" id="ins-email" placeholder="Email" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
-                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-telefono" id="ins-telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
-                <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-twitter" id="ins-twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
-                <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
+                <input type="text" class="form-control" name="ins-web" id="ins-web" placeholder="Web" aria-describedby="sizing-addon1">
               </div>
               <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Aceptar Inscripción</button>
             </form>

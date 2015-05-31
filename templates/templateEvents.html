@@ -34,14 +34,11 @@ GNU General Public License for more details.
   <div class="col-sm-12">
     <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-md-12 pad-panel">
       <div class="titular-h1">
-        <h1>{{ evento.nombre }}</h1>
+        <h1>{{ evento.nombre }} - <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>
       </div>
       <div class="tab-content">
 
         <div class="tab-pane active" id="descripcion">
-          <div class="fh">
-            <h5>{{ evento.fecha }} - {{ evento.hora }}</h5>
-          </div>
           <div class="descripcion-pane col-sm-7">
             <div class="contenedor-datos col-sm-12">
               <div class="col-sm-12 part-left darkblue">

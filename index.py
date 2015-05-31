@@ -85,9 +85,7 @@ class InsertarEvento(webapp2.RequestHandler):
         lon = self.request.get('longitud')
         privado = self.request.get('privado')
         idCreador = self.request.get('idUser')
-        ret = controladorEvento.SetEvento(nombre, 1, privado,
-        idCreador, hora, fecha, lugar, lat,
-        lon, descripcion, asistencia)
+        ret = controladorEvento.SetEvento(nombre, 1, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia)
         # Aquí se avisaría por email
         resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
@@ -385,6 +383,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
 class InsertarAsistente(webapp2.RequestHandler):
     """Es llamada por /iAsistente"""
     def post(self):
+        iEv = self.request.get('id').strip()
         nombre = self.request.get('nombre').strip()
         apellidos = self.request.get('apellidos').strip()
         email = self.request.get('email').strip()

@@ -34,5 +34,5 @@ class Evento(ndb.Model):
     asistencia = ndb.BooleanProperty()
     asistentes = ndb.StructuredProperty(Asistente, repeated=True)
 
-    def getKey():
+    def getKey(self):
         return str(self.key.id())

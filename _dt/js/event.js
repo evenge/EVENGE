@@ -7,7 +7,7 @@ $(document).ready(function() {
   });
 
   // ADD SLIDEUP ANIMATION TO DROPDOWN //
-  $('.menu-content .dropdown').on('hide.bs.dropdown', function(e){
+  $('.menu-content .dropdown').on('hide.bs.dropdown', function(e) {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
   });
 
@@ -24,6 +24,34 @@ $(document).ready(function() {
       }
     });
   });
+
+  $("#inscribete-btn").click(function() {
+    $("#form-inscribete").slideToggle("7000");
+  });
+
+  $('#form-ins').on('submit', function(evt) {
+    evt.preventDefault();
+    var data = {
+      'id': $('.event-content').data('id'),
+      'nombre': $('#ins-nombre').val(),
+      'apellidos': $('#ins-apellidos').val(),
+      'dni': $('#ins-dni').val(),
+      'email': $('#ins-email').val(),
+      'telefono': $('#ins-telefono').val(),
+      'twitter': $('#ins-twitter').val(),
+      'web': $('#ins-web').val()
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/iAsistente',
+      data: data,
+      success: function(resp) {
+        console.log('Guardado')
+      }
+    });
+  });
+
 });
 
 function putMap(coor) {

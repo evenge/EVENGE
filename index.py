@@ -165,7 +165,7 @@ class MostrarEvento(webapp2.RequestHandler):
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
-        asistentes = controladorEvento.getAsistentesEvento(idEvento);
+        #asistentes = controladorEvento.getAsistentesEvento(idEvento);
         if user is not False:
             userLogin = True
             numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
@@ -179,7 +179,6 @@ class MostrarEvento(webapp2.RequestHandler):
                            'numeroEventos': numeroEventos,
                            'id': idEvento,
                            'usuario': user,
-                           'asistentes': asistentes,
                            'gravatar': gravatar }
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
@@ -383,6 +382,20 @@ class CrearOrganizacion(webapp2.RequestHandler):
             self.response.write(json.dumps({'reponse': 'true'}))
             
             
+class InsertarAsistente(webapp2.RequestHandler):
+    """Es llamada por /iAsistente"""
+    def post(self):
+        nombre = self.request.get('nombre').strip()
+        apellidos = self.request.get('apellidos').strip()
+        email = self.request.get('email').strip()
+        telefono = self.request.get('telefono').strip()
+        twitter = self.request.get('twitter').strip()
+        dni = self.request.get('dni').strip()
+
+        controladorEvento.setAsistente(iEv, nombre, apellidos, email, telefono, twitter, dni)
+        self.response.write(json.dumps({'reponse': 'true'}))
+
+
 #Urls
 application = webapp2.WSGIApplication([
     ('/', Index),
@@ -398,7 +411,8 @@ application = webapp2.WSGIApplication([
     ('/logout', Logout),
     ('/eliminarEvento', EliminarEvento),
     ('/iOrganizacion', CrearOrganizacion),
-    ('/error', MostrarError)
+    ('/iAsistente', InsertarAsistente),
+    ('/.*', MostrarError)
 ], debug=True)
 
 JINJA_ENVIRONMENT = jinja2.Environment(

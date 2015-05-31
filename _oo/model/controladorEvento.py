@@ -46,6 +46,11 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
 
     return evento.put().id()
 
+def setAsistente(idEvento, nom, ape, ema, tel, twi, dn):
+    ev = Evento.get_by_id(int(idEvento))
+    asistente = Asistente(nombre = nom, apellidos = ape, email = ema, telefono = tel, twitter = twi, dni = dn)
+    ev.asistentes.append(asistente)
+    ev.put()
 
 def getEventosAsociados(idUsuario):
     eventos = Evento.query(Evento.idCreador == str(idUsuario))

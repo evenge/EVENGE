@@ -19,7 +19,7 @@ from google.appengine.ext import ndb
 import jinja2
 import webapp2
 from datetime import datetime
-
+from asistente import Asistente
 
 class Evento(ndb.Model):
     nombre = ndb.StringProperty()
@@ -32,6 +32,7 @@ class Evento(ndb.Model):
     coordenadas = ndb.GeoPtProperty()
     descripcion = ndb.TextProperty()
     asistencia = ndb.BooleanProperty()
+    asistentes = ndb.StructuredProperty(Asistente, repeated=True)
 
     def getKey():
         return str(self.key.id())

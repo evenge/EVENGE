@@ -34,39 +34,44 @@ GNU General Public License for more details.
   <div class="col-sm-12">
     <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-md-12 pad-panel">
       <div class="titular-h1">
-        <h1>{{ evento.nombre }} - <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>
+        <h1>{{ evento.nombre }}  <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>
       </div>
       <div class="tab-content">
 
         <div class="tab-pane active" id="descripcion">
           <div class="descripcion-pane col-sm-7">
             <div class="contenedor-datos col-sm-12">
-              <div class="col-sm-12 part-left darkblue">
+              <div class="col-sm-12 part-left">
                 <h5>Organizador</h5>
               </div>
-              <div class="col-sm-12 part-right darkblue">
+              <div class="col-sm-12 part-right">
                 <h5>{{ usuario.nombre }} {{ usuario.apellidos }} </h5>
               </div>
             </div>
             <div class="contenedor-datos col-sm-12">
-              <div class="col-sm-12 part-left darkblue">
+              <div class="col-sm-12 part-left">
                 <h5>Descripción</h5>
               </div>
-              <div class="col-sm-12 part-right darkblue">
+              <div class="col-sm-12 part-right">
                 <p>{{ descripcion|safe }}</p>
               </div>
             </div>
           </div>
           <div id="lm" class="col-sm-5">
             <div class="contenedor-datos col-sm-12">
-              <div class="col-sm-12 part-left darkblue">
+              <div class="col-sm-12 part-left">
                 <h5>Lugar</h5>
               </div>
-              <div class="col-sm-12 part-right darkblue">
+              <div class="col-sm-12 part-right">
                 <h5>{{ evento.lugar }}</h5>
               </div>
             </div>
-            <div data-coord="{{ evento.coordenadas }}" style="min-width: 310px; height: 370px; margin: 0 auto" id="map-canvas" class="evento-map"></div>
+            <div class="col-sm-12 contenedor-datos">
+              <div class="col-sm-12 part-left">
+                <h5>Ubicación</h5>
+              </div>
+              <div data-coord="{{ evento.coordenadas }}" id="map-canvas" style="min-width: 310px; height: 370px; margin: 0 auto" class="evento-map"></div>
+            </div>
           </div>
         <div class="col-md-6 col-md-offset-3 block-center">
           <button id="inscribete-btn" style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Inscripción</button>

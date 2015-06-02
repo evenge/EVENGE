@@ -423,13 +423,8 @@ body {
   padding: 0 0 10px 0;
 }
 
-.event-content .descripcion-pane {
-  padding-left: 0;
-}
-
 .event-content .titular-h1 {
   font-family: roboto, Verdana;
-
   padding: 10px;
   text-align: left;
 }

@@ -56,6 +56,10 @@ def getEventosAsociados(idUsuario):
     eventos = Evento.query(Evento.idCreador == str(idUsuario))
     return eventos
 
+def getUltimosEventos(num):
+    eventos = Evento.query(Evento.fecha > datetime.now()).fetch(3)
+    return eventos
+
 
 def getAsistentesEvento(idEvento):
     asistentes = Asistente.query(Asistente.idEvento == str(idEvento))

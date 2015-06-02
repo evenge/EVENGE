@@ -32,6 +32,7 @@ import jinja2
 import webapp2
 import hashlib
 import json
+from datetime import datetime
 
 
 class Index(webapp2.RequestHandler):
@@ -48,8 +49,16 @@ class Index(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
         else:
-            template_values = {}
-            template = JINJA_ENVIRONMENT.get_template('templates/indexVisitante.html')
+            eventos = controladorEvento.getUltimosEventos(3)
+            for e in eventos:
+                if len(e.descripcion) > 200:
+                    sec = [e.descripcion[:200], '...']
+                    e.descripcion = ''.join(sec)
+                if len(e.nombre) > 35:
+                    sec = [e.nombre[:33], '...']
+                    e.nombre = ''.join(sec)
+            template_values = {'eventos': eventos}
+            template = JINJA_ENVIRONMENT.get_template('templates/land.html')
             self.response.write(template.render(template_values))
 
 class InsertarEvento(webapp2.RequestHandler):

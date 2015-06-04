@@ -1,0 +1,113 @@
+/*
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+*/
+
+/*************************************************/
+/****************** newEvent style ***************/
+/*************************************************/
+.select-content,
+.map-content {
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 15px;
+  border: 1px solid transparent;
+  border-left: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  box-shadow: 0 2px 6px rgba(193, 31, 35, 0.36);
+  padding-left: 14px;
+  width: 401px;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #c11f23;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.select-content h4,
+.consejos-evento {
+  background: #3b3b3b;
+  color: #f0f0f0;
+}
+
+.select-content h4 {
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.event-org {
+  margin-top: 10px;
+}
+
+.event-org h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.evenge-check {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+}
+
+.evenge-check:hover {
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected {
+  background: #c11f23;
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected:before {
+  position: relative;
+  font-family: "FontAwesome";
+  content: '\f00c';
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -6px;
+}

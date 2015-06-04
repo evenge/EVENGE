@@ -20,6 +20,9 @@ GNU General Public License for more details.
 {% endif %}
 {# tittle: titulo de la página #}
 {% block title %}{{ evento.nombre }}{% endblock %}
+{% block styles %}
+<link type="text/css" rel="stylesheet" href="/_dt/css/templateEvents.css">
+{% endblock %}
 {# contenido central de la página #}
 {% block content %}
 <div class="row">

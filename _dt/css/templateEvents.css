@@ -1,0 +1,173 @@
+/*
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+*/
+
+/*************************************************/
+/************** template MyEvents ****************/
+/*************************************************/
+.event-content {
+  padding: 0 0 10px 0;
+}
+
+.event-content .titular-h1 {
+  font-family: roboto, Verdana;
+  padding: 10px;
+  text-align: left;
+}
+
+.event-content .titular-h1 h1 {
+  color: #C11F23;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.event-content .titular-h1 small {
+  color: #191919;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#descripcion p {
+  font-size: 14px;
+}
+
+.contenedor-datos {
+  margin-top: 10px;
+  background: white;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.contenedor-datos .part-left,
+.contenedor-datos .part-right {
+  padding: 10px;
+}
+
+.contenedor-datos .part-left {
+  border-bottom: 1px solid #edecec;
+}
+
+.contenedor-datos .part-left h5 {
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor-datos .part-right h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.btn-inscribirse {
+  height: 28px;
+  position: relative;
+  padding: 0 10px;
+  float: left;
+  margin-right: 10px;
+  background: none;
+  border: 1px solid #d43539;
+  color: #d43539;
+  border-radius: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn-inscribirse:hover {
+  color: #d43539;
+}
+
+.btn-inscribirse:before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: #c11f23;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+}
+
+.twitter-share-button {
+  float: left;
+}
+
+/********* modal asistente ***********************/
+#modalAsistente .modal-content {
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+  border-radius: 5px;
+  border: none;
+}
+
+#modalAsistente .modal-header {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid #edecec;
+}
+
+
+/******Asistentes******/
+
+.asistente{
+  background-color:white;
+  border-bottom-color:red;
+  border-bottom: solid #c11f23;
+  border-bottom-width:2px;
+}
+#buscador-asistente{
+  background-color:#c11f23;
+  padding: 6px 10px 6px 10px;
+}
+
+#buscador-asistente .input-group-addon {
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+#buscador-asistente .form-control {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+}
+
+#buscador-asistente::-webkit-input-placeholder { color: fff; }
+#buscador-asistente::-webkit-input-placeholder { color: fff;  }
+#buscador-asistente::-moz-placeholder { color: fff; }
+#buscador-asistente::-moz-placeholder { color: fff; }
+
+.asistente .delete-button, .asistente .pdf-button{
+  background:none;
+  color:#c11f23;
+  border:none;
+  float:right;
+}
+
+/***** media for responsive ***/
+@media (max-width: 768px) {
+  .social {
+    margin-bottom: 35px;
+  }
+}

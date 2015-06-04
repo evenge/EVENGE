@@ -106,6 +106,7 @@ class InsertarEvento(webapp2.RequestHandler):
         Si el usuario está logueado se devuelve la plantilla con el formulario para crear el evento
         Si el usuario no está logueado se le redirige a /login
         """
+        info = getInfo(self)
         user = controladorUsuario.getUsuarioLogeado(self)
         if user == False:
             self.redirect('/login')
@@ -114,7 +115,8 @@ class InsertarEvento(webapp2.RequestHandler):
             o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
             template_values = {
               'usuario': user,
-              'organizacion': o                  
+              'organizacion': o,
+              'info': info
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
             self.response.write(template.render(template_values))

@@ -47,7 +47,7 @@ $(document).ready(function() {
       url: '/iAsistente',
       data: data,
       success: function(resp) {
-        console.log('Guardado')
+        $('#modalAsistente').modal('hide');
       }
     });
   });
@@ -56,6 +56,7 @@ $(document).ready(function() {
 
 function putMap(coor) {
   map = new google.maps.Map(document.getElementById('map-canvas'), {
+    scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(coor[0],coor[1]),
     zoom: 16

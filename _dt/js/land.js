@@ -8,6 +8,7 @@ $(document).ready(function() {
 
 function putMap(coor, ele) {
   map = new google.maps.Map(ele , {
+    scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(coor[0],coor[1]),
     zoom: 16

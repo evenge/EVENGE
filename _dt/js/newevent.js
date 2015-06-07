@@ -55,6 +55,7 @@ $(document).ready(function() {
 
 function putMap() {
   map = new google.maps.Map(document.getElementById('map-canvas'), {
+    scrollwheel: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: new google.maps.LatLng(40.4378271,-3.6795367),
     zoom: 6

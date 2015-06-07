@@ -11,18 +11,36 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+"""Modulo de control de Eventos.Gestiona las operaciones realcionadas con los eventos.
+   :author: Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
+   :version: 0.1"""
 from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.classes.asistente import Asistente
 from datetime import datetime
 
-
+"""
+Este metodo devuelve un evento obtenido por su id
+  :idEvento = id del evento que queremos
+"""
 def GetEventoById(idEvento):
     result = Evento.get_by_id(int(idEvento))
     return result
 
-
+"""
+Almacena un evento en el datastore
+  :nombre = nombre del evento
+  :tipo = tio del evento
+  :privado = booleano True si el evento es privado, False si es publico
+  :idCreador = id del creador del evento
+  :hora = hora del evento
+  :fecha = fecha del evento
+  :lugar = lugar del evento
+  :lat = latitud de la localizacion del evento
+  :lon = longitud de la localizacion del evento
+  :descripcion = descripcion del evento
+  :asistencia = True si hay control de asistencia, False si no hay control de asistencia
+"""
 def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia):
     evento = Evento()
     evento.nombre = nombre
@@ -46,6 +64,15 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
 
     return evento.put().id()
 
+"""
+Introduce un Asistente en un Evento
+  :idEvento = id del evento donde queremos guardar el asistente
+  :nom = nombre del asistente
+  :ape = apellidos del asistente
+  :tel = telefono del asistente
+  :twi = twitter del asistente
+  :dn = dni del asistente
+"""
 def setAsistente(idEvento, nom, ape, ema, tel, twi, dn):
     ev = Evento.get_by_id(int(idEvento))
     asistente = Asistente(nombre = nom, apellidos = ape, email = ema, telefono = tel, twitter = twi, dni = dn)
@@ -68,7 +95,10 @@ def getAsistentesEvento(idEvento):
 
 
 def getEventosAsociadosCount(idUsuario):
-    return getEventosAsociados(idUsuario).count()
+    count = getEventosAsociados(idUsuario).count()
+    if count == False:
+        return 0
+    return count
 
 
 def DeleteEvento(idEvento):

@@ -40,6 +40,7 @@ GNU General Public License for more details.
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.1/css/select2.min.css" rel="stylesheet" />
   <!-- FIN SELECT2 -->
   <link type="text/css" rel="stylesheet" href="/_dt/css/main.css">
+  {% block styles %}{% endblock %}
   {% endblock %}
 </head>
 
@@ -52,7 +53,7 @@ GNU General Public License for more details.
     </div>
     <div class="menu-user">
       <div class="gravatar">
-        <h1>{{gravatar}}</h1>
+        <h1>{{info.gravatar}}</h1>
       </div>
       <h1>{{usuario.nombre}} {{usuario.apellidos}}</h1>
     </div>
@@ -67,7 +68,7 @@ GNU General Public License for more details.
             <i class="fa fa-newspaper-o fa-fw"></i> Eventos <i class="fa2 fa fa-circle-o"></i>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/miseventos"><i class="fa fa-circle fa-fw"></i> Mis Eventos ({{ numeroEventos }})</a></li>
+            <li><a href="/miseventos"><i class="fa fa-circle fa-fw"></i> Mis Eventos ({{ info.numeroEventos }})</a></li>
             <li><a href="/iEvento"><i class="fa fa-circle fa-fw"></i> Nuevo Evento</a></li>
           </ul>
         </li>
@@ -177,28 +178,6 @@ GNU General Public License for more details.
     </div>
     <!-- fin de la parte principal -->
 
-    <!-- inicio pie de pagina -->
-    {% block footer %}
-  <!--
-    <footer class="footer">
-      <div class="container col-xs-6">
-        <h3>Sobre Evenge</h3>
-        <p></p>
-      </div>
-      <div class="container col-xs-6">
-        <h3>Contacto</h3>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </footer>
-  -->
-    <!-- fin pie de pagina -->
-    {% endblock %}
   </main>
   <!-- scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

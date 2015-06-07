@@ -34,29 +34,66 @@ import hashlib
 import json
 from datetime import datetime
 
+"""Método utilizado para recabar la información del usuario
+  :gravatar: utilizado el menu lateral
+  :userLogin: utilizado para saber si accede un usuario logueado o un visitante
+  :numeroEventos: numero de eventos del usuario logueado"""
+def getInfo(self):
+    #obtenemos el usuario logueado si lo esta
+    user = controladorUsuario.getUsuarioLogeado(self)
+    #creamos el diccionaro para las variables. Las inicializamos a False que serán su valor predeterminado
+    info = {
+      'gravatar': False,
+      'userLogin': False,
+      'numeroEventos': False
+    }
+    #Comprobamos si el usuario está logueado o es False
+    if user:
+        info['numeroEventos'] = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
+        info['userLogin'] = True
+        info['gravatar'] = user.nombre[0:1] + user.apellidos[0:1]
+
+    return info
+
+
 
 class Index(webapp2.RequestHandler):
     """Es llamada por /"""
     def get(self):
         """
         Devuelve el index en función del logueo del usuario.
-        Si está logueado o no
+        Si está logueado devuelve la plantilla con todos sus eventos
+        Si no está logueado devuelve un landpage de presentación
         """
+        info = getInfo(self)
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario:
             eventos = controladorEvento.getEventosAsociados(usuario.key.id())
-            template_values = {'usuario': usuario, 'eventos': eventos}
+            for e in eventos:
+                if len(e.descripcion) > 200:
+                    sec = [e.descripcion[:200], '...']
+                    e.descripcion = ''.join(sec)
+            template_values = {
+              'usuario': usuario,
+              'eventos': eventos,
+              'info': info
+            }
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
         else:
+            #Obtenemos los tres proximos eventos a partir de la fecha actual
             eventos = controladorEvento.getUltimosEventos(3)
+            #Acortamos descripcion, titulo y lugar para ajustar los contenedores a la misma altura de manera elegante.
             for e in eventos:
                 if len(e.descripcion) > 200:
                     sec = [e.descripcion[:200], '...']
                     e.descripcion = ''.join(sec)
                 if len(e.nombre) > 35:
-                    sec = [e.nombre[:33], '...']
+                    sec = [e.nombre[:35], '...']
                     e.nombre = ''.join(sec)
+                if len(e.lugar) > 45:
+                    sec = [e.lugar[:45], '...']
+                    e.lugar = ''.join(sec)
             template_values = {'eventos': eventos}
             template = JINJA_ENVIRONMENT.get_template('templates/land.html')
             self.response.write(template.render(template_values))
@@ -65,8 +102,11 @@ class InsertarEvento(webapp2.RequestHandler):
     """Es llamada por /iEvento. """
     def get(self):
         """
-        Por GET devuelve el formulario para insertar eventos
+        Desde llamada Get:
+        Si el usuario está logueado se devuelve la plantilla con el formulario para crear el evento
+        Si el usuario no está logueado se le redirige a /login
         """
+        info = getInfo(self)
         user = controladorUsuario.getUsuarioLogeado(self)
         if user == False:
             self.redirect('/login')
@@ -75,7 +115,8 @@ class InsertarEvento(webapp2.RequestHandler):
             o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
             template_values = {
               'usuario': user,
-              'organizacion': o                  
+              'organizacion': o,
+              'info': info
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
             self.response.write(template.render(template_values))
@@ -105,7 +146,11 @@ class InsertarPonente(webapp2.RequestHandler):
     """Es llamada por /iPonente. """
 
     def get(self):
-        """Devuelve el formulario para registrar un nuevo ponente"""
+        """
+        Desde llamada Get:
+        Si el usuario está logueado se devuelve la plantilla con el formulario para crear un ponente
+        Si el usuario no está logueado se le redirige a /login
+        """
         user = controladorUsuario.getUsuarioLogeado(self)
         if user is False:
             self.redirect('/login')
@@ -166,27 +211,25 @@ class MostrarEvento(webapp2.RequestHandler):
             - asistentes : Vector de objetos Asistente, correspondiente al evento
 
         """
-        gravatar = None
-        userLogin = False
-        userCreador = False
+        info = getInfo(self)
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
+        userCreador = False
         #asistentes = controladorEvento.getAsistentesEvento(idEvento);
-        if user is not False:
-            userLogin = True
-            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
-            gravatar = user.nombre[0:1] + user.apellidos[0:1]
-        if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
-            userCreador = True
-        template_values = {'evento': evento,
-                           'userLogin': userLogin,
-                           'descripcion': evento.descripcion.replace("\n", "<br />"),
-                           'userCreador': userCreador,
-                           'numeroEventos': numeroEventos,
-                           'id': idEvento,
-                           'usuario': user,
-                           'gravatar': gravatar }
+        if user:
+            if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
+                userCreador = True
+
+        template_values = {
+          'evento': evento,
+          'descripcion': evento.descripcion.replace("\n", "<br />"),
+          'userCreador': userCreador,
+          'id': idEvento,
+          'usuario': user,
+          'info': info
+        }
+
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
         self.response.write(template.render(template_values))
 
@@ -213,6 +256,7 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             - objeto Usuario : usuario logueado
             - numeroEventos : numero de eventos activos de este usuario
         """
+        info = getInfo(self)
         #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra 
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario == False:
@@ -224,10 +268,11 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             #Obtenemos su organización en caso de pertenecer a una
             org = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(usuario)))
 
-            template_values = {'usuario': usuario,
-                               'numeroEventos': numeroEventos,
-                               'userLogin': userLogin,
-                               'organizacion': org}
+            template_values = {
+              'usuario': usuario,
+              'organizacion': org,
+              'info': info
+            }
             template = JINJA_ENVIRONMENT.get_template('templates/templateUser.html')
             self.response.write(template.render(template_values))
 
@@ -241,16 +286,27 @@ class MostrarMisEventos(webapp2.RequestHandler):
         Se pasan los datos:
             - vector Eventos : Colección de todos los objeto Evento del usuario
         """
+        info = getInfo(self)
         usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
-        eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
-        for e in eventos:
-            if len(e.descripcion) > 200:
-                sec = [e.descripcion[:200], '...']
-                e.descripcion = ''.join(sec)
-        template_values = {'eventos': eventos,
-                           'usuario': usuarioLogeado}
-        template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
-        self.response.write(template.render(template_values))
+
+        if usuarioLogeado:
+            eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
+            for e in eventos:
+                if len(e.descripcion) > 200:
+                    sec = [e.descripcion[:200], '...']
+                    e.descripcion = ''.join(sec)
+
+            template_values = {
+              'eventos': eventos,
+              'usuario': usuarioLogeado,
+              'info': info
+            }
+            template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
+            self.response.write(template.render(template_values))
+
+        else:
+            template = JINJA_ENVIRONMENT.get_template('templates/templateLogin.html')
+            self.response.write(template.render(template_values))
 
 
 class MostrarMisPonentes(webapp2.RequestHandler):

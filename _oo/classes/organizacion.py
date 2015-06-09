@@ -15,13 +15,19 @@
 import webapp2
 from google.appengine.ext import ndb
 from datetime import datetime
+from usuario import Usuario
+from evento import Evento
+from ponente import Ponente
 
 class Organizacion(ndb.Model):
-  nombre = ndb.StringProperty()
-  email = ndb.StringProperty()
-  telefono = ndb.StringProperty()
-  twitter = ndb.StringProperty()
-  web = ndb.StringProperty()
+    nombre = ndb.StringProperty()
+    email = ndb.StringProperty()
+    telefono = ndb.StringProperty()
+    twitter = ndb.StringProperty()
+    web = ndb.StringProperty()
+    usuarios = ndb.LocalStructuredProperty(Usuario, repeated=True)
+    eventos = ndb.LocalStructuredProperty(Evento, repeated=True)
+    ponentes = ndb.LocalStructuredProperty(Ponente, repeated=True)
   
-  def getKey(self):
-      return str(self.key.id())
+    def getKey(self):
+        return str(self.key.id())

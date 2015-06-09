@@ -49,7 +49,7 @@ def getInfo(self):
     }
     #Comprobamos si el usuario está logueado o es False
     if user:
-        info['numeroEventos'] = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(user))
+        info['numeroEventos'] = controladorUsuario.getEventosAsociadosCount(controladorUsuario.getKey(user))
         info['userLogin'] = True
         info['gravatar'] = user.nombre[0:1] + user.apellidos[0:1]
 
@@ -112,10 +112,10 @@ class InsertarEvento(webapp2.RequestHandler):
             self.redirect('/login')
         else:
             #Comprueba si el usuario pertenece a alguna organización
-            o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
+            #o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
             template_values = {
               'usuario': user,
-              'organizacion': o,
+              #'organizacion': o,
               'info': info
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')

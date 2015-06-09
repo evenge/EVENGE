@@ -18,6 +18,7 @@ import webapp2
 from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
 from _oo.model import moduloEmail
+import logging
 
 
 def getKey(usuario):
@@ -47,13 +48,13 @@ def loginCorrecto(email,password):
     else:
         return False
 
-def GetUsuarioById(idUsuario):
-    return Usuario().get_by_id(idUsuario)
+def getUsuarioById(idUsuario):
+    return Usuario().get_by_id(int(idUsuario))
 
 def getUsuarioLogeado(handler):
     if handler.request.cookies.get("logged") == "true":
         key = handler.request.cookies.get("key")
-        usuario = GetUsuarioById(int(key))
+        usuario = getUsuarioById(int(key))
         return usuario;
     else:
         return False
@@ -64,3 +65,14 @@ def listarUsuarios(self):
     for usuario in result:
         usuarios.append(usuario)
     return usuarios
+
+def getEventosAsociados(idUsuario):
+    eventos = getUsuarioById(idUsuario).eventos
+    return eventos
+
+def getEventosAsociadosCount(idUsuario):
+    cont = getEventosAsociados(idUsuario)
+    logging.error(cont)
+    if cont == False:
+        return 0
+    return 0

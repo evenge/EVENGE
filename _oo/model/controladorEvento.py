@@ -50,7 +50,6 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
     else:
         privado = False
     evento.privado = privado
-    evento.idCreador = idCreador
     evento.hora = datetime.strptime(hora, "%H:%M").time()
     evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
     evento.lugar = lugar
@@ -79,10 +78,6 @@ def setAsistente(idEvento, nom, ape, ema, tel, twi, dn):
     ev.asistentes.append(asistente)
     ev.put()
 
-def getEventosAsociados(idUsuario):
-    eventos = Evento.query(Evento.idCreador == str(idUsuario))
-    return eventos
-
 def getUltimosEventos(num):
     eventos = Evento.query(Evento.fecha > datetime.now()).fetch(3)
     return eventos
@@ -90,15 +85,7 @@ def getUltimosEventos(num):
 
 def getAsistentesEvento(idEvento):
     asistentes = Asistente.query(Asistente.idEvento == str(idEvento))
-    print asistentes
     return asistentes
-
-
-def getEventosAsociadosCount(idUsuario):
-    count = getEventosAsociados(idUsuario).count()
-    if count == False:
-        return 0
-    return count
 
 
 def DeleteEvento(idEvento):

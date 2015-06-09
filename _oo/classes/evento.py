@@ -16,23 +16,22 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
-import jinja2
-import webapp2
 from datetime import datetime
 from asistente import Asistente
+from ponente import Ponente
 
 class Evento(ndb.Model):
     nombre = ndb.StringProperty()
     tipo = ndb.IntegerProperty()
     privado = ndb.BooleanProperty()
-    idCreador = ndb.StringProperty()
     hora = ndb.TimeProperty()
     fecha = ndb.DateProperty()
     lugar = ndb.StringProperty()
-    coordenadas = ndb.GeoPtProperty()
-    descripcion = ndb.TextProperty()
-    asistencia = ndb.BooleanProperty()
-    asistentes = ndb.StructuredProperty(Asistente, repeated=True)
+    coordenadas = ndb.GeoPtProperty(indexed=False)
+    descripcion = ndb.TextProperty(indexed=False)
+    asistencia = ndb.BooleanProperty(indexed=False)
+    asistentes = ndb.LocalStructuredProperty(Asistente, repeated=True)
+    ponentes = ndb.LocalStructuredProperty(Ponente, repeated=True)
 
     def getKey(self):
         return str(self.key.id())

@@ -18,6 +18,8 @@ import webapp2
 from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
 from _oo.model import moduloEmail
+import logging
+import md5
 
 
 def getKey(usuario):
@@ -32,7 +34,7 @@ def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario.telefono = telefono
     usuario.twitter = twitter
     usuario.web = web
-    usuario.password = password
+    usuario.password = md5.new(password).hexdigest()
     print str(moduloEmail.enviarConfirmacionLogin(usuario))
     return usuario.put()
 
@@ -40,20 +42,20 @@ def loginCorrecto(email,password):
     usuario = Usuario.query(Usuario.email == email)
 
     if usuario.count():
-        if(usuario.get().password == password):
+        if(usuario.get().password == md5.new(password).hexdigest()):
             return usuario
         else:
             return False
     else:
         return False
 
-def GetUsuarioById(idUsuario):
-    return Usuario().get_by_id(idUsuario)
+def getUsuarioById(idUsuario):
+    return Usuario().get_by_id(int(idUsuario))
 
 def getUsuarioLogeado(handler):
     if handler.request.cookies.get("logged") == "true":
         key = handler.request.cookies.get("key")
-        usuario = GetUsuarioById(int(key))
+        usuario = getUsuarioById(int(key))
         return usuario;
     else:
         return False
@@ -64,3 +66,18 @@ def listarUsuarios(self):
     for usuario in result:
         usuarios.append(usuario)
     return usuarios
+
+def getEventosAsociados(idUsuario):
+    eventos = getUsuarioById(idUsuario).eventos
+    return eventos
+
+def getEventosAsociadosCount(idUsuario):
+    cont = len(getEventosAsociados(idUsuario))
+    if cont == False:
+        return 0
+    return cont
+
+def setEventoId(idEvento, s):
+    u = getUsuarioLogeado(s)
+    u.eventos.append(str(idEvento))
+    u.put()

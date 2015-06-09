@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -16,8 +17,6 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
-import jinja2
-import webapp2
 from datetime import datetime
 from asistente import Asistente
 
@@ -29,10 +28,11 @@ class Evento(ndb.Model):
     hora = ndb.TimeProperty()
     fecha = ndb.DateProperty()
     lugar = ndb.StringProperty()
-    coordenadas = ndb.GeoPtProperty()
-    descripcion = ndb.TextProperty()
-    asistencia = ndb.BooleanProperty()
+    coordenadas = ndb.GeoPtProperty(indexed=False)
+    descripcion = ndb.TextProperty(indexed=False)
+    asistencia = ndb.BooleanProperty(indexed=False)
     asistentes = ndb.StructuredProperty(Asistente, repeated=True)
+    ponentes = ndb.StringProperty(repeated=True)
 
     def getKey(self):
         return str(self.key.id())

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Evenge - gestor de eventos (events management)
 # Copyright (C) 2014 - desarrollo.evenge@gmail.com
 # Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -14,7 +15,6 @@
 
 from google.appengine.ext import ndb
 from _oo.classes.organizacion import Organizacion
-from _oo.classes.organizacionUsuario import OrganizacionUsuario
 import logging
 
 def getKeyOrg(organizacion):
@@ -32,18 +32,18 @@ def SetOrganizacion(nombre, email, telefono, twitter, web):
   
   
 def SetUsuarioOrganizacion(idO, idU):
-    uo = OrganizacionUsuario()
-    uo.idOrganizacion = idO
-    uo.idUsuario = idU
+    uo = Organizacion().get_by_id(int(idO))
+    uo.usuarios.append(idU)
     uo.put()
     
     return True
-  
+
+
 def GetOrganizacionUsuario(idUsuario):
-    orgs = OrganizacionUsuario.query(OrganizacionUsuario.idUsuario == str(idUsuario)).fetch(1)
-    logging.getLogger().setLevel(logging.DEBUG)
+    #logging.getLogger().setLevel(logging.DEBUG)
+    orgs = Organizacion.query(ndb.AND(Organizacion.usuarios == idUsuario)).fetch(1)
+    #logging.error(orgs)
     for o in orgs:
-        logging.info(o.idOrganizacion)
-        return Organizacion.get_by_id(int(o.idOrganizacion))
+        return orgs
 
     return False

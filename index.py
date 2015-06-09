@@ -68,7 +68,10 @@ class Index(webapp2.RequestHandler):
         info = getInfo(self)
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario:
-            eventos = controladorEvento.getEventosAsociados(usuario.key.id())
+            eventos = []
+            evs = controladorUsuario.getEventosAsociados(usuario.key.id())
+            for ev in evs:
+                eventos.append(controladorEvento.GetEventoById(ev))
             for e in eventos:
                 if len(e.descripcion) > 200:
                     sec = [e.descripcion[:200], '...']
@@ -136,6 +139,7 @@ class InsertarEvento(webapp2.RequestHandler):
         privado = self.request.get('privado')
         idCreador = self.request.get('idUser')
         ret = controladorEvento.SetEvento(nombre, 1, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia)
+        controladorUsuario.setEventoId(ret, self)
         # Aquí se avisaría por email
         resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
@@ -264,7 +268,7 @@ class MostrarMiCuenta(webapp2.RequestHandler):
         
         else:
             userLogin = True
-            numeroEventos = controladorEvento.getEventosAsociadosCount(controladorUsuario.getKey(usuario))
+            numeroEventos = controladorUsuario.getEventosAsociadosCount(controladorUsuario.getKey(usuario))
             #Obtenemos su organización en caso de pertenecer a una
             org = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(usuario)))
 
@@ -290,7 +294,7 @@ class MostrarMisEventos(webapp2.RequestHandler):
         usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
 
         if usuarioLogeado:
-            eventos = controladorEvento.getEventosAsociados(usuarioLogeado.key.id())
+            eventos = controladorUsuario.getEventosAsociados(usuarioLogeado.key.id())
             for e in eventos:
                 if len(e.descripcion) > 200:
                     sec = [e.descripcion[:200], '...']

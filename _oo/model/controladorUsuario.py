@@ -19,6 +19,7 @@ from google.appengine.ext import ndb
 from _oo.classes.usuario import Usuario
 from _oo.model import moduloEmail
 import logging
+import md5
 
 
 def getKey(usuario):
@@ -33,7 +34,7 @@ def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
     usuario.telefono = telefono
     usuario.twitter = twitter
     usuario.web = web
-    usuario.password = password
+    usuario.password = md5.new(password).hexdigest()
     print str(moduloEmail.enviarConfirmacionLogin(usuario))
     return usuario.put()
 
@@ -41,7 +42,7 @@ def loginCorrecto(email,password):
     usuario = Usuario.query(Usuario.email == email)
 
     if usuario.count():
-        if(usuario.get().password == password):
+        if(usuario.get().password == md5.new(password).hexdigest()):
             return usuario
         else:
             return False
@@ -71,8 +72,12 @@ def getEventosAsociados(idUsuario):
     return eventos
 
 def getEventosAsociadosCount(idUsuario):
-    cont = getEventosAsociados(idUsuario)
-    logging.error(cont)
+    cont = len(getEventosAsociados(idUsuario))
     if cont == False:
         return 0
-    return 0
+    return cont
+
+def setEventoId(idEvento, s):
+    u = getUsuarioLogeado(s)
+    u.eventos.append(str(idEvento))
+    u.put()

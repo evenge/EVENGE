@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Evenge - gestor de eventos (events management)
 #Copyright (C) 2014 - desarrollo.evenge@gmail.com
 #Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -15,9 +16,6 @@
 import webapp2
 from google.appengine.ext import ndb
 from datetime import datetime
-from usuario import Usuario
-from evento import Evento
-from ponente import Ponente
 
 class Organizacion(ndb.Model):
     nombre = ndb.StringProperty()
@@ -25,9 +23,9 @@ class Organizacion(ndb.Model):
     telefono = ndb.StringProperty()
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
-    usuarios = ndb.LocalStructuredProperty(Usuario, repeated=True)
-    eventos = ndb.LocalStructuredProperty(Evento, repeated=True)
-    ponentes = ndb.LocalStructuredProperty(Ponente, repeated=True)
+    usuarios = ndb.StringProperty(repeated=True)
+    eventos = ndb.StringProperty(repeated=True)
+    ponentes = ndb.StringProperty(repeated=True)
   
     def getKey(self):
         return str(self.key.id())

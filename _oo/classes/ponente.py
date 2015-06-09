@@ -10,7 +10,7 @@
 #
 #This program is distributed in the hope that it will be useful,
 #but WITHOUT ANY WARRANTY; without even the implied warranty of
-#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #GNU General Public License for more details.
 
 import os
@@ -27,4 +27,4 @@ class Ponente(ndb.Model):
     telefono = ndb.StringProperty()
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
-    #eventos = ndb.LocalStructuredProperty(Evento, repeated=True)
+    eventos = ndb.StringProperty(repeated=True)

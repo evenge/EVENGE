@@ -17,10 +17,7 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
-import jinja2
-import webapp2
 from datetime import datetime
-from evento import Evento
 
 class Usuario(ndb.Model):
     nombre = ndb.StringProperty()
@@ -30,8 +27,7 @@ class Usuario(ndb.Model):
     telefono = ndb.StringProperty()
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
-    eventos = ndb.LocalStructuredProperty(Evento, repeated=True)
-    #organizacion = ndb.LocalStructuredProperty(Organizacion)
+    eventos = ndb.StringProperty(repeated=True)
 
     def getKey(self):
         return str(self.key.id())

@@ -14,6 +14,7 @@
 
 from google.appengine.ext import ndb
 from _oo.classes.organizacion import Organizacion
+import logging
 
 def getKeyOrg(organizacion):
     return organizacion.getKey()
@@ -30,16 +31,18 @@ def SetOrganizacion(nombre, email, telefono, twitter, web):
   
   
 def SetUsuarioOrganizacion(idO, idU):
-    uo = OrganizacionUsuario()
-    uo.idOrganizacion = idO
-    uo.idUsuario = idU
+    uo = Organizacion().get_by_id(int(idO))
+    uo.usuarios.append(idU)
     uo.put()
     
     return True
-  
-#def GetOrganizacionUsuario(idUsuario):
-#    orgs = OrganizacionUsuario.query(OrganizacionUsuario.idUsuario == str(idUsuario)).fetch(1)
-#    for o in orgs:
-#        return Organizacion.get_by_id(int(o.idOrganizacion))
-#
-#    return False
+
+
+def GetOrganizacionUsuario(idUsuario):
+    #logging.getLogger().setLevel(logging.DEBUG)
+    orgs = Organizacion.query(ndb.AND(Organizacion.usuarios == idUsuario)).fetch(1)
+    #logging.error(orgs)
+    for o in orgs:
+        return orgs
+
+    return False

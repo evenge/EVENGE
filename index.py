@@ -112,10 +112,10 @@ class InsertarEvento(webapp2.RequestHandler):
             self.redirect('/login')
         else:
             #Comprueba si el usuario pertenece a alguna organización
-            #o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
+            o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
             template_values = {
               'usuario': user,
-              #'organizacion': o,
+              'organizacion': o,
               'info': info
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')

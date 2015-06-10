@@ -123,7 +123,10 @@ GNU General Public License for more details.
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
-  border-bottom: 1px solid #edecec;
+  border-bottom: 1px solid #dedddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #ececec;
 }
 
 /******Asistentes******/

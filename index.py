@@ -220,7 +220,7 @@ class MostrarEvento(webapp2.RequestHandler):
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
         userCreador = False
-        #asistentes = controladorEvento.getAsistentesEvento(idEvento);
+
         if user:
             if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
                 userCreador = True

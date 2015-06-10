@@ -126,48 +126,51 @@ GNU General Public License for more details.
   border-bottom: 1px solid #edecec;
 }
 
-
 /******Asistentes******/
-
-.asistente{
-  background-color:white;
-  border-bottom-color:red;
-  border-bottom: solid #c11f23;
-  border-bottom-width:2px;
+.asistente,
+#buscador-asistente {
+  margin-top: 20px;
+  padding: 0;
 }
+
 #buscador-asistente{
-  background-color:#c11f23;
-  padding: 6px 10px 6px 10px;
+
 }
 
-#buscador-asistente .input-group-addon {
+.asistente .table {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+}
+
+.asistente .table thead tr th {
+  font-size: 1.1em;
+  border-bottom: 1px solid #edecec;
+}
+
+.asistente .table tbody tr th {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.asistente .btn-default {
+  margin: 0;
+  padding: 0;
   background: none;
+  color: #c11f23;
   border: none;
-  color: #fff;
 }
 
-#buscador-asistente .form-control {
+/**************** ponentes ****************/
+.ponentes-cont,
+.ponentes-search {
+  margin-top: 20px;
+}
+
+.btn-ponente {
   background: none;
-  border: none;
-  box-shadow: none;
-  color: #fff;
-}
-
-#buscador-asistente::-webkit-input-placeholder { color: fff; }
-#buscador-asistente::-webkit-input-placeholder { color: fff;  }
-#buscador-asistente::-moz-placeholder { color: fff; }
-#buscador-asistente::-moz-placeholder { color: fff; }
-
-.asistente .delete-button, .asistente .pdf-button{
-  background:none;
-  color:#c11f23;
-  border:none;
-  float:right;
-}
-
-/***** media for responsive ***/
-@media (max-width: 768px) {
-  .social {
-    margin-bottom: 35px;
-  }
+  color: #C11F23;
+  font-weight: bold;
 }

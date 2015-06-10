@@ -514,3 +514,23 @@ form .btn-form:focus {
 .notread::-webkit-input-placeholder { color: black;  }
 .notread::-moz-placeholder { color: black; }
 .notread::-moz-placeholder { color: black; }
+
+.modal-header .close {
+  background: #d43539;
+  opacity: 0.4;
+  padding: 2px;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
+}
+
+/***** media for responsive ***/
+@media (max-width: 768px) {
+  .social {
+    margin-bottom: 35px;
+  }
+}

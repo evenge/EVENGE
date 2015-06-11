@@ -92,3 +92,8 @@ def DeleteEvento(idEvento):
     evento = GetEventoById(int(idEvento))
     evento.key.delete()
     return True
+
+def setPonente(idP, idE):
+    evento = GetEventoById(int(idE))
+    evento.ponentes.append(str(idP))
+    evento.put()

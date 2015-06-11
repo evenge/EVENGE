@@ -30,7 +30,9 @@ GNU General Public License for more details.
   <div class="individual-menu-cont col-sm-12">
     <ul class="individual-menu nav">
       <li role="presentation" class="individual-opt active"><a data-toggle="tab" href="#descripcion">Descripción</a></li>
+      {% if userCreador %}
       <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
+      {% endif %}
       <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
     </ul>
   </div>
@@ -87,6 +89,7 @@ GNU General Public License for more details.
           </div>
         </div>
 
+        {% if userCreador %}
         <div class="tab-pane fade" id="asistentes">
           <div class="col-sm-12">
             <div id="buscador-asistente" class="col-sm-12">
@@ -123,7 +126,7 @@ GNU General Public License for more details.
             </div>
           </div>
         </div>
-
+        {% endif %}
         <div class="tab-pane fade" id="ponentes">
           <div class="col-sm-12 ponentes-search">
             <div class="input-group">
@@ -134,27 +137,32 @@ GNU General Public License for more details.
 
           <div class="ponentes-cont col-sm-12">
             <button data-toggle="modal" data-target="#modalPonente" class="btn btn-ponente"><i class="fa fa-plus"></i> Nuevo ponente</button>
+            <button data-toggle="modal" data-target="#modalPonente2" class="btn btn-ponente"><i class="fa fa-plus"></i> Añadir ponente al evento</button>
 
             <div class="col-sm-12">
-              {% for p in ponentes %}
-              <div class="col-sm-3 ponente">
-                <div class="imagen">
-                  <img alt="avatar" src="/_dt/img/avatar.jpg">
+              <div class="row">
+                {% for p in ponentes %}
+                <div class="col-sm-3">
+                  <div class="col-sm-12 ponente">
+                    <div class="imagen">
+                      <img alt="avatar" src="/_dt/img/avatar.jpg">
+                    </div>
+                    <div class="detalles detalles1 col-md-12">
+                      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+                    </div>
+                    <div class="detalles detalle-w col-md-12">
+                      <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
+                    </div>
+                    <div class="detalles detalle-t col-md-12">
+                      <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
+                    </div>
+                    <div class="detalles col-md-12">
+                      <h3>{{ p.telefono }}</h3>
+                    </div>
+                  </div>
                 </div>
-                <div class="detalles detalles1 col-md-12">
-                  <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
-                </div>
-                <div class="detalles detalle-w col-md-12">
-                  <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
-                </div>
-                <div class="detalles detalle-t col-md-12">
-                  <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
-                </div>
-                <div class="detalles col-md-12">
-                  <h3>{{ p.telefono }}</h3>
-                </div>
+                {% endfor %}
               </div>
-              {% endfor %}
             </div>
 
           </div>
@@ -223,30 +231,30 @@ GNU General Public License for more details.
           </div>
 
           <div class="modal-body">
-            <form>
+            <form id="iponente">
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="nombre-p" name="nombre-p" placeholder="Nombre" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="apellidos-p" name="apellidos-p" placeholder="Apellidos" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
-                <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="email-p" name="email-p" placeholder="Email" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
-                <input type="text" class="form-control" placeholder="Twitter" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="twitter-p" name="twitter-p" placeholder="Twitter" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
-                <input type="text" class="form-control" placeholder="Telefono" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="telefono-p" name="telefono-p" placeholder="Telefono" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
-                <input type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
+                <input type="text" class="form-control" id="web-p" name="web-p" placeholder="Web" aria-describedby="sizing-addon1">
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Guardar e insertar</button>

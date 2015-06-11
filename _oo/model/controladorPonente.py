@@ -32,7 +32,7 @@ def setPonente(nombre, apellidos, email, telefono, twitter, web):
     #Devuelve la key
     return ponente.put().id()
 
-def GetPonenteById(idPonente):
+def getPonenteById(idPonente):
     return Ponente().get_by_id(int(idPonente))
 
 def listarPonentes(self):

@@ -13,14 +13,20 @@ $(document).ready(function() {
 
   $('#delete-href').on('click', function(evt) {
     evt.preventDefault();
-    var data = {'id': $('.event-content').data('id')};
+    var data = {
+      'id': $('.event-content').data('id')
+    };
+
     $.ajax({
       type: 'POST',
       url: '/eliminarEvento',
       data: data,
       success: function(resp) {
-        if (resp.response === true) { window.location = "/miseventos"; }
-        else alert('Ha habido un error');
+        if (resp.response === true) {
+          window.location = "/miseventos";
+        } else {
+          alert('Ha habido un error');
+        }
       }
     });
   });
@@ -48,6 +54,41 @@ $(document).ready(function() {
       data: data,
       success: function(resp) {
         $('#modalAsistente').modal('hide');
+      }
+    });
+  });
+
+  $('#iponente').on('submit', function(evt) {
+    evt.preventDefault();
+    var email = $('#email-p').val();
+    var nombre = $('#nombre-p').val();
+    var apellidos = $('#apellidos-p').val();
+    var twitter = $('#twitter-p').val();
+    var web = $('#web-p').val();
+    var tlf = $('#telefono-p').val();
+    var idEvento = $('.event-content').data('id')
+
+    var data = {
+      'email': email,
+      'nombre': nombre,
+      'apellidos': apellidos,
+      'twitter': twitter,
+      'web': web,
+      'tlf': tlf,
+      'guardar': '1',
+      'idEvento': idEvento
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/iPonente',
+      data: data,
+      success: function(resp) {
+        if (resp.response === true) {
+          $('#modalPonente').modal('hide');
+        } else {
+          alert('Ha habido un error');
+        }
       }
     });
   });

@@ -30,13 +30,13 @@ handlers:
   static_dir: _dt/js
 
 - url: /prueba
-  script: _oo.classes.prueba.application
+  script: _oo.classes.prueba2.application
 
 - url: /prueba2
-  script: _oo.classes.prueba.application
+  script: _oo.classes.prueba2.application
 
 - url: /prueba3
-  script: _oo.classes.prueba.application
+  script: _oo.classes.prueba2.application
 
 - url: /.*
   script: index.application

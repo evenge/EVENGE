@@ -81,3 +81,18 @@ def setEventoId(idEvento, s):
     u = getUsuarioLogeado(s)
     u.eventos.append(str(idEvento))
     u.put()
+
+def setPonenteId(idU, idP):
+    u = getUsuarioById(int(idU))
+    u.ponentes.append(str(idP))
+    u.put()
+
+def getPonentesAsociadosCount(idU):
+    cont = len(getPonentes(idU))
+    if cont == False:
+        return 0
+    return cont
+
+def getPonentes(idU):
+    u = getUsuarioById(int(idU))
+    return u.ponentes

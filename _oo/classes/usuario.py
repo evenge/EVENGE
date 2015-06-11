@@ -28,6 +28,7 @@ class Usuario(ndb.Model):
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
     eventos = ndb.StringProperty(repeated=True)
+    ponentes = ndb.StringProperty(repeated=True)
 
     def getKey(self):
         return str(self.key.id())

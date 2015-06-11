@@ -111,14 +111,14 @@ GNU General Public License for more details.
 }
 
 /********* modal asistente ***********************/
-#modalAsistente .modal-content {
+.modal-content {
   box-shadow: 0 1px 1px rgba(0,0,0,.10);
   color: black;
   border-radius: 5px;
   border: none;
 }
 
-#modalAsistente .modal-header {
+.modal-header {
   text-align: center;
   padding: 10px;
   font-weight: bold;
@@ -176,4 +176,11 @@ GNU General Public License for more details.
   background: none;
   color: #C11F23;
   font-weight: bold;
+}
+
+/***** media for responsive ***/
+@media (max-width: 768px) {
+  .social {
+    margin-bottom: 35px;
+  }
 }

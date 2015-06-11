@@ -441,8 +441,18 @@ body {
 /*************************************************/
 /****************** form style *******************/
 /*************************************************/
+.evenge-form {
+  margin-top: 20px;
+  background: white;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 form {
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .h1-formtitle {
@@ -455,16 +465,28 @@ form {
   margin-right: 10px;
 }
 
+.evenge-form .h1-formtitle {
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #2d2d2d;
+  background: #f7f7f7;
+  border-bottom: 1px solid #edecec;
+  font-size: 20px;
+  padding: 10px;
+}
+
 form .input-group {
   margin-top: 10px;
 }
 
 form .input-group .form-control {
-  background: #b9b9b9;
+  background: #d3d3d3;
   color: #3b3b3b;
   border: none;
   text-shadow: none;
   border-radius: 0;
+  box-shadow: none;
 }
 
 form .input-group .form-control:focus {
@@ -477,8 +499,8 @@ form .input-group .size-35 {
 }
 
 form .input-group .input-group-addon {
-  background: #b9b9b9;
-  color: #3b3b3b;
+  background: #d43539;
+  color: #fff;
   border: none;
   text-shadow: none;
   border-radius: 0;
@@ -496,17 +518,22 @@ form .btn-group {
 }
 
 form .btn-form {
-  background: #c11f23;
-  border-color: #a61b1e;
+  background: #34c774;
   border-radius: 0;
   color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 form .btn-form:hover,
 form .btn-form:focus {
-  background: none;
-  color: #c11f23;
-  border-color: #a61b1e;
+  background: #30b86b;
+  color: #fff;
 }
 
 .notread::-webkit-input-placeholder { color: black; }
@@ -525,11 +552,4 @@ form .btn-form:focus {
 
 .modal-header .close:hover {
   opacity: 1;
-}
-
-/***** media for responsive ***/
-@media (max-width: 768px) {
-  .social {
-    margin-bottom: 35px;
-  }
 }

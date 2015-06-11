@@ -22,6 +22,86 @@ GNU General Public License for more details.
   margin-top: 20px;
 }
 
+.consejos-evento,
+.select-content {
+  background: white;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.consejos-evento h4,
+.select-content h4 {
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #2d2d2d;
+  background: #f7f7f7;
+  border-bottom: 1px solid #edecec;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.consejos-evento ul {
+  margin-top: 10px;
+}
+
+.consejos-evento ul li {
+  font-size: 14px;
+}
+
+.event-org {
+  margin-top: 10px;
+}
+
+.event-org h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.evenge-check-cont {
+  margin: 10px 0;
+}
+
+.evenge-check-cont strong {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.evenge-check {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c6c6c6;
+  cursor: pointer;
+}
+
+.evenge-check:hover {
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected {
+  background: #c11f23;
+  border: 2px solid #c11f23;
+}
+
+.evenge-check.selected:before {
+  position: relative;
+  font-family: "FontAwesome";
+  content: '\f00c';
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  left: 50%;
+  margin-left: -6px;
+}
+
 .controls {
   margin-top: 15px;
   border: 1px solid transparent;
@@ -57,57 +137,4 @@ GNU General Public License for more details.
 #type-selector label {
   font-size: 13px;
   font-weight: 300;
-}
-
-.select-content h4,
-.consejos-evento {
-  background: #3b3b3b;
-  color: #f0f0f0;
-}
-
-.select-content h4 {
-  padding: 10px 15px;
-  margin: 0;
-}
-
-.event-org {
-  margin-top: 10px;
-}
-
-.event-org h5 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.evenge-check {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #c6c6c6;
-  cursor: pointer;
-}
-
-.evenge-check:hover {
-  border: 2px solid #c11f23;
-}
-
-.evenge-check.selected {
-  background: #c11f23;
-  border: 2px solid #c11f23;
-}
-
-.evenge-check.selected:before {
-  position: relative;
-  font-family: "FontAwesome";
-  content: '\f00c';
-  font-size: 1em;
-  color: white;
-  font-weight: bold;
-  left: 50%;
-  margin-left: -6px;
 }

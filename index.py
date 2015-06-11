@@ -45,11 +45,13 @@ def getInfo(self):
     info = {
       'gravatar': False,
       'userLogin': False,
-      'numeroEventos': False
+      'numeroEventos': False,
+      'numeroPonetes': False
     }
     #Comprobamos si el usuario está logueado o es False
     if user:
         info['numeroEventos'] = controladorUsuario.getEventosAsociadosCount(controladorUsuario.getKey(user))
+        info['numeroPonentes'] = controladorUsuario.getPonentesAsociadosCount(controladorUsuario.getKey(user))
         info['userLogin'] = True
         info['gravatar'] = user.nombre[0:1] + user.apellidos[0:1]
 
@@ -155,27 +157,35 @@ class InsertarPonente(webapp2.RequestHandler):
         Si el usuario está logueado se devuelve la plantilla con el formulario para crear un ponente
         Si el usuario no está logueado se le redirige a /login
         """
+        info = getInfo(self)
         user = controladorUsuario.getUsuarioLogeado(self)
         if user is False:
             self.redirect('/login')
         else:
-            template_values = {}
+
+            template_values = {
+              'info': info,
+              'usuario': user
+            }
             template = JINJA_ENVIRONMENT.get_template('templates/templatesNewPonente.html')
             self.response.write(template.render(template_values))
 
     def post(self):
         """Inserta un nuevo ponente con los datos recogidos"""
+        user = controladorUsuario.getUsuarioLogeado(self)
         nombre = self.request.get("nombre").strip()
         apellidos = self.request.get("apellidos").strip()
         email = self.request.get("email").strip()
-        telefono = self.request.get("telefono").strip()
+        telefono = self.request.get("tlf").strip()
         twitter = self.request.get("twitter").strip()
         web = self.request.get("web").strip()
-        idNuevoPonente = controladorPonente.nuevoRegistroPonente(
-            nombre, apellidos,
-            email, telefono,
-            twitter, web)
-        self.redirect('/')
+        idNuevoPonente = controladorPonente.setPonente(nombre, apellidos, email, telefono, twitter, web)
+        controladorUsuario.setPonenteId(str(controladorUsuario.getKey(user)), idNuevoPonente)
+        resp = {'response': True}
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(resp))
+
+
 
 # class Evenge(webapp2.RequestHandler):
 #     def hazElCuadrado(self, numero):
@@ -314,11 +324,25 @@ class MostrarMisEventos(webapp2.RequestHandler):
 
 
 class MostrarMisPonentes(webapp2.RequestHandler):
+
     def get(self):
-        ponentes = controladorPonente.listarPonentes(self)
-        template_values = {'ponentes': ponentes}
-        template = JINJA_ENVIRONMENT.get_template('templates/templatePonentes.html')
-        self.response.write(template.render(template_values))
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user is False:
+            self.redirect('/login')
+        else:
+            ponentesList = controladorUsuario.getPonentes(controladorUsuario.getKey(user))
+            ponentes = []
+            for p in ponentesList:
+                ponentes.append(controladorPonente.GetPonenteById(p))
+
+            template_values = {
+              'ponentes': ponentes,
+              'info': info,
+              'usuario': user
+            }
+            template = JINJA_ENVIRONMENT.get_template('templates/templatePonentes.html')
+            self.response.write(template.render(template_values))
 
 
 class MostrarError(webapp2.RequestHandler):

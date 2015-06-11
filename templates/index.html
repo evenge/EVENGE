@@ -76,16 +76,17 @@ GNU General Public License for more details.
         <li class="dropdown">
           <a href="#" class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             <i class="fa fa-graduation-cap fa-fw">
-            </i> Mis Ponentes <i class="fa2 fa fa-circle-o"></i>
+            </i> Ponentes <i class="fa2 fa fa-circle-o"></i>
           </a>
           <ul class="dropdown-menu" role="menu">
+            <li><a href="/misponentes"><i class="fa fa-circle fa-fw"></i> Mis Ponentes ({{ info.numeroPonentes }})</a></li>
             <li><a href="/iPonente"><i class="fa fa-circle fa-fw"></i> Nuevo Ponente</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
           <a class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/misinformes">
-            <i class="fa fa-bar-chart fa-fw"></i> Mis informes <i class="fa2 fa fa-circle-o"></i>
+            <i class="fa fa-bar-chart fa-fw"></i> Informes <i class="fa2 fa fa-circle-o"></i>
           </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por año</a></li>
@@ -183,10 +184,10 @@ GNU General Public License for more details.
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-  <script src="/_dt/js/general.js"></script>
   {% block scriptFooter %}
   <script src="/_dt/js/select2.js"></script>
   {% endblock %}
+  <script src="/_dt/js/general.js"></script>
   <!-- scripts -->
 </body>
 </html>

@@ -14,7 +14,6 @@
 
 import os
 import urllib
-import webapp2
 from google.appengine.ext import ndb
 from _oo.classes.ponente import Ponente
 
@@ -22,7 +21,7 @@ from _oo.classes.ponente import Ponente
 def getKey(ponente):
     return ponente.key.id()
 
-def nuevoRegistroPonente(nombre,apellidos,email,telefono,twitter,web):
+def setPonente(nombre, apellidos, email, telefono, twitter, web):
     ponente = Ponente()
     ponente.nombre = nombre
     ponente.apellidos = apellidos
@@ -31,10 +30,10 @@ def nuevoRegistroPonente(nombre,apellidos,email,telefono,twitter,web):
     ponente.twitter = twitter
     ponente.web = web
     #Devuelve la key
-    return ponente.put()
+    return ponente.put().id()
 
 def GetPonenteById(idPonente):
-    return Ponente().get_by_id(idPonente)
+    return Ponente().get_by_id(int(idPonente))
 
 def listarPonentes(self):
     result = Ponente.query()

@@ -30,7 +30,9 @@ GNU General Public License for more details.
   <div class="individual-menu-cont col-sm-12">
     <ul class="individual-menu nav">
       <li role="presentation" class="individual-opt active"><a data-toggle="tab" href="#descripcion">Descripción</a></li>
+      {% if userCreador %}
       <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#asistentes">Asistentes</a></li>
+      {% endif %}
       <li role="presentation" class="individual-opt"><a data-toggle="tab" href="#ponentes">Ponentes</a></li>
     </ul>
   </div>
@@ -87,6 +89,7 @@ GNU General Public License for more details.
           </div>
         </div>
 
+        {% if userCreador %}
         <div class="tab-pane fade" id="asistentes">
           <div class="col-sm-12">
             <div id="buscador-asistente" class="col-sm-12">
@@ -123,7 +126,7 @@ GNU General Public License for more details.
             </div>
           </div>
         </div>
-
+        {% endif %}
         <div class="tab-pane fade" id="ponentes">
           <div class="col-sm-12 ponentes-search">
             <div class="input-group">

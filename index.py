@@ -179,8 +179,11 @@ class InsertarPonente(webapp2.RequestHandler):
         telefono = self.request.get("tlf").strip()
         twitter = self.request.get("twitter").strip()
         web = self.request.get("web").strip()
+        guardar = self.request.get("guardar").strip()
         idNuevoPonente = controladorPonente.setPonente(nombre, apellidos, email, telefono, twitter, web)
         controladorUsuario.setPonenteId(str(controladorUsuario.getKey(user)), idNuevoPonente)
+        if str(guardar) == '1':
+            controladorEvento.setPonente(idNuevoPonente, self.request.get("idEvento").strip())
         resp = {'response': True}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
@@ -230,6 +233,9 @@ class MostrarEvento(webapp2.RequestHandler):
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
         userCreador = False
+        ponentes = []
+        for p in evento.ponentes:
+            ponentes.append(controladorPonente.getPonenteById(p))
 
         if user:
             if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
@@ -241,7 +247,8 @@ class MostrarEvento(webapp2.RequestHandler):
           'userCreador': userCreador,
           'id': idEvento,
           'usuario': user,
-          'info': info
+          'info': info,
+          'ponentes': ponentes
         }
 
         template = JINJA_ENVIRONMENT.get_template('templates/templateEvents.html')
@@ -334,7 +341,7 @@ class MostrarMisPonentes(webapp2.RequestHandler):
             ponentesList = controladorUsuario.getPonentes(controladorUsuario.getKey(user))
             ponentes = []
             for p in ponentesList:
-                ponentes.append(controladorPonente.GetPonenteById(p))
+                ponentes.append(controladorPonente.getPonenteById(p))
 
             template_values = {
               'ponentes': ponentes,

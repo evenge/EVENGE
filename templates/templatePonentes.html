@@ -38,21 +38,23 @@ GNU General Public License for more details.
 
   <div class="col-sm-12 ponentes">
     {% for p in ponentes %}
-    <div class="col-sm-3 ponente">
-      <div class="imagen">
-        <img alt="avatar" src="/_dt/img/avatar.jpg">
-      </div>
-      <div class="detalles detalles1 col-md-12">
-        <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
-      </div>
-      <div class="detalles detalle-w col-md-12">
-        <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
-      </div>
-      <div class="detalles detalle-t col-md-12">
-        <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
-      </div>
-      <div class="detalles col-md-12">
-        <h3>{{ p.telefono }}</h3>
+    <div class="col-sm-3">
+      <div class="col-sm-12 ponente">
+        <div class="imagen">
+          <img alt="avatar" src="/_dt/img/avatar.jpg">
+        </div>
+        <div class="detalles detalles1 col-md-12">
+          <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+        </div>
+        <div class="detalles detalle-w col-md-12">
+          <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
+        </div>
+        <div class="detalles detalle-t col-md-12">
+          <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
+        </div>
+        <div class="detalles col-md-12">
+          <h3>{{ p.telefono }}</h3>
+        </div>
       </div>
     </div>
     {% endfor %}

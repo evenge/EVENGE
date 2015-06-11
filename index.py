@@ -493,7 +493,7 @@ application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
     ('/iPonente', InsertarPonente),
-    ('/miseventos', MostrarMisEventos),
+    ('/miseventos', Index),
     ('/eventos*', MostrarEvento),
     ('/misponentes', MostrarMisPonentes),
     ('/misinformes', MostrarInforme),

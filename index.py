@@ -179,8 +179,9 @@ class InsertarPonente(webapp2.RequestHandler):
         telefono = self.request.get("tlf").strip()
         twitter = self.request.get("twitter").strip()
         web = self.request.get("web").strip()
+        descripcion = self.request.get("descripcion").strip()
         guardar = self.request.get("guardar").strip()
-        idNuevoPonente = controladorPonente.setPonente(nombre, apellidos, email, telefono, twitter, web)
+        idNuevoPonente = controladorPonente.setPonente(nombre, apellidos, email, telefono, twitter, web, descripcion)
         controladorUsuario.setPonenteId(str(controladorUsuario.getKey(user)), idNuevoPonente)
         if str(guardar) == '1':
             controladorEvento.setPonente(idNuevoPonente, self.request.get("idEvento").strip())

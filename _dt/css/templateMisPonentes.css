@@ -79,6 +79,12 @@
   font-weight: bold;
 }
 
+.ponente .detalle-d h4 {
+  text-align: center;
+  color: #656565;
+  font-size: 14px;
+}
+
 .ponente .detalle-t,
 .ponente .detalle-w {
   width: 90%;

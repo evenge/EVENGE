@@ -46,6 +46,9 @@ GNU General Public License for more details.
         <div class="detalles detalles1 col-md-12">
           <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
         </div>
+        <div class="detalles detalle-d col-md-12">
+          <h4>{{ p.descripcion }}</h4>
+        </div>
         <div class="detalles detalle-w col-md-12">
           <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
         </div>
@@ -53,7 +56,7 @@ GNU General Public License for more details.
           <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
         </div>
         <div class="detalles col-md-12">
-          <h3>{{ p.telefono }}</h3>
+          <h3><i class="fa fa-phone fa-fw"></i> {{ p.telefono }}</h3>
         </div>
       </div>
     </div>

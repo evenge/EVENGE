@@ -20,42 +20,44 @@ GNU General Public License for more details.
 {# contenido central de la página #}
 {% block content %}
 <!--Formulario usuario -->
-<div class="col-sm-8 col-sm-offset-2">
+<div class="evenge-form col-sm-6 col-sm-offset-3">
   <h1 class="h1-formtitle" >Nuevo Usuario</h1>
   <form action="/registrate" method="post">
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
       <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
       <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt fa-fw"></i></span>
       <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt fa-fw"></i></span>
       <input type="password" class="form-control" name="repetirContrasena" id="repetirContrasena" placeholder="Repetir contraseña" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
       <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
       <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
       <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
       <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
     </div>
-    <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Registrar</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success btn-form btn-block" value="Guardar">Registrar</button>
+    </div>
   </form>
 </div>
 <!--/Formulario usuario -->

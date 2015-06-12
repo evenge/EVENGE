@@ -44,7 +44,8 @@ Almacena un evento en el datastore
 def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia):
     evento = Evento()
     evento.nombre = nombre
-    evento.tipo = int(tipo)
+    evento.tipo = tipo
+    evento.idCreador = str(idCreador)
     if privado == 'True':
         privado = True
     else:

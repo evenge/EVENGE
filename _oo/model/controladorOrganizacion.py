@@ -42,3 +42,8 @@ def getOrganizacion(idO):
     org = Organizacion.get_by_id(int(idO))
     #logging.error(orgs)
     return org
+
+def setEventoId(idE, idO):
+    o = Organizacion().get_by_id(int(idO))
+    o.eventos.append(str(idE))
+    o.put()

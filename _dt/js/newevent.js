@@ -1,7 +1,6 @@
 var map;
 var marker;
 var markers = [];
-var tipo = 'personal';
 
 $(document).ready(function() {
   putMap();
@@ -10,8 +9,6 @@ $(document).ready(function() {
     if (!$(this).hasClass('selected')) {
       $('.evenge-check.selected').removeClass('selected');
       $(this).addClass('selected');
-      tipo = $(this).data('type');
-      console.log(tipo);
     }
   });
   
@@ -37,9 +34,11 @@ $(document).ready(function() {
       'latitud': lat,
       'longitud': lon,
       'privado': isPrivado,
+      'userT': $('.selected').data('us'),
       'idUser': $('.selected').data('key')
     };
     
+    console.log(data);
     
     $.ajax({
       type: 'POST',

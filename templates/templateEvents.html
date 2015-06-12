@@ -39,7 +39,7 @@ GNU General Public License for more details.
 
   <div class="col-sm-12">
     {% if evento %}
-    <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ id }}" class="event-content col-md-12 pad-panel">
+    <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ usuario.getKey() }}" class="event-content col-md-12 pad-panel">
 
       <div class="titular-h1">
         <h1>{{ evento.nombre }}  <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>
@@ -48,6 +48,12 @@ GNU General Public License for more details.
       <div class="col-md-12 social">
         <button data-toggle="modal" data-target="#modalAsistente" class="btn btn-inscribirse">Asistir a este evento</button>
         <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="grupoEvenge">Tweet</a>
+        {% if userCreador %}
+        <div class="options-panel pull-right">
+          <button class="btn btn-option"><i class="fa fa-pencil-square-o"></i> <strong>Modificar</strong></button>
+          <button class="btn btn-option"><i class="fa fa-trash-o"></i> <strong>Eliminar</strong></button>
+        </div>
+        {% endif %}
       </div>
 
       <div class="tab-content">
@@ -59,7 +65,7 @@ GNU General Public License for more details.
                 <h5>Organizador</h5>
               </div>
               <div class="col-sm-12 part-right">
-                <h5>{{ usuario.nombre }} {{ usuario.apellidos }} </h5>
+                <h5>{{ organizadorNombre }}</h5>
               </div>
             </div>
             <div class="contenedor-datos col-sm-12">

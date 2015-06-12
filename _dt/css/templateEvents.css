@@ -178,9 +178,22 @@ GNU General Public License for more details.
   font-weight: bold;
 }
 
+.btn-option {
+  background: none;
+  color: #C11F23;
+  font-weight: bold;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px;
+}
+
 /***** media for responsive ***/
 @media (max-width: 768px) {
   .social {
     margin-bottom: 35px;
+  }
+
+  .btn-option strong {
+    display: none;
   }
 }

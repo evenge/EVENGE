@@ -65,16 +65,16 @@ GNU General Public License for more details.
   </div>
 
   <div class="col-sm-6">
-    <div class="select-content col-sm-12">
+    <div data-id="{{ usuario.getKey() }}" class="select-content col-sm-12">
       <h4>Selecciona el perfil con el que crear tu evento.</h4>
       <div class="col-sm-12 event-org">
         <div class="evenge-check-cont">
-          <span data-key="{{ usuario.getKey() }}" class="evenge-check selected"></span>
+          <span data-us="1" data-key="{{ usuario.getKey() }}" class="evenge-check selected"></span>
           <strong>{{ usuario.nombre }} {{ usuario.apellidos }}</strong>
         </div>
         {% if organizacion %}
         <div class="evenge-check-cont">
-          <span data-key="{{ organizacion.getKey() }}" class="evenge-check"></span>
+          <span data-us="2" data-key="{{ organizacion.getKey() }}" class="evenge-check"></span>
           <strong>{{ organizacion.nombre }}</strong>
         </div>
         {% endif %}

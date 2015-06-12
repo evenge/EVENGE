@@ -117,10 +117,14 @@ class InsertarEvento(webapp2.RequestHandler):
             self.redirect('/login')
         else:
             #Comprueba si el usuario pertenece a alguna organización
-            o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
+            orgId = controladorUsuario.getOrganizacion(str(controladorUsuario.getKey(user)))
+            org = []
+            if orgId:
+                org = controladorOrganizacion.getOrganizacion(orgId)
+
             template_values = {
               'usuario': user,
-              'organizacion': o,
+              'organizacion': org,
               'info': info
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
@@ -130,6 +134,8 @@ class InsertarEvento(webapp2.RequestHandler):
         """
         Por POST recoge los datos del formulario del nuevo evento, y inserta en BD.
         """
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idLogueado = str(controladorUsuario.getKey(user))
         nombre = self.request.get('nombre')
         hora = self.request.get('hora')
         fecha = self.request.get('fecha')
@@ -140,8 +146,15 @@ class InsertarEvento(webapp2.RequestHandler):
         lon = self.request.get('longitud')
         privado = self.request.get('privado')
         idCreador = self.request.get('idUser')
-        ret = controladorEvento.SetEvento(nombre, 1, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia)
-        controladorUsuario.setEventoId(ret, self)
+        userT = self.request.get('userT')
+
+        ret = controladorEvento.SetEvento(nombre, userT, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia)
+
+        if userT == '1':
+            controladorUsuario.setEventoId(ret, idU)
+        else:
+            controladorOrganizacion.setEventoId(ret, idCreador)
+
         # Aquí se avisaría por email
         resp = {'response': True, 'idEvento': ret}
         self.response.headers['Content-Type'] = 'application/json'
@@ -233,20 +246,33 @@ class MostrarEvento(webapp2.RequestHandler):
         user = controladorUsuario.getUsuarioLogeado(self)
         idEvento = self.request.get('id')
         evento = controladorEvento.GetEventoById(idEvento)
+        org = []
+        organizadorNombre = []
         userCreador = False
         ponentes = []
+
         for p in evento.ponentes:
             ponentes.append(controladorPonente.getPonenteById(p))
 
         if user:
             if str(controladorUsuario.getKey(user)) == str(evento.idCreador):
                 userCreador = True
+            elif str(user.organizacion) == str(evento.idCreador):
+                userCreador = True
+
+        if evento.tipo == "1":
+            organizador = controladorUsuario.getUsuarioById(evento.idCreador)
+            organizadorNombre = organizador.nombre + ' ' + organizador.apellidos
+        else:
+            organizador = controladorOrganizacion.getOrganizacion(evento.idCreador)
+            organizadorNombre = organizador.nombre
 
         template_values = {
           'evento': evento,
           'descripcion': evento.descripcion.replace("\n", "<br />"),
+          'organizador': org,
+          'organizadorNombre': organizadorNombre,
           'userCreador': userCreador,
-          'id': idEvento,
           'usuario': user,
           'info': info,
           'ponentes': ponentes

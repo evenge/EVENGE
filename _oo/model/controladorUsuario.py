@@ -77,8 +77,8 @@ def getEventosAsociadosCount(idUsuario):
         return 0
     return cont
 
-def setEventoId(idEvento, s):
-    u = getUsuarioLogeado(s)
+def setEventoId(idEvento, idU):
+    u = getUsuarioById(int(idU))
     u.eventos.append(str(idEvento))
     u.put()
 

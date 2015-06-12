@@ -41,7 +41,7 @@ GNU General Public License for more details.
   background: #f7f7f7;
   border-bottom: 1px solid #edecec;
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -65,11 +65,14 @@ GNU General Public License for more details.
 }
 
 .evenge-check-cont {
+  height: 20px;
   margin: 10px 0;
 }
 
 .evenge-check-cont strong {
   font-size: 15px;
+  padding: 0;
+  margin: 0;
   margin-left: 5px;
 }
 
@@ -78,7 +81,7 @@ GNU General Public License for more details.
   position: relative;
   width: 20px;
   height: 20px;
-  border: 1px solid #c6c6c6;
+  border: 2px solid #c6c6c6;
   cursor: pointer;
 }
 

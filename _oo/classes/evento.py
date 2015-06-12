@@ -22,7 +22,7 @@ from asistente import Asistente
 
 class Evento(ndb.Model):
     nombre = ndb.StringProperty()
-    tipo = ndb.IntegerProperty()
+    tipo = ndb.StringProperty()
     privado = ndb.BooleanProperty()
     idCreador = ndb.StringProperty()
     hora = ndb.TimeProperty()

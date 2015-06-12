@@ -120,12 +120,8 @@ class InsertarEvento(webapp2.RequestHandler):
             o = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(user)))
             template_values = {
               'usuario': user,
-<<<<<<< HEAD
-              'organizacion': o
-=======
               'organizacion': o,
               'info': info
->>>>>>> master
             }
             template = JINJA_ENVIRONMENT.get_template('templates/templateNewEvent.html')
             self.response.write(template.render(template_values))
@@ -282,12 +278,8 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             - objeto Usuario : usuario logueado
             - numeroEventos : numero de eventos activos de este usuario
         """
-<<<<<<< HEAD
-        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra
-=======
         info = getInfo(self)
-        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra 
->>>>>>> master
+        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario == False:
             self.redirect("/login")
@@ -487,10 +479,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
             """
             controladorOrganizacion.SetUsuarioOrganizacion(str(idOrganizacion), str(user.key.id()))
             self.response.write(json.dumps({'reponse': 'true'}))
-<<<<<<< HEAD
-=======
-            
-            
+                
 class InsertarAsistente(webapp2.RequestHandler):
     """Es llamada por /iAsistente"""
     def post(self):
@@ -504,8 +493,6 @@ class InsertarAsistente(webapp2.RequestHandler):
 
         controladorEvento.setAsistente(iEv, nombre, apellidos, email, telefono, twitter, dni)
         self.response.write(json.dumps({'reponse': 'true'}))
->>>>>>> master
-
 
 #Urls
 application = webapp2.WSGIApplication([

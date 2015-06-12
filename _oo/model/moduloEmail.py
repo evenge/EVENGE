@@ -19,15 +19,15 @@
        :version: 0.1 - 15/03/2015"""
 
 from google.appengine.api import mail
+from _oo.model import emailEvenge
 
-
-def enviarConfirmacionLogin(usuario):
+def enviarConfirmacionLogin0(usuario):
     message = mail.EmailMessage(sender="Evenge <evenge-2014@appspot.gserviceaccount.com>",
                                 subject="Tu registro en Evenge ha sido satisfactorio")
 
     message.to = usuario.nombre + " " + usuario.apellidos + "<" + str(usuario.email) + ">"
     message.html = """
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -88,5 +88,24 @@ def enviarConfirmacionLogin(usuario):
 
 </html>
         """
-
     return message.send()
+    
+def enviarConfirmacionLogin(usuario):
+    to = usuario.nombre + " " + usuario.apellidos + " <" + usuario.email +  "> "
+    cuerpo = """
+    <strong>""" + usuario.nombre + " " + usuario.apellidos + """</strong>:
+
+    <p> Su registro ha sido satisfactorio, ya puede acceder a su usuario: """ + str(usuario.email) + """</p>
+
+    <p> Si necesitas cambiar algun dato, puedes hacerlo desde <strong>Mi cuenta</strong>.
+
+        <p> Gracias por confiar en nosotros</p>
+        <p><strong> Equipo Evenge</strong>
+        </p>
+        """
+    message = emailEvenge.emailEvenge(
+    sender="Evenge <evenge-2014@appspot.gserviceaccount.com>",
+    to = to
+    subject="Tu registro en Evenge ha sido satisfactorio",
+    contain = cuerpo
+    )

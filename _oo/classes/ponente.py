@@ -29,3 +29,6 @@ class Ponente(ndb.Model):
     web = ndb.StringProperty()
     descripcion = ndb.TextProperty(indexed=False)
     eventos = ndb.StringProperty(repeated=True)
+
+    def getKey(self):
+        return str(self.key.id())

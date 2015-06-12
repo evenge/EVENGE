@@ -549,6 +549,39 @@ class InsertarAsistente(webapp2.RequestHandler):
         self.response.write(json.dumps({'reponse': 'true'}))
 
 #Urls
+class ModificarPonente(webapp2.RequestHandler):
+
+    def get(self):
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idPonente = self.request.get('id')
+        p = []
+
+        if user == False:
+            self.redirect('/login')
+
+        else:
+            if str(idPonente) in user.ponentes:
+                p = controladorPonente.getPonenteById(idPonente)
+
+            elif user.organizacion:
+                o = controladorOrganizacion.getOrganizacion(user.organizacion)
+                if str(idPonente) in o.ponentes:
+                    p = controladorPonente.getPonenteById(idPonente)
+
+            else:
+                self.redirect('/')
+
+            template_values = {
+              'usuario': user,
+              'info': info,
+              'ponente': p
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('templates/templateModificarPonente.html')
+            self.response.write(template.render(template_values))
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -564,6 +597,7 @@ application = webapp2.WSGIApplication([
     ('/eliminarEvento', EliminarEvento),
     ('/iOrganizacion', CrearOrganizacion),
     ('/iAsistente', InsertarAsistente),
+    ('/mPonente*', ModificarPonente),
     ('/.*', MostrarError)
 ], debug=True)
 

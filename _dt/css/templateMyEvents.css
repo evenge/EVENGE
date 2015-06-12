@@ -36,6 +36,11 @@ GNU General Public License for more details.
   font-weight: bold;
 }
 
+#miseventos,
+#eventos-org {
+  margin-top: 20px;
+}
+
 .evento-miseventos {
   margin-bottom: 10px;
   padding: 0;

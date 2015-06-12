@@ -69,6 +69,9 @@ class Index(webapp2.RequestHandler):
         """
         info = getInfo(self)
         usuario = controladorUsuario.getUsuarioLogeado(self)
+        organizacion = False
+        organizacionEventos = []
+
         if usuario:
             eventos = []
             evs = controladorUsuario.getEventosAsociados(usuario.key.id())
@@ -78,11 +81,25 @@ class Index(webapp2.RequestHandler):
                 if len(e.descripcion) > 200:
                     sec = [e.descripcion[:200], '...']
                     e.descripcion = ''.join(sec)
+
+            if usuario.organizacion:
+                organizacion = True
+                org = controladorOrganizacion.getOrganizacion(usuario.organizacion)
+                for evo in org.eventos:
+                    organizacionEventos.append(controladorEvento.GetEventoById(evo))
+                for e in organizacionEventos:
+                    if len(e.descripcion) > 200:
+                        sec = [e.descripcion[:200], '...']
+                        e.descripcion = ''.join(sec)
+
             template_values = {
-              'usuario': usuario,
               'eventos': eventos,
-              'info': info
+              'usuario': usuario,
+              'info': info,
+              'organizacion': organizacion,
+              'eventosOrg': organizacionEventos
             }
+
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
         else:
@@ -338,20 +355,31 @@ class MostrarMisEventos(webapp2.RequestHandler):
             - vector Eventos : Colección de todos los objeto Evento del usuario
         """
         info = getInfo(self)
-        usuarioLogeado = controladorUsuario.getUsuarioLogeado(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        organizacion = False
+        organizacionEventos = []
 
-        if usuarioLogeado:
-            eventos = controladorUsuario.getEventosAsociados(usuarioLogeado.key.id())
+        if user:
+            eventos = controladorUsuario.getEventosAsociados(user.key.id())
             for e in eventos:
                 if len(e.descripcion) > 200:
                     sec = [e.descripcion[:200], '...']
                     e.descripcion = ''.join(sec)
 
+            if user.organizacion:
+                organizacion = True
+                org = controladorOrganizacion.getOrganizacion(user.organizacion)
+                for evo in org.eventos:
+                    organizacionEventos.append(controladorEvento.getEventoById(evo))
+
             template_values = {
               'eventos': eventos,
-              'usuario': usuarioLogeado,
-              'info': info
+              'usuario': user,
+              'info': info,
+              'organizacion': organizacion,
+              'eventosOrg': organizacionEventos
             }
+
             template = JINJA_ENVIRONMENT.get_template('templates/templateMyEvents.html')
             self.response.write(template.render(template_values))
 

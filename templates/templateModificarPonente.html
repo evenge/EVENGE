@@ -51,7 +51,7 @@ GNU General Public License for more details.
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-      <input type="text" class="form-control" name="web-p" id="web-p" value="Web" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="web-p" id="web-p" value="{{ ponente.web }}" aria-describedby="sizing-addon1">
     </div>
     <button type="submit" class="btn btn-success btn-block btn-form">Guardar</button>
   </form>
@@ -62,5 +62,5 @@ GNU General Public License for more details.
 {% endblock %}
 
 {% block scriptFooter %}
-  <script type="text/javascript" src="/_dt/js/modificarPonente.js"></script>
+  <script type="text/javascript" src="/_dt/js/modifyponente.js"></script>
 {% endblock %}

@@ -581,6 +581,21 @@ class ModificarPonente(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('templates/templateModificarPonente.html')
             self.response.write(template.render(template_values))
 
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        telefono = self.request.get("tlf").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+        descripcion = self.request.get("descripcion").strip()
+        idPonente = self.request.get("idPonente").strip()
+        controladorPonente.updatePonente(nombre, apellidos, email, telefono, twitter, web, descripcion, idPonente)
+
+        resp = {'response': True}
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(resp))
+
 
 application = webapp2.WSGIApplication([
     ('/', Index),

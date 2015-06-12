@@ -33,6 +33,17 @@ def setPonente(nombre, apellidos, email, telefono, twitter, web, descripcion):
     #Devuelve la key
     return ponente.put().id()
 
+def updatePonente(nombre, apellidos, email, telefono, twitter, web, descripcion, idP):
+    ponente = Ponente().get_by_id(int(idP))
+    ponente.nombre = nombre
+    ponente.apellidos = apellidos
+    ponente.email = email
+    ponente.telefono = telefono
+    ponente.twitter = twitter
+    ponente.web = web
+    ponente.descripcion = descripcion
+    ponente.put()
+
 def getPonenteById(idPonente):
     return Ponente().get_by_id(int(idPonente))
 

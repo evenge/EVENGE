@@ -479,7 +479,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
             controladorUsuario.setOrganizacion(idOrganizacion, user.key.id())
 
             self.response.write(json.dumps({'reponse': 'true'}))
-                
+
 class InsertarAsistente(webapp2.RequestHandler):
     """Es llamada por /iAsistente"""
     def post(self):

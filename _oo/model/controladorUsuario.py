@@ -96,3 +96,18 @@ def getPonentesAsociadosCount(idU):
 def getPonentes(idU):
     u = getUsuarioById(int(idU))
     return u.ponentes
+
+def setOrganizacion(idO, idU):
+    u = getUsuarioById(int(idU))
+    u.organizacion = str(idO)
+    u.put()
+
+def getOrganizacion(idU):
+    u = getUsuarioById(int(idU))
+    logging.getLogger().setLevel(logging.DEBUG)
+
+    if len(u.organizacion) <= 0:
+        logging.error(len(u.organizacion))
+        return False
+
+    return u.organizacion

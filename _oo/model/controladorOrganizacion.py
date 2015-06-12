@@ -20,7 +20,7 @@ import logging
 def getKeyOrg(organizacion):
     return organizacion.getKey()
   
-def SetOrganizacion(nombre, email, telefono, twitter, web):
+def setOrganizacion(nombre, email, telefono, twitter, web):
     organizacion = Organizacion()
     organizacion.nombre = nombre
     organizacion.email = email
@@ -31,19 +31,14 @@ def SetOrganizacion(nombre, email, telefono, twitter, web):
     return organizacion.put().id()
   
   
-def SetUsuarioOrganizacion(idO, idU):
+def setUsuarioOrganizacion(idO, idU):
     uo = Organizacion().get_by_id(int(idO))
-    uo.usuarios.append(idU)
+    uo.usuarios.append(str(idU))
     uo.put()
-    
-    return True
 
 
-def GetOrganizacionUsuario(idUsuario):
+def getOrganizacion(idO):
     #logging.getLogger().setLevel(logging.DEBUG)
-    orgs = Organizacion.query(ndb.AND(Organizacion.usuarios == idUsuario)).fetch(1)
+    org = Organizacion.get_by_id(int(idO))
     #logging.error(orgs)
-    for o in orgs:
-        return orgs
-
-    return False
+    return org

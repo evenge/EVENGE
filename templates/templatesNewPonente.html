@@ -19,37 +19,46 @@ GNU General Public License for more details.
 {% block title %}Nuevo Ponente{% endblock %}
 {# contenido central de la página #}
 {% block content %}
+
 <!--Formulario ponente -->
-<div class="col-sm-8 col-sm-offset-2">
+<div class="evenge-form col-sm-8 col-sm-offset-2">
   <h1 class="h1-formtitle" >Nuevo Ponente</h1>
-  <form action="/iPonente" method="post">
+  <form id="iponente">
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-      <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="nombre-p"  id="nombre-p" placeholder="Nombre" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
-      <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="apellidos-p" id="apellidos-p" placeholder="Apellidos" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
-      <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="email-p" id="email-p" placeholder="Email" aria-describedby="sizing-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
+      <textarea class="form-control" rows="3" placeholder="Introduce la descripción del ponente" name="descripcion-p" id="descripcion-p"></textarea>
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
-      <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="telefono-p" id="telefono-p" placeholder="Telefono" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
-      <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="twitter-p" id="twitter-p" placeholder="Twitter" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
-      <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="web-p" id="web-p" placeholder="Web" aria-describedby="sizing-addon1">
     </div>
-    <button style="margin-top:20px;" type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Registrar</button>
+    <button type="submit" class="btn btn-success btn-block btn-form">Guardar</button>
   </form>
 </div>
 <!--/Formulario ponente -->
 
+{% endblock %}
+
+{% block scriptFooter %}
+  <script type="text/javascript" src="/_dt/js/newponente.js"></script>
 {% endblock %}

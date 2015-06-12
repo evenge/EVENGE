@@ -73,6 +73,14 @@ body {
   font-size: 2em;
 }
 
+.navbar-evenge a {
+  color: white;
+}
+
+.navbar-evenge a:hover {
+  color: #C11F23;
+}
+
 .navbar-evenge {
   z-index: 10;
   height: 50px;
@@ -100,7 +108,7 @@ body {
   color: #fff;
   font-size: 1.2em;
   font-weight: bold;
-  margin-left: auto;
+  margin-left: 5px;
   margin-right: auto;
   text-align: center;
   display: inline-block;
@@ -219,31 +227,17 @@ body {
 
 #buscadorHeader .form-control {
   background: none;
-  border: none;
+  border: 1px solid #e04c4c;
   box-shadow: none;
   color: #fff;
+  height: 30px;
+  margin-top: 5px;
 }
 
 #buscadorHeader::-webkit-input-placeholder { color: fff; }
 #buscadorHeader::-webkit-input-placeholder { color: fff;  }
 #buscadorHeader::-moz-placeholder { color: fff; }
 #buscadorHeader::-moz-placeholder { color: fff; }
-
-/*********************************/
-/******** Footer estilos *********/
-/*********************************/
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 20%;
-  background-color: #f5f5f5;
-}
-
-/*************************************************/
-/************** container ************************/
-/*************************************************/
-
 
 /*************************************************/
 /************** template Ponentes ****************/
@@ -405,110 +399,6 @@ body {
   margin-top: 20px;
 }
 
-/*************************************************/
-/************** template MyEvents ****************/
-/*************************************************/
-
-.event-content {
-  box-shadow: 0 1px 1px rgba(0,0,0,.15);
-  background: white;
-  padding: 0 0 10px 0;
-}
-
-.event-content .titular-h1 {
-  font-family: roboto, Verdana;
-  /*background-color: #f44336;*/
-  background: #393939;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-.event-content .titular-h1 h1 {
-  color: rgba(255, 255, 255, 0.9);
-  padding: 0;
-  margin: 0;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-#inscribete-btn{
-  border-radius: 0;
-  color: white;
-  margin-top:10px;
-}
-
-#descripcion p {
-  font-size: 14px;
-}
-
-/***************************
-fecha y hora del evento
-***************************/
-.fh {
-  font-family: roboto, Verdana;
-  padding: 7px;
-  text-align: center;
-  text-transform: uppercase;
-  /*background: #f32c1e;*/
-  background: #414141;
-  color: rgba(255,255,255,.9);
-  font-weight: 400;
-}
-
-.fh h5 {
-  padding: 0;
-  margin: 0;
-}
-
-.contenedor-datos {
-  margin-top: 10px;
-  padding: 0;
-  box-shadow: 0 1px 1px rgba(0,0,0,.25);
-  color: white;
-}
-
-.contenedor-datos .part-left,
-.contenedor-datos .part-right {
-  padding: 10px;
-}
-
-.contenedor-datos .part-left.darkblue {
-  background: #56717d;
-}
-
-.contenedor-datos .part-left h5 {
-  text-align: center;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-}
-
-.contenedor-datos .part-right.darkblue {
-  background: #607d8b;
-}
-
-.contenedor-datos .part-right h5 {
-  padding: 0;
-  margin: 0;
-}
-
-.asistente{
-  background:white;
-  border-bottom:solid 1px #C11F23;
-}
-#asistentes .btn{
-  background:none;
-  border:none;
-  color: #C11F23;
-}
-.buscador{
-  /*background-color:rgba(215, 0, 0, 0.60);*/
-  margin-top:10px;
-  background-color:white;
-  padding:15px;
-
 .individual-menu-cont {
   padding: 0;
   margin: 0;
@@ -548,15 +438,21 @@ fecha y hora del evento
   background: none;
 }
 
-.transp {
-  background: rgba(255, 255, 255, 0.8);
-}
-
 /*************************************************/
 /****************** form style *******************/
 /*************************************************/
+.evenge-form {
+  margin-top: 20px;
+  background: white;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.10);
+  color: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 form {
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .h1-formtitle {
@@ -569,17 +465,28 @@ form {
   margin-right: 10px;
 }
 
+.evenge-form .h1-formtitle {
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #2d2d2d;
+  background: #f7f7f7;
+  border-bottom: 1px solid #edecec;
+  font-size: 20px;
+  padding: 10px;
+}
 
 form .input-group {
   margin-top: 10px;
 }
 
 form .input-group .form-control {
-  background: #b9b9b9;
+  background: #d3d3d3;
   color: #3b3b3b;
   border: none;
   text-shadow: none;
   border-radius: 0;
+  box-shadow: none;
 }
 
 form .input-group .form-control:focus {
@@ -592,8 +499,8 @@ form .input-group .size-35 {
 }
 
 form .input-group .input-group-addon {
-  background: #b9b9b9;
-  color: #3b3b3b;
+  background: #d43539;
+  color: #fff;
   border: none;
   text-shadow: none;
   border-radius: 0;
@@ -611,17 +518,22 @@ form .btn-group {
 }
 
 form .btn-form {
-  background: #c11f23;
-  border-color: #a61b1e;
+  background: #34c774;
   border-radius: 0;
   color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 form .btn-form:hover,
 form .btn-form:focus {
-  background: none;
-  color: #c11f23;
-  border-color: #a61b1e;
+  background: #30b86b;
+  color: #fff;
 }
 
 .notread::-webkit-input-placeholder { color: black; }
@@ -629,269 +541,15 @@ form .btn-form:focus {
 .notread::-moz-placeholder { color: black; }
 .notread::-moz-placeholder { color: black; }
 
-/*************************************************/
-/****************** newEvent style ***************/
-/*************************************************/
-.select-content,
-.map-content {
-  margin-top: 20px;
+.modal-header .close {
+  background: #d43539;
+  opacity: 0.4;
+  padding: 2px;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
 }
 
-.controls {
-  margin-top: 15px;
-  border: 1px solid transparent;
-  border-left: none;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#pac-input {
-  background-color: #fff;
-  padding: 0 11px 0 13px;
-  width: 400px;
-  font-size: 15px;
-  font-weight: 300;
-  text-overflow: ellipsis;
-}
-
-#pac-input:focus {
-  box-shadow: 0 2px 6px rgba(193, 31, 35, 0.36);
-  padding-left: 14px;
-  width: 401px;
-}
-
-#type-selector {
-  color: #fff;
-  background-color: #c11f23;
-  padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-  font-size: 13px;
-  font-weight: 300;
-}
-
-.select-content h4,
-.consejos-evento {
-  background: #3b3b3b;
-  color: #f0f0f0;
-}
-
-.select-content h4 {
-  padding: 10px 15px;
-  margin: 0;
-}
-
-.event-org {
-  margin-top: 10px;
-}
-
-.event-org h5 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.evenge-check {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #c6c6c6;
-  cursor: pointer;
-}
-
-.evenge-check:hover {
-  border: 2px solid #c11f23;
-}
-
-.evenge-check.selected {
-  background: #c11f23;
-  border: 2px solid #c11f23;
-}
-
-.evenge-check.selected:before {
-  position: relative;
-  font-family: "FontAwesome";
-  content: '\f00c';
-  font-size: 1em;
-  color: white;
-  font-weight: bold;
-  left: 50%;
-  margin-left: -6px;
-}
-
-/*************************************************/
-/****************** miCuenta style ***************/
-/*************************************************/
-.user-content {
-  margin-top: 40px;
-}
-
-.user-content .tab-pane {
-  margin-top: 20px;
-}
-
-.user-content .form-horizontal input {
-  border-radius: 0;
-}
-
-.user-content .form-horizontal input[readonly] {
-  background: #f4f4f4;
-}
-
-/*************************************************/
-/****************** myEvents style ***************/
-/*************************************************/
-.title {
-  background: white;
-  padding: 0;
-  height: 40px;
-  background-color: white;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.title h3 {
-  margin: 0;
-  padding: 0;
-  color: #333;
-  line-height: 40px;
-  font-size: 1.3em;
-  font-weight: bold;
-}
-
-.evento-miseventos {
-  margin-bottom: 10px;
-  padding: 0;
-  background: white;
-  box-shadow: 0 1px 1px rgba(0,0,0,.15);
-}
-
-.header-evento-miseventos {
-  font-family: roboto, Verdana;
-  /*background-color: #d3d3d3;*/
-  background: #edecec;
-  padding: 0;
-}
-
-.header-evento-miseventos:hover {
-  /*background-color: #cf0000;*/
-}
-
-.header-evento-miseventos h4,
-.header-evento-miseventos h4 > a {
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  text-transform: uppercase;
-  vertical-align: middle;
-  font-weight: bold;
-  font-size: 1em;
-  color: #C11F23;
-}
-
-.header-evento-miseventos h4 {
-  padding: 6px 1px;
-}
-
-.evento-fh {
-  font-family: roboto, Verdana;
-  padding: 7px;
-  text-align: center;
-  text-transform: uppercase;
-  /*background: #f32c1e;*/
-  background: #f7f9fa;
-  border-bottom: 1px solid #e4e6e7;
-  color: rgba(0, 0, 0, 0.65);
-  font-weight: 400;
-}
-
-.evento-fh h5 {
-  padding: 0;
-  margin: 0;
-}
-
-.header-evento-miseventos .btn-group {
-  line-height: normal;
-  float: right;
-}
-
-.header-evento-miseventos .btn {
-  border: none;
-  background: none;
-  color: #3b3b3b;
-}
-
-.header-evento-miseventos .btn:hover {
-  color: #4e4e4e;
-}
-
-.evento-info {
-  padding-bottom: 10px;
-}
-
-.evento-info h4 {
-  text-transform: uppercase;
-  font-size: 0.9em;
-  color: #6c6c6c;
-  font-weight: bold;
-  padding: 0;
-  margin: 7px 0 0 0;
-}
-
-.evento-info h6 {
-  font-size: 1.1em;
-  color: #555555;
-  font-weight: 100;
-  padding: 0;
-  margin: 2px 0 0 0;
-}
-/*************************************************/
-/****************** Event style ***************/
-/*************************************************/
-
-/******Asistentes******/
-
-.asistente{
-  background-color:white;
-  border-bottom-color:red;
-  border-bottom: solid #c11f23;
-  border-bottom-width:2px;
-}
-#buscador-asistente{
-  background-color:#c11f23;
-  padding: 6px 10px 6px 10px;
-}
-
-#buscador-asistente .input-group-addon {
-  background: none;
-  border: none;
-  color: #fff;
-}
-
-#buscador-asistente .form-control {
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: #fff;
-}
-
-#buscador-asistente::-webkit-input-placeholder { color: fff; }
-#buscador-asistente::-webkit-input-placeholder { color: fff;  }
-#buscador-asistente::-moz-placeholder { color: fff; }
-#buscador-asistente::-moz-placeholder { color: fff; }
-
-.asistente .delete-button, .asistente .pdf-button{
-  background:none;
-  color:#c11f23;
-  border:none;
-  float:right;
+.modal-header .close:hover {
+  opacity: 1;
 }

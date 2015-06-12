@@ -25,42 +25,18 @@ handlers:
 
 - url: /_dt/img
   static_dir: _dt/img
-  
+
 - url: /_dt/js
   static_dir: _dt/js
 
-- url: /listarAsistentes
-  script: _oo.classes.asistente.application
+- url: /prueba
+  script: _oo.classes.prueba2.application
 
-- url: /listarEventos
-  script: _oo.classes.evento.application
+- url: /prueba2
+  script: _oo.classes.prueba2.application
 
-- url: /listarUsuarios
-  script: _oo.classes.usuario.application
-
-- url: /listarPonentes
-  script: _oo.classes.ponente.application
-
-- url: /listarOrganizaciones
-  script: _oo.classes.organizacion.application
-
-- url: /asistente
-  script: _oo.classes.asistente.application
-
-- url: /organizacion
-  script: _oo.classes.organizacion.application
-
-- url: /evento
-  script: _oo.classes.evento.application
-
-- url: /usuario
-  script: _oo.classes.usuario.application
-
-- url: /ponente
-  script: _oo.classes.ponente.application
-
-- url: /informes
-  script: index.application
+- url: /prueba3
+  script: _oo.classes.prueba2.application
 
 - url: /.*
   script: index.application

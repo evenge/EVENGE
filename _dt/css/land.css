@@ -1,0 +1,265 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #edecec;
+}
+
+.evenge-nav {
+  background: white;
+  height: 70px;
+  width: 100%;
+}
+
+.evenge-nav h1 {
+  margin: 0 0 0 90px;
+  padding: 0;
+  color: #C11F23;
+  line-height: 70px;
+  font-weight: bold;
+}
+
+.evenge-nav img {
+  height: 40px;
+  display: none;
+}
+
+.land-img {
+  height: 400px;
+  width: 100%;
+  background: url(/_dt/img/land4.jpg) top fixed no-repeat;
+}
+
+.top-land-img {
+  background: rgba(0, 0, 0, 0.26);
+  height: 400px;
+  width: 100%;
+}
+
+.land-img-info {
+  color: #e0e0e0;
+}
+
+.land-img-info h1 {
+  margin-top: 90px;
+  font-size: 40px;
+}
+
+.land-img-info p {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.land-cont {
+  background: rgba(17, 17, 17, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.land-cont h1 {
+  padding: 0;
+  margin: 0 0 10px 0;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+}
+
+.land-cont .btn-land {
+  width: 100%;
+  margin: 5px 0;
+  background: #C11F23;
+  padding: 10px;
+  color: white;
+  border: 1px solid #C11F23;
+}
+
+.land-cont p {
+  margin: 10px 0;
+  color: #bababa;
+  text-align: center;
+}
+
+.land-cont a {
+  color: #C11F23;
+}
+
+/********* info *********************/
+.info-cont {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.info-cont-title {
+  margin-bottom: 40px;
+}
+
+.info-cont-title h1 {
+  font-size: 30px;
+  color: #2a2a2a;
+}
+
+.info-cont-title p {
+  font-size: 20px;
+  color: #717171;
+}
+
+.info-cont-car {
+  margin-bottom: 20px;
+}
+
+.info-cont-car .car i {
+  font-size: 50px;
+  color: #aeaeae;
+}
+
+.info-cont-car .car h1 {
+  font-size: 24px;
+}
+
+.info-cont-car .car p {
+  color: #747474;
+  padding: 0 40px;
+}
+
+/******** last *****************/
+.last-cont {
+  background: url(/_dt/img/land3.jpg) top center;
+  margin-top: 40px;
+}
+
+.last-cont h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #e4e4e4;
+  font-size: 24px;
+}
+
+.evento-content {
+  height: 465px;
+}
+
+.evento-miseventos {
+  padding: 0;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
+}
+
+.header-evento-miseventos {
+  font-family: roboto, Verdana;
+  background: rgba(224, 224, 224, 0.6);
+  padding: 5px;
+  border-bottom-color:#E4E6E7;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+}
+
+.header-evento-miseventos h4,
+.header-evento-miseventos h4 > a {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1em;
+  color: #C11F23;
+}
+
+.header-evento-miseventos h4 {
+  padding: 6px 1px;
+}
+
+.evento-fh {
+  font-family: roboto, Verdana;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #f7f9fa;
+  border-bottom: 1px solid #e4e6e7;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+}
+
+.evento-fh h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.header-evento-miseventos .btn-group {
+  line-height: normal;
+  float: right;
+}
+
+.header-evento-miseventos .btn {
+  border: none;
+  background: none;
+  color: #3b3b3b;
+}
+
+.header-evento-miseventos .btn:hover {
+  color: #4e4e4e;
+}
+
+.evento-info {
+  padding-bottom: 10px;
+}
+
+.evento-info h4 {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #6c6c6c;
+  font-weight: bold;
+  padding: 0;
+  margin: 7px 0 0 0;
+}
+
+.evento-info h6 {
+  font-size: 1.1em;
+  color: #555555;
+  font-weight: 100;
+  padding: 0;
+  margin: 2px 0 0 0;
+}
+
+/******** footer ****************/
+footer {
+  background: #2e2e2e;
+  border-top: 5px solid #1f1f1f;
+  padding-bottom: 20px;
+}
+
+footer .fot {
+  padding: 20px 40px;
+}
+
+footer .fot h1 {
+  color: #ababab;
+  padding: 0 40px;
+  font-size: 16px;
+}
+
+footer .fot p {
+  padding: 0 40px;
+  color: #fff;
+}
+
+footer .fot a {
+  color: #c4c4c4;
+}
+
+footer .fot ul {
+  list-style: none;
+}
+
+footer .fot ul li a {
+  color: #fff;
+}
+
+/****** responsive *****/
+@media (max-width: 768px) {
+  .land-img-form {
+    padding-top: 20px;
+  }
+
+
+}

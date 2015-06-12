@@ -21,16 +21,27 @@ $(document).ready(function () {
     evt.stopPropagation();
   });
 
-  /*$('html').click(function (evt) {
-    if ($('#menu-bottom').hasClass('active')) {
-      $('#menu-bottom').removeClass('active');
-      $('#menu-div').hide("slide", { direction: "left" }, 800);
-      $('.main-body').removeClass('pad120');
-    }
+  $('.menu-content .dropdown').on('show.bs.dropdown', function(e) {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
   });
 
-  $('#menu-div').click(function (evt) {
-    evt.stopPropagation();
-  });*/
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.menu-content .dropdown').on('hide.bs.dropdown', function(e) {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+  });
 
 });
+
+!function (d, s, id) {
+  var js,
+    fjs = d.getElementsByTagName(s)[0],
+    p = /^http:/.test(d.location) ? 'http' : 'https';
+
+  if (!d.getElementById(id)) {
+    js = d.createElement(s);
+    js.id = id;
+    js.src = p + '://platform.twitter.com/widgets.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+
+}(document, 'script', 'twitter-wjs');

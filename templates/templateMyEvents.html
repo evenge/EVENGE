@@ -18,7 +18,9 @@ GNU General Public License for more details.
 
 {# tittle: titulo de la página #}
 {% block title %}Mis eventos{% endblock %}
-
+{% block styles %}
+<link type="text/css" rel="stylesheet" href="/_dt/css/templateMyEvents.css">
+{% endblock %}
 {# contenido central de la página #}
 {% block content %}
 <div class="row">
@@ -29,10 +31,10 @@ GNU General Public License for more details.
     {% for n in eventos %}
     <div class="col-md-6 evento-content">
       <header class="header-evento-miseventos col-sm-12">
-        <div class="col-xs-8">
+        <div class="col-xs-9">
           <h4><a href="/eventos?id={{n.key.id()}}">{{n.nombre}}</a></h4>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-3">
           <div class="btn-group" role="group" aria-label="...">
             <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
             <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
@@ -54,7 +56,6 @@ GNU General Public License for more details.
           </h6>
           <!-- <h5><strong>Organizador:</strong> {{n.idCreador}}</h5> -->
           <h4>Lugar</h4><h6>{{n.lugar}}</h6>
-          <h4>Coordenadas</h4><h6>{{n.coordenadas}}</h6>
           <h4>Descripción</h4><h6>{{n.descripcion}}</h6>
           <h4>Asistencia</h4>
           <h6>
@@ -65,6 +66,7 @@ GNU General Public License for more details.
             {% endif %}
           </h6>
         </div>
+        <div data-coord="{{ n.coordenadas }}" style="min-width: 310px; height: 150px; margin: 0 auto" class="map-canvas"></div>
       </div>
     </div>
     {% endfor  %}
@@ -72,4 +74,9 @@ GNU General Public License for more details.
 </div>
 
 
+{% endblock %}
+
+{% block scriptFooter %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+<script src="/_dt/js/myevents.js"></script>
 {% endblock %}

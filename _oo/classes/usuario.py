@@ -17,15 +17,18 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
-import jinja2
-import webapp2
 from datetime import datetime
 
 class Usuario(ndb.Model):
-  nombre = ndb.StringProperty()
-  apellidos = ndb.StringProperty()
-  email = ndb.StringProperty()
-  password = ndb.StringProperty()
-  telefono = ndb.StringProperty()
-  twitter = ndb.StringProperty()
-  web = ndb.StringProperty()
+    nombre = ndb.StringProperty()
+    apellidos = ndb.StringProperty()
+    email = ndb.StringProperty()
+    password = ndb.StringProperty()
+    telefono = ndb.StringProperty()
+    twitter = ndb.StringProperty()
+    web = ndb.StringProperty()
+    eventos = ndb.StringProperty(repeated=True)
+    ponentes = ndb.StringProperty(repeated=True)
+
+    def getKey(self):
+        return str(self.key.id())

@@ -1,0 +1,175 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evenge</title>
+
+  <!-- BOOSTRAP Y JQUERY -->
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- BOOSTRAP Y JQUERY -->
+  <link type="text/css" rel="stylesheet" href="/_dt/css/land.css">
+</head>
+
+<body>
+  <!-- menu -->
+  <nav class="evenge-nav">
+    <h1><img src="/_dt/img/logo_white.png"> Evenge</h1>
+  </nav>
+  <!-- fin menu -->
+
+  <!--nav -->
+  <main>
+    <!-- inicio de la parte principal -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="land-img">
+
+          <div class="top-land-img">
+            <div class="col-md-5 land-img-form">
+              <div class="col-md-8 col-md-offset-2 land-cont">
+                <h1>Empieza a usarlo</h1>
+                <a href="/registrate" class="btn btn-default btn-land">Regístrate</a>
+                <p>o si ya tienes cuenta</p>
+                <a href="/login" class="btn btn-default btn-land">Inicia sesión</a>
+                <p>Evenge es totalmente gratuito aunque si quieres colaborar puedes acceder a nuestro proyecto en Github
+                y ayudarnos a través de este enlace: <a href="">Evenge on Github</a></p>
+              </div>
+            </div>
+            <div class="col-md-7 hidden-xs land-img-info">
+              <h1>Gestiona tus eventos</h1>
+              <p>Crea tus propios eventos con gestión de asistentes</p>
+              <p>Promociona tus eventos, gestión de los ponentes y controla la asistencia desde la interfaz web.</p>
+            </div>
+          </div>
+
+          <div class="info-cont col-sm-12">
+            <div class="row">
+              <div class="info-cont-title col-sm-12">
+                <h1>¿Necesitas gestionar tus eventos?</h1>
+                <p>Evenge te permite gestionarlos a través de las herramientas que pone a tu disposición y lo mejor es que ¡es gratis!</p>
+              </div>
+              <div class="info-cont-car col-sm-12">
+                <div class="car col-sm-4">
+                  <i class="fa fa-newspaper-o"></i>
+                  <h1>Crea eventos</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium. </p>
+                </div>
+                <div class="car col-sm-4">
+                  <i class="fa fa-calendar"></i>
+                  <h1>Gestiona tu calendario</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium.</p>
+                </div>
+                <div class="car col-sm-4">
+                  <i class="fa fa-check-square-o"></i>
+                  <h1>Control de asistencia</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium.</p>
+                </div>
+              </div>
+              <div class="info-cont-car col-sm-12">
+                <div class="car col-sm-4">
+                  <i class="fa fa-graduation-cap"></i>
+                  <h1>Gestión de ponentes</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium. </p>
+                </div>
+                <div class="car col-sm-4">
+                  <i class="fa fa-file-pdf-o"></i>
+                  <h1>Creación de diplomas</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium. </p>
+                </div>
+                <div class="car col-sm-4">
+                  <i class="fa fa-bar-chart"></i>
+                  <h1>Informes de los eventos</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ligula orci, lobortis tempor lorem rutrum sed. Phasellus fermentum sem vulputate rhoncus pretium. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="last-cont col-sm-12">
+            <h1>Próximos eventos</h1>
+            {% for n in eventos %}
+            <div class="col-md-4 evento-content">
+              <header class="header-evento-miseventos col-sm-12">
+                <h4><a href="/eventos?id={{n.key.id()}}">{{n.nombre}}</a></h4>
+              </header>
+              <div class="col-md-12 evento-miseventos">
+                <div class="col-md-12 evento-fh">
+                  <h5>{{n.fecha}} {{n.hora}}</h5>
+                </div>
+                <div class="col-md-12 evento-info">
+                  <!-- <h5><strong>Organizador:</strong> {{n.idCreador}}</h5> -->
+                  <h4>Lugar</h4><h6>{{n.lugar}}</h6>
+                  <h4>Descripción</h4><h6>{{n.descripcion}}</h6>
+                </div>
+                <div data-coord="{{ n.coordenadas }}" style="min-width: 310px; height: 150px; margin: 0 auto" class="map-canvas"></div>
+              </div>
+            </div>
+            {% endfor  %}
+          </div>
+
+          <footer class="col-sm-12">
+          <div class="fot col-sm-4">
+            <h1>Colabora</h1>
+            <p>Evenge es una iniciativa de software libre promovida por estudiantes de la Universidad de Granada. Puedes colaborar con nosotros a través de nuestra <a href="">página en Github</a></p>
+          </div>
+          <div class="fot col-sm-4">
+            <h1>Contáctanos</h1>
+            <ul>
+              <li><a href="">Twitter</a></li>
+              <li><a href="">Facebook</a></li>
+              <li><a href="">Email</a></li>
+            </ul>
+          </div>
+          <div class="fot col-sm-4">
+            <h1>Desarrolladores</h1>
+            <ul>
+              <li><a href="">Fran Expósito</a></li>
+              <li><a href="">Iván Ortega</a></li>
+              <li><a href="">Carlos Campos</a></li>
+              <li><a href="">Victor Coronas</a></li>
+            </ul>
+          </div>
+        </footer>
+
+        </div>
+      </div>
+    </div>
+    <!-- fin de la parte principal -->
+
+  </main>
+
+
+  <!-- scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script src="/_dt/js/land.js"></script>
+  <!-- scripts -->
+</body>
+</html>

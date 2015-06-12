@@ -72,7 +72,7 @@ body {
   position: fixed;
   top: 0;
   background: #c11f23;
-  z-index: 9;
+  z-index: 1;
 }
 /*********************************/
 /******** NavBar estilos *********/
@@ -97,6 +97,7 @@ body {
   top: 0;
   background-color: #C11F23;
   color: white;
+  position: relative;
 }
 
 .navbar-evenge .container-fluid {

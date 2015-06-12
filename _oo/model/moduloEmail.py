@@ -20,14 +20,72 @@
 
 from google.appengine.api import mail
 
+def makeCuerpo(contain,extra_css):
+    esqueleto = """<!DOCTYPE html>
+    <html lang="es">
 
-def enviarConfirmacionLogin(usuario):
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <header><img src="https://evenge-2014.appspot.com/_dt/img/logo_white_50.png" alt="logo"><a href="evenge-2014.appspot.com" id="cabecera">EVENGE</a>
+        </header>
+        <div id="contain">
+            <div id="cuerpo-texto">
+                    """ + contain + """
+                    <p> Gracias por confiar en nosotros</p>
+                    <p><strong> Equipo Evenge</strong>
+                    </p>
+            </div>
+        </div>
+        <style>
+            header {
+                width: 100%;
+                background-color: #C11F23;
+                height: 60px;
+                font-size: 20px;
+            }
+
+            header img {
+                margin-top: 10px;
+                height: 40px;
+                margin-left: 10px;
+                margin-bottom: -10px;
+            }
+
+            header a {
+                color: white;
+                text-decoration: none;
+            }
+
+            #contain {
+                background: white;
+                height: 100%;
+            }
+            #cuerpo-texto{
+                padding-left: 20px;
+                padding: 20px;
+            }
+            body {
+                font-family: verdana;
+                font-size: 12px;
+                background-color: #eee;
+            }
+            """ + extra_css + """
+        </style>
+    </body>
+
+    </html>
+            """
+    return esqueleto
+def enviarConfirmacionLogin0(usuario):
     message = mail.EmailMessage(sender="Evenge <evenge-2014@appspot.gserviceaccount.com>",
                                 subject="Tu registro en Evenge ha sido satisfactorio")
 
     message.to = usuario.nombre + " " + usuario.apellidos + "<" + str(usuario.email) + ">"
     message.html = """
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -88,5 +146,24 @@ def enviarConfirmacionLogin(usuario):
 
 </html>
         """
-
     return message.send()
+
+def enviarEmail(to,subject,contain,extra_css=""):
+    message = mail.EmailMessage(sender="Evenge <evenge-2014@appspot.gserviceaccount.com>",
+                                subject=subject)
+    message.to = to
+    message.html = makeCuerpo(contain,extra_css)
+    return message.send()
+
+def enviarConfirmacionLogin(usuario):
+    subject="Tu registro en Evenge ha sido satisfactorio"
+    to = usuario.nombre + " " + usuario.apellidos + "<" + str(usuario.email) + ">"
+    message = """
+    <strong>""" + usuario.nombre + " " + usuario.apellidos + """</strong>:
+
+    <p> Su registro ha sido satisfactorio, ya puede acceder a su usuario: """ + str(usuario.email) + """</p>
+
+    <p> Si necesitas cambiar algun dato, puedes hacerlo desde <strong>Mi cuenta</strong>.
+    """
+
+    return enviarEmail(to,subject,message)

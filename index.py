@@ -279,11 +279,11 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             - numeroEventos : numero de eventos activos de este usuario
         """
         info = getInfo(self)
-        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra 
+        #Obtenemos si el usuario está logeado. En caso de no estarlo se redirección a otra
         usuario = controladorUsuario.getUsuarioLogeado(self)
         if usuario == False:
             self.redirect("/login")
-        
+
         else:
             userLogin = True
             numeroEventos = controladorUsuario.getEventosAsociadosCount(controladorUsuario.getKey(usuario))
@@ -455,17 +455,17 @@ class EliminarEvento(webapp2.RequestHandler):
             resp = {'response': ret}
             self.response.headers['Content-Type'] = 'application/json'
             self.response.write(json.dumps(resp))
-            
+
 
 class CrearOrganizacion(webapp2.RequestHandler):
     """Es llamada por /iOrganización"""
-    
+
     def post(self):
         """
         Recibe los datos de la nueva organización, la crea e inscribe al usuario.
         """
         user = controladorUsuario.getUsuarioLogeado(self)
-        
+
         if user is False:
             self.response.write(json.dumps({'reponse': 'false'}))
         else:
@@ -479,8 +479,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
             controladorUsuario.setOrganizacion(idOrganizacion, user.key.id())
 
             self.response.write(json.dumps({'reponse': 'true'}))
-            
-            
+                
 class InsertarAsistente(webapp2.RequestHandler):
     """Es llamada por /iAsistente"""
     def post(self):
@@ -494,7 +493,6 @@ class InsertarAsistente(webapp2.RequestHandler):
 
         controladorEvento.setAsistente(iEv, nombre, apellidos, email, telefono, twitter, dni)
         self.response.write(json.dumps({'reponse': 'true'}))
-
 
 #Urls
 application = webapp2.WSGIApplication([

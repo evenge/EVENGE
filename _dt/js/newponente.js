@@ -7,6 +7,7 @@ $(document).ready(function() {
     var twitter = $('#twitter-p').val();
     var web = $('#web-p').val();
     var tlf = $('#telefono-p').val();
+    var descripcion = $('#descripcion-p').val()
 
     var data = {
       'email': email,

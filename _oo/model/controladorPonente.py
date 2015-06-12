@@ -21,7 +21,7 @@ from _oo.classes.ponente import Ponente
 def getKey(ponente):
     return ponente.key.id()
 
-def setPonente(nombre, apellidos, email, telefono, twitter, web):
+def setPonente(nombre, apellidos, email, telefono, twitter, web, descripcion):
     ponente = Ponente()
     ponente.nombre = nombre
     ponente.apellidos = apellidos
@@ -29,6 +29,7 @@ def setPonente(nombre, apellidos, email, telefono, twitter, web):
     ponente.telefono = telefono
     ponente.twitter = twitter
     ponente.web = web
+    ponente.descripcion = descripcion
     #Devuelve la key
     return ponente.put().id()
 

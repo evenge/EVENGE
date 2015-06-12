@@ -135,9 +135,11 @@ GNU General Public License for more details.
             </div>
           </div>
 
+          {% if userCreador %}
           <div class="ponentes-cont col-sm-12">
             <button data-toggle="modal" data-target="#modalPonente" class="btn btn-ponente"><i class="fa fa-plus"></i> Nuevo ponente</button>
             <button data-toggle="modal" data-target="#modalPonente2" class="btn btn-ponente"><i class="fa fa-plus"></i> Añadir ponente al evento</button>
+            {% endif %}
 
             <div class="col-sm-12">
               <div class="row">
@@ -150,6 +152,9 @@ GNU General Public License for more details.
                     <div class="detalles detalles1 col-md-12">
                       <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
                     </div>
+                    <div class="detalles detalle-d col-md-12">
+                      <h4>{{ p.descripcion }}</h4>
+                    </div>
                     <div class="detalles detalle-w col-md-12">
                       <h3><a href="{{ p.web }}"><i class="fa fa-link fa-fw"></i> {{ p.web }}</a></h3>
                     </div>
@@ -157,7 +162,7 @@ GNU General Public License for more details.
                       <h3><a href="http://twitter.com/{{ p.web }}"><i class="fa fa-twitter fa-fw"></i> {{ p.twitter }}</a></h3>
                     </div>
                     <div class="detalles col-md-12">
-                      <h3>{{ p.telefono }}</h3>
+                      <h3><i class="fa fa-phone fa-fw"></i> {{ p.telefono }}</h3>
                     </div>
                   </div>
                 </div>
@@ -233,27 +238,31 @@ GNU General Public License for more details.
           <div class="modal-body">
             <form id="iponente">
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
                 <input type="text" class="form-control" id="nombre-p" name="nombre-p" placeholder="Nombre" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
                 <input type="text" class="form-control" id="apellidos-p" name="apellidos-p" placeholder="Apellidos" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
                 <input type="text" class="form-control" id="email-p" name="email-p" placeholder="Email" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
+                <textarea class="form-control" rows="3" placeholder="Introduce la descripción del ponente" name="descripcion-p" id="descripcion-p"></textarea>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
                 <input type="text" class="form-control" id="twitter-p" name="twitter-p" placeholder="Twitter" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
                 <input type="text" class="form-control" id="telefono-p" name="telefono-p" placeholder="Telefono" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link"></i></span>
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
                 <input type="text" class="form-control" id="web-p" name="web-p" placeholder="Web" aria-describedby="sizing-addon1">
               </div>
               <div class="text-center">

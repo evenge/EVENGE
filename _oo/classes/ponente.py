@@ -27,4 +27,5 @@ class Ponente(ndb.Model):
     telefono = ndb.StringProperty()
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
+    descripcion = ndb.TextProperty(indexed=False)
     eventos = ndb.StringProperty(repeated=True)

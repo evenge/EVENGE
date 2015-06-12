@@ -1,10 +1,8 @@
 from google.appengine.api import mail
 
-
-class emailEvenge(mail):
+class emailEvenge:
     sender = "Evenge <evenge-2014@appspot.gserviceaccount.com>"
     subject = " "
-
     contain = " "
     extra_css = " "
     esqueleto = """<!DOCTYPE html>
@@ -65,5 +63,11 @@ class emailEvenge(mail):
     </html>
             """
 
-    def __init__():
-        super().__init__()
+    def __init__(self,sender=self.sender,to,subject,contain="",extra_css=""):
+        super().__init__(self.sender,subject)
+        self.contain = contain
+        self.extra_css = extra_css
+
+    def setTo(nombre,email){
+        self.to= nombre + " <" + email +  "> "
+    }

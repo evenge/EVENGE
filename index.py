@@ -288,7 +288,10 @@ class MostrarMiCuenta(webapp2.RequestHandler):
             userLogin = True
             numeroEventos = controladorUsuario.getEventosAsociadosCount(controladorUsuario.getKey(usuario))
             #Obtenemos su organización en caso de pertenecer a una
-            org = controladorOrganizacion.GetOrganizacionUsuario(str(controladorUsuario.getKey(usuario)))
+            orgId = controladorUsuario.getOrganizacion(str(controladorUsuario.getKey(usuario)))
+            org = []
+            if orgId:
+                org = controladorOrganizacion.getOrganizacion(orgId)
 
             template_values = {
               'usuario': usuario,
@@ -471,13 +474,10 @@ class CrearOrganizacion(webapp2.RequestHandler):
             twitter = self.request.get('twitter').strip()
             tel = self.request.get('telefono').strip()
             web = self.request.get('web').strip()
+            idOrganizacion = controladorOrganizacion.setOrganizacion(nombre, mail, tel, twitter, web)
+            controladorOrganizacion.setUsuarioOrganizacion(idOrganizacion, user.key.id())
+            controladorUsuario.setOrganizacion(idOrganizacion, user.key.id())
 
-            idOrganizacion = controladorOrganizacion.SetOrganizacion(nombre, mail, tel, twitter, web)
-
-            """
-            Registra al usuario en la organizacion
-            """
-            controladorOrganizacion.SetUsuarioOrganizacion(str(idOrganizacion), str(user.key.id()))
             self.response.write(json.dumps({'reponse': 'true'}))
                 
 class InsertarAsistente(webapp2.RequestHandler):

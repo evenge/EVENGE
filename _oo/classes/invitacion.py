@@ -17,12 +17,8 @@ import os
 import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from datetime import datetime
 
-class Asistente(ndb.Model):
-    nombre = ndb.StringProperty()
-    apellidos = ndb.StringProperty()
+class Invitacion(ndb.Model):
     email = ndb.StringProperty()
-    telefono = ndb.StringProperty()
-    twitter = ndb.StringProperty()
-    dni = ndb.StringProperty()
-    asistido = ndb.BooleanProperty(default = False)
+    fecha = ndb.DateProperty(auto_now_add=True)

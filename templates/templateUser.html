@@ -109,8 +109,8 @@ GNU General Public License for more details.
       </div>
 
       <div class="tab-pane fade" id="organizacion">
-        {% if organizacion %}
         <div class="col-sm-12">
+          {% if organizacion %}
           <div class="col-sm-6">
             <h1>Modifica la información de tu organización</h1>
             <form id="modificar-organizacion" class="form-horizontal">
@@ -151,7 +151,34 @@ GNU General Public License for more details.
               </div>
             </form>
           </div>
-
+          {% else %}
+          <div class="evenge-form col-sm-6">
+            <h1 class="h1-formtitle">Crear organizacion</h1>
+            <form id="iOrganizacion">
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
+                <input id="org-name" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input id="org-mail" type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
+                <input id="org-twitter" type="text" class="form-control" placeholder="Twitter" aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
+                <input id="org-tel" type="text" class="form-control" placeholder="Telefono" aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
+                <input id="org-web" type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
+              </div>
+              <button type="submit" class="btn btn-success btn-block btn-form">Crear organización</button>
+            </form>
+          </div>
+          {% endif %}
           <div class="col-sm-5 col-sm-offset-1 consejos-cont">
             <div class="col-sm-12 consejos consejosO">
               <ul>
@@ -162,49 +189,37 @@ GNU General Public License for more details.
               </ul>
             </div>
 
-            <div class="col-sm-12 invitacion">
+            {% if organizacion %}
+            <div data-key="{{ organizacion.getKey() }}" class="col-sm-12 invitacion">
               <h1>Envía una invitación para entrar en tu organización</h1>
               <p>Recuerda que el usuario debe estar registrado</p>
               <form id="einvitacion" class="form-horizontal">
-                <div class="form-group">
+                <div id="einvitacion" class="form-group">
                   <input type="email" class="form-control" id="emailI" placeholder="Introduce email">
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success btn-form">Enviar invitacion</button>
+                  <button type="submit" class="btn btn-success btn-form">Enviar invitación</button>
                 </div>
               </form>
             </div>
-          </div>
 
+            <div class="col-sm-12 invitaciones-pendientes">
+              <h1>Invitaciones pendientes</h1>
+                <table class="table table-hover">
+                  <tbody>
+                    {% for i in organizacion.invitaciones %}
+                    <tr>
+                      <th>{{ i.email }}</th>
+                      <th>{{ i.fecha }}</th>
+                      <th><a class="delete-invi" href=""><i class="fa fa-times"></i></a></th>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+            {% endif %}
+          </div>
         </div>
-        {% else %}
-        <div class="evenge-form col-sm-6 col-sm-offset-3">
-          <h1 class="h1-formtitle">Crear organizacion</h1>
-          <form id="iOrganizacion">
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-              <input id="org-name" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <input id="org-mail" type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
-              <input id="org-twitter" type="text" class="form-control" placeholder="Twitter" aria-describedby="sizing-addon1">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
-              <input id="org-tel" type="text" class="form-control" placeholder="Telefono" aria-describedby="sizing-addon1">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-              <input id="org-web" type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
-            </div>
-            <button type="submit" class="btn btn-success btn-block btn-form">Crear organización</button>
-          </form>
-        </div>
-        {% endif %}
       </div>
     </div>
   </div>

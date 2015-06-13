@@ -28,6 +28,7 @@ from _oo.model import controladorEvento
 from _oo.model import controladorUsuario
 from _oo.model import controladorPonente
 from _oo.model import controladorOrganizacion
+from _oo.model import moduloEmail
 import jinja2
 import webapp2
 import hashlib
@@ -628,6 +629,42 @@ class MostrarCuenta(webapp2.RequestHandler):
             self.response.write(template.render(template_values))
 
 
+class InvitacionOrganizacion(webapp2.RequestHandler):
+    def get(self):
+        idOrg = self.request.get('id')
+        email = self.request.get('email')
+        user = controladorUsuario.getUsuarioLogeado(self)
+
+        if not user:
+            self.redirect('/login')
+        else:
+            if str(user.email) != str(email):
+                self.redirect('/error')
+            else:
+                controladorOrganizacion.deleteInvitacion(idOrg, email)
+                controladorOrganizacion.setUsuarioOrganizacion(idOrg, user.getKey())
+                controladorUsuario.setOrganizacion(idOrg, user.getKey())
+                self.redirect('/micuenta')
+
+
+    def post(self):
+        idOrg = self.request.get('idOrg')
+        email = self.request.get('email')
+        fechaInv = controladorOrganizacion.createInvitacion(idOrg, email)
+
+        o = controladorOrganizacion.getOrganizacion(idOrg)
+        contain = "http://evenge-2014.appspot.com/invitacion?id="+idOrg+"?email="+email
+
+        moduloEmail.enviarEmail("8macau8@gmail.com","Has sido invitado a unirte a una organización",contain)
+        resp = {
+          'response': 'true',
+          'fecha': str(fechaInv)
+        }
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(resp))
+
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -645,6 +682,7 @@ application = webapp2.WSGIApplication([
     ('/iAsistente', InsertarAsistente),
     ('/mPonente*', ModificarPonente),
     ('/cuenta*', MostrarCuenta),
+    ('/invitacion*', InvitacionOrganizacion),
     ('/.*', MostrarError)
 ], debug=True)
 

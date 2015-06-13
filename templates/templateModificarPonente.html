@@ -16,49 +16,51 @@ GNU General Public License for more details.
 
 {% extends "templates/index.html" %}
 {# tittle: titulo de la página #}
-{% block title %}Nuevo Ponente{% endblock %}
+{% block title %}Modificar Ponente{% endblock %}
 {# contenido central de la página #}
 {% block content %}
 
 <!--Formulario ponente -->
-<div class="evenge-form col-sm-8 col-sm-offset-2">
-  <h1 class="h1-formtitle" >Nuevo Ponente</h1>
-  <form id="iponente">
+{% if ponente %}
+<div data-id="{{ ponente.getKey() }}" class="evenge-form col-sm-8 col-sm-offset-2">
+  <h1 class="h1-formtitle">Modificar Ponente</h1>
+  <form id="mponente">
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="nombre-p"  id="nombre-p" placeholder="Nombre" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="nombre-p" id="nombre-p" value="{{ ponente.nombre }}" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="apellidos-p" id="apellidos-p" placeholder="Apellidos" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="apellidos-p" id="apellidos-p" value="{{ ponente.apellidos }}" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
-      <input type="text" class="form-control" name="email-p" id="email-p" placeholder="Email" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="email-p" id="email-p" value="{{ ponente.email }}" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
-      <textarea class="form-control" rows="3" placeholder="Introduce la descripción del ponente" name="descripcion-p" id="descripcion-p"></textarea>
+      <textarea class="form-control" rows="3" name="descripcion-p" id="descripcion-p">{{ ponente.descripcion }}</textarea>
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
-      <input type="text" class="form-control" name="telefono-p" id="telefono-p" placeholder="Telefono" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="telefono-p" id="telefono-p" value="{{ ponente.telefono }}" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
-      <input type="text" class="form-control" name="twitter-p" id="twitter-p" placeholder="Twitter" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="twitter-p" id="twitter-p" value="{{ ponente.twitter }}" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-      <input type="text" class="form-control" name="web-p" id="web-p" placeholder="Web" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="web-p" id="web-p" value="{{ ponente.web }}" aria-describedby="sizing-addon1">
     </div>
     <button type="submit" class="btn btn-success btn-block btn-form">Guardar</button>
   </form>
 </div>
+{% endif %}
 <!--/Formulario ponente -->
 
 {% endblock %}
 
 {% block scriptFooter %}
-  <script type="text/javascript" src="/_dt/js/newponente.js"></script>
+  <script type="text/javascript" src="/_dt/js/modifyponente.js"></script>
 {% endblock %}

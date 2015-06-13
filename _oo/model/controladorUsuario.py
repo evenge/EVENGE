@@ -26,17 +26,19 @@ def getKey(usuario):
     return usuario.key.id()
 
 
-def nuevoRegistroUsuario(nombre,apellidos,email,telefono,twitter,web,password):
+def nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, password, ciudad):
     usuario = Usuario()
     usuario.nombre = nombre
     usuario.apellidos = apellidos
     usuario.email = email
     usuario.telefono = telefono
+    usuario.ciudad = ciudad
     usuario.twitter = twitter
     usuario.web = web
     usuario.password = md5.new(password).hexdigest()
     print str(moduloEmail.enviarConfirmacionLogin(usuario))
     return usuario.put()
+
 
 def loginCorrecto(email,password):
     usuario = Usuario.query(Usuario.email == email)
@@ -49,8 +51,10 @@ def loginCorrecto(email,password):
     else:
         return False
 
+
 def getUsuarioById(idUsuario):
     return Usuario().get_by_id(int(idUsuario))
+
 
 def getUsuarioLogeado(handler):
     if handler.request.cookies.get("logged") == "true":
@@ -67,9 +71,11 @@ def listarUsuarios(self):
         usuarios.append(usuario)
     return usuarios
 
+
 def getEventosAsociados(idUsuario):
     eventos = getUsuarioById(idUsuario).eventos
     return eventos
+
 
 def getEventosAsociadosCount(idUsuario):
     cont = len(getEventosAsociados(idUsuario))

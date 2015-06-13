@@ -92,3 +92,15 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.ponente .opciones {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  z-index: 1;
+}
+
+.ponente .opciones a {
+  font-size: 14px;
+  padding: 0 3px;
+}

@@ -439,13 +439,10 @@ class NuevoUsuario(webapp2.RequestHandler):
         email = self.request.get("email").strip()
         telefono = self.request.get("telefono").strip()
         twitter = self.request.get("twitter").strip()
+        ciudad = self.request.get("ciudad").strip()
         web = self.request.get("web").strip()
         password = self.request.get("contrasena").strip()
-        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(
-            nombre, apellidos,
-            email, telefono,
-            twitter, web,
-            password)
+        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, password, ciudad)
         self.redirect('/')
 
 
@@ -549,6 +546,84 @@ class InsertarAsistente(webapp2.RequestHandler):
         self.response.write(json.dumps({'reponse': 'true'}))
 
 #Urls
+class ModificarPonente(webapp2.RequestHandler):
+
+    def get(self):
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idPonente = self.request.get('id')
+        p = []
+
+        if user == False:
+            self.redirect('/login')
+
+        else:
+            if str(idPonente) in user.ponentes:
+                p = controladorPonente.getPonenteById(idPonente)
+
+            elif user.organizacion:
+                o = controladorOrganizacion.getOrganizacion(user.organizacion)
+                if str(idPonente) in o.ponentes:
+                    p = controladorPonente.getPonenteById(idPonente)
+
+            else:
+                self.redirect('/')
+
+            template_values = {
+              'usuario': user,
+              'info': info,
+              'ponente': p
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('templates/templateModificarPonente.html')
+            self.response.write(template.render(template_values))
+
+    def post(self):
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        email = self.request.get("email").strip()
+        telefono = self.request.get("tlf").strip()
+        twitter = self.request.get("twitter").strip()
+        web = self.request.get("web").strip()
+        descripcion = self.request.get("descripcion").strip()
+        idPonente = self.request.get("idPonente").strip()
+        controladorPonente.updatePonente(nombre, apellidos, email, telefono, twitter, web, descripcion, idPonente)
+
+        resp = {'response': True}
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(resp))
+
+
+class MostrarCuenta(webapp2.RequestHandler):
+    def get(self):
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idCuenta = self.request.get('id')
+        cuenta = controladorUsuario.getUsuarioById(idCuenta)
+        o = []
+        eventosU = []
+
+        if cuenta == False:
+            self.redirect('/login')
+        else:
+            for ide in cuenta.eventos:
+                eventosU.append(controladorEvento.GetEventoById(ide))
+
+            if cuenta.organizacion:
+                o = controladorOrganizacion.getOrganizacion(cuenta.organizacion)
+
+            template_values = {
+              'usuario': user,
+              'info': info,
+              'cuenta': cuenta,
+              'organizacion': o,
+              'eventosU': eventosU,
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('templates/templateCuenta.html')
+            self.response.write(template.render(template_values))
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -564,6 +639,8 @@ application = webapp2.WSGIApplication([
     ('/eliminarEvento', EliminarEvento),
     ('/iOrganizacion', CrearOrganizacion),
     ('/iAsistente', InsertarAsistente),
+    ('/mPonente*', ModificarPonente),
+    ('/cuenta*', MostrarCuenta),
     ('/.*', MostrarError)
 ], debug=True)
 

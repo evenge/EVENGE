@@ -597,6 +597,36 @@ class ModificarPonente(webapp2.RequestHandler):
         self.response.write(json.dumps(resp))
 
 
+class MostrarCuenta(webapp2.RequestHandler):
+    def get(self):
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idCuenta = self.request.get('id')
+        cuenta = controladorUsuario.getUsuarioById(idCuenta)
+        o = []
+        eventosU = []
+
+        if cuenta == False:
+            self.redirect('/login')
+        else:
+            for ide in cuenta.eventos:
+                eventosU.append(controladorEvento.GetEventoById(ide))
+
+            if cuenta.organizacion:
+                o = controladorOrganizacion.getOrganizacion(cuenta.organizacion)
+
+            template_values = {
+              'usuario': user,
+              'info': info,
+              'cuenta': cuenta,
+              'organizacion': o,
+              'eventosU': eventosU,
+            }
+
+            template = JINJA_ENVIRONMENT.get_template('templates/templateCuenta.html')
+            self.response.write(template.render(template_values))
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -613,6 +643,7 @@ application = webapp2.WSGIApplication([
     ('/iOrganizacion', CrearOrganizacion),
     ('/iAsistente', InsertarAsistente),
     ('/mPonente*', ModificarPonente),
+    ('/cuenta*', MostrarCuenta),
     ('/.*', MostrarError)
 ], debug=True)
 

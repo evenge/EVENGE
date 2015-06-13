@@ -42,14 +42,12 @@ GNU General Public License for more details.
         {% for n in eventos %}
         <div class="col-md-6 evento-content">
           <header class="header-evento-miseventos col-sm-12">
-            <div class="col-xs-9">
+            <div class="col-xs-12">
               <h4><a href="/eventos?id={{n.key.id()}}">{{n.nombre}}</a></h4>
             </div>
-            <div class="col-xs-3">
-              <div class="btn-group" role="group" aria-label="...">
-                <button class="btn btn-default button-modify"><i class="fa fa-pencil-square-o"></i></button>
-                <button class="btn btn-default button-delete"><i class="fa fa-times"></i></button>
-              </div>
+            <div class="opciones">
+              <a href=""><i class="fa fa-pencil-square-o"></i></a>
+              <a href=""><i class="fa fa-times"></i></a>
             </div>
           </header>
           <div class="col-md-12 evento-miseventos">

@@ -49,12 +49,24 @@ GNU General Public License for more details.
 }
 
 .header-evento-miseventos {
-  font-family: roboto, Verdana;
   background: #e0e0e0;
   padding: 0;
   border-bottom-color:#E4E6E7;
   border-bottom-style:solid;
   border-bottom-width:1px;
+  position: relative;
+}
+
+.header-evento-miseventos .opciones {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.header-evento-miseventos .opciones a {
+  margin-right: 3px;
+  font-size: 16px;
+  color: #464646;
 }
 
 .header-evento-miseventos h4,

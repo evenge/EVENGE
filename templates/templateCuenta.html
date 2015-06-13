@@ -1,0 +1,58 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+{% extends "templates/index.html" %}
+
+{# tittle: titulo de la página #}
+{% block title %}{{ cuenta.nombre }} {{ cuenta.apellidos }}{% endblock %}
+{% block styles %}
+<link type="text/css" rel="stylesheet" href="/_dt/css/templateCuenta.css">
+{% endblock %}
+{# contenido central de la página #}
+{% block content %}
+<div class="row">
+  <div class="col-sm-8 info-cuenta">
+    <div class="col-sm-12 header-cuenta">
+      <div class="col-xs-2 img-acount">
+      </div>
+      <div class="col-xs-10 name-account">
+        <h1>{{ cuenta.nombre }} {{ cuenta.apellidos }}</h1>
+        <small>{{ cuenta.ciudad }}</small>
+        <h3>{{ cuenta.email }}</h3>
+        <h3><a href="http://twitter.com/{{ cuenta.twitter }}">{{ cuenta.twitter }}</a></h3>
+        <h3><a href="{{ cuenta.web }}">{{ cuenta.web }}</a></h3>
+      </div>
+    </div>
+
+    <div class="col-sm-12 info-eventos">
+      <h1>Eventos</h1>
+      {% for e in eventosU %}
+      <div class="col-sm-12">
+        <h2>{{ e.nombre }}</h2>
+        <small>{{ e.fecha }} {{ e.hora }}</small>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if organizacion %}
+  <div class="col-sm-4 info-organizacion">
+    <h1>Organización</h1>
+    <h2>{{ organizacion.nombre }}</h2>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -21,6 +21,14 @@ GNU General Public License for more details.
   margin-top: 30px;
 }
 
+.user-content h1 {
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-size: 16px;
+  text-align: center;
+  color: #888888;
+}
+
 .user-content .tab-pane {
   margin-top: 20px;
 }
@@ -31,4 +39,32 @@ GNU General Public License for more details.
 
 .user-content .form-horizontal input[readonly] {
   background: #f4f4f4;
+}
+
+.consejos-cont {
+  border-left: 1px solid #c8c8c8;
+}
+
+.consejos {
+  color: #7c7c7c;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.consejos ul {
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 20px 20px 20px 40px;
+}
+
+.consejos ul li {
+  margin-bottom: 5px;
+}
+
+.invitacion {
+  margin-top: 20px;
+}
+
+.invitacion h1 {
+  text-align: left;
 }

@@ -29,6 +29,9 @@ GNU General Public License for more details.
       <div class="imagen">
         <img alt="avatar" src="/_dt/img/avatar.jpg">
       </div>
+      <div class="opciones">
+        <a href="/micuenta"><i class="fa fa-cog fa-fw"></i></a>
+      </div>
       <div class="col-xs-12 name-account">
         <h1>{{ cuenta.nombre }} {{ cuenta.apellidos }}</h1>
         <h2><i class="fa fa-globe fa-fw"></i> {{ cuenta.ciudad }} &middot; <a hre=""><i class="fa fa-envelope-o fa-fw"></i> {{ cuenta.email }}</a> </h2>
@@ -40,6 +43,9 @@ GNU General Public License for more details.
     <div class="col-sm-12 info-eventos">
       {% for e in eventosU %}
       <div class="col-sm-12 evento">
+        <div class="opciones">
+          <a href="/mEvento?id={{ e.getKey() }}"><i class="fa fa-cog fa-fw"></i></a>
+        </div>
         <h2><a href="/evento?id={{ e.getKey() }}">{{ e.nombre }}</a></h2>
         <h3>{{ e.fecha }} {{ e.hora }}</h3>
         <h3>{{ e.descripcion }}</h3>

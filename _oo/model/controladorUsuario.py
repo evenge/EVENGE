@@ -111,8 +111,7 @@ def setOrganizacion(idO, idU):
 def getOrganizacion(idU):
     u = getUsuarioById(int(idU))
     logging.getLogger().setLevel(logging.DEBUG)
-
-    if len(u.organizacion) <= 0:
+    if not u:
         logging.error(len(u.organizacion))
         return False
 

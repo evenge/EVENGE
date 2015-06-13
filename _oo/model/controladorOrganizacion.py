@@ -15,6 +15,7 @@
 
 from google.appengine.ext import ndb
 from _oo.classes.organizacion import Organizacion
+from _oo.classes.invitacion import Invitacion
 import logging
 
 def getKeyOrg(organizacion):
@@ -47,3 +48,16 @@ def setEventoId(idE, idO):
     o = Organizacion().get_by_id(int(idO))
     o.eventos.append(str(idE))
     o.put()
+
+def createInvitacion(idO, ema):
+    o = Organizacion().get_by_id(int(idO))
+    o.invitaciones.append(Invitacion(email=ema))
+    o.put()
+    return o.invitaciones[-1].fecha
+
+def deleteInvitacion(idO, ema):
+    o = Organizacion().get_by_id(int(idO))
+    for inv in o.invitaciones:
+        if inv.email == ema:
+            o.invitaciones.remove(inv)
+

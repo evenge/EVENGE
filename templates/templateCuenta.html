@@ -26,23 +26,23 @@ GNU General Public License for more details.
 <div class="row">
   <div class="col-sm-8 info-cuenta">
     <div class="col-sm-12 header-cuenta">
-      <div class="col-xs-2 img-acount">
+      <div class="imagen">
+        <img alt="avatar" src="/_dt/img/avatar.jpg">
       </div>
-      <div class="col-xs-10 name-account">
+      <div class="col-xs-12 name-account">
         <h1>{{ cuenta.nombre }} {{ cuenta.apellidos }}</h1>
-        <small>{{ cuenta.ciudad }}</small>
-        <h3>{{ cuenta.email }}</h3>
-        <h3><a target="_blank" href="http://twitter.com/{{ cuenta.twitter }}">{{ cuenta.twitter }}</a></h3>
-        <h3><a target="_blank" href="{{ cuenta.web }}">{{ cuenta.web }}</a></h3>
+        <h2><i class="fa fa-globe fa-fw"></i> {{ cuenta.ciudad }} &middot; <a hre=""><i class="fa fa-envelope-o fa-fw"></i> {{ cuenta.email }}</a> </h2>
+        <h3><a target="_blank" href="http://twitter.com/{{ cuenta.twitter }}"><i class="fa fa-twitter fa-fw"></i> {{ cuenta.twitter }}</a></h3>
+        <h3><a target="_blank" href="{{ cuenta.web }}"><i class="fa fa-link fa-fw"></i> {{ cuenta.web }}</a></h3>
       </div>
     </div>
 
     <div class="col-sm-12 info-eventos">
-      <h1>Eventos</h1>
       {% for e in eventosU %}
-      <div class="col-sm-12">
-        <h2>{{ e.nombre }}</h2>
-        <small>{{ e.fecha }} {{ e.hora }}</small>
+      <div class="col-sm-12 evento">
+        <h2><a href="/evento?id={{ e.getKey() }}">{{ e.nombre }}</a></h2>
+        <h3>{{ e.fecha }} {{ e.hora }}</h3>
+        <h3>{{ e.descripcion }}</h3>
       </div>
       {% endfor %}
     </div>
@@ -50,8 +50,13 @@ GNU General Public License for more details.
 
   {% if organizacion %}
   <div class="col-sm-4 info-organizacion">
-    <h1>Organización</h1>
-    <h2>{{ organizacion.nombre }}</h2>
+    <div class="col-xs-12 header-organizacion">
+      <div class="imagen">
+        <img alt="avatar" src="/_dt/img/avatar.jpg">
+      </div>
+      <h1>Organización</h1>
+      <h2>{{ organizacion.nombre }}</h2>
+    </div>
   </div>
   {% endif %}
 </div>

@@ -1,0 +1,150 @@
+.header-cuenta {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 0;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  position: relative;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+.header-cuenta .imagen {
+  background: #fff;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: -40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 100px;
+  z-index: 1;
+}
+
+.header-cuenta .imagen img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-cuenta h1,
+.header-cuenta h2,
+.header-cuenta h3 {
+  padding: 5px 5px 5px 15px;
+  margin: 0;
+}
+
+.header-cuenta .name-account {
+  padding: 0;
+}
+
+.header-cuenta .name-account h1 {
+  margin-bottom: 5px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 70px 5px 5px 5px;
+  background: #f8f8f8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 18px;
+}
+
+.header-cuenta .name-account h2 {
+  font-size: 14px;
+  color: #acacac;
+}
+
+.header-cuenta .name-account h2 a {
+  color: #acacac;
+}
+
+.header-cuenta .name-account h3 {
+  font-size: 14px;
+  color: #616161;
+}
+
+/********* eventos ************/
+.info-eventos {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 0;
+  position: relative;
+}
+
+.evento {
+  border-top: 1px solid #d4d4d4;
+  padding: 20px 5px;
+}
+
+.info-eventos h2 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+  padding: 0;
+}
+
+.info-eventos h3 {
+  font-size: 14px;
+  color: #808080;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.header-organizacion {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 0;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  position: relative;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+.header-organizacion .imagen {
+  background: #fff;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: -40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 100px;
+  z-index: 1;
+}
+
+.header-organizacion .imagen img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-organizacion h1 {
+  margin-bottom: 5px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 70px 5px 5px 5px;
+  background: #f8f8f8;
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 18px;
+}
+
+.header-organizacion h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #545454;
+  padding: 0;
+  margin: 5px 5px 5px 15px;
+}

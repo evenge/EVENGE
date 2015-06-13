@@ -37,9 +37,7 @@ $(document).ready(function() {
       'userT': $('.selected').data('us'),
       'idUser': $('.selected').data('key')
     };
-    
-    console.log(data);
-    
+
     $.ajax({
       type: 'POST',
       url: '/iEvento',

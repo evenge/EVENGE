@@ -168,7 +168,7 @@ class InsertarEvento(webapp2.RequestHandler):
         ret = controladorEvento.SetEvento(nombre, userT, privado, idCreador, hora, fecha, lugar, lat, lon, descripcion, asistencia)
 
         if userT == '1':
-            controladorUsuario.setEventoId(ret, idU)
+            controladorUsuario.setEventoId(ret, idLogueado)
         else:
             controladorOrganizacion.setEventoId(ret, idCreador)
 
@@ -608,6 +608,10 @@ class MostrarCuenta(webapp2.RequestHandler):
         else:
             for ide in cuenta.eventos:
                 eventosU.append(controladorEvento.GetEventoById(ide))
+            for e in eventosU:
+                if len(e.descripcion) > 200:
+                    sec = [e.descripcion[:200], '...']
+                    e.descripcion = ''.join(sec)
 
             if cuenta.organizacion:
                 o = controladorOrganizacion.getOrganizacion(cuenta.organizacion)

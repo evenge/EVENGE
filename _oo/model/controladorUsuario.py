@@ -32,6 +32,7 @@ def nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, passw
     usuario.apellidos = apellidos
     usuario.email = email
     usuario.telefono = telefono
+    usuario.ciudad = ciudad
     usuario.twitter = twitter
     usuario.web = web
     usuario.password = md5.new(password).hexdigest()

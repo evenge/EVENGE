@@ -439,13 +439,10 @@ class NuevoUsuario(webapp2.RequestHandler):
         email = self.request.get("email").strip()
         telefono = self.request.get("telefono").strip()
         twitter = self.request.get("twitter").strip()
+        ciudad = self.request.get("ciudad").strip()
         web = self.request.get("web").strip()
         password = self.request.get("contrasena").strip()
-        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(
-            nombre, apellidos,
-            email, telefono,
-            twitter, web,
-            password)
+        idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, password, ciudad)
         self.redirect('/')
 
 

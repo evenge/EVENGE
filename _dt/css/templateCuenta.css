@@ -89,10 +89,15 @@
 }
 
 .info-eventos h3 {
-  font-size: 14px;
-  color: #808080;
+  font-size: 12px;
+  color: #a2a2a2;
   margin: 5px 0;
   padding: 0;
+}
+
+.info-eventos h3:last-child {
+  color: #808080;
+  font-size: 14px;
 }
 
 .header-organizacion {
@@ -147,4 +152,15 @@
   color: #545454;
   padding: 0;
   margin: 5px 5px 5px 15px;
+}
+
+.opciones {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  z-index: 1;
+}
+
+.opciones a {
+  color: #7c7c7c;
 }

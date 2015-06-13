@@ -38,6 +38,7 @@ GNU General Public License for more details.
         {% if usuario %}
         <div class="col-sm-12">
           <div class="col-sm-6">
+            <h1>Modifica la información de tu perfil</h1>
             <form id="modificar-usuario" class="form-horizontal">
               <div class="form-group">
                 <label for="emailU" class="col-sm-2 control-label">Email:</label>
@@ -88,6 +89,21 @@ GNU General Public License for more details.
               </div>
             </form>
           </div>
+
+          <div class="col-sm-5 col-sm-offset-1 consejos-cont">
+            <div class="col-sm-12 consejos consejosU">
+              <ul>
+                <li data-con="emailU">No puedes modificar el email</li>
+                <li data-con="nombreU">El nombre no puede contener más de 30 caracteres</li>
+                <li data-con="apellidosU">Los apellidos no pueden contener más de 50 caracteres</li>
+                <li data-con="ciudadU">La ciudad no puede contener más de 50 caracteres</li>
+                <li data-con="tlfU">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+                <li data-con="twitterU">El twitter debe contener un formato correcto: @grupoEvenge</li>
+                <li data-con="webU">La web debe contener un formato correcto: http://nombreweb.dominio</li>
+              </ul>
+            </div>
+
+          </div>
         </div>
         {% endif %}
       </div>
@@ -96,6 +112,7 @@ GNU General Public License for more details.
         {% if organizacion %}
         <div class="col-sm-12">
           <div class="col-sm-6">
+            <h1>Modifica la información de tu organización</h1>
             <form id="modificar-organizacion" class="form-horizontal">
               <div class="form-group">
                 <label for="nombreO" class="col-sm-2 control-label">Nombre:</label>
@@ -122,7 +139,7 @@ GNU General Public License for more details.
                 </div>
               </div>
               <div class="form-group">
-                <label for="webO" class="col-sm-2 control-label">Twitter:</label>
+                <label for="webO" class="col-sm-2 control-label">Web:</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="webO" value="{{ organizacion.web }}">
                 </div>
@@ -134,6 +151,31 @@ GNU General Public License for more details.
               </div>
             </form>
           </div>
+
+          <div class="col-sm-5 col-sm-offset-1 consejos-cont">
+            <div class="col-sm-12 consejos consejosO">
+              <ul>
+                <li data-con="nombreO">El nombre no puede contener más de 100 caracteres</li>
+                <li data-con="tlfO">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+                <li data-con="twitterO">El twitter debe contener un formato correcto: @grupoEvenge</li>
+                <li data-con="webO">La web debe contener un formato correcto: http://nombreweb.dominio</li>
+              </ul>
+            </div>
+
+            <div class="col-sm-12 invitacion">
+              <h1>Envía una invitación para entrar en tu organización</h1>
+              <p>Recuerda que el usuario debe estar registrado</p>
+              <form id="einvitacion" class="form-horizontal">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="emailI" placeholder="Introduce email">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success btn-form">Enviar invitacion</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
         {% else %}
         <div class="evenge-form col-sm-6 col-sm-offset-3">

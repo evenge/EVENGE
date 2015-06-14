@@ -134,3 +134,9 @@ def modificarUsuario(nombre, apellidos, telefono, twitter, web, ciudad, idU):
     u.twitter = twitter
     u.web = web
     u.put()
+
+
+def deletePonente(idP, idU):
+    u = getUsuarioById(idU)
+    u.ponentes.remove(idP)
+    u.put()

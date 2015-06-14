@@ -49,7 +49,7 @@ GNU General Public License for more details.
         </div>
         <div class="opciones">
           <a href="/mPonente?id={{ p.getKey() }}"><i class="fa fa-pencil"></i></a>
-          <a href=""><i class="fa fa-times"></i></a>
+          <a data-id="{{ p.getKey() }}" class="delete-p" href="#"><i class="fa fa-times"></i></a>
         </div>
         <div class="detalles detalles1 col-md-12">
           <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
@@ -71,4 +71,8 @@ GNU General Public License for more details.
     {% endfor %}
   </div>
 </div>
+{% endblock %}
+
+{% block scriptFooter %}
+  <script type="text/javascript" src="/_dt/js/ponentes.js"></script>
 {% endblock %}

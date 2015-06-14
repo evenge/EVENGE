@@ -124,7 +124,7 @@ $(document).ready(function() {
         maxlength: 50
       },
       telefonoU: {
-        telefono: true
+        required: true
       },
       webU: {
         web: true

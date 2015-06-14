@@ -178,6 +178,11 @@ GNU General Public License for more details.
   font-weight: bold;
 }
 
+.ponentes-add {
+  background: #fff;
+  border: 1px solid #d0d0d0;
+}
+
 .btn-option {
   background: none;
   color: #C11F23;
@@ -185,6 +190,10 @@ GNU General Public License for more details.
   height: 28px;
   line-height: 28px;
   padding: 0 10px;
+}
+
+.select-asistentes {
+  width: 100%;
 }
 
 /***** media for responsive ***/

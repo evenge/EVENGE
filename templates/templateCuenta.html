@@ -27,7 +27,11 @@ GNU General Public License for more details.
   <div class="col-sm-8 info-cuenta">
     <div class="col-sm-12 header-cuenta">
       <div class="imagen">
-        <img alt="avatar" src="/_dt/img/avatar.jpg">
+        {% if cuenta.avatar %}
+        <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ cuenta.getKey() }}">
+        {% else %}
+        <img alt="avatar" src="/_dt/img/default_avatar.png">
+        {% endif %}
       </div>
       <div class="opciones">
         <a href="/micuenta"><i class="fa fa-cog fa-fw"></i></a>
@@ -58,7 +62,11 @@ GNU General Public License for more details.
   <div class="col-sm-4 info-organizacion">
     <div class="col-xs-12 header-organizacion">
       <div class="imagen">
-        <img alt="avatar" src="/_dt/img/avatar.jpg">
+        {% if organizacion.avatar %}
+        <img alt="avatar" src="gImagenUsuario?tipo=2&id={{ organizacion.getKey() }}">
+        {% else %}
+        <img alt="avatar" src="/_dt/img/default_avatar.png">
+        {% endif %}
       </div>
       <h1>Organización</h1>
       <h2>{{ organizacion.nombre }}</h2>

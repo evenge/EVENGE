@@ -56,7 +56,7 @@ GNU General Public License for more details.
       <div class="gravatar">
         <h1>{{info.gravatar}}</h1>
       </div>
-      <h1>{{usuario.nombre}} {{usuario.apellidos}}</h1>
+      <h1><a href="/cuenta?id={{ usuario.getKey() }}">{{usuario.nombre}} {{usuario.apellidos}}</a></h1>
     </div>
     <div class="menu">
       <ul class="nav menu-nav">

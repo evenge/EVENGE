@@ -21,6 +21,7 @@ GNU General Public License for more details.
 {# tittle: titulo de la página #}
 {% block title %}{{ evento.nombre }}{% endblock %}
 {% block styles %}
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 <link type="text/css" rel="stylesheet" href="/_dt/css/templateMisPonentes.css">
 <link type="text/css" rel="stylesheet" href="/_dt/css/templateEvents.css">
 {% endblock %}
@@ -98,12 +99,12 @@ GNU General Public License for more details.
         {% if userCreador %}
         <div class="tab-pane fade" id="asistentes">
           <div class="col-sm-12">
-            <div id="buscador-asistente" class="col-sm-12">
+            <!--<div id="buscador-asistente" class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
                 <input type="text" class="form-control" placeholder="Introduce asistente" aria-describedby="sizing-addon1">
               </div>
-            </div>
+            </div>-->
             <div class="col-sm-12 asistente">
               <table class="table table-hover">
                 <thead>
@@ -134,17 +135,20 @@ GNU General Public License for more details.
         </div>
         {% endif %}
         <div class="tab-pane fade" id="ponentes">
-          <div class="col-sm-12 ponentes-search">
-            <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
-              <input type="text" class="form-control" placeholder="Introduce ponente" aria-describedby="sizing-addon1">
+          <!--<div class="col-sm-12 ponentes-search">
+            <div class="form-group">
+              <select class="form-control select-asistentes">
+                <option value="AL">Alabama</option>
+              </select>
             </div>
-          </div>
+          </div>-->
 
           {% if userCreador %}
           <div class="ponentes-cont col-sm-12">
-            <button data-toggle="modal" data-target="#modalPonente" class="btn btn-ponente"><i class="fa fa-plus"></i> Nuevo ponente</button>
-            <button data-toggle="modal" data-target="#modalPonente2" class="btn btn-ponente"><i class="fa fa-plus"></i> Añadir ponente al evento</button>
+            <div class="ponentes-add">
+              <button data-toggle="modal" data-target="#modalPonente" class="btn btn-ponente"><i class="fa fa-plus"></i> Nuevo ponente</button>
+              <!--<button type="button" class="btn btn-ponente dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-plus"></i> Añadir ponente al evento</button>-->
+            </div>
             {% endif %}
 
             <div class="col-sm-12">
@@ -153,7 +157,11 @@ GNU General Public License for more details.
                 <div class="col-sm-3">
                   <div class="col-sm-12 ponente">
                     <div class="imagen">
-                      <img alt="avatar" src="/_dt/img/avatar.jpg">
+                      {% if organizacion.avatar %}
+                      <img alt="avatar" src="gImagenUsuario?tipo=3&id={{ organizacion.getKey() }}">
+                      {% else %}
+                      <img alt="avatar" src="/_dt/img/default_avatar.png">
+                      {% endif %}
                     </div>
                     <div class="detalles detalles1 col-md-12">
                       <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
@@ -238,7 +246,7 @@ GNU General Public License for more details.
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-            <h4 class="modal-title">Insertar ponente</h4>
+            <h4 class="modal-title">Crea e inserta un ponente</h4>
           </div>
 
           <div class="modal-body">
@@ -285,5 +293,6 @@ GNU General Public License for more details.
 
 {% block scriptFooter %}
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
   <script type="text/javascript" src="/_dt/js/event.js"></script>
 {% endblock %}

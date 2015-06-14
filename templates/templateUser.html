@@ -38,6 +38,13 @@ GNU General Public License for more details.
         {% if usuario %}
         <div class="col-sm-12">
           <div class="col-sm-6">
+            <h1>Modifica el avatar de tu perfil</h1>
+            <form action="uImagenUsuario" method="post" enctype="multipart/form-data" id="uImagenUsuarioF">
+              <input name="imgU" id="imgU" type="file" />
+              <button type="submit" class="btn btn-success btn-form">Actualizar imagen</button>
+              <div id="output"></div>
+            </form>
+
             <h1>Modifica la información de tu perfil</h1>
             <form id="modificar-usuario" class="form-horizontal">
               <div class="form-group">
@@ -228,5 +235,6 @@ GNU General Public License for more details.
 {% endblock %}
 
 {% block scriptFooter %}
-  <script type="text/javascript" src="/_dt/js/user.js"></script>
+<script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+<script type="text/javascript" src="/_dt/js/user.js"></script>
 {% endblock %}

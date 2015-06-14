@@ -2,6 +2,8 @@ $(document).ready(function() {
   var coor = $('#map-canvas').data('coord').split(',');
   putMap(coor);
 
+  $('.select-asistentes').select2();
+
   $('#delete-href').on('click', function(evt) {
     evt.preventDefault();
     var data = {

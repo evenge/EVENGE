@@ -333,6 +333,10 @@ body {
   padding: 10px 0;
 }
 
+.menu-content .menu-user h1 a {
+  color: #fff;
+}
+
 .menu-content .menu .menu-nav li > a.titulo-menu {
   background: none;
   padding: 10px 0 10px 5px;

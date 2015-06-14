@@ -41,7 +41,11 @@ GNU General Public License for more details.
     <div class="col-sm-3">
       <div class="col-sm-12 ponente">
         <div class="imagen">
-          <img alt="avatar" src="/_dt/img/avatar.jpg">
+          {% if p.avatar %}
+          <img alt="avatar" src="gImagenUsuario?tipo=3&id={{ p.getKey() }}">
+          {% else %}
+          <img alt="avatar" src="/_dt/img/default_avatar.png">
+          {% endif %}
         </div>
         <div class="opciones">
           <a href="/mPonente?id={{ p.getKey() }}"><i class="fa fa-pencil"></i></a>

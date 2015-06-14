@@ -65,6 +65,44 @@ def SetEvento(nombre, tipo, privado, idCreador, hora, fecha, lugar, lat, lon, de
     return evento.put().id()
 
 """
+Edita un evento en el datastore
+  :idE = ID del Evento a editar
+  :nombre = Nuevo nombre
+  :tipo = tipo del evento
+  :privado = booleano True si el evento es privado, False si es publico
+  :idCreador = id del creador del evento
+  :hora = hora del evento
+  :fecha = fecha del evento
+  :lugar = lugar del evento
+  :lat = latitud de la localizacion del evento
+  :lon = longitud de la localizacion del evento
+  :descripcion = descripcion del evento
+  :asistencia = True si hay control de asistencia, False si no hay control de asistencia
+"""
+def updateEvento(idE, nombre, tipo, idCreador, privado, hora, fecha, lugar, coordenadas, descripcion, asistencia):
+    evento = Evento().get_by_id(str(idE))
+    evento.nombre = nombre
+    evento.tipo = tipo
+    evento.idCreador = str(idCreador)
+    if privado == 'True':
+        privado = True
+    else:
+        privado = False
+    evento.privado = privado
+    evento.hora = datetime.strptime(hora, "%H:%M").time()
+    evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
+    evento.lugar = lugar
+    evento.coordenadas = coordenadas
+    evento.descripcion = descripcion
+    if privado == 'True':
+        asistencia = True
+    else:
+        asistencia = False
+    evento.asistencia = asistencia
+
+    evento.put()
+
+"""
 Introduce un Asistente en un Evento
   :idEvento = id del evento donde queremos guardar el asistente
   :nom = nombre del asistente
@@ -79,21 +117,36 @@ def setAsistente(idEvento, nom, ape, ema, tel, twi, dn):
     ev.asistentes.append(asistente)
     ev.put()
 
+"""
+Devuelve los últimos eventos creados
+  :num = Número de eventos a devolver
+"""
 def getUltimosEventos(num):
-    eventos = Evento.query(Evento.fecha > datetime.now()).fetch(3)
+    eventos = Evento.query(Evento.fecha > datetime.now()).fetch(int(num))
     return eventos
 
-
+"""
+Devolver Asistentes de un evento.
+  :idEvento = ID del evento
+"""
 def getAsistentesEvento(idEvento):
     asistentes = Asistente.query(Asistente.idEvento == str(idEvento))
     return asistentes
 
-
+"""
+Eliminar evento del datastore
+  :idEvento = ID del evento
+"""
 def DeleteEvento(idEvento):
     evento = GetEventoById(int(idEvento))
     evento.key.delete()
     return True
 
+"""
+Agregar ponente a un evento.
+  :idP = ID del ponente
+  :idE = ID del evento
+"""
 def setPonente(idP, idE):
     evento = GetEventoById(int(idE))
     evento.ponentes.append(str(idP))

@@ -35,6 +35,13 @@ GNU General Public License for more details.
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt fa-fw"></i></span>
       <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña" aria-describedby="sizing-addon1">
     </div></br>
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            El usuario o la constraseña no son correctos
+        </div>
+    {% endif %}
     <button type="submit" class="btn btn-success btn-block btn-form" value="Guardar">Entrar</button>
   </form>
 </div>

@@ -151,33 +151,33 @@ GNU General Public License for more details.
             <h1>Modifica la información de tu organización</h1>
             <form id="modificar-organizacion" class="form-horizontal">
               <div class="form-group">
-                <label for="nombreO" class="col-sm-2 control-label">Nombre:</label>
+                <label data-error="nombreO" for="nombreO" class="col-sm-2 control-label">Nombre:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nombreO" value="{{ organizacion.nombre }}">
+                  <input type="text" class="form-control" name="nombreO" id="nombreO" value="{{ organizacion.nombre }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="emailO" class="col-sm-2 control-label">Email:</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="emailU" value="{{ organizacion.email }}">
+                  <input type="email" class="form-control" name="emailO" id="emailO" value="{{ organizacion.email }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="telefonoO" class="col-sm-2 control-label">Teléfono:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="telefonoO" value="{{ organizacion.telefono }}">
+                  <input type="text" class="form-control" name="telefonoO" id="telefonoO" value="{{ organizacion.telefono }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="twitterO" class="col-sm-2 control-label">Twitter:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="twitterO" value="{{ organizacion.twitter }}">
+                  <input type="text" class="form-control" name="twitterO" id="twitterO" value="{{ organizacion.twitter }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="webO" class="col-sm-2 control-label">Web:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="webO" value="{{ organizacion.web }}">
+                  <input type="text" class="form-control" name="webO" id="webO" value="{{ organizacion.web }}">
                 </div>
               </div>
               <div class="form-group">
@@ -193,37 +193,50 @@ GNU General Public License for more details.
             <form id="iOrganizacion">
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-                <input id="org-name" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
+                <input data-error="orgname" name="orgname" id="orgname" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
-                <input id="org-mail" type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+                <input data-error="orgmail" name="orgmail" id="orgmail" type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
-                <input id="org-twitter" type="text" class="form-control" placeholder="Twitter" aria-describedby="sizing-addon1">
+                <input data-error="orgtwitter" name="orgtwitter" id="orgtwitter" type="text" class="form-control" placeholder="Twitter" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
-                <input id="org-tel" type="text" class="form-control" placeholder="Telefono" aria-describedby="sizing-addon1">
+                <input data-error="orgtel" name="orgtel" id="orgtel" type="text" class="form-control" placeholder="Telefono" aria-describedby="sizing-addon1">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-                <input id="org-web" type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
+                <input data-error="orgweb" name="orgweb" id="orgweb" type="text" class="form-control" placeholder="Web" aria-describedby="sizing-addon1">
               </div>
               <button type="submit" class="btn btn-success btn-block btn-form">Crear organización</button>
             </form>
           </div>
           {% endif %}
+
           <div class="col-sm-5 col-sm-offset-1 consejos-cont">
+            {% if organizacion %}
             <div class="col-sm-12 consejos consejosO">
               <ul>
-                <li data-con="nombreO">El nombre no puede contener más de 100 caracteres</li>
+                <li data-con="nombreO">El nombre no puede contener más de 100 caracteres ni estar vacío</li>
                 <li data-con="tlfO">El telefono debe contener un formato correcto: XXXXXXXXX</li>
                 <li data-con="twitterO">El twitter debe contener un formato correcto: @grupoEvenge</li>
                 <li data-con="webO">La web debe contener un formato correcto: http://nombreweb.dominio</li>
               </ul>
             </div>
+            {% else %}
+            <div class="col-sm-12 consejos consejosONew">
+              <ul>
+                <li data-con="orgmail">El email tiene que tener un formato correcto y estar vacío</li>
+                <li data-con="orgname">El nombre no puede contener más de 100 caracteres ni estar vacío</li>
+                <li data-con="orgtel">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+                <li data-con="orgtwitter">El twitter debe contener un formato correcto: @grupoEvenge</li>
+                <li data-con="orgweb">La web debe contener un formato correcto: http://nombreweb.dominio</li>
+              </ul>
+            </div>
+            {% endif %}
 
             {% if organizacion %}
             <div data-key="{{ organizacion.getKey() }}" class="col-sm-12 invitacion">
@@ -265,6 +278,5 @@ GNU General Public License for more details.
 
 {% block scriptFooter %}
 <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/_dt/js/user.js"></script>
 {% endblock %}

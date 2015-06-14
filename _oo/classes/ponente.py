@@ -19,7 +19,6 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from datetime import datetime
 
-
 class Ponente(ndb.Model):
     nombre = ndb.StringProperty()
     apellidos = ndb.StringProperty()

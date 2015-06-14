@@ -23,6 +23,7 @@ class Organizacion(ndb.Model):
     email = ndb.StringProperty()
     idCreador = ndb.StringProperty()
     telefono = ndb.StringProperty()
+    fecha = ndb.DateProperty(auto_now_add=True)
     twitter = ndb.StringProperty()
     web = ndb.StringProperty()
     usuarios = ndb.StringProperty(repeated=True)

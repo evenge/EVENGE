@@ -64,20 +64,20 @@
 - [X] Mostrar pantalla de usuario (hecho Fran)
 
 ##### Ponente:
-- [ ] Validacion ponente
+- [X] Validacion ponente
 - [X] Modificar ponente (hecho Fran)
 
 ##### Evento:
 - [ ] Validacion evento
-- [ ] Modificar evento
+- [X] Modificar evento
 - [ ] Introducir asistente al guardar en evento
-- [ ] Introducir ponente al guardar en evento
+- [X] Introducir ponente al guardar en evento
 - [ ] Lista de ponentes para añadir en evento
 
 ##### Organizacion:
 - [X] Avatar (hecho Fran)
-- [ ] Validacion organizacion
-- [ ] Modificar datos organizacion
+- [X] Validacion organizacion
+- [X] Modificar datos organizacion
 - [X] Enviar invitación organización (hecho Fran)
 
 ##### Asistente:

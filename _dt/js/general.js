@@ -1,6 +1,11 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
+jQuery.validator.addMethod("twitter", function(value, element) {
+  return this.optional(element) || /@([A-Za-z0-9_])+/.test(value);
+}, "No es una cuenta de twitter correcta");
+
+
 $(document).ready(function () {
   'use strict';
   $('#menu-bottom').on('click', function (evt) {

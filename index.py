@@ -454,7 +454,10 @@ class Login(webapp2.RequestHandler):
         """
         Muestra el formulario de login
         """
-        template_values = {}
+        if (self.request.get("login")):
+            template_values = {'error':True}
+        else:
+            template_values = {}
         template = JINJA_ENVIRONMENT.get_template('templates/templateLogin.html')
         self.response.write(template.render(template_values))
 
@@ -473,7 +476,7 @@ class Login(webapp2.RequestHandler):
             self.response.headers.add_header('Set-Cookie', "key=" + str(logeado.key.id()))
             self.redirect("/")
         else:
-            self.redirect("/login")
+            self.redirect("/login?login=error")
 
 
 class Logout(webapp2.RequestHandler):

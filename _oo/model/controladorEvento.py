@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Evenge - gestor de eventos (events management)
 # Copyright (C) 2014 - desarrollo.evenge@gmail.com
 # Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
@@ -11,6 +12,7 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
+
 """Modulo de control de Eventos.Gestiona las operaciones realcionadas con los eventos.
    :author: Carlos Campos Fuentes | Francisco Javier Exposito Cruz | Ivan Ortega Alba | Victor Coronas Lara
    :version: 0.1"""

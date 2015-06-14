@@ -21,50 +21,72 @@ GNU General Public License for more details.
 {% block content %}
 
 <!--Formulario usuario -->
-<div class="evenge-form col-sm-6 col-sm-offset-3">
+<div class="evenge-form col-sm-6">
   <h1 class="h1-formtitle" >Nuevo Usuario</h1>
-  <form action="/registrate" method="post">
+  <form id="iUsuario" action="/registrate" method="post">
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="nombre"  id="nombre" placeholder="Nombre" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="nombreR"  id="nombreR" data-error="nombreR" placeholder="Nombre" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="apellidosR" id="apellidosR" data-error="apellidosR" placeholder="Apellidos" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt fa-fw"></i></span>
-      <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña" aria-describedby="sizing-addon1">
+      <input type="password" class="form-control" name="contrasenaR" id="contrasenaR" data-error="contrasenaR" placeholder="Contraseña" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-unlock-alt fa-fw"></i></span>
-      <input type="password" class="form-control" name="repetirContrasena" id="repetirContrasena" placeholder="Repetir contraseña" aria-describedby="sizing-addon1">
+      <input type="password" class="form-control" name="repetirContrasenaR" id="repetirContrasenaR" data-error="repetirContrasenaR" placeholder="Repetir contraseña" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
-      <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="emailR" id="emailR" data-error="emailR" placeholder="Email" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe fa-fw"></i></span>
-      <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="ciudadR" id="ciudadR" data-error="ciudadR" placeholder="Ciudad" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
-      <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="telefonoR" id="telefonoR" data-error="telefonoR" placeholder="Telefono" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
-      <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Twitter" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="twitterR" id="twitterR" data-error="twitterR" placeholder="Twitter" aria-describedby="sizing-addon1">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-      <input type="text" class="form-control" name="web" id="web" placeholder="Web" aria-describedby="sizing-addon1">
+      <input type="text" class="form-control" name="webR" id="webR" data-error="webR" placeholder="Web" aria-describedby="sizing-addon1">
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-success btn-form btn-block" value="Guardar">Registrar</button>
     </div>
   </form>
 </div>
+<div class="col-sm-5 col-sm-offset-1 consejos-cont">
+  <div class="col-sm-12 consejos consejosR">
+    <ul>
+      <li data-con="nombreR">El nombre no puede contener más de 30 caracteres ni estar vacío</li>
+      <li data-con="apellidosR">Los apellidos no pueden contener más de 50 caracteres ni estar vacío</li>
+      <li data-con="contrasenaR">Han de tener entre 8 y 50 caracteres</li>
+      <li data-con="repetirContrasenaR">Las contraseñas han de ser iguales</li>
+      <li data-con="emailR">El email ha de tener un formato valido</li>
+      <li data-con="ciudadR">La ciudad no puede contener más de 50 caracteres</li>
+      <li data-con="telefonoR">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+      <li data-con="twitterR">El twitter debe contener un formato correcto: @grupoEvenge</li>
+      <li data-con="webR">La web debe contener un formato correcto: http://nombreweb.dominio</li>
+    </ul>
+  </div>
+
+</div>
 <!--/Formulario usuario -->
 
+{% endblock %}
+
+{% block scriptFooter %}
+<script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/_dt/js/newuser.js"></script>
 {% endblock %}

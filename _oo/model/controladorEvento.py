@@ -20,6 +20,7 @@ from google.appengine.ext import ndb
 from _oo.classes.evento import Evento
 from _oo.classes.asistente import Asistente
 from datetime import datetime
+import logging
 
 """
 Este metodo devuelve un evento obtenido por su id
@@ -150,6 +151,8 @@ Agregar ponente a un evento.
   :idE = ID del evento
 """
 def setPonente(idP, idE):
-    evento = GetEventoById(int(idE))
+    logging.getLogger().setLevel(logging.DEBUG)
+    logging.error(idE)
+    evento = Evento().get_by_id(int(idE))
     evento.ponentes.append(str(idP))
     evento.put()

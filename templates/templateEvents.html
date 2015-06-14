@@ -40,7 +40,7 @@ GNU General Public License for more details.
 
   <div class="col-sm-12">
     {% if evento %}
-    <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ usuario.getKey() }}" class="event-content col-md-12 pad-panel">
+    <div data-hora="{{ evento.hora }}" data-fecha="{{ evento.fecha }}" data-id="{{ evento.getKey() }}" class="event-content col-md-12 pad-panel">
 
       <div class="titular-h1">
         <h1>{{ evento.nombre }}  <small>{{ evento.fecha }} - {{ evento.hora }}</small></h1>

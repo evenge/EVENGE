@@ -53,3 +53,47 @@
 - Buscar información de como podría configurarse el Shippable para Azure o otra máquina
 - Describir el método de despliegue que sigue Shippable
 - Describir como despliega el SDK si no tuviese Shippable
+
+/--------------MILESTONE-> Primera beta Evenge -------------/
+##### Usuario:
+- Avatar (hecho Fran)
+- [X] Mostrar eventos propios y de la organizacion (hecho Fran)
+- [X] Validacion login (hecho Ivan)
+- [ ] Validacion registro
+- [ ] Modificar datos usuario
+- [X] Mostrar pantalla de usuario (hecho Fran)
+
+##### Ponente:
+- [ ] Validacion ponente
+- [X] Modificar ponente (hecho Fran)
+
+##### Evento:
+- [ ] Validacion evento
+- [ ] Modificar evento
+- [ ] Introducir asistente al guardar en evento
+- [ ] Introducir ponente al guardar en evento
+- [ ] Lista de ponentes para añadir en evento
+
+##### Organizacion:
+- [X] Avatar (hecho Fran)
+- [ ] Validacion organizacion
+- [ ] Modificar datos organizacion
+- [X] Enviar invitación organización (hecho Fran)
+
+##### Asistente:
+- [ ] Validacion asistente
+- [ ] Eliminar asistente
+- [ ] Confirmar asistencia asistente
+
+##### Informes
+
+##### Otros
+- [ ] Comentar codigo
+- [ ] Panel de notificacion (si da tiempo)
+- [X] Diseño blog (hecho Carlos)
+- [X] Entradas blog (hecho Carlos)
+- [X] Diapositivas (hecho Carlos)
+
+##### Landpage:
+- [X] Corregir enlaces (hecho Fran)
+- [X] Información de herramientas (hecho Fran)

@@ -13,6 +13,9 @@ jQuery.validator.addMethod("telefono", function(value, element) {
   return this.optional(element) || /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/.test(value);
 }, "No es un telefono correcto");
 
+jQuery.validator.addMethod("mail", function(value, element) {
+  return this.optional(element) || /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/.test(value);
+}, "No es un email correcto");
 
 $(document).ready(function () {
   'use strict';

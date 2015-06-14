@@ -52,31 +52,63 @@ function afterSuccess(comment, disa) {
 
 $(document).ready(function() {
   //Esta funcion se encarga de controlar el funcionamiento del formulario para crear una organizacion
-  $('#iOrganizacion').on('submit', function (evt) {
-    evt.preventDefault();
-    var name = $('#org-name').val();
-    var web = $('#org-web').val();
-    var twitter = $('#org-twitter').val();
-    var email = $('#org-mail').val();
-    var tel = $('#org-tel').val();
-
-    var data = {
-      'nombre': name,
-      'web': web,
-      'twitter': twitter,
-      'email': email,
-      'telefono': tel
-    };
-    
-    $.ajax({
-      type: 'POST',
-      url: '/iOrganizacion',
-      data: data,
-      success: function(resp) {
-        if (resp.response === 'true') { window.location = "/micuenta"; }
-        else alert('Ha habido un error');
+  $('#iOrganizacion').validate({
+    //Reglas de validacion
+    rules: {
+      orgname: {
+        required: true, //valor requerido
+        maxlength: 100 //maximo 30 caracteres
+      },
+      orgmail: {
+        required: true,
+        mail: true
+      },
+      orgtel: {
+        required: false
+      },
+      orgweb: {
+        web: true
+      },
+      orgtwitter: {
+        twitter: true
       }
-    });
+    },
+
+    //Esta funcion se encarga de cambiar el color de la frase en funcion del error
+    //$(element[0]).data('error') - obtenemos el data-error del input
+    //$('li[data-con="'+$(element[0]).data('error')+'"]') - buscamos el data-con correspondiente
+    errorPlacement: function (error, element) {
+      $('li[data-con="'+$(element[0]).data('error')+'"]').css('color', '#d43539');
+    },
+
+    //Esta funcion se encarga de cambiar el color de la frase cuando esta correcto
+    success: function(label, element) {
+      $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
+    },
+    submitHandler: function () {
+      var name = $('#orgname').val();
+      var web = $('#orgweb').val();
+      var twitter = $('#orgtwitter').val();
+      var email = $('#orgmail').val();
+      var tel = $('#orgtel').val();
+
+      var data = {
+        'nombre': name,
+        'web': web,
+        'twitter': twitter,
+        'email': email,
+        'telefono': tel
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/iOrganizacion',
+        data: data,
+        success: function(resp) {
+          window.location = "/micuenta";
+        }
+      });
+    }
   });
 
   //Esta funcion se encarga de controlar el funcionamiento del formulario para enviar una invitacion
@@ -175,9 +207,15 @@ $(document).ready(function() {
     }
   });
 
+  //Estas funciones se encargan de deshabilitar el envio del formulario por defecto
   $('#modificar-usuario').on('submit', function (evt) {
     evt.preventDefault();
   });
+
+  $('#iOrganizacion').on('submit', function (evt) {
+    evt.preventDefault();
+  });
+
 
   //Esta funcion se encarga de actualizar la imagen del usuario
   $('#uImagenUsuarioF').submit( function() {

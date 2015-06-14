@@ -27,6 +27,7 @@ class Evento(ndb.Model):
     idCreador = ndb.StringProperty()
     hora = ndb.TimeProperty()
     fecha = ndb.DateProperty()
+    fechaInsercion = ndb.DateTimeProperty(auto_now_add=True)
     lugar = ndb.StringProperty()
     coordenadas = ndb.GeoPtProperty(indexed=False)
     descripcion = ndb.TextProperty(indexed=False)

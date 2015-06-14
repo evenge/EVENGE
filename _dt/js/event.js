@@ -24,10 +24,6 @@ $(document).ready(function() {
     });
   });
 
-  $("#inscribete-btn").click(function() {
-    $("#form-inscribete").slideToggle("7000");
-  });
-
   $('#form-ins').on('submit', function(evt) {
     evt.preventDefault();
     var data = {

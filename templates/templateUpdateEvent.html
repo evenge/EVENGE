@@ -1,0 +1,108 @@
+<!--
+Evenge - gestor de eventos (events management)
+Copyright (C) 2014 - desarrollo.evenge@gmail.com
+Carlos Campos Fuentes | Francisco Javier Expósito Cruz | Iván Ortega Alba | Victor Coronas Lara
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+
+{% extends "templates/index.html" %}
+{# tittle: titulo de la página #}
+{% block title %}Modificar Evento{% endblock %}
+{% block styles %}
+<link type="text/css" rel="stylesheet" href="/_dt/css/templateNewEvent.css">
+{% endblock %}
+{# contenido central de la página #}
+{% block content %}
+<!--Formulario evento -->
+<div>
+  <div id="newevent-cont" class="evenge-form col-sm-6 col-lg-6">
+    <h1 class="h1-formtitle">Modificar evento</h1>
+    <form>
+      <input type="hidden" value=" {{ evento.getKey() }}", name="idEvento" id="idEvento">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-connectdevelop fa-fw"></i></span>
+        <input type="text" class="form-control size-35" id="nombre" name="nombre" value="{{ evento.nombre }}" placeholder="Nombre del evento" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o fa-fw"></i></span>
+        <input type="time"  class="form-control size-35" id="hora" name="hora" value="{{ evento.hora }}" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-calendar-o fa-fw"></i></span>
+        <input type="date" class="form-control size-35" id="fecha" name="fecha" value="{{ evento.fecha }}" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-users fa-fw"></i></span>
+        <input type="number" min="0" class="form-control size-35" id="cantidadAsistentes" name="cantidadAsistentes" value=" {{ evento.asistentes }}" placeholder="Número máximo de asistentes" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
+        <textarea class="form-control" rows="6" placeholder="Introduce la descripción del proyecto"
+                  name="descripcion" id="descripcion">{{ evento.descripcion }}</textarea>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe fa-fw"></i></span>
+        <input type="text" class="form-control size-35" id="lugar" name="lugar" value=" {{ evento.lugar }}" placeholder="Lugar" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <label class="checkbox-inline">
+          <input type="checkbox" name="asistencia" id="asistencia"> Control de asistencia necesario
+        </label>
+      </div>
+      <div class="btn-group btn-block" role="group" aria-label="">
+        <button style="width: 50%;" data-type="public" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle-o"></i> Evento Público</button>
+        <button style="width: 50%;" data-type="private" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle"></i> Evento Privado</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-6">
+    <div data-id="{{ usuario.getKey() }}" class="select-content col-sm-12">
+      <h4>Selecciona el perfil con el que modificar tu evento.</h4>
+      <div class="col-sm-12 event-org">
+        <div class="evenge-check-cont">
+          <span data-us="1" data-key="{{ usuario.getKey() }}" class="evenge-check selected"></span>
+          <strong>{{ usuario.nombre }} {{ usuario.apellidos }}</strong>
+        </div>
+        {% if organizacion %}
+        <div class="evenge-check-cont">
+          <span data-us="2" data-key="{{ organizacion.getKey() }}" class="evenge-check"></span>
+          <strong>{{ organizacion.nombre }}</strong>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="map-content col-sm-12">
+      <div class="row">
+        <div class="consejos-evento col-sm-12">
+          <h4>Selecciona la localización de lugar del evento</h4>
+          <ul>
+            <li>Busca la localización en el cuadro de busqueda.</li>
+            <li>Selecciona en el mapa el lugar exacto.</li>
+            <li>Continua creando tu evento</li>
+          </ul>
+        </div>
+        <input id="pac-input" class="controls" type="text" placeholder="Inserta dirección">
+        <div style="min-width: 310px; height: 330px; margin: 0 auto" id="map-canvas" data-coord="{{ evento.coordenadas }}"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--/Formulario evento -->
+{% endblock %}
+
+{% block scriptFooter %}
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script type="text/javascript" src="/_dt/js/updateevent.js"></script>
+{% endblock %}

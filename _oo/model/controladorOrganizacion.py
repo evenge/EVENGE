@@ -14,6 +14,7 @@
 # GNU General Public License for more details.
 
 from google.appengine.ext import ndb
+from google.appengine.api import images
 from _oo.classes.organizacion import Organizacion
 from _oo.classes.invitacion import Invitacion
 import logging
@@ -60,4 +61,10 @@ def deleteInvitacion(idO, ema):
     for inv in o.invitaciones:
         if inv.email == ema:
             o.invitaciones.remove(inv)
+
+def setImage(img, idO):
+    o = Organizacion().get_by_id(int(idO))
+    img = images.resize(img, 150, 150)
+    o.avatar = img
+    o.put()
 

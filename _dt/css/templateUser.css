@@ -69,3 +69,13 @@ GNU General Public License for more details.
 .invitacion h1 {
   text-align: left;
 }
+
+.avatar-img img {
+  display: inline-block;
+  max-height: 60px;
+  max-width: 60px;
+}
+
+.up-img {
+  margin-bottom: 20px;
+}

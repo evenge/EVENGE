@@ -1,3 +1,5 @@
+var up = false; //variable utilizada para decidir si mostar exito al subir imagen o no
+
 $(document).ready(function() {
   $('#iOrganizacion').on('submit', function (evt) {
     evt.preventDefault();
@@ -60,10 +62,23 @@ $(document).ready(function() {
     console.log(img);
   });
 
-  $('#uImagenUsuarioF').submit(function() {
+  $('#uImagenUsuarioF').submit( function() {
     var options = {
-      target: '#imgU',
-      beforeSubmit:  beforeSubmit,
+      target: '#update',
+      beforeSubmit: beforeSubmit($('#imgU'), $('#output')),
+      success: afterSuccess($('#output'), $('#uImagenUsuarioF .btn-form')),
+      resetForm: true
+    };
+
+    $(this).ajaxSubmit(options);
+      return false;
+  });
+
+  $('#uImagenOrganizacionF').submit( function() {
+    var options = {
+      target: '#update2',
+      beforeSubmit: beforeSubmit($('#imgO'), $('#output2')),
+      success: afterSuccess($('#output2'), $('#uImagenOrganizacionF .btn-form')),
       resetForm: true
     };
 
@@ -73,33 +88,42 @@ $(document).ready(function() {
 });
 
 
-function beforeSubmit(){
+function beforeSubmit(img, com) {
   if (window.File && window.FileReader && window.FileList && window.Blob) {
-    if( !$('#imgU').val()) {
-      $("#output").html("Introduce alguna imagen");
+    if( !$(img).val()) {
+      $(com).html("Introduce alguna imagen");
       return false
     }
 
-    var fsize = $('#imgU')[0].files[0].size;
-    var ftype = $('#imgU')[0].files[0].type;
+    var fsize = $(img)[0].files[0].size;
+    var ftype = $(img)[0].files[0].type;
 
     switch(ftype) {
-      case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+      case 'image/png': case 'image/gif': case 'image/jpeg':
         break;
       default:
-        $("#output").html("<b>"+ftype+"</b> Formato no permitido!");
+        $(com).html("Formato no permitido (jpg, png, gif)");
         return false
     }
 
-    if(fsize>1048576) {
-      $("#output").html("<b>"+fsize +"</b> El archivo pesa demasiado, solo están permitidas imagenes de menos de 1MB");
+    if(fsize>548576) {
+      $(com).html("El archivo pesa demasiado, solo están permitidas imagenes de menos de 500KB");
       return false
     }
 
-    $("#output").html("");
+    $(com).html("");
+    up = true;
 
   } else {
-    $("#output").html("Por favor, actualiza tu navegador para soportar la subida de imágenes");
+    $(com).html("Por favor, actualiza tu navegador para soportar la subida de imágenes");
     return false;
+  }
+}
+
+function afterSuccess (comment, disa) {
+  if (up) {
+    $(comment).html('Imagen actualizada correctamente');
+    $(disa).addClass('disabled');
+    up = false;
   }
 }

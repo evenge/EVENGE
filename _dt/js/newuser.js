@@ -49,6 +49,40 @@ $(document).ready(function() {
       /*Marca la opción cuando se cumple del formulario*/
       success: function(label, element) {
         $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
-      }
+    },
+    submitHandler: function () {
+      var nombre = $('#nombreR').val();
+      var apellidos = $('#apellidosR').val();
+      var email = $('#emailR').val();
+      var contrasena = $('#contrasenaR').val();
+      var tel = $('#telefonoR').val();
+      var ciudad = $('#ciudadR').val();
+      var web = $('#webR').val();
+      var twitter = $('#twitterR').val();
+
+
+      //Datos del usuario
+      var data = {
+        'nombre': nombre,
+        'apellidos': apellidos,
+        'email': email,
+        'contrasena': contrasena,
+        'ciudad': ciudad,
+        'web': web,
+        'twitter': twitter,
+        'telefono': tel
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/registrate',
+        data: data,
+        success: function(resp) {
+            console.log(resp.response);
+          if (resp.response == true) { window.location = "/login"; }
+          else alert('Ha habido un error');
+        }
+      });
+    }
     });
 });

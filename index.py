@@ -445,7 +445,12 @@ class NuevoUsuario(webapp2.RequestHandler):
         web = self.request.get("web").strip()
         password = self.request.get("contrasena").strip()
         idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, password, ciudad)
-        self.redirect('/login')
+        if(idNuevoUsuario):
+            resp = {'response': True}
+            self.response.headers['Content-Type'] = 'application/json'
+            self.response.write(json.dumps(resp))
+        else:
+            self.response.write(json.dumps({'response': 'false'}))
 
 
 class Login(webapp2.RequestHandler):

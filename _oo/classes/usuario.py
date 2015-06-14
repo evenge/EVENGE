@@ -24,6 +24,7 @@ class Usuario(ndb.Model):
     apellidos = ndb.StringProperty()
     email = ndb.StringProperty()
     ciudad = ndb.StringProperty()
+    avatar = ndb.BlobProperty(default=None)
     password = ndb.StringProperty(indexed=False)
     telefono = ndb.StringProperty(indexed=False)
     twitter = ndb.StringProperty(indexed=False)

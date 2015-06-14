@@ -663,6 +663,26 @@ class InvitacionOrganizacion(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
 
+class SubirImagenUsuario(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        img = self.request.get("imgU")
+        controladorUsuario.setImage(img, user.getKey())
+
+class GetImagenUsuario(webapp2.RequestHandler):
+    def get(self):
+        idU = self.request.get('id')
+        tipo = self.request.get('tipo')
+        avatar = []
+        if tipo == "1":
+            avatar = controladorUsuario.getUsuarioById(idU).avatar
+        elif tipo == "2":
+            avatar = controladorOrganizacion.getOrganizacion(idU).avatar
+        else:
+            avatar = controladorPonente.getPonente(idU).avatar
+
+        self.response.headers['Content-Type'] = "image/png"
+        self.response.out.write(avatar)
 
 
 application = webapp2.WSGIApplication([
@@ -683,6 +703,8 @@ application = webapp2.WSGIApplication([
     ('/mPonente*', ModificarPonente),
     ('/cuenta*', MostrarCuenta),
     ('/invitacion*', InvitacionOrganizacion),
+    ('/uImagenUsuario', SubirImagenUsuario),
+    ('/gImagenUsuario', GetImagenUsuario),
     ('/.*', MostrarError)
 ], debug=True)
 

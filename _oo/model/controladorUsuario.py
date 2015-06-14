@@ -16,6 +16,7 @@ import os
 import urllib
 import webapp2
 from google.appengine.ext import ndb
+from google.appengine.api import images
 from _oo.classes.usuario import Usuario
 from _oo.model import moduloEmail
 import logging
@@ -116,3 +117,10 @@ def getOrganizacion(idU):
         return False
 
     return u.organizacion
+
+
+def setImage(img, idU):
+    u = getUsuarioById(int(idU))
+    img = images.resize(img, 150, 150)
+    u.avatar = img
+    u.put()

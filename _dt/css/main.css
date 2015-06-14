@@ -566,3 +566,23 @@ form .btn-form:focus {
 .modal-header .close:hover {
   opacity: 1;
 }
+
+.consejos-cont {
+  border-left: 1px solid #c8c8c8;
+}
+
+.consejos {
+  color: #7c7c7c;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.consejos ul {
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 20px 20px 20px 40px;
+}
+
+.consejos ul li {
+  margin-bottom: 5px;
+}

@@ -177,6 +177,7 @@ $(document).ready(function() {
     success: function(label, element) {
       $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
     },
+
     submitHandler: function () {
       var nombre = $('#nombreU').val();
       var web = $('#webU').val();
@@ -200,8 +201,64 @@ $(document).ready(function() {
         url: '/mUsuario',
         data: data,
         success: function(resp) {
-          if (resp.response === 'true') { window.location = "/micuenta"; }
-          else alert('Ha habido un error');
+          window.location = "/micuenta";
+        }
+      });
+    }
+  });
+
+  //Funcion que se encarga de controlar el funcionamiento del formulario para modificar la organizacion
+  $('#modificar-organizacion').validate({
+    //Reglas de validacion
+    rules: {
+      nombreO: {
+        required: true, //valor requerido
+        maxlength: 100 //maximo 100 caracteres
+      },
+      telefonoO: {
+        required: false
+      },
+      webO: {
+        web: true
+      },
+      twitterO: {
+        twitter: true
+      }
+    },
+
+    //Esta funcion se encarga de cambiar el color de la frase en funcion del error
+    //$(element[0]).data('error') - obtenemos el data-error del input
+    //$('li[data-con="'+$(element[0]).data('error')+'"]') - buscamos el data-con correspondiente
+    errorPlacement: function (error, element) {
+      $('li[data-con="'+$(element[0]).data('error')+'"]').css('color', '#d43539');
+    },
+
+    //Esta funcion se encarga de cambiar el color de la frase cuando esta correcto
+    success: function(label, element) {
+      $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
+    },
+
+    //Si se valida el formulario lo enviamos
+    submitHandler: function () {
+      var nombre = $('#nombreO').val();
+      var web = $('#webO').val();
+      var twitter = $('#twitterO').val();
+      var tel = $('#telefonoO').val();
+
+      var data = {
+        'nombre': nombre,
+        'web': web,
+        'twitter': twitter,
+        'telefono': tel,
+        'idOrg': $('.invitacion').data('key')
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/moOrganizacion',
+        data: data,
+        success: function(resp) {
+          window.location = "/micuenta";
         }
       });
     }
@@ -216,6 +273,9 @@ $(document).ready(function() {
     evt.preventDefault();
   });
 
+  $('#modificar-organizacion').on('submit', function (evt) {
+    evt.preventDefault();
+  });
 
   //Esta funcion se encarga de actualizar la imagen del usuario
   $('#uImagenUsuarioF').submit( function() {

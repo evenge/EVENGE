@@ -431,9 +431,13 @@ class NuevoUsuario(webapp2.RequestHandler):
         """
         Muestra el formulario de registro de nuevo usuario
         """
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
-        self.response.write(template.render(template_values))
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user:
+            self.redirect("/micuenta")
+        else:
+            template_values = {}
+            template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
+            self.response.write(template.render(template_values))
 
     def post(self):
         nombre = self.request.get("nombre").strip()
@@ -713,6 +717,17 @@ class ModificarUsuario(webapp2.RequestHandler):
         self.response.write(json.dumps({'response': 'true'}))
 
 
+class ModificarOrganizacion(webapp2.RequestHandler):
+    def post(self):
+        nombre = self.request.get('nombre').strip()
+        twitter = self.request.get('twitter').strip()
+        tel = self.request.get('telefono').strip()
+        web = self.request.get('web').strip()
+        idOrg = self.request.get('idOrg').strip()
+        controladorOrganizacion.updateOrganizacion(nombre, tel, twitter, web, idOrg)
+
+        self.response.write(json.dumps({'response': 'true'}))
+
 
 application = webapp2.WSGIApplication([
     ('/', Index),
@@ -736,6 +751,7 @@ application = webapp2.WSGIApplication([
     ('/gImagenUsuario', GetImagenUsuario),
     ('/uImagenOrganizacion', SubirImagenOrganizacion),
     ('/mUsuario', ModificarUsuario),
+    ('/moOrganizacion', ModificarOrganizacion),
     ('/.*', MostrarError)
 ], debug=True)
 

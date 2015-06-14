@@ -68,3 +68,11 @@ def setImage(img, idO):
     o.avatar = img
     o.put()
 
+def updateOrganizacion(nombre, telefono, twitter, web, idO):
+    o = Organizacion().get_by_id(int(idO))
+    o.nombre = nombre
+    o.telefono = telefono
+    o.twitter = twitter
+    o.web = web
+    o.put()
+

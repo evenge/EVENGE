@@ -82,11 +82,12 @@ Edita un evento en el datastore
   :descripcion = descripcion del evento
   :asistencia = True si hay control de asistencia, False si no hay control de asistencia
 """
-def updateEvento(idE, nombre, tipo, idCreador, privado, hora, fecha, lugar, coordenadas, descripcion, asistencia):
-    evento = Evento().get_by_id(str(idE))
+def updateEvento(idE, nombre, tipo, privado, hora, fecha, lugar, lat, lon, descripcion, asistencia):
+    evento = Evento.get_by_id(int(idE))
     evento.nombre = nombre
     evento.tipo = tipo
-    evento.idCreador = str(idCreador)
+    evento.idCreador = evento.idCreador
+
     if privado == 'True':
         privado = True
     else:
@@ -95,7 +96,7 @@ def updateEvento(idE, nombre, tipo, idCreador, privado, hora, fecha, lugar, coor
     evento.hora = datetime.strptime(hora, "%H:%M").time()
     evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
     evento.lugar = lugar
-    evento.coordenadas = coordenadas
+    evento.coordenadas = ndb.GeoPt(lat, lon)
     evento.descripcion = descripcion
     if privado == 'True':
         asistencia = True

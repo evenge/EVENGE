@@ -33,6 +33,7 @@ import jinja2
 import webapp2
 import hashlib
 import json
+import logging
 from datetime import datetime
 
 """Método utilizado para recabar la información del usuario
@@ -178,6 +179,60 @@ class InsertarEvento(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
 
+class ModificarEvento(webapp2.RequestHandler):
+    """Es llamada por /iEvento. """
+    def get(self):
+        """
+        Desde llamada Get:
+        Si el usuario está logueado se devuelve la plantilla con el formulario para crear el evento
+        Si el usuario no está logueado se le redirige a /login
+        """
+        info = getInfo(self)
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idEvent = self.request.get('id')
+        event = controladorEvento.GetEventoById(idEvent)
+
+        if user == False:
+            self.redirect('/login')
+        else:
+            #Comprueba si el usuario pertenece a alguna organización
+            orgId = controladorUsuario.getOrganizacion(str(controladorUsuario.getKey(user)))
+            org = []
+            if orgId:
+                org = controladorOrganizacion.getOrganizacion(orgId)
+
+            template_values = {
+              'usuario': user,
+              'organizacion': org,
+              'info': info,
+              'evento': event
+            }
+            template = JINJA_ENVIRONMENT.get_template('templates/templateUpdateEvent.html')
+            self.response.write(template.render(template_values))
+    def post(self):
+        """
+        Por POST recoge los datos del formulario del evento, y modifica en BD.
+        """
+        idE = self.request.get('idE')
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idLogueado = str(controladorUsuario.getKey(user))
+        nombre = self.request.get('nombre')
+        hora = self.request.get('hora')
+        fecha = self.request.get('fecha')
+        descripcion = self.request.get('descripcion').strip()
+        lugar = self.request.get('lugar')
+        asistencia = self.request.get('asistencia')
+        lat = self.request.get('latitud')
+        lon = self.request.get('longitud')
+        privado = self.request.get('privado')
+        idCreador = self.request.get('idUser')
+        userT = self.request.get('userT')
+
+        resp = controladorEvento.updateEvento(idE, nombre, userT, privado, hora, fecha, lugar, lat, lon, descripcion, asistencia)
+
+        resp = {'response': True, 'idEvento': idE}
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(json.dumps(resp))
 
 class InsertarPonente(webapp2.RequestHandler):
     """Es llamada por /iPonente. """
@@ -431,9 +486,13 @@ class NuevoUsuario(webapp2.RequestHandler):
         """
         Muestra el formulario de registro de nuevo usuario
         """
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
-        self.response.write(template.render(template_values))
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user:
+            self.redirect("/micuenta")
+        else:
+            template_values = {}
+            template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
+            self.response.write(template.render(template_values))
 
     def post(self):
         nombre = self.request.get("nombre").strip()
@@ -713,10 +772,34 @@ class ModificarUsuario(webapp2.RequestHandler):
         self.response.write(json.dumps({'response': 'true'}))
 
 
+class ModificarOrganizacion(webapp2.RequestHandler):
+    def post(self):
+        nombre = self.request.get('nombre').strip()
+        twitter = self.request.get('twitter').strip()
+        tel = self.request.get('telefono').strip()
+        web = self.request.get('web').strip()
+        idOrg = self.request.get('idOrg').strip()
+        controladorOrganizacion.updateOrganizacion(nombre, tel, twitter, web, idOrg)
+
+        self.response.write(json.dumps({'response': 'true'}))
+
+
+class BorrarPonente(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idP = self.request.get('idP').strip()
+
+        if str(idP) in user.ponentes:
+            logging.getLogger().setLevel(logging.DEBUG)
+            logging.error(user.ponentes)
+            controladorUsuario.deletePonente(idP, user.getKey())
+            self.response.write(json.dumps({'response': 'true'}))
+
 
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
+    ('/mEvento', ModificarEvento),
     ('/iPonente', InsertarPonente),
     ('/miseventos', Index),
     ('/eventos*', MostrarEvento),
@@ -736,6 +819,8 @@ application = webapp2.WSGIApplication([
     ('/gImagenUsuario', GetImagenUsuario),
     ('/uImagenOrganizacion', SubirImagenOrganizacion),
     ('/mUsuario', ModificarUsuario),
+    ('/moOrganizacion', ModificarOrganizacion),
+    ('/bPonente', BorrarPonente),
     ('/.*', MostrarError)
 ], debug=True)
 

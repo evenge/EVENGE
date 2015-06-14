@@ -21,42 +21,57 @@ GNU General Public License for more details.
 {% block content %}
 
 <!--Formulario ponente -->
-<div class="evenge-form col-sm-8 col-sm-offset-2">
-  <h1 class="h1-formtitle" >Nuevo Ponente</h1>
-  <form id="iponente">
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="nombre-p"  id="nombre-p" placeholder="Nombre" aria-describedby="sizing-addon1">
+<div style="margin-top: 30px;" class="col-sm-12">
+  <div class="evenge-form col-sm-6">
+    <h1 class="h1-formtitle" >Nuevo Ponente</h1>
+    <form id="iponente">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="nombreP" name="nombreP"  id="nombreP" placeholder="Nombre" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="apellidosP" name="apellidosP" id="apellidosP" placeholder="Apellidos" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="emailP" name="emailP" id="emailP" placeholder="Email" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
+        <textarea class="form-control" rows="3" placeholder="Introduce la descripción del ponente" data-error="descripcionP" name="descripcionP" id="descripcionP"></textarea>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="telefonoP" name="telefonoP" id="telefonoP" placeholder="Telefono" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="twitterP" name="twitterP" id="twitterP" placeholder="Twitter" aria-describedby="sizing-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
+        <input type="text" class="form-control" data-error="webP" name="webP" id="webP" placeholder="Web" aria-describedby="sizing-addon1">
+      </div>
+      <button type="submit" class="btn btn-success btn-block btn-form">Guardar</button>
+    </form>
+  </div>
+
+  <div class="col-sm-5 col-sm-offset-1 consejos-cont">
+    <div class="col-sm-12 consejos consejosP">
+      <ul>
+        <li data-con="nombreP">El nombre no puede contener más de 30 caracteres ni estar vació</li>
+        <li data-con="apellidosP">Los apellidos no puede contener más de 50 caracteres ni estar vacío</li>
+        <li data-con="emailP">El email debe estar en un formato válido</li>
+        <li data-con="descripcionP">La descripcion deber contener menos de 240 caracteres</li>
+        <li data-con="telefonoP">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+        <li data-con="twitterP">El twitter debe contener un formato correcto: @grupoEvenge</li>
+        <li data-con="webP">La web debe contener un formato correcto: http://nombreweb.dominio</li>
+      </ul>
     </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user fa-fw"></i></span>
-      <input type="text" class="form-control" name="apellidos-p" id="apellidos-p" placeholder="Apellidos" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o fa-fw"></i></span>
-      <input type="text" class="form-control" name="email-p" id="email-p" placeholder="Email" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
-      <textarea class="form-control" rows="3" placeholder="Introduce la descripción del ponente" name="descripcion-p" id="descripcion-p"></textarea>
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-phone fa-fw"></i></span>
-      <input type="text" class="form-control" name="telefono-p" id="telefono-p" placeholder="Telefono" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-twitter fa-fw"></i></span>
-      <input type="text" class="form-control" name="twitter-p" id="twitter-p" placeholder="Twitter" aria-describedby="sizing-addon1">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-link fa-fw"></i></span>
-      <input type="text" class="form-control" name="web-p" id="web-p" placeholder="Web" aria-describedby="sizing-addon1">
-    </div>
-    <button type="submit" class="btn btn-success btn-block btn-form">Guardar</button>
-  </form>
+  </div>
 </div>
 <!--/Formulario ponente -->
-
 {% endblock %}
 
 {% block scriptFooter %}

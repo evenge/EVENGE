@@ -40,9 +40,20 @@ GNU General Public License for more details.
           <div class="col-sm-6">
             <h1>Modifica el avatar de tu perfil</h1>
             <form action="uImagenUsuario" method="post" enctype="multipart/form-data" id="uImagenUsuarioF">
-              <input name="imgU" id="imgU" type="file" />
-              <button type="submit" class="btn btn-success btn-form">Actualizar imagen</button>
-              <div id="output"></div>
+              <div class="form-group">
+                <div class="col-xs-2 avatar-img">
+                  {% if usuario.avatar %}
+                  <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ usuario.getKey() }}">
+                  {% else %}
+                  <img alt="avatar" src="/_dt/img/default_avatar.png">
+                  {% endif %}
+                </div>
+                <div class="col-xs-10 up-img">
+                  <input name="imgU" id="imgU" type="file" />
+                  <button type="submit" class="btn btn-success btn-form">Actualizar imagen</button>
+                  <div id="output"></div>
+                </div>
+              </div>
             </form>
 
             <h1>Modifica la información de tu perfil</h1>
@@ -119,6 +130,24 @@ GNU General Public License for more details.
         <div class="col-sm-12">
           {% if organizacion %}
           <div class="col-sm-6">
+            <h1>Modifica el avatar de la organización</h1>
+            <form action="uImagenOrganizacion" method="post" enctype="multipart/form-data" id="uImagenOrganizacionF">
+              <div class="form-group">
+                <div class="col-xs-2 avatar-img">
+                  {% if organizacion.avatar %}
+                  <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ organizacion.getKey() }}">
+                  {% else %}
+                  <img alt="avatar" src="/_dt/img/default_avatar.png">
+                  {% endif %}
+                </div>
+                <div class="col-xs-10 up-img">
+                  <input name="imgO" id="imgO" type="file" />
+                  <button type="submit" class="btn btn-success btn-form">Actualizar imagen</button>
+                  <div id="output2"></div>
+                </div>
+              </div>
+            </form>
+
             <h1>Modifica la información de tu organización</h1>
             <form id="modificar-organizacion" class="form-horizontal">
               <div class="form-group">

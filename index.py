@@ -688,6 +688,12 @@ class GetImagenUsuario(webapp2.RequestHandler):
         self.response.out.write(avatar)
 
 
+class SubirImagenOrganizacion(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        img = self.request.get("imgO")
+        controladorOrganizacion.setImage(img, user.organizacion)
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -708,6 +714,7 @@ application = webapp2.WSGIApplication([
     ('/invitacion*', InvitacionOrganizacion),
     ('/uImagenUsuario', SubirImagenUsuario),
     ('/gImagenUsuario', GetImagenUsuario),
+    ('/uImagenOrganizacion', SubirImagenOrganizacion),
     ('/.*', MostrarError)
 ], debug=True)
 

@@ -157,8 +157,8 @@ GNU General Public License for more details.
                 <div class="col-sm-3">
                   <div class="col-sm-12 ponente">
                     <div class="imagen">
-                      {% if organizacion.avatar %}
-                      <img alt="avatar" src="gImagenUsuario?tipo=3&id={{ organizacion.getKey() }}">
+                      {% if p.avatar %}
+                      <img alt="avatar" src="gImagenUsuario?tipo=3&id={{ p.getKey() }}">
                       {% else %}
                       <img alt="avatar" src="/_dt/img/default_avatar.png">
                       {% endif %}

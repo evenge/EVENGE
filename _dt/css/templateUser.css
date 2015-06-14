@@ -41,26 +41,6 @@ GNU General Public License for more details.
   background: #f4f4f4;
 }
 
-.consejos-cont {
-  border-left: 1px solid #c8c8c8;
-}
-
-.consejos {
-  color: #7c7c7c;
-  margin-top: 20px;
-  padding: 0;
-}
-
-.consejos ul {
-  border-radius: 5px;
-  font-size: 13px;
-  padding: 20px 20px 20px 40px;
-}
-
-.consejos ul li {
-  margin-bottom: 5px;
-}
-
 .invitacion {
   margin-top: 20px;
 }

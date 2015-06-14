@@ -151,33 +151,33 @@ GNU General Public License for more details.
             <h1>Modifica la información de tu organización</h1>
             <form id="modificar-organizacion" class="form-horizontal">
               <div class="form-group">
-                <label data-error="nombreO" for="nombreO" class="col-sm-2 control-label">Nombre:</label>
+                <label for="nombreO" class="col-sm-2 control-label">Nombre:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="nombreO" id="nombreO" value="{{ organizacion.nombre }}">
+                  <input data-error="nombreO" type="text" class="form-control" name="nombreO" id="nombreO" value="{{ organizacion.nombre }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="emailO" class="col-sm-2 control-label">Email:</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" name="emailO" id="emailO" value="{{ organizacion.email }}">
+                  <input type="email" class="form-control" data-error="emailO" name="emailO" id="emailO" value="{{ organizacion.email }}" readonly>
                 </div>
               </div>
               <div class="form-group">
                 <label for="telefonoO" class="col-sm-2 control-label">Teléfono:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="telefonoO" id="telefonoO" value="{{ organizacion.telefono }}">
+                  <input type="text" class="form-control" data-error="telefonoO" name="telefonoO" id="telefonoO" value="{{ organizacion.telefono }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="twitterO" class="col-sm-2 control-label">Twitter:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="twitterO" id="twitterO" value="{{ organizacion.twitter }}">
+                  <input type="text" class="form-control" data-error="twitterO" name="twitterO" id="twitterO" value="{{ organizacion.twitter }}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="webO" class="col-sm-2 control-label">Web:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="webO" id="webO" value="{{ organizacion.web }}">
+                  <input type="text" class="form-control" data-error="webO" name="webO" id="webO" value="{{ organizacion.web }}">
                 </div>
               </div>
               <div class="form-group">
@@ -220,8 +220,9 @@ GNU General Public License for more details.
             {% if organizacion %}
             <div class="col-sm-12 consejos consejosO">
               <ul>
+                <li data-con="emailO">No puedes modificar el email</li>
                 <li data-con="nombreO">El nombre no puede contener más de 100 caracteres ni estar vacío</li>
-                <li data-con="tlfO">El telefono debe contener un formato correcto: XXXXXXXXX</li>
+                <li data-con="telefonoO">El telefono debe contener un formato correcto: XXXXXXXXX</li>
                 <li data-con="twitterO">El twitter debe contener un formato correcto: @grupoEvenge</li>
                 <li data-con="webO">La web debe contener un formato correcto: http://nombreweb.dominio</li>
               </ul>

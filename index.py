@@ -512,7 +512,7 @@ class EliminarEvento(webapp2.RequestHandler):
         if user is False:
             self.redirect("/")
         else:
-            ret = controladorEvento.DeleteEvento(idEvento)
+            ret = controladorEvento.deleteEvento(idEvento)
             resp = {'response': ret}
             self.response.headers['Content-Type'] = 'application/json'
             self.response.write(json.dumps(resp))

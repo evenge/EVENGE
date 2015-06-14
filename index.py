@@ -33,6 +33,7 @@ import jinja2
 import webapp2
 import hashlib
 import json
+import logging
 from datetime import datetime
 
 """Método utilizado para recabar la información del usuario
@@ -724,6 +725,18 @@ class ModificarOrganizacion(webapp2.RequestHandler):
         self.response.write(json.dumps({'response': 'true'}))
 
 
+class BorrarPonente(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idP = self.request.get('idP').strip()
+
+        if str(idP) in user.ponentes:
+            logging.getLogger().setLevel(logging.DEBUG)
+            logging.error(user.ponentes)
+            controladorUsuario.deletePonente(idP, user.getKey())
+            self.response.write(json.dumps({'response': 'true'}))
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -747,6 +760,7 @@ application = webapp2.WSGIApplication([
     ('/uImagenOrganizacion', SubirImagenOrganizacion),
     ('/mUsuario', ModificarUsuario),
     ('/moOrganizacion', ModificarOrganizacion),
+    ('/bPonente', BorrarPonente),
     ('/.*', MostrarError)
 ], debug=True)
 

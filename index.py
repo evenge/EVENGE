@@ -523,7 +523,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
         user = controladorUsuario.getUsuarioLogeado(self)
 
         if user is False:
-            self.response.write(json.dumps({'reponse': 'false'}))
+            self.response.write(json.dumps({'response': 'false'}))
         else:
             nombre = self.request.get('nombre').strip()
             mail = self.request.get('email').strip()
@@ -534,7 +534,7 @@ class CrearOrganizacion(webapp2.RequestHandler):
             controladorOrganizacion.setUsuarioOrganizacion(idOrganizacion, user.key.id())
             controladorUsuario.setOrganizacion(idOrganizacion, user.key.id())
 
-            self.response.write(json.dumps({'reponse': 'true'}))
+            self.response.write(json.dumps({'response': 'true'}))
 
 class InsertarAsistente(webapp2.RequestHandler):
     """Es llamada por /iAsistente"""
@@ -697,14 +697,15 @@ class SubirImagenOrganizacion(webapp2.RequestHandler):
 
 class ModificarUsuario(webapp2.RequestHandler):
     def post(self):
-        nombre = self.request.get("nombreU").strip()
-        apellidos = self.request.get("apellidosU").strip()
-        telefono = self.request.get("telefonoU").strip()
-        twitter = self.request.get("twitterU").strip()
-        ciudad = self.request.get("ciudadU").strip()
-        web = self.request.get("webU").strip()
-        controladorUsuario.modificarUsuario(nombreU, apellidosU, telefonoU, twitterU, webU, ciudadU)
-        self.response.write(json.dumps({'reponse': 'true'}))
+        u = controladorUsuario.getUsuarioLogeado(self)
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        ciudad = self.request.get("ciudad").strip()
+        web = self.request.get("web").strip()
+        controladorUsuario.modificarUsuario(nombre, apellidos, telefono, twitter, web, ciudad, u.getKey())
+        self.response.write(json.dumps({'response': 'true'}))
 
 
 

@@ -60,7 +60,7 @@
 - [X] Mostrar eventos propios y de la organizacion (hecho Fran)
 - [X] Validacion login (hecho Ivan)
 - [ ] Validacion registro
-- [ ] Modificar datos usuario
+- [X] Modificar datos usuario (hecho Fran)
 - [X] Mostrar pantalla de usuario (hecho Fran)
 
 ##### Ponente:

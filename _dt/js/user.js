@@ -101,10 +101,6 @@ $(document).ready(function() {
 
   $('#modificar-usuario').validate({
     rules: {
-      emailU: {
-        required: true,
-        email: true
-      },
       nombreU: {
         required: true,
         maxlength: 30
@@ -116,11 +112,14 @@ $(document).ready(function() {
       ciudadU: {
         maxlength: 50
       },
-      tlfU: {
-        matches: "[0-9]+"
+      telefonoU: {
+        required: true
+      },
+      webU: {
+        required: true
       },
       twitterU: {
-
+        twitter: true
       }
     },
 
@@ -131,12 +130,11 @@ $(document).ready(function() {
       $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
     },
     submitHandler: function () {
-      var nombre = $('#nombreU').val();
+      /*var nombre = $('#nombreU').val();
       var web = $('#webU').val();
       var twitter = $('#twitterU').val();
       var apellidos = $('#apellidosU').val();
       var ciudad = $('#ciudadU').val();
-      var email = $('#emailU').val();
       var tel = $('#telefonoU').val();
 
       var data = {
@@ -145,20 +143,23 @@ $(document).ready(function() {
         'ciudad': ciudad,
         'web': web,
         'twitter': twitter,
-        'email': email,
         'telefono': tel
       };
 
       $.ajax({
         type: 'POST',
-        url: '/iOrganizacion',
+        url: '/mUsuario',
         data: data,
         success: function(resp) {
           if (resp.response === 'true') { window.location = "/micuenta"; }
           else alert('Ha habido un error');
         }
-      });
+      });*/
     }
+  });
+
+  $('#modificar-usuario').on('submit', function (evt) {
+    evt.preventDefault();
   });
 
   $('#uImagenUsuarioF').submit( function() {

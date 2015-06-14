@@ -124,3 +124,13 @@ def setImage(img, idU):
     img = images.resize(img, 150, 150)
     u.avatar = img
     u.put()
+
+def modificarUsuario(nombre, apellidos, telefono, twitter, web, ciudad, idU):
+    u = getUsuarioById(int(idU))
+    u.nombre = nombre
+    u.apellidos = apellidos
+    u.telefono = telefono
+    u.ciudad = ciudad
+    u.twitter = twitter
+    u.web = web
+    u.put()

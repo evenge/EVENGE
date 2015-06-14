@@ -445,7 +445,7 @@ class NuevoUsuario(webapp2.RequestHandler):
         web = self.request.get("web").strip()
         password = self.request.get("contrasena").strip()
         idNuevoUsuario = controladorUsuario.nuevoRegistroUsuario(nombre, apellidos, email, telefono, twitter, web, password, ciudad)
-        self.redirect('/')
+        self.redirect('/login')
 
 
 class Login(webapp2.RequestHandler):
@@ -695,6 +695,19 @@ class SubirImagenOrganizacion(webapp2.RequestHandler):
         img = self.request.get("imgO")
         controladorOrganizacion.setImage(img, user.organizacion)
 
+class ModificarUsuario(webapp2.RequestHandler):
+    def post(self):
+        nombre = self.request.get("nombreU").strip()
+        apellidos = self.request.get("apellidosU").strip()
+        telefono = self.request.get("telefonoU").strip()
+        twitter = self.request.get("twitterU").strip()
+        ciudad = self.request.get("ciudadU").strip()
+        web = self.request.get("webU").strip()
+        controladorUsuario.modificarUsuario(nombreU, apellidosU, telefonoU, twitterU, webU, ciudadU)
+        self.response.write(json.dumps({'reponse': 'true'}))
+
+
+
 application = webapp2.WSGIApplication([
     ('/', Index),
     ('/iEvento', InsertarEvento),
@@ -716,6 +729,7 @@ application = webapp2.WSGIApplication([
     ('/uImagenUsuario', SubirImagenUsuario),
     ('/gImagenUsuario', GetImagenUsuario),
     ('/uImagenOrganizacion', SubirImagenOrganizacion),
+    ('/mUsuario', ModificarUsuario),
     ('/.*', MostrarError)
 ], debug=True)
 

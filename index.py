@@ -697,13 +697,13 @@ class SubirImagenOrganizacion(webapp2.RequestHandler):
 
 class ModificarUsuario(webapp2.RequestHandler):
     def post(self):
-        nombre = self.request.get("nombreU").strip()
-        apellidos = self.request.get("apellidosU").strip()
-        telefono = self.request.get("telefonoU").strip()
-        twitter = self.request.get("twitterU").strip()
-        ciudad = self.request.get("ciudadU").strip()
-        web = self.request.get("webU").strip()
-        controladorUsuario.modificarUsuario(nombreU, apellidosU, telefonoU, twitterU, webU, ciudadU)
+        nombre = self.request.get("nombre").strip()
+        apellidos = self.request.get("apellidos").strip()
+        telefono = self.request.get("telefono").strip()
+        twitter = self.request.get("twitter").strip()
+        ciudad = self.request.get("ciudad").strip()
+        web = self.request.get("web").strip()
+        controladorUsuario.modificarUsuario(nombre, apellidos, telefono, twitter, web, ciudad)
         self.response.write(json.dumps({'reponse': 'true'}))
 
 

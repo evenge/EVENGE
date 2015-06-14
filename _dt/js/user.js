@@ -113,10 +113,10 @@ $(document).ready(function() {
         maxlength: 50
       },
       telefonoU: {
-        required: true
+        telefono: true
       },
       webU: {
-        required: true
+        web: true
       },
       twitterU: {
         twitter: true

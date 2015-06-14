@@ -5,6 +5,14 @@ jQuery.validator.addMethod("twitter", function(value, element) {
   return this.optional(element) || /@([A-Za-z0-9_])+/.test(value);
 }, "No es una cuenta de twitter correcta");
 
+jQuery.validator.addMethod("web", function(value, element) {
+  return this.optional(element) || /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \?=.-]*)*\/?$/.test(value);
+}, "No es una web correcta");
+
+jQuery.validator.addMethod("telefono", function(value, element) {
+  return this.optional(element) || /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/.test(value);
+}, "No es un telefono correcto");
+
 
 $(document).ready(function () {
   'use strict';

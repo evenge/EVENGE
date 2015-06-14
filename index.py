@@ -431,9 +431,13 @@ class NuevoUsuario(webapp2.RequestHandler):
         """
         Muestra el formulario de registro de nuevo usuario
         """
-        template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
-        self.response.write(template.render(template_values))
+        user = controladorUsuario.getUsuarioLogeado(self)
+        if user:
+            self.redirect("/micuenta")
+        else:
+            template_values = {}
+            template = JINJA_ENVIRONMENT.get_template('templates/templatesNewUser.html')
+            self.response.write(template.render(template_values))
 
     def post(self):
         nombre = self.request.get("nombre").strip()

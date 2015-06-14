@@ -1,93 +1,5 @@
 var up = false; //variable utilizada para decidir si mostar exito al subir imagen o no
 
-$(document).ready(function() {
-  $('#iOrganizacion').on('submit', function (evt) {
-    evt.preventDefault();
-    var name = $('#org-name').val();
-    var web = $('#org-web').val();
-    var twitter = $('#org-twitter').val();
-    var email = $('#org-mail').val();
-    var tel = $('#org-tel').val();
-    
-    var data = {
-      'nombre': name,
-      'web': web,
-      'twitter': twitter,
-      'email': email,
-      'telefono': tel
-    };
-    
-    $.ajax({
-      type: 'POST',
-      url: '/iOrganizacion',
-      data: data,
-      success: function(resp) {
-        if (resp.response === 'true') { window.location = "/micuenta"; }
-        else alert('Ha habido un error');
-      }
-    });
-  });
-
-  $('#einvitacion').on('submit', function(evt) {
-    evt.preventDefault();
-    var email = $('#emailI').val();
-
-    var data = {
-      'email': email,
-      'idOrg': $('.invitacion').data('key')
-    };
-
-    $.ajax({
-      type: 'POST',
-      url: '/invitacion',
-      data: data,
-      success: function(resp) {
-        if (resp.response === 'true') {
-          var invi = '<tr><th>'+email+'</th><th>'+resp.fecha+'</th><th><a class="delete-invi" href="">' +
-              '<i class="fa fa-times"></i></a></th></tr>';
-
-          $('.invitaciones-pendientes tbody').append(invi)
-        } else {
-          alert('Ha habido un error');
-        }
-      }
-    });
-
-  });
-
-  $('#modificar-usuario').on('submit', function(evt) {
-    evt.preventDefault();
-
-    var img = $('#imgU').val();
-    console.log(img);
-  });
-
-  $('#uImagenUsuarioF').submit( function() {
-    var options = {
-      target: '#update',
-      beforeSubmit: beforeSubmit($('#imgU'), $('#output')),
-      success: afterSuccess($('#output'), $('#uImagenUsuarioF .btn-form')),
-      resetForm: true
-    };
-
-    $(this).ajaxSubmit(options);
-      return false;
-  });
-
-  $('#uImagenOrganizacionF').submit( function() {
-    var options = {
-      target: '#update2',
-      beforeSubmit: beforeSubmit($('#imgO'), $('#output2')),
-      success: afterSuccess($('#output2'), $('#uImagenOrganizacionF .btn-form')),
-      resetForm: true
-    };
-
-    $(this).ajaxSubmit(options);
-      return false;
-  });
-});
-
-
 function beforeSubmit(img, com) {
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     if( !$(img).val()) {
@@ -120,10 +32,156 @@ function beforeSubmit(img, com) {
   }
 }
 
-function afterSuccess (comment, disa) {
+function afterSuccess(comment, disa) {
   if (up) {
     $(comment).html('Imagen actualizada correctamente');
     $(disa).addClass('disabled');
     up = false;
   }
 }
+
+$(document).ready(function() {
+  $('#iOrganizacion').on('submit', function (evt) {
+    evt.preventDefault();
+    var name = $('#org-name').val();
+    var web = $('#org-web').val();
+    var twitter = $('#org-twitter').val();
+    var email = $('#org-mail').val();
+    var tel = $('#org-tel').val();
+    
+    var send = validarValor(email, '', $(), 1);
+
+    var data = {
+      'nombre': name,
+      'web': web,
+      'twitter': twitter,
+      'email': email,
+      'telefono': tel
+    };
+    
+    if (send) {
+      $.ajax({
+        type: 'POST',
+        url: '/iOrganizacion',
+        data: data,
+        success: function(resp) {
+          if (resp.response === 'true') { window.location = "/micuenta"; }
+          else alert('Ha habido un error');
+        }
+      });
+    }
+  });
+
+  $('#einvitacion').on('submit', function(evt) {
+    evt.preventDefault();
+    var email = $('#emailI').val();
+
+    var data = {
+      'email': email,
+      'idOrg': $('.invitacion').data('key')
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/invitacion',
+      data: data,
+      success: function(resp) {
+        if (resp.response === 'true') {
+          var invi = '<tr><th>'+email+'</th><th>'+resp.fecha+'</th><th><a class="delete-invi" href="">' +
+              '<i class="fa fa-times"></i></a></th></tr>';
+
+          $('.invitaciones-pendientes tbody').append(invi)
+        } else {
+          alert('Ha habido un error');
+        }
+      }
+    });
+
+  });
+
+  $('#modificar-usuario').validate({
+    rules: {
+      emailU: {
+        required: true,
+        email: true
+      },
+      nombreU: {
+        required: true,
+        maxlength: 30
+      },
+      apellidosU: {
+        required: true,
+        maxlength: 50
+      },
+      ciudadU: {
+        maxlength: 50
+      },
+      tlfU: {
+        matches: "[0-9]+"
+      },
+      twitterU: {
+
+      }
+    },
+
+    errorPlacement: function (error, element) {
+      $('li[data-con="'+$(element[0]).data('error')+'"]').css('color', '#d43539');
+    },
+    success: function(label, element) {
+      $('li[data-con="'+$(element).data('error')+'"]').css('color', '#7c7c7c');
+    },
+    submitHandler: function () {
+      var nombre = $('#nombreU').val();
+      var web = $('#webU').val();
+      var twitter = $('#twitterU').val();
+      var apellidos = $('#apellidosU').val();
+      var ciudad = $('#ciudadU').val();
+      var email = $('#emailU').val();
+      var tel = $('#telefonoU').val();
+
+      var data = {
+        'nombre': nombre,
+        'apellidos': apellidos,
+        'ciudad': ciudad,
+        'web': web,
+        'twitter': twitter,
+        'email': email,
+        'telefono': tel
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/iOrganizacion',
+        data: data,
+        success: function(resp) {
+          if (resp.response === 'true') { window.location = "/micuenta"; }
+          else alert('Ha habido un error');
+        }
+      });
+    }
+  });
+
+  $('#uImagenUsuarioF').submit( function() {
+    var options = {
+      target: '#update',
+      beforeSubmit: beforeSubmit($('#imgU'), $('#output')),
+      success: afterSuccess($('#output'), $('#uImagenUsuarioF .btn-form')),
+      resetForm: true
+    };
+
+    $(this).ajaxSubmit(options);
+      return false;
+  });
+
+  $('#uImagenOrganizacionF').submit( function() {
+    var options = {
+      target: '#update2',
+      beforeSubmit: beforeSubmit($('#imgO'), $('#output2')),
+      success: afterSuccess($('#output2'), $('#uImagenOrganizacionF .btn-form')),
+      resetForm: true
+    };
+
+    $(this).ajaxSubmit(options);
+      return false;
+  });
+});

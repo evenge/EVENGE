@@ -83,13 +83,21 @@ def updateEvento(idE, nombre, tipo, idCreador, privado, hora, fecha, lugar, coor
     evento = Evento().get_by_id(str(idE))
     evento.nombre = nombre
     evento.tipo = tipo
-    evento.idCreador = idCreador
+    evento.idCreador = str(idCreador)
+    if privado == 'True':
+        privado = True
+    else:
+        privado = False
     evento.privado = privado
-    evento.hora = hora
-    evento.fecha = fecha
+    evento.hora = datetime.strptime(hora, "%H:%M").time()
+    evento.fecha = datetime.strptime(fecha, "%Y-%m-%d")
     evento.lugar = lugar
     evento.coordenadas = coordenadas
     evento.descripcion = descripcion
+    if privado == 'True':
+        asistencia = True
+    else:
+        asistencia = False
     evento.asistencia = asistencia
 
     evento.put()

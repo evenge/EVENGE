@@ -272,7 +272,7 @@ class InsertarPonente(webapp2.RequestHandler):
         if str(guardar) == '1':
             controladorEvento.setPonente(idNuevoPonente, self.request.get("idEvento").strip())
 
-        resp = {'response': True}
+        resp = {'response': True, 'p': idNuevoPonente}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
 

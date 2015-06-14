@@ -88,9 +88,13 @@ $(document).ready(function() {
       type: 'POST',
       url: '/iPonente',
       data: data,
+      dataType: 'json',
       success: function(resp) {
         if (resp.response === true) {
           $('#modalPonente').modal('hide');
+          var p = resp.p;
+          var pon = '<div class="col-sm-3"><div class="col-sm-12 ponente"><div class="imagen"><img alt="avatar" src="/_dt/img/default_avatar.png"></div><div class="detalles detalles1 col-md-12"><h2>'+data.nombre+' '+data.apellidos+'</h2></div><div class="detalles detalle-d col-md-12"><h4>'+data.descripcion+'</h4></div><div class="detalles detalle-w col-md-12"><h3><a href="'+data.web+'"><i class="fa fa-link fa-fw"></i> '+data.web+'</a></h3></div><div class="detalles detalle-t col-md-12"><h3><a href="http://twitter.com/'+data.twitter+'"><i class="fa fa-twitter fa-fw"></i> '+data.twitter+'</a></h3></div><div class="detalles col-md-12"><h3><i class="fa fa-phone fa-fw"></i> '+data.telefono+'</h3></div></div>';
+          $('.ponentes-cont').append(pon);
         } else {
           alert('Ha habido un error');
         }

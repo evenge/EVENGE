@@ -157,3 +157,24 @@ def setPonente(idP, idE):
     evento = Evento().get_by_id(int(idE))
     evento.ponentes.append(str(idP))
     evento.put()
+
+def deleteAsistente(idE, dni):
+    index = 0
+    e = Evento().get_by_id(idE)
+    for a in e.asistentes:
+        if a.dni == dni:
+            del e.asistentes[index]
+            e.put()
+            return
+        index = index + 1
+
+
+def confirmarAsistente(idE, dni):
+    e = Evento().get_by_id(int(idE))
+    logging.getLogger().setLevel(logging.DEBUG)
+    logging.error(dni)
+    for a in e.asistentes:
+        if a.dni == dni:
+            a.asistido = True
+            e.put()
+            return

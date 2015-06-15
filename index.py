@@ -795,6 +795,22 @@ class BorrarPonente(webapp2.RequestHandler):
             controladorUsuario.deletePonente(idP, user.getKey())
             self.response.write(json.dumps({'response': 'true'}))
 
+class BorrarAsistente(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idE = self.request.get('idE').strip()
+        dni = self.request.get('dni').strip()
+        controladorEvento.deleteAsistente(idE, dni)
+        self.response.write(json.dumps({'response': 'true'}))
+
+class ConfirmarAsistente(webapp2.RequestHandler):
+    def post(self):
+        user = controladorUsuario.getUsuarioLogeado(self)
+        idE = self.request.get('idE').strip()
+        dni = self.request.get('dni').strip()
+        controladorEvento.confirmarAsistente(idE, dni)
+        self.response.write(json.dumps({'response': 'true'}))
+
 
 application = webapp2.WSGIApplication([
     ('/', Index),
@@ -821,6 +837,8 @@ application = webapp2.WSGIApplication([
     ('/mUsuario', ModificarUsuario),
     ('/moOrganizacion', ModificarOrganizacion),
     ('/bPonente', BorrarPonente),
+    ('/dAsistente', BorrarAsistente),
+    ('/cAsistente', ConfirmarAsistente),
     ('/.*', MostrarError)
 ], debug=True)
 

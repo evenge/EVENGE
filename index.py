@@ -272,7 +272,7 @@ class InsertarPonente(webapp2.RequestHandler):
         if str(guardar) == '1':
             controladorEvento.setPonente(idNuevoPonente, self.request.get("idEvento").strip())
 
-        resp = {'response': True}
+        resp = {'response': True, 'p': idNuevoPonente}
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(json.dumps(resp))
 
@@ -721,9 +721,9 @@ class InvitacionOrganizacion(webapp2.RequestHandler):
         fechaInv = controladorOrganizacion.createInvitacion(idOrg, email)
 
         o = controladorOrganizacion.getOrganizacion(idOrg)
-        contain = "http://evenge-2014.appspot.com/invitacion?id="+idOrg+"?email="+email
+        contain = "http://evenge-2014.appspot.com/invitacion?id="+idOrg+"&email="+email
 
-        moduloEmail.enviarEmail("8macau8@gmail.com","Has sido invitado a unirte a una organización",contain)
+        moduloEmail.enviarEmail(email,"Has sido invitado a unirte a una organización",contain)
         resp = {
           'response': 'true',
           'fecha': str(fechaInv)

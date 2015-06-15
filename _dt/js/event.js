@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   $('.select-asistentes').select2();
 
-  $('#delete-href').on('click', function(evt) {
+  $('.delete-eve').on('click', function(evt) {
     evt.preventDefault();
     var data = {
       'id': $('.event-content').data('id')
@@ -28,6 +28,7 @@ $(document).ready(function() {
       type: 'POST',
       url: '/eliminarEvento',
       data: data,
+      type: 'json',
       success: function(resp) {
         if (resp.response === true) {
           window.location = "/miseventos";
@@ -55,8 +56,12 @@ $(document).ready(function() {
       type: 'POST',
       url: '/iAsistente',
       data: data,
+      dataType: 'json',
       success: function(resp) {
+        var as = '<tr><th>'+data.nombre+'</th><th>'+data.apellidos+'</th><th>'+data.dni+'</th><th>No ha asistido</th><th><button data-id="" class="btn btn-default delete-button"><i class="fa fa-times"></i></button></th><th><button data-id="" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button></th></tr>';
+
         $('#modalAsistente').modal('hide');
+        $('.tasistentes').append(as);
       }
     });
   });

@@ -52,7 +52,7 @@ GNU General Public License for more details.
         {% if userCreador %}
         <div class="options-panel pull-right">
           <a href="/mEvento?id={{ evento.getKey() }}"><button class="btn btn-option"><i class="fa fa-pencil-square-o"></i> <strong>Modificar</strong></button></a>
-          <button class="btn btn-option"><i class="fa fa-trash-o"></i> <strong>Eliminar</strong></button>
+          <button class="btn btn-option delete-eve"><i class="fa fa-trash-o"></i> <strong>Eliminar</strong></button>
         </div>
         {% endif %}
       </div>
@@ -117,13 +117,17 @@ GNU General Public License for more details.
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="tasistentes">
                   {% for a in evento.asistentes %}
                   <tr>
                     <th>{{ a.nombre }}</th>
                     <th>{{ a.apellidos }}</th>
                     <th>{{ a.dni }}</th>
-                    <th></th>
+                    {% if a.asistido %}
+                    <th>Asistido</th>
+                    {% else %}
+                    <th>No ha asistido</th>
+                    {% endif %}
                     <th><button data-id="" class="btn btn-default delete-button"><i class="fa fa-times"></i></button></th>
                     <th><button data-id="" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button></th>
                   </tr>

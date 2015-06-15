@@ -113,8 +113,9 @@ GNU General Public License for more details.
                     <th>Apellidos</th>
                     <th>Indetificacion</th>
                     <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Confirmar</th>
+                    <th>Eliminar</th>
+                    <th>Diploma</th>
                   </tr>
                 </thead>
                 <tbody class="tasistentes">
@@ -125,11 +126,13 @@ GNU General Public License for more details.
                     <th>{{ a.dni }}</th>
                     {% if a.asistido %}
                     <th>Asistido</th>
+                    <th></th>
                     {% else %}
                     <th>No ha asistido</th>
+                    <th><button data-id="{{ a.dni }}" class="btn btn-default asitencia-button"><i class="fa fa-check fa-fw"></i></button></th>
                     {% endif %}
-                    <th><button data-id="" class="btn btn-default delete-button"><i class="fa fa-times"></i></button></th>
-                    <th><button data-id="" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button></th>
+                    <th><button data-id="{{ a.dni }}" class="btn btn-default delete-button"><i class="fa fa-times fa-fw"></i></button></th>
+                    <th><button data-id="{{ a.dni }}" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o fa-fw"></i></button></th>
                   </tr>
                   {% endfor %}
                 </tbody>

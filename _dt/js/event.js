@@ -58,10 +58,33 @@ $(document).ready(function() {
       data: data,
       dataType: 'json',
       success: function(resp) {
-        var as = '<tr><th>'+data.nombre+'</th><th>'+data.apellidos+'</th><th>'+data.dni+'</th><th>No ha asistido</th><th><button data-id="" class="btn btn-default delete-button"><i class="fa fa-times"></i></button></th><th><button data-id="" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button></th></tr>';
+        var as = '<tr><th>'+data.nombre+'</th><th>'+data.apellidos+'</th><th>'+data.dni+'</th><th>No ha asistido</th><th><button data-id="'+data.dni+'" class="btn btn-default asitencia-button"><i class="fa fa-check fa-fw"></i></button></th><th><button data-id="'+data.dni+'" class="btn btn-default delete-button"><i class="fa fa-times"></i></button></th><th><button data-id="'+data.dni+'" class="btn btn-default pdf-button"><i class="fa fa-file-pdf-o"></i></button></th></tr>';
 
         $('#modalAsistente').modal('hide');
         $('.tasistentes').append(as);
+      }
+    });
+  });
+
+  $('.asitencia-button').on('click', function(evt) {
+    evt.preventDefault();
+    var bt = $(this);
+    var data = {
+      'idE': $('.event-content').data('id'),
+      'dni': $(this).data('id')
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/cAsistente',
+      data: data,
+      dataType: 'json',
+      success: function(resp) {
+        if (resp.response === 'true') {
+          $(bt).hide();
+        } else {
+          alert ('Ha habido un error');
+        }
       }
     });
   });

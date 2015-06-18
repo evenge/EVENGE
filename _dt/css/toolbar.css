@@ -1,0 +1,81 @@
+/*** toolbar descripcion **/
+#toolbar-descripcion .toolbar-tools {
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  border-top: 1px solid #e7e7e7;
+}
+
+.wysiwyg-text-align-center {
+  text-align: center;
+}
+
+.wysiwyg-text-align-left {
+  text-align: left;
+}
+
+.wysiwyg-text-align-right {
+  text-align: right;
+}
+
+.editor-bt {
+  font-weight: bold;
+  padding: 5px;
+  margin: 1px 0;
+  border-radius: 2px;
+  display: inline-block;
+  color: black;
+  background: rgba(245,245,245,1);
+  background: -moz-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(224,224,224,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,245,245,1)), color-stop(100%, rgba(224,224,224,1)));
+  background: -webkit-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(224,224,224,1) 100%);
+  background: -o-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(224,224,224,1) 100%);
+  background: -ms-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(224,224,224,1) 100%);
+  background: linear-gradient(to bottom, rgba(245,245,245,1) 0%, rgba(224,224,224,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e0e0e0', GradientType=0 );
+}
+
+.editor-bt:hover {
+  color: black;
+  background: rgba(235,233,249,1);
+  background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(50%, rgba(216,208,239,1)), color-stop(51%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+  background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
+  background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
+  background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
+  background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+
+.toolbar-tools a:first-child {
+  margin-left: 1px;
+}
+
+.toolbar-tools a:last-child {
+  margin-right: 1px;
+}
+
+#descripcion {
+  border: none;
+  box-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  color: #c11f23;
+}
+
+.description-cont .btn-form {
+  background: #34c774;
+  border-radius: 0;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.description-cont .btn-form:hover,
+.description-cont .btn-form:focus {
+  background: #30b86b;
+  color: #fff;
+}

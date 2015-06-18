@@ -19,49 +19,80 @@ GNU General Public License for more details.
 {% block title %}Nuevo Evento{% endblock %}
 {% block styles %}
 <link type="text/css" rel="stylesheet" href="/_dt/css/templateNewEvent.css">
+<link type="text/css" rel="stylesheet" href="/_dt/css/toolbar.css">
 {% endblock %}
 {# contenido central de la página #}
 {% block content %}
 <!--Formulario evento -->
 <div>
-  <div id="newevent-cont" class="evenge-form col-sm-6 col-lg-6">
-    <h1 class="h1-formtitle">nuevo evento</h1>
-    <form>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-connectdevelop fa-fw"></i></span>
-        <input type="text" class="form-control size-35" id="nombre" name="nombre" placeholder="Nombre del evento" aria-describedby="sizing-addon1">
+  <div style="padding: 0;" class="col-sm-6">
+    <div id="newevent-cont" class="evenge-form col-sm-12">
+      <h1 class="h1-formtitle">Datos del evento</h1>
+      <form>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-connectdevelop fa-fw"></i></span>
+          <input type="text" class="form-control size-35" id="nombre" name="nombre" placeholder="Nombre del evento" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o fa-fw"></i></span>
+          <input type="time"  class="form-control size-35" id="hora" name="hora" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-calendar-o fa-fw"></i></span>
+          <input type="date" class="form-control size-35" id="fecha" name="fecha" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-users fa-fw"></i></span>
+          <input type="number" min="0" class="form-control size-35" id="cantidadAsistentes" name="cantidadAsistentes" placeholder="Número máximo de asistentes" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe fa-fw"></i></span>
+          <input type="text" class="form-control size-35" id="lugar" name="lugar" placeholder="Lugar" aria-describedby="sizing-addon1">
+        </div>
+        <div class="input-group">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="asistencia" id="asistencia"> Control de asistencia necesario
+          </label>
+        </div>
+        <div class="btn-group btn-block" role="group" aria-label="">
+          <button style="width: 50%;" data-type="public" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle-o"></i> Evento Público</button>
+          <button style="width: 50%;" data-type="private" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle"></i> Evento Privado</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="evenge-form col-sm-12 description-cont">
+      <h1 class="h1-formtitle">Descripcion del evento</h1>
+      <div id="toolbar-descripcion" style="display: none;">
+        <div class="toolbar-tools">
+          <a data-wysihtml5-command="bold" class="editor-bt"><i class="fa fa-bold fa-fw"></i></a>
+          <a data-wysihtml5-command="italic" class="editor-bt"><i class="fa fa-italic fa-fw"></i></a>
+          <a data-wysihtml5-command="underline" class="editor-bt"><i class="fa fa-underline fa-fw"></i></a>
+          <!-- Crear listas -->
+          <a data-wysihtml5-command="insertUnorderedList" class="editor-bt"><i class="fa fa-list fa-fw"></i></a>
+          <a data-wysihtml5-command="insertOrderedList" class="editor-bt"><i class="fa fa-list-ol fa-fw"></i></a>
+
+          <!-- Alinear texto y titulos -->
+          <a data-wysihtml5-command="justifyCenter" class="editor-bt"><i class="fa fa-align-center fa-fw"></i></a>
+          <a data-wysihtml5-command="justifyLeft" class="editor-bt"><i class="fa fa-align-left fa-fw"></i></a>
+          <a data-wysihtml5-command="justifyRight" class="editor-bt"><i class="fa fa-align-right fa-fw"></i></a>
+          <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" class="editor-bt">h1</a>
+          <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" class="editor-bt">h2</a>
+
+          <!-- Crear enlace -->
+          <a data-wysihtml5-command="createLink" class="editor-bt"><i class="fa fa-link fa-fw"></i></a>
+          <div data-wysihtml5-dialog="createLink" style="display: none;">
+            <label>
+              Link:
+              <input data-wysihtml5-dialog-field="href" value="http://" class="text">
+            </label>
+            <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+          </div>
+        </div>
       </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o fa-fw"></i></span>
-        <input type="time"  class="form-control size-35" id="hora" name="hora" aria-describedby="sizing-addon1">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-calendar-o fa-fw"></i></span>
-        <input type="date" class="form-control size-35" id="fecha" name="fecha" aria-describedby="sizing-addon1">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-users fa-fw"></i></span>
-        <input type="number" min="0" class="form-control size-35" id="cantidadAsistentes" name="cantidadAsistentes" placeholder="Número máximo de asistentes" aria-describedby="sizing-addon1">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-square-o fa-fw"></i></span>
-        <textarea class="form-control" rows="6" placeholder="Introduce la descripción del proyecto"
-                  name="descripcion" id="descripcion"></textarea>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-globe fa-fw"></i></span>
-        <input type="text" class="form-control size-35" id="lugar" name="lugar" placeholder="Lugar" aria-describedby="sizing-addon1">
-      </div>
-      <div class="input-group">
-        <label class="checkbox-inline">
-          <input type="checkbox" name="asistencia" id="asistencia"> Control de asistencia necesario
-        </label>
-      </div>
-      <div class="btn-group btn-block" role="group" aria-label="">
-        <button style="width: 50%;" data-type="public" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle-o"></i> Evento Público</button>
-        <button style="width: 50%;" data-type="private" type="submit" class="btn btn-success btn-form"><i class="fa fa-circle"></i> Evento Privado</button>
-      </div>
-    </form>
+      <textarea class="form-control" rows="10" placeholder="Introduce la descripción del proyecto" name="descripcion" id="descripcion"></textarea>
+      <button id="create" type="submit" class="btn btn-success btn-form btn-block">Crear evento</button>
+    </div>
   </div>
 
   <div class="col-sm-6">
@@ -103,5 +134,7 @@ GNU General Public License for more details.
 
 {% block scriptFooter %}
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script src="/_dt/js/wysihtml/wysihtml-toolbar.min.js"></script>
+  <script src="/_dt/js/wysihtml/advanced.js"></script>
   <script type="text/javascript" src="/_dt/js/newevent.js"></script>
 {% endblock %}

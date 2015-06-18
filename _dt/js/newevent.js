@@ -15,8 +15,15 @@
 var map;
 var marker;
 var markers = [];
+var p = false;
 
 $(document).ready(function() {
+  var editor = new wysihtml5.Editor("descripcion", { // id of textarea element
+    toolbar:      "toolbar-descripcion", // id of toolbar element
+    stylesheets: "_dt/css/toolbar.css",
+    parserRules:  wysihtml5ParserRules // defined in parser rules set
+  });
+
   putMap();
   
   $('.evenge-check').on('click', function() {
@@ -26,12 +33,11 @@ $(document).ready(function() {
     }
   });
   
-  $('.btn-form').on('click', function(evt) {
+  $('#create').on('click', function(evt) {
     evt.preventDefault();
-    var isPrivado = true;
+    var isPrivado = p;
     var lat = false;
     var lon = false;
-    if ( $(this).data('type') === 'public' ) { isPrivado = false; }
     if ( marker != null ) {
       lat = marker.getPosition().lat();
       lon = marker.getPosition().lng();
@@ -61,6 +67,15 @@ $(document).ready(function() {
         else alert('Ha habido un error');
       }
     });
+  });
+
+  $('.btn-form').on('click', function (evt) {
+    evt.preventDefault();
+    if ( $(this).data('type') === 'public' ) {
+      p = false;
+    } else {
+      p = true;
+    }
   });
 });
 

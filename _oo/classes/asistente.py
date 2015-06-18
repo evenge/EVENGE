@@ -28,3 +28,6 @@ class Asistente(ndb.Model):
     dni = ndb.StringProperty()
     fecha = ndb.DateProperty(auto_now_add = True)
     asistido = ndb.BooleanProperty(default = False)
+
+    def getKey(self):
+        return str(self.key.id())

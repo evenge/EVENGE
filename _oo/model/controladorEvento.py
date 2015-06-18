@@ -126,7 +126,7 @@ Devuelve los últimos eventos creados
   :num = Número de eventos a devolver
 """
 def getUltimosEventos(num):
-    eventos = Evento.query(Evento.fecha > datetime.now()).fetch(int(num))
+    eventos = Evento.query().fetch(int(num))
     return eventos
 
 """
@@ -141,7 +141,7 @@ def getAsistentesEvento(idEvento):
 Eliminar evento del datastore
   :idEvento = ID del evento
 """
-def DeleteEvento(idEvento):
+def deleteEvento(idEvento):
     evento = GetEventoById(int(idEvento))
     evento.key.delete()
     return True

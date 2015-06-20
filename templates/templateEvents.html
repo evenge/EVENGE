@@ -109,6 +109,7 @@ GNU General Public License for more details.
               <table class="table table-hover">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Indetificacion</th>
@@ -121,6 +122,12 @@ GNU General Public License for more details.
                 <tbody class="tasistentes">
                   {% for a in evento.asistentes %}
                   <tr>
+                    <th>
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                      </label>
+                    </th>
                     <th>{{ a.nombre }}</th>
                     <th>{{ a.apellidos }}</th>
                     <th>{{ a.dni }}</th>
@@ -299,7 +306,7 @@ GNU General Public License for more details.
 {% endblock %}
 
 {% block scriptFooter %}
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  <script src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
   <script type="text/javascript" src="/_dt/js/event.js"></script>
 {% endblock %}

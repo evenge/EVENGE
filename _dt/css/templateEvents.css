@@ -196,6 +196,30 @@ GNU General Public License for more details.
   width: 100%;
 }
 
+.asistente label input {
+  display: none;
+}
+
+.asistente label {
+  margin: 0;
+}
+
+.asistente label span {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #d43539;
+  display: inline-block;
+}
+
+.asistente [type=checkbox]:checked + span {
+  background: #d43539;
+}
+
+.tasistentes tr th:first-child {
+  text-align: center;
+  border-right: 1px solid #dbdbdb;
+}
+
 /***** media for responsive ***/
 @media (max-width: 768px) {
   .social {

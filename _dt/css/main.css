@@ -596,17 +596,29 @@ form .btn-form:focus {
   z-index: 1000;
   display: block;
   padding: 0;
-  width: 240px;
+  width: 0;
   min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #fbfbfb;
-  border-left: 1px solid #e0e0e0;
+}
+
+.notifications-content:before {
+  content: '';
+  display: inline-block;
+  border-style: solid;
+  border-width: 10px 0px 10px 15px;
+  border-color: transparent transparent transparent #c11f23;
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  right: 230px;
 }
 
 .notifications-content .menu-title {
   width: 100%;
   height: 50px;
+  position: relative;
   background: #ffffff;
 }
 

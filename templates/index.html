@@ -94,14 +94,36 @@ GNU General Public License for more details.
             <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por mes</a></li>
           </ul>
         </li>
+
+        <li>
+          <a class="titulo-menu" href="/logout"> <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
+        </li>
       </ul>
     </div>
+  </nav>
+
+  <nav id="notifications-div" class="notifications-content">
+    <div class="menu-title">
+      <h1>Notificaciones</h1>
+    </div>
+
+    <ul class="notifications">
+      <li>
+        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
+      </li>
+      <li>
+        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
+      </li>
+      <li>
+        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
+      </li>
+    </ul>
   </nav>
   {% endif %}
   <!-- fin menu -->
 
   <!--nav -->
-  <main class="main-body pad120">
+  <main style="padding-right: 240px;" class="main-body pad120">
     <nav class="navbar-evenge">
       <div class="container-fluid">
         <div class="men pull-left">
@@ -138,7 +160,7 @@ GNU General Public License for more details.
               </div>
             </div>
           </li>
-          <li><a class="nav-li" href="/logout"> <i class="fa fa-sign-out"></i></a></li>
+          <li><a class="nav-li" href="/logout"> <i class="fa fa-bell"></i></a></li>
         </ul>
         {% endblock %}
       </div>

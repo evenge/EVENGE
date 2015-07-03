@@ -78,7 +78,7 @@ body {
 /******** NavBar estilos *********/
 /*********************************/
 .navbar-evenge i {
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .navbar-evenge a {
@@ -585,4 +585,66 @@ form .btn-form:focus {
 
 .consejos ul li {
   margin-bottom: 5px;
+}
+
+/* notifications panel */
+.notifications-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0;
+  width: 240px;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fbfbfb;
+  border-left: 1px solid #e0e0e0;
+}
+
+.notifications-content .menu-title {
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+}
+
+.notifications-content .menu-title h1 {
+  padding: 0;
+  margin: 0;
+  color: #d43539;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.notifications-content .notifications {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.notifications-content .notifications li {
+  padding: 0;
+  margin: 0;
+}
+
+.notifications-content .notifications li a {
+  display: block;
+  padding: 20px 15px;
+  position: relative;
+}
+
+.notifications-content .notifications li a:after {
+  content: "";
+  display: block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
+  background: rgba(212, 53, 57, 0.49);
+  position: absolute;
+  bottom: 0;
 }

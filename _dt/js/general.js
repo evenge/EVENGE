@@ -45,6 +45,11 @@ $(document).ready(function () {
       $(function () {
         $(".menu-content").animate({width: '220px'}, { duration: 200, queue: false });
         $(".pad120").animate({padding: '0 0 0 220px'}, { duration: 200, queue: false });
+
+        if ($('#noti-bottom').hasClass('active')) {
+          $(".notifications-content").animate({width: '0'}, { duration: 200, queue: false });
+          $('#noti-bottom').removeClass('active');
+        }
       });
     }
     evt.preventDefault();
@@ -63,6 +68,11 @@ $(document).ready(function () {
       $(function () {
         $(".notifications-content").animate({width: '240px'}, { duration: 200, queue: false });
         $(".pad120").animate({padding: '0 240px 0 0'}, { duration: 200, queue: false });
+
+        if ($('#menu-bottom').hasClass('active')) {
+          $(".menu-content").animate({width: '0'}, { duration: 200, queue: false });
+          $('#menu-bottom').removeClass('active');
+        }
       });
     }
     evt.preventDefault();

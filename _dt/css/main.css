@@ -665,4 +665,5 @@ form .btn-form:focus {
   padding: 10px 15px;
   display: block;
   text-align: right;
+  color: darkgray;
 }

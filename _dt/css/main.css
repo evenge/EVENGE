@@ -645,7 +645,7 @@ form .btn-form:focus {
 
 .notifications-content .notifications li a {
   display: block;
-  padding: 20px 15px;
+  padding: 10px 15px 5px 10px;
   position: relative;
 }
 
@@ -659,4 +659,10 @@ form .btn-form:focus {
   background: rgba(212, 53, 57, 0.49);
   position: absolute;
   bottom: 0;
+}
+
+#clean {
+  padding: 10px 15px;
+  display: block;
+  text-align: right;
 }

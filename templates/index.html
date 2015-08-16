@@ -47,24 +47,35 @@ GNU General Public License for more details.
 <body>
   <!-- menu -->
   {% if usuario %}
-  <div class="always-bar"></div>
-  <nav id="menu-div" class="menu-content col-sm-3 col-md-2">
+  <!--<div class="always-bar"></div>-->
+  <nav id="menuM" class="menu-content">
     <div class="menu-title">
       <h1>MENÚ</h1>
     </div>
-    <div class="menu-user">
-      <div class="gravatar">
-        <h1>{{info.gravatar}}</h1>
+    <div class="scrollable">
+      <div class="menu-user col-sm-12">
+      <div class="col-sm-4">
+        <div class="gravatar">
+          {% if usuario.avatar %}
+          <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ usuario.getKey() }}">
+          {% else %}
+          <img alt="avatar" src="/_dt/img/default_avatar.png">
+          {% endif %}
+        </div>
       </div>
-      <h1><a href="/cuenta?id={{ usuario.getKey() }}">{{usuario.nombre}} {{usuario.apellidos}}</a></h1>
+      <div class="col-sm-8 name">
+        <h1><a href="/cuenta?id={{ usuario.getKey() }}">{{usuario.nombre}} {{usuario.apellidos}}</a></h1>
+      </div>
+
     </div>
-    <div class="menu">
+      <div class="menu col-sm-12">
+      <h1 class="title-menu">Opciones</h1>
       <ul class="nav menu-nav">
         <li>
           <a class="titulo-menu" href="/micuenta"><i class="fa fa-cog fa-fw"></i> Configuración</a>
         </li>
 
-        <li class="dropdown open">
+        <li class="dropdown">
           <a class="titulo-menu dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
             <i class="fa fa-newspaper-o fa-fw"></i> Eventos <i class="fa2 fa fa-circle-o"></i>
           </a>
@@ -94,42 +105,34 @@ GNU General Public License for more details.
             <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por mes</a></li>
           </ul>
         </li>
-
-        <li>
-          <a class="titulo-menu" href="/logout"> <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
-        </li>
       </ul>
-    </div>
-  </nav>
 
-  <nav id="notifications-div" class="notifications-content">
-    <div class="menu-title">
-      <h1>Notificaciones</h1>
-    </div>
+      <div class="divisor"></div>
+      <h1 class="title-menu">Redes sociales</h1>
+      <ul class="nav menu-nav">
+        <li><a class="titulo-menu" href="https://twitter.com/GrupoEvenge"><i class="fa fa-twitter fa-fw"></i> @GrupoEvenge</a></li>
+        <li><a class="titulo-menu" href="http://evenge.github.io"><i class="fa fa-newspaper-o fa-fw"></i> Blog</a></li>
+      </ul>
 
-    <a id="clean" href="#"><i class="fa fa-check"></i> Borrar todas</a>
-    <ul class="notifications">
-      <li>
-        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
-      </li>
-      <li>
-        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
-      </li>
-      <li>
-        <a href="">Hay un nuevo asistente en <b>Congreso de...</b></a>
-      </li>
-    </ul>
+      <h1 class="title-menu">Miscelanea</h1>
+      <ul class="nav menu-nav">
+        <li><a class="titulo-menu" href="https://github.com/evenge/EVENGE"><i class="fa fa-github fa-fw"></i> Fork GitHub</a></li>
+        <li><a class="titulo-menu" href="/logout"> <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
+      </ul>
+
+    </div>
+    </div>
   </nav>
   {% endif %}
   <!-- fin menu -->
 
   <!--nav -->
-  <main class="main-body pad120">
+  <main id="panel" class="main-body">
     <nav class="navbar-evenge">
       <div class="container-fluid">
         <div class="men pull-left">
           {% if usuario %}
-          <button id="menu-bottom" type="button" class="btn btn-default navbar-btn"><i class="fa fa-bars"></i></button>
+          <a id="menu-bottom" class="btn btn-default navbar-btn"><i class="fa fa-bars"></i></a>
           {% endif %}
           <a class="logo-en" href="/"><img src="/_dt/img/logo_white_50.png" alt="logo"> EVENGE</a>
         </div>
@@ -161,7 +164,22 @@ GNU General Public License for more details.
               </div>
             </div>
           </li>
-          <li><a id="noti-bottom" class="nav-li" href="/logout"> <i class="fa fa-bell"></i></a></li>
+          <li class="dropdown">
+            <a class="nav-li" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-bell"></i></a>
+            <div class="dropdown-menu noti-drop" role="menu">
+              <div class="noti-title col-sm-12">
+                <h1>Notificaciones</h1>
+              </div>
+              <ul>
+                <li class="notificacion col-sm-12">
+                  <p>No tienes notificaciones <i class="fa fa-frown-o"></i></p>
+                </li>
+              </ul>
+              <div class="clear-all col-sm-12">
+                <a href="#">Borrar todas</a>
+              </div>
+            </div>
+          </li>
         </ul>
         {% endblock %}
       </div>
@@ -210,9 +228,9 @@ GNU General Public License for more details.
   <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
   <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
   <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="/_dt/js/general.js"></script>
   {% block scriptFooter %}
   {% endblock %}
-  <script src="/_dt/js/general.js"></script>
   <!-- scripts -->
 </body>
 </html>

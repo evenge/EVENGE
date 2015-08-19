@@ -38,6 +38,9 @@ var _menu = document.getElementById('menuM'),
     _opened = false,
     _duration = 300;
 
+//inicializamos variables opciones avanzadas
+var _openedA = false;
+
 jQuery.validator.addMethod("twitter", function (value, element) {
   return this.optional(element) || /@([A-Za-z0-9_])+/.test(value);
 }, "No es una cuenta de twitter correcta");
@@ -108,6 +111,16 @@ $(document).ready(function () {
   // ADD SLIDEUP ANIMATION TO DROPDOWN //
   $('.navbar-nav .dropdown').on('hide.bs.dropdown', function(e) {
     $(this).find('.dropdown-menu').first().stop(true, true).hide('slide', {direction: 'right'}, 300);
+  });
+
+  $('.advanced-options-bottom').on('click', function () {
+    if (_openedA) {
+      $('.advanced-options').slideUp();
+      _openedA = false;
+    } else {
+      $('.advanced-options').slideDown();
+      _openedA = true;
+    }
   });
 
 

@@ -22,8 +22,8 @@ GNU General Public License for more details.
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -31,8 +31,11 @@ GNU General Public License for more details.
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: rgba(57, 57, 57, 0.2);
+  background: #d43539;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 a,
@@ -48,7 +51,8 @@ a {
   color: #c11f23;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: #781316;
   text-decoration: none;
 }
@@ -254,6 +258,51 @@ body {
 #buscadorHeader::-moz-placeholder { color: fff; }
 #buscadorHeader::-moz-placeholder { color: fff; }
 
+/************** advanced options *****************/
+.advanced-options {
+  background: #fff;
+  padding: 20px 100px;
+  display: none;
+}
+
+.advanced-options .adv {
+  list-style: none;
+}
+
+.advanced-options .adv li a {
+  color: #d44549;
+  font-size: 1em;
+  padding: 5px 0;
+}
+
+.advanced-options .adv .adv-h1 {
+  padding: 5px 0;
+  margin: 0;
+  color: #898989;
+  font-size: 12px;
+}
+
+.advanced-options-bottom {
+  color: #898989;
+  font-size: 13px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 8px;
+  right: 20px;
+}
+
+.advanced-options-bottom:hover,
+.advanced-options-bottom:focus {
+  color: #898989;
+}
+
+.advanced-options-bottom img {
+  height: 25px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
 /*************************************************/
 /************** template Ponentes ****************/
 /*************************************************/
@@ -289,8 +338,9 @@ body {
 }
 
 #panel {
-  position:relative;
+  position: relative;
   z-index: 1;
+  min-height: 100vh;
 }
 
 .menu-open,
@@ -449,14 +499,14 @@ body {
 .individual-menu-cont {
   padding: 0;
   margin: 0;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
 }
 
 .individual-menu {
   width: 100%;
   display: block;
   height: 40px;
-  background-color: white;
-  border-bottom: 1px solid #ccc;
   text-align: center;
 }
 

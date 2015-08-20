@@ -271,7 +271,7 @@ body {
 
 .advanced-options .adv li a {
   color: #d44549;
-  font-size: 1em;
+  font-size: 1.08em;
   padding: 5px 0;
 }
 
@@ -301,6 +301,27 @@ body {
   height: 25px;
   opacity: 0.5;
   filter: alpha(opacity=50);
+}
+
+.adv .input-group {
+  padding: 5px 0;
+}
+
+.adv .input-group .input-group-addon {
+  border: 1px solid #d44549;
+  border-right: none;
+  background: white;
+  color: #d44549;
+}
+
+.adv .input-group .form-control {
+  border: 1px solid #d44549;
+  border-left: none;
+}
+
+.adv .input-group .form-control:focus {
+  box-shadow: none;
+  border-color: #c11f23;
 }
 
 /*************************************************/
@@ -506,7 +527,6 @@ body {
 .individual-menu {
   width: 100%;
   display: block;
-  height: 40px;
   text-align: center;
 }
 

@@ -54,73 +54,73 @@ GNU General Public License for more details.
     </div>
     <div class="scrollable">
       <div class="menu-user col-sm-12">
-      <div class="col-sm-4">
-        <div class="gravatar">
-          {% if usuario.avatar %}
-          <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ usuario.getKey() }}">
-          {% else %}
-          <img alt="avatar" src="/_dt/img/default_avatar.png">
-          {% endif %}
+        <div class="col-xs-4">
+          <div class="gravatar">
+            {% if usuario.avatar %}
+            <img alt="avatar" src="gImagenUsuario?tipo=1&id={{ usuario.getKey() }}">
+            {% else %}
+            <img alt="avatar" src="/_dt/img/default_avatar.png">
+            {% endif %}
+          </div>
         </div>
+        <div class="col-xs-8 name">
+          <h1><a href="/cuenta?id={{ usuario.getKey() }}">{{usuario.nombre}} {{usuario.apellidos}}</a></h1>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
       </div>
-      <div class="col-sm-8 name">
-        <h1><a href="/cuenta?id={{ usuario.getKey() }}">{{usuario.nombre}} {{usuario.apellidos}}</a></h1>
-      </div>
-
-    </div>
       <div class="menu col-sm-12">
-      <h1 class="title-menu">Opciones</h1>
-      <ul class="nav menu-nav">
-        <li>
-          <a class="titulo-menu" href="/micuenta"><i class="fa fa-cog fa-fw"></i> Configuración</a>
-        </li>
+        <h1 class="title-menu">Opciones</h1>
+        <ul class="nav menu-nav">
+          <li>
+            <a class="titulo-menu" href="/micuenta"><i class="fa fa-cog fa-fw"></i> Configuración</a>
+          </li>
 
-        <li class="dropdown">
-          <a class="titulo-menu dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-            <i class="fa fa-newspaper-o fa-fw"></i> Eventos <i class="fa2 fa fa-circle-o"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/miseventos"><i class="fa fa-circle fa-fw"></i> Mis Eventos ({{ info.numeroEventos }})</a></li>
-            <li><a href="/iEvento"><i class="fa fa-circle fa-fw"></i> Nuevo Evento</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a class="titulo-menu dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i class="fa fa-newspaper-o fa-fw"></i> Eventos <i class="fa2 fa fa-circle-o"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/miseventos"><i class="fa fa-circle fa-fw"></i> Mis Eventos ({{ info.numeroEventos }})</a></li>
+              <li><a href="/iEvento"><i class="fa fa-circle fa-fw"></i> Nuevo Evento</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a href="#" class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <i class="fa fa-graduation-cap fa-fw">
-            </i> Ponentes <i class="fa2 fa fa-circle-o"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/misponentes"><i class="fa fa-circle fa-fw"></i> Mis Ponentes ({{ info.numeroPonentes }})</a></li>
-            <li><a href="/iPonente"><i class="fa fa-circle fa-fw"></i> Nuevo Ponente</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a href="#" class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i class="fa fa-graduation-cap fa-fw">
+              </i> Ponentes <i class="fa2 fa fa-circle-o"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/misponentes"><i class="fa fa-circle fa-fw"></i> Mis Ponentes ({{ info.numeroPonentes }})</a></li>
+              <li><a href="/iPonente"><i class="fa fa-circle fa-fw"></i> Nuevo Ponente</a></li>
+            </ul>
+          </li>
 
-        <li class="dropdown">
-          <a class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/misinformes">
-            <i class="fa fa-bar-chart fa-fw"></i> Informes <i class="fa2 fa fa-circle-o"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por año</a></li>
-            <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por mes</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="dropdown">
+            <a class="titulo-menu dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/misinformes">
+              <i class="fa fa-bar-chart fa-fw"></i> Informes <i class="fa2 fa fa-circle-o"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por año</a></li>
+              <li><a href="#"><i class="fa fa-circle fa-fw"></i> Por mes</a></li>
+            </ul>
+          </li>
+        </ul>
 
-      <div class="divisor"></div>
-      <h1 class="title-menu">Redes sociales</h1>
-      <ul class="nav menu-nav">
-        <li><a class="titulo-menu" href="https://twitter.com/GrupoEvenge"><i class="fa fa-twitter fa-fw"></i> @GrupoEvenge</a></li>
-        <li><a class="titulo-menu" href="http://evenge.github.io"><i class="fa fa-newspaper-o fa-fw"></i> Blog</a></li>
-      </ul>
+        <div class="divisor"></div>
+        <h1 class="title-menu">Redes sociales</h1>
+        <ul class="nav menu-nav">
+          <li><a class="titulo-menu" href="https://twitter.com/GrupoEvenge"><i class="fa fa-twitter fa-fw"></i> @GrupoEvenge</a></li>
+          <li><a class="titulo-menu" href="http://evenge.github.io"><i class="fa fa-newspaper-o fa-fw"></i> Blog</a></li>
+        </ul>
 
-      <h1 class="title-menu">Miscelanea</h1>
-      <ul class="nav menu-nav">
-        <li><a class="titulo-menu" href="https://github.com/evenge/EVENGE"><i class="fa fa-github fa-fw"></i> Fork GitHub</a></li>
-        <li><a class="titulo-menu" href="/logout"> <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
-      </ul>
+        <h1 class="title-menu">Miscelanea</h1>
+        <ul class="nav menu-nav">
+          <li><a class="titulo-menu" href="https://github.com/evenge/EVENGE"><i class="fa fa-github fa-fw"></i> Fork GitHub</a></li>
+          <li><a class="titulo-menu" href="/logout"> <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
+        </ul>
 
-    </div>
+      </div>
     </div>
   </nav>
   {% endif %}
